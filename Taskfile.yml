@@ -1,0 +1,37 @@
+---
+version: '3'
+
+vars:
+  ROLES_LIST: ["metallb", "traefik", "cert_manager", "mongodb"]
+
+tasks:
+  default:
+    cmds:
+      - task -l
+    silent: true
+
+  prepare:
+    desc: "Prepare development environment"
+    cmds:
+      - task: pre-commit
+
+  pre-commit:
+    desc: "Install pre-commit hooks"
+    cmds:
+      - pre-commit install
+    sources:
+      - .git/hooks/pre-commit
+      - .pre-commit-config.yaml
+    generates:
+      - .git/hooks/pre-commit
+    method: checksum
+
+  check:
+    desc: "Run pre-commit hooks"
+    cmds:
+      - pre-commit run -a
+
+  lint:
+    desc: "Run lint"
+    cmds:
+      - yamllint .

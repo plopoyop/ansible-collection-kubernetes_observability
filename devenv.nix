@@ -8,6 +8,8 @@
     pkgs.ansible
     pkgs.ansible-doctor
     pkgs.git
+    pkgs.glibcLocales
+    pkgs.go-task
     pkgs.pre-commit
     pkgs.python312Packages.kubernetes
     pkgs.python312Packages.molecule
