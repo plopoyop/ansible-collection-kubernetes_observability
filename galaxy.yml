@@ -1,10 +1,12 @@
 namespace: plopoyop
 name: kubernetes_observability
-version: 0.0.1
+version: 1.0.0
 readme: README.md
 authors:
   - Clément Hubert <clement@plopoyop.me>
-description: Ansible collection to configure observability application on a Kubernetes cluster
+description: >-
+  Ansible collection to configure observability application on a Kubernetes
+  cluster
 license_file: LICENSE
 tags:
   - cloud
@@ -16,6 +18,5 @@ tags:
   - grafana
   - victoriametrics
   - loki
-
-repository: https://github.com/plopoyop/ansible-collection-kubernetes_observability
-issues: https://github.com/plopoyop/ansible-collection-kubernetes_observability/issues
+repository: 'https://github.com/plopoyop/ansible-collection-kubernetes_observability'
+issues: 'https://github.com/plopoyop/ansible-collection-kubernetes_observability/issues'
