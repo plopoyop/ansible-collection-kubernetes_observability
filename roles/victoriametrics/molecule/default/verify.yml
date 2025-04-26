@@ -1,0 +1,42 @@
+---
+- name: Verify
+  hosts: localhost
+  connection: local
+  gather_facts: true
+
+  tasks:
+    - name: "Pause for job to complete."
+      ansible.builtin.pause:
+        seconds: 5
+
+    - name: "Get 'victoriametrics' namespace info."
+      kubernetes.core.k8s_info:
+        kind: Namespace
+        name: "victoriametrics"
+      register: namespace
+
+    - name: Assert that 'victoriametrics' namespace is active
+      ansible.builtin.assert:
+        that: namespace['resources'][0]['status']['phase'] == "Active"
+
+    - name: "Get 'vmagent' deployment info."
+      kubernetes.core.k8s_info:
+        kind: "Deployment"
+        name: "vmagent-victoria-metrics-agent"
+        namespace: "victoriametrics"
+      register: vmagent_deployment
+
+    - name: "Assert that 'vmagent' is deployed"
+      ansible.builtin.assert:
+        that: vmagent_deployment['resources'][0]['status']['availableReplicas'] == 1
+
+    - name: "Get 'single-server' statefull set info."
+      kubernetes.core.k8s_info:
+        kind: "StatefulSet"
+        name: "vms-victoria-metrics-single-server"
+        namespace: "victoriametrics"
+      register: single_server_statefullset
+
+    - name: "Assert that 'single-server' is deployed"
+      ansible.builtin.assert:
+        that: single_server_statefullset['resources'][0]['status']['availableReplicas'] == 1

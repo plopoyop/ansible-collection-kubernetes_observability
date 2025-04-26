@@ -1,0 +1,167 @@
+---
+# defaults file for victoriametrics
+# @var victoriametrics_single_enabled
+# @var victoriametrics_single_enabled:type: boolean
+# @var victoriametrics_single_enabled:description: >
+# Install Victoriametrics Single Server chart
+victoriametrics_single_enabled: true
+
+# @var victoriametrics_single_namespace
+# @var victoriametrics_single_namespace:type: string
+# @var victoriametrics_single_namespace:description: >
+# K8s namespace to install Victoriametrics Single Server chart
+victoriametrics_single_namespace: "victoriametrics"
+
+# @var victoriametrics_single_chart_version
+# @var victoriametrics_single_chart_version:type: string
+# @var victoriametrics_single_chart_version:description: >
+# Victoriametrics Single Server chart version
+victoriametrics_single_chart_version: "0.17.1"
+
+# @var victoriametrics_single_deployment_name
+# @var victoriametrics_single_deployment_name:type: string
+# @var victoriametrics_single_deployment_name:description: >
+# Victoriametrics Single Server deployment name
+victoriametrics_single_deployment_name: "vms"
+
+# @var victoriametrics_single_replica_count
+# @var victoriametrics_single_replica_count:type: int
+# @var victoriametrics_single_replica_count:description: >
+# Number of victoriametrics single replicas
+victoriametrics_single_replica_count: 1
+
+# @var victoriametrics_single_retention_period
+# @var victoriametrics_single_retention_period:type: string
+# @var victoriametrics_single_retention_period:description: >
+# Data retention period. Possible units character: h(ours), d(ays), w(eeks), y(ears), if no unit character specified - month.
+# The minimum retention period is 24h. See these [docs](https://docs.victoriametrics.com/single-server-victoriametrics/#retention)
+victoriametrics_single_retention_period: "1"
+
+# @var victoriametrics_single_mode
+# @var victoriametrics_single_mode:type: int
+# @var victoriametrics_single_mode:description: >
+# VictoriaMetrics Single Server mode: deployment, statefulSet
+victoriametrics_single_mode: "statefulSet"
+
+# @var victoriametrics_single_resources
+# @var victoriametrics_single_resources:type: dict
+# @var victoriametrics_single_resources:description: >
+# VictoriaMetrics Single Server resources requests and limits
+# @var victoriametrics_single_resources:example: >
+# victoriametrics_single_resources:
+#   limits:
+#     cpu: 500m
+#     memory: 512Mi
+#   requests:
+#     cpu: 500m
+#     memory: 512Mi
+victoriametrics_single_resources: {}
+
+# @var victoriametrics_single_extra_args
+# @var victoriametrics_single_extra_args:type: dict
+# @var victoriametrics_single_extra_args:description: >
+# VictoriaMetrics Single Server resources requests and limits
+# @var victoriametrics_single_extra_args:example: >
+# victoriametrics_single_extra_args:
+#   maxLabelsPerTimeseries:  60
+victoriametrics_single_extra_args: {}
+
+
+# @var victoriametrics_single_persistant_volume_size
+# @var victoriametrics_single_persistant_volume_size:type: string
+# @var victoriametrics_single_persistant_volume_size:description: >
+# VictoriaMetrics Single Server Size of the volume
+# Should be calculated based on the metrics you send and retention policy you set.
+victoriametrics_single_persistant_volume_size: "16Gi"
+
+# @var victoriametrics_single_ingress_enabled
+# @var victoriametrics_single_ingress_enabled:type: boolean
+# @var victoriametrics_single_ingress_enabled:description: >
+# Enable ingress for VictoriaMetrics Single Server
+# Should be calculated based on the metrics you send and retention policy you set.
+victoriametrics_single_ingress_enabled: false
+
+# @var victoriametrics_single_ingress_classname
+# @var victoriametrics_single_ingress_classname:type: string
+# @var victoriametrics_single_ingress_classname:description: >
+# Ingress classname for VictoriaMetrics Single Server
+# victoriametrics_single_ingress_classname: ""
+
+# @var victoriametrics_single_ingress_hostname
+# @var victoriametrics_single_ingress_hostname:type: string
+# @var victoriametrics_single_ingress_hostname:description: >
+# Hostname for VictoriaMetrics Single Server ingress
+
+# @var victoriametrics_single_ingress_tls_enabled
+# @var victoriametrics_single_ingress_tls_enabled:type: boolean
+# @var victoriametrics_single_ingress_tls_enabled:description: >
+# Enable tls for VictoriaMetrics Single Server ingress
+victoriametrics_single_ingress_tls_enabled: false
+
+# @var victoriametrics_single_ingress_tls_secret_name
+# @var victoriametrics_single_ingress_tls_secret_name:type: string
+# @var victoriametrics_single_ingress_tls_secret_name:description: >
+# Secret name for VictoriaMetrics Single Server ingress cert
+# @var victoriametrics_single_ingress_tls_secret_name:example: >
+# victoriametrics_single_ingress_tls_secret_name: "victoriametrics-cert"
+
+# @var victoriametrics_single_ingress_annotation
+# @var victoriametrics_single_ingress_annotation:type: dict
+# @var victoriametrics_single_ingress_annotation:description: >
+# Annotations for VictoriaMetrics Single Server ingress
+# @var victoriametrics_single_ingress_annotation:example: >
+# victoriametrics_single_ingress_annotation:
+#   kubernetes.io/ingress.class: traefik
+#   kubernetes.io/tls-acme: 'true'
+victoriametrics_single_ingress_annotation: {}
+
+# defaults file for victoriametrics
+# @var victoriametrics_vmagent_enabled
+# @var victoriametrics_vmagent_enabled:type: boolean
+# @var victoriametrics_vmagent_enabled:description: >
+# Install VMAgent chart
+victoriametrics_vmagent_enabled: true
+
+# @var victoriametrics_vmagent_namespace
+# @var victoriametrics_vmagent_namespace:type: string
+# @var victoriametrics_vmagent_namespace:description: >
+# K8s namespace to install VMAgent
+victoriametrics_vmagent_namespace: "victoriametrics"
+
+# @var victoriametrics_vmagent_chart_version
+# @var victoriametrics_vmagent_chart_version:type: string
+# @var victoriametrics_vmagent_chart_version:description: >
+# VMAgent chart version
+victoriametrics_vmagent_chart_version: "0.18.2"
+
+# @var victoriametrics_vmagent_deployment_name
+# @var victoriametrics_vmagent_deployment_name:type: string
+# @var victoriametrics_vmagent_deployment_name:description: >
+# VMAgent deployment name
+victoriametrics_vmagent_deployment_name: "vmagent"
+
+# @var victoriametrics_vmagent_remote_write
+# @var victoriametrics_vmagent_remote_write:type: list
+# @var victoriametrics_vmagent_remote_write:description: >
+# generates `remoteWrite.*` flags and config maps with value content for values, that are of type list of map.
+# Each item should contain `url` param to pass validation.
+# @var victoriametrics_vmagent_remote_write:example: >
+# victoriametrics_vmagent_remote_write:
+#   - url: http://vm-insert:8480/insert/0/prometheus
+#     urlRelabelConfig:
+#       - action: keep
+#         source_labels: [env]
+#         regex: "dev"
+#   - url: http://prometheus:8480/insert/0/prometheus
+victoriametrics_vmagent_remote_write: []
+
+# @var victoriametrics_vmagent_config_scrape_interval
+# @var victoriametrics_vmagent_config_scrape_interval:type: string
+# @var victoriametrics_vmagent_config_scrape_interval:description: >
+# VMAgent scrape interval
+victoriametrics_vmagent_config_scrape_interval: "10s"
+
+# @var victoriametrics_vmagent_config_scrap_configs
+# @var victoriametrics_vmagent_config_scrap_configs:type: dict
+# @var victoriametrics_vmagent_config_scrap_configs:description: >
+# VMAgent scrape configuration

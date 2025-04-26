@@ -3,5 +3,50 @@
   "extends": [
     "config:recommended",
     ":disableDependencyDashboard"
+  ],
+  "packageRules": [
+    {
+      "matchDatasources": ["helm"],
+      "matchPackageNames": ["victoria-metrics-single"],
+      "registryUrls": ["https://victoriametrics.github.io/helm-charts/"]
+    },
+    {
+      "matchDatasources": ["helm"],
+      "matchPackageNames": ["victoria-metrics-agent"],
+      "registryUrls": ["https://victoriametrics.github.io/helm-charts/"]
+    }
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": [
+        "roles/victoriametrics/defaults/main.yml$",
+        "roles/victoriametrics/README.md$",
+        "^README.md$"
+      ],
+      "matchStrings": [
+        "victoriametrics_single_chart_version:\\s*(?<quote>\")?(?<currentValue>[0-9\\.]+)\"?",
+        "victoriametrics\\s*single\\s*(?<pipe>\\|)\\s?v(?<currentValue>[0-9\\.]+)"
+      ],
+      "depNameTemplate": "victoria-metrics-single",
+      "autoReplaceStringTemplate": "{{#if pipe}}victoriametrics single | v{{newValue}}{{else}}victoriametrics_single_chart_version: {{#if quote}}\"{{newValue}}\"{{else}}{{newValue}}{{/if}}{{/if}}",
+      "datasourceTemplate": "helm"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": [
+        "roles/victoriametrics/defaults/main.yml$",
+        "roles/victoriametrics/README.md$",
+        "^README.md$"
+      ],
+      "matchStrings": [
+        "victoriametrics_vmagent_chart_version:\\s*(?<quote>\")?(?<currentValue>[0-9\\.]+)\"?",
+        "vmagent\\s*(?<pipe>\\|)\\s?v(?<currentValue>[0-9\\.]+)"
+      ],
+      "depNameTemplate": "victoria-metrics-agent",
+      "autoReplaceStringTemplate": "{{#if pipe}}vmagent | v{{newValue}}{{else}}victoriametrics_vmagent_chart_version: {{#if quote}}\"{{newValue}}\"{{else}}{{newValue}}{{/if}}{{/if}}",
+      "datasourceTemplate": "helm"
+    }
   ]
+
 }

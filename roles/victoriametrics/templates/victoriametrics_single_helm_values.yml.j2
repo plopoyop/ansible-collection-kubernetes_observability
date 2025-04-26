@@ -1,0 +1,33 @@
+server:
+  enabled: true
+  replicaCount: {{ victoriametrics_single_replica_count }}
+  retentionPeriod: "{{ victoriametrics_single_retention_period }}"
+  extraArgs: {{ victoriametrics_single_extra_args }}
+
+  persistentVolume:
+    size: "{{ victoriametrics_single_persistant_volume_size }}"
+
+  resources: {{ victoriametrics_single_resources }}
+
+
+  mode: "{{ victoriametrics_single_mode }}"
+
+{% if victoriametrics_single_ingress_enabled %}
+  ingress:
+    enabled: true
+    annotations: {{ victoriametrics_single_ingress_annotation }}
+    ingressClassName: {{ victoriametrics_single_ingress_classname }}
+    hosts:
+      - name: {{ victoriametrics_single_ingress_hostname }}
+        path: "/"
+{% if victoriametrics_single_ingress_tls_enabled %}
+    tls:
+      - secretName: {{ victoriametrics_single_ingress_tls_secret_name }}
+        hosts:
+          - {{ victoriametrics_single_ingress_hostname }}
+{% endif %}
+{% endif %}
+
+{% if victoriametrics_single_mode == "deployment" %}
+
+{% endif %}

@@ -1,0 +1,9 @@
+---
+# tasks file for victoriametrics
+- name: "Include Single install enabled"
+  ansible.builtin.include_tasks: "single.yml"
+  when: victoriametrics_single_enabled
+
+- name: "Include VMagent install enabled"
+  ansible.builtin.include_tasks: "vmagent.yml"
+  when: victoriametrics_vmagent_enabled
