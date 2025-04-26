@@ -1,0 +1,12 @@
+---
+- name: Converge
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  vars:
+    victoriametrics_vmagent_remote_write:
+      - url: http://vms-victoria-metrics-single-server:8428/insert/0/prometheus
+  tasks:
+    - name: "Call victoriametrics role"
+      ansible.builtin.import_role:
+        name: "victoriametrics"

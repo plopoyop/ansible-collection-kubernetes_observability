@@ -1,0 +1,23 @@
+---
+name: test role
+on:
+  workflow_call:
+    inputs:
+      role_name:
+        required: true
+        type: string
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cachix/install-nix-action@v31
+      - uses: cachix/cachix-action@v16
+        with:
+          name: devenv
+      - name: Install devenv.sh
+        run: nix profile install nixpkgs#devenv
+      - name: Prepare env
+        run: devenv shell task prepare
+      - name: Run molecule test
+        run: devenv shell task test:role:${{inputs.role_name}}

@@ -1,0 +1,20 @@
+---
+- name: "Create VictoriaMetrics Single namespace"
+  kubernetes.core.k8s:
+    name: "{{ victoriametrics_single_namespace }}"
+    api_version: "v1"
+    kind: "Namespace"
+    state: "present"
+
+- name: "Add VictoriaMetrics Single helm repo"
+  kubernetes.core.helm_repository:
+    name: "{{ victoriametrics_helm_repo_name }}"
+    repo_url: "{{ victoriametrics_helm_repo_url }}"
+
+- name: "Install VictoriaMetrics Single chart"
+  kubernetes.core.helm:
+    name: "{{ victoriametrics_single_deployment_name }}"
+    chart_ref: "{{ victoriametrics_single_chart_ref }}"
+    namespace: "{{ victoriametrics_single_namespace }}"
+    state: "present"
+    values: "{{ lookup('template', 'victoriametrics_single_helm_values.yml.j2') | from_yaml }}"

@@ -1,0 +1,20 @@
+---
+- name: Create VMAgent namespace
+  kubernetes.core.k8s:
+    name: "{{ victoriametrics_vmagent_namespace }}"
+    api_version: v1
+    kind: Namespace
+    state: present
+
+- name: Add VictoriaMetrics helm repo
+  kubernetes.core.helm_repository:
+    name: "{{ victoriametrics_helm_repo_name }}"
+    repo_url: "{{ victoriametrics_helm_repo_url }}"
+
+- name: Deploy VMAgent chart
+  kubernetes.core.helm:
+    name: "{{ victoriametrics_vmagent_deployment_name }}"
+    chart_ref: "{{ victoriametrics_vmagent_chart_ref }}"
+    namespace: "{{ victoriametrics_vmagent_namespace }}"
+    state: present
+    values: "{{ lookup('template', 'vmagent_helm_values.yml.j2') | from_yaml }}"
