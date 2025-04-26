@@ -7,9 +7,12 @@
   packages = [
     pkgs.ansible
     pkgs.ansible-doctor
+    pkgs.ansible-lint
     pkgs.git
     pkgs.glibcLocales
     pkgs.go-task
+    pkgs.kind
+    pkgs.kubernetes-helm
     pkgs.pre-commit
     pkgs.python312Packages.kubernetes
     pkgs.python312Packages.molecule
