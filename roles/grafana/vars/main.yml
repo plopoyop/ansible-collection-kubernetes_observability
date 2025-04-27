@@ -1,0 +1,6 @@
+---
+# vars file for grafana
+grafana_helm_repo_name: "grafana"
+grafana_helm_repo_url: "https://grafana.github.io/helm-charts"
+
+grafana_helm_chart_ref: "{{ grafana_helm_repo_name }}/grafana"

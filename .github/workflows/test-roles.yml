@@ -14,6 +14,11 @@ on:
       - '.github/**'
 
 jobs:
+  grafana:
+    uses: ./.github/workflows/test-role.yaml
+    with:
+      role_name: "grafana"
+
   victoriametrics:
     uses: ./.github/workflows/test-role.yaml
     with:

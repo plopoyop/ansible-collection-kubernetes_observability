@@ -1,0 +1,39 @@
+adminUser: "{{ grafana_admin_user }}"
+adminPassword: "{{ grafana_admin_password }}"
+
+replicas: {{ grafana_replicas }}
+
+ingress:
+  enabled: {{ grafana_ingress_enabled }}
+{% if grafana_ingress_enabled %}
+  ingressClassName: {{ grafana_ingress_class_name }}
+  annotations: {{ grafana_ingress_annotations }}
+  labels: {{ grafana_ingress_labels }}
+  path: /
+  pathType: Prefix
+  hosts:
+    - {{ grafana_ingress_hostname }}
+  extraPaths: []
+{% if grafana_ingress_tls_enabled %}
+  tls:
+    - secretName: {{ grafana_ingress_tls_secret_name }}
+      hosts:
+        - {{ grafana_ingress_hostname }}
+{% endif %}
+{% endif %}
+
+resources: {{ grafana_resources }}
+
+grafana.ini: {{ grafana_ini }}
+
+plugins: {{ grafana_plugins }}
+
+datasources: {{ grafana_datasources }}
+
+alerting: {{ grafana_alerting }}
+
+notifiers: {{ grafana_notifiers }}
+
+dashboardProviders: {{ grafana_dashboard_providers }}
+
+dashboards: {{ grafana_dashboards }}

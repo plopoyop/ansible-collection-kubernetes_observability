@@ -7,6 +7,11 @@
   "packageRules": [
     {
       "matchDatasources": ["helm"],
+      "matchPackageNames": ["grafana"],
+      "registryUrls": ["https://grafana.github.io/helm-charts/"]
+    },
+    {
+      "matchDatasources": ["helm"],
       "matchPackageNames": ["victoria-metrics-single"],
       "registryUrls": ["https://victoriametrics.github.io/helm-charts/"]
     },
@@ -18,6 +23,20 @@
   ],
   "customManagers": [
     {
+      "customType": "regex",
+      "fileMatch": [
+        "roles/grafana/defaults/main.yml$",
+        "roles/grafana/README.md$",
+        "^README.md$"
+      ],
+      "matchStrings": [
+        "grafana_chart_version:\\s*(?<quote>\")?(?<currentValue>[0-9\\.]+)\"?",
+        "grafana\\s*(?<pipe>\\|)\\s?v(?<currentValue>[0-9\\.]+)"
+      ],
+      "depNameTemplate": "grafana",
+      "autoReplaceStringTemplate": "{{#if pipe}}grafana | v{{newValue}}{{else}}grafana_chart_version: {{#if quote}}\"{{newValue}}\"{{else}}{{newValue}}{{/if}}{{/if}}",
+      "datasourceTemplate": "helm"
+    },{
       "customType": "regex",
       "fileMatch": [
         "roles/victoriametrics/defaults/main.yml$",

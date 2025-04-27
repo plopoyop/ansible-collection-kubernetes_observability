@@ -1,0 +1,21 @@
+---
+- name: "Create Grafana namespace"
+  kubernetes.core.k8s:
+    name: "{{ grafana_namespace }}"
+    api_version: v1
+    kind: Namespace
+    state: present
+
+- name: "Add grafana helm repo"
+  kubernetes.core.helm_repository:
+    name: "{{ grafana_helm_repo_name }}"
+    repo_url: "{{ grafana_helm_repo_url }}"
+
+- name: "Deploy grafana chart"
+  kubernetes.core.helm:
+    name: "{{ grafana_deployment_name }}"
+    chart_ref: "{{ grafana_helm_chart_ref }}"
+    namespace: "{{ grafana_namespace }}"
+    chart_version: "{{ grafana_chart_version }}"
+    state: present
+    values: "{{ lookup('template', 'grafana_helm_values.yml.j2') | from_yaml }}"

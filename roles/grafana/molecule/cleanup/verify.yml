@@ -1,0 +1,31 @@
+---
+- name: Verify
+  hosts: localhost
+  connection: local
+  gather_facts: true
+
+  tasks:
+    - name: "Pause for job to complete."
+      ansible.builtin.pause:
+        seconds: 5
+
+    - name: "Get 'grafana' namespace info."
+      kubernetes.core.k8s_info:
+        kind: Namespace
+        name: "grafana"
+      register: namespace
+
+    - name: Assert that 'grafana' namespace is active
+      ansible.builtin.assert:
+        that: namespace['resources'] == []
+
+    - name: "Get 'grafana' deployment info."
+      kubernetes.core.k8s_info:
+        kind: "Deployment"
+        name: "grafana"
+        namespace: "grafana"
+      register: grafana_deployment
+
+    - name: "Assert that 'grafana' is deployed"
+      ansible.builtin.assert:
+        that: grafana_deployment['resources'] == []
