@@ -1,8 +1,16 @@
 # Changelog
 
-## [0.1.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/0.1.0) (2025-04-26)
+## [1.1.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/1.1.0) (2025-04-27)
 
-[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5ac51d0b3b13a0db88e5681db628146045468509...0.1.0)
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/1.0.0...1.1.0)
+
+**Implemented enhancements:**
+
+- Add grafana role [\#10](https://github.com/plopoyop/ansible-collection-kubernetes_observability/issues/10)
+
+## [1.0.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/1.0.0) (2025-04-26)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5ac51d0b3b13a0db88e5681db628146045468509...1.0.0)
 
 **Implemented enhancements:**
 
@@ -14,6 +22,8 @@
 - Setup pre-commit [\#3](https://github.com/plopoyop/ansible-collection-kubernetes_observability/issues/3)
 - Setup devenv [\#2](https://github.com/plopoyop/ansible-collection-kubernetes_observability/issues/2)
 - Setup tooling [\#1](https://github.com/plopoyop/ansible-collection-kubernetes_observability/issues/1)
+- Add Victoriametrics role [\#15](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/15) ([plopoyop](https://github.com/plopoyop))
+- Introduce Tooling [\#13](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/13) ([plopoyop](https://github.com/plopoyop))
 
 **Closed issues:**
 
