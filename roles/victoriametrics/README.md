@@ -115,7 +115,6 @@ victoriametrics_single_ingress_classname: ""
 ### victoriametrics_single_ingress_enabled
 
 Enable ingress for VictoriaMetrics Single Server
-Should be calculated based on the metrics you send and retention policy you set.
 
 #### Default value
 
