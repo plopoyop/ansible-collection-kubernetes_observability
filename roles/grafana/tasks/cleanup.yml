@@ -1,0 +1,25 @@
+---
+- name: "Remove Grafana instance"
+  kubernetes.core.helm:
+    name: "{{ grafana_deployment_name }}"
+    namespace: "{{ grafana_namespace }}"
+    chart_ref: "{{ grafana_helm_chart_ref }}"
+    state: "absent"
+    wait: true
+
+- name: "Pause for job to complete."
+  ansible.builtin.pause:
+    seconds: 30
+
+- name: "Remove Grafana helm repo"
+  kubernetes.core.helm_repository:
+    name: "{{ grafana_helm_repo_name }}"
+    repo_url: "{{ grafana_helm_repo_url }}"
+    state: "absent"
+
+- name: "Remove Grafana namespace"
+  kubernetes.core.k8s:
+    name: "{{ grafana_namespace }}"
+    api_version: "v1"
+    kind: "Namespace"
+    state: "absent"

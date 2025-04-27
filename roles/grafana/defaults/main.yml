@@ -1,0 +1,214 @@
+---
+# defaults file for grafana
+# @var grafana_enabled
+# @var grafana_enabled:type: boolean
+# @var grafana_enabled:description: >
+# Install Grafana chart
+grafana_enabled: true
+
+# @var grafana_namespace
+# @var grafana_namespace:type: string
+# @var grafana_namespace:description: >
+# K8s namespace to install Grafana chart
+grafana_namespace: "grafana"
+
+# @var grafana_chart_version
+# @var grafana_chart_version:type: string
+# @var grafana_chart_version:description: >
+# Grafana chart version
+grafana_chart_version: "8.13.1"
+
+# @var grafana_deployment_name
+# @var grafana_deployment_name:type: string
+# @var grafana_deployment_name:description: >
+# Grafana deployment name
+grafana_deployment_name: "grafana"
+
+# @var grafana_replicas
+# @var grafana_replicas:type: int
+# @var grafana_replicas:description: >
+# Number of pod replicas for Grafana
+grafana_replicas: 1
+
+# @var grafana_resources
+# @var grafana_resources:type: dict
+# @var grafana_resources:description: >
+# Annotations for Grafana ingress
+# @var grafana_resources:example: >
+# grafana_resources:
+#   limits:
+#     cpu: 100m
+#     memory: 128Mi
+#   requests:
+#     cpu: 100m
+#     memory: 128Mi
+grafana_resources: {}
+
+# @var grafana_admin_user
+# @var grafana_admin_user:type: string
+# @var grafana_admin_user:description: >
+# Grafana admin user
+grafana_admin_user: "admin"
+
+# @var grafana_admin_password
+# @var grafana_admin_password:type: string
+# @var grafana_admin_password:description: >
+# Password for Grafana admin user
+
+# @var grafana_ingress_enabled
+# @var grafana_ingress_enabled:type: boolean
+# @var grafana_ingress_enabled:description: >
+# Enable ingress for Grafana
+grafana_ingress_enabled: false
+
+# @var grafana_ingress_class_name
+# @var grafana_ingress_class_name:type: string
+# @var grafana_ingress_class_name:description: >
+# Ingress classname for Grafana
+
+# @var grafana_ingress_hostname
+# @var grafana_ingress_hostname:type: string
+# @var grafana_ingress_hostname:description: >
+# Hostname for Grafana ingress
+
+# @var grafana_ingress_tls_enabled
+# @var grafana_ingress_tls_enabled:type: boolean
+# @var grafana_ingress_tls_enabled:description: >
+# Enable TLS for Grafana ingress
+grafana_ingress_tls_enabled: false
+
+# @var grafana_ingress_tls_secret_name
+# @var grafana_ingress_tls_secret_name:type: string
+# @var grafana_ingress_tls_secret_name:description: >
+# Secret name for Grafana TLS certificate
+
+# @var grafana_ingress_annotations
+# @var grafana_ingress_annotations:type: dict
+# @var grafana_ingress_annotations:description: >
+# Annotations for Grafana ingress
+# @var grafana_ingress_annotations:example: >
+# grafana_ingress_annotations:
+#   kubernetes.io/ingress.class: "{{ grafana_ingress_class_name }}"
+#   kubernetes.io/tls-acme: "{{ grafana_ingress_tls_enabled }}"
+
+# @var grafana_ingress_labels
+# @var grafana_ingress_labels:type: dict
+# @var grafana_ingress_labels:description: >
+# Labels for Grafana ingress
+# @var grafana_ingress_labels:example: >
+# grafana_ingress_labels:
+#   app: grafana
+
+# @var grafana_ini
+# @var grafana_ini:type: dict
+# @var grafana_ini:description: >
+# Grafana's primary configuration
+# ref: http://docs.grafana.org/installation/configuration/
+# @var grafana_ini:example: >
+# grafana_ini:
+#   plugins:
+#    allow_loading_unsigned_plugins: victoriametrics-datasource
+grafana_ini: {}
+
+# @var grafana_plugins
+# @var grafana_plugins:type: list
+# @var grafana_plugins:description: >
+# Grafana plugins to install
+# @var grafana_plugins:example: >
+# grafana_plugins:
+#   - digrich-bubblechart-panel
+#   - grafana-clock-panel
+grafana_plugins: []
+
+# @var grafana_datasources
+# @var grafana_datasources:type: dict
+# @var grafana_datasources:description: >
+# Configure grafana datasources
+# ref: http://docs.grafana.org/administration/provisioning/#datasources
+# @var grafana_datasources:example: >
+# grafana_datasources:
+#   apiVersion: 1
+#   datasources:
+#   - name: Prometheus
+#     type: prometheus
+#     url: http://prometheus-prometheus-server
+#     access: proxy
+#     isDefault: true
+#   - name: CloudWatch
+#     type: cloudwatch
+#     access: proxy
+#     uid: cloudwatch
+#     editable: false
+#     jsonData:
+#       authType: default
+#       defaultRegion: us-east-1
+#   deleteDatasources: []
+#   - name: Prometheus
+grafana_datasources: {}
+
+# @var grafana_dashboard_providers
+# @var grafana_dashboard_providers:type: dict
+# @var grafana_dashboard_providers:description: >
+# Configure grafana dashboard providers
+# ref: http://docs.grafana.org/administration/provisioning/#dashboards
+# @var grafana_dashboard_providers:example: >
+# grafana_dashboard_providers
+#   dashboardproviders.yaml:
+#     apiVersion: 1
+#     providers:
+#     - name: 'default'
+#       orgId: 1
+#       folder: ''
+#       type: file
+#       disableDeletion: false
+#       editable: true
+#       options:
+#         path: /var/lib/grafana/dashboards/default
+grafana_dashboard_providers: {}
+
+# @var grafana_dashboards
+# @var grafana_dashboards:type: dict
+# @var grafana_dashboards:description: >
+# Configure grafana dashboard to import
+# ref: https://grafana.com/dashboards
+# @var grafana_dashboards:example: >
+# grafana_dashboards:
+#   default:
+#     some-dashboard:
+#       json: |
+#         $RAW_JSON
+#     custom-dashboard:
+#       file: dashboards/custom-dashboard.json
+#     prometheus-stats:
+#       gnetId: 2
+#       revision: 2
+#       datasource: Prometheus
+grafana_dashboards: {}
+
+# @var grafana_alerting
+# @var grafana_alerting:type: dict
+# @var grafana_alerting:description: >
+# Configure grafana alerting
+# ref: https://docs.grafana.com/alerting/set-up/provision-alerting-resources/file-provisioning/
+grafana_alerting: {}
+
+# @var grafana_notifiers
+# @var grafana_notifiers:type: dict
+# @var grafana_notifiers:description: >
+# Configure notifiers
+# ref: http://docs.grafana.org/administration/provisioning/#alert-notification-channels
+# @var grafana_notifiers:example: >
+# grafana_notifiers:
+#   notifiers.yaml:
+#     notifiers:
+#     - name: email-notifier
+#       type: email
+#       uid: email1
+#       # either:
+#       org_id: 1
+#       # or
+#       org_name: Main Org.
+#       is_default: true
+#       settings:
+#         addresses: an_email_address@example.com
+grafana_notifiers: {}

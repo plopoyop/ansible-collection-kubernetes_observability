@@ -2,7 +2,7 @@
 version: '3'
 
 vars:
-  ROLES_LIST: ["victoriametrics"]
+  ROLES_LIST: ["grafana", "victoriametrics"]
 
 tasks:
   default:
