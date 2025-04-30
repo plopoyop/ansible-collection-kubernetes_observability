@@ -48,7 +48,7 @@ You can call the roles from this collection in your Ansible playbooks as follows
 | ---------       | ------------------ | ------------------------------------        |
 | grafana | v8.13.1      | [View README](roles/grafana/README.md) |
 | victoriametrics single | v0.17.1      | [View README](roles/victoriametrics/README.md) |
-| vmagent | v0.18.2      | [View README](roles/victoriametrics/README.md) |
+| victoriametrics_vmagent_chart_version: 0.19.0      | [View README](roles/victoriametrics/README.md) |
 
 ## Customization
 
