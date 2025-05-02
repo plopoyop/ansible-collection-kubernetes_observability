@@ -8,6 +8,10 @@
 
 - Add grafana role [\#10](https://github.com/plopoyop/ansible-collection-kubernetes_observability/issues/10)
 
+**Fixed bugs:**
+
+- Victoriametrics role test fail [\#21](https://github.com/plopoyop/ansible-collection-kubernetes_observability/issues/21)
+
 ## [1.0.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/1.0.0) (2025-04-26)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5ac51d0b3b13a0db88e5681db628146045468509...1.0.0)
