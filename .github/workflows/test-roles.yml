@@ -19,6 +19,11 @@ jobs:
     with:
       role_name: "grafana"
 
+  loki:
+    uses: ./.github/workflows/test-role.yaml
+    with:
+      role_name: "loki"
+
   victoriametrics:
     uses: ./.github/workflows/test-role.yaml
     with:

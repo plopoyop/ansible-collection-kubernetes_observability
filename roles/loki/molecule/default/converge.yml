@@ -1,0 +1,21 @@
+---
+- name: Converge
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  vars:
+    loki_storage_type: "filesystem"
+    loki_storage_filesystem_directory: "/tmp/loki"
+    loki_schema_config:
+      configs:
+        - from: "2024-04-01"
+          store: tsdb
+          object_store: filesystem
+          schema: v13
+          index:
+            prefix: loki_index_
+            period: 24h
+  tasks:
+    - name: "Call loki role"
+      ansible.builtin.import_role:
+        name: "loki"

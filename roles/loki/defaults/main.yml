@@ -1,0 +1,268 @@
+---
+# defaults file for loki
+# @var loki_enabled
+# @var loki_enabled:type: boolean
+# @var loki_enabled:description: >
+# Install Loki chart
+loki_enabled: true
+
+# @var loki_namespace
+# @var loki_namespace:type: string
+# @var loki_namespace:description: >
+# K8s namespace to install Loki chart
+loki_namespace: "loki"
+
+# @var loki_chart_version
+# @var loki_chart_version:type: string
+# @var loki_chart_version:description: >
+# Grafana chart version
+loki_chart_version: "6.29.0"
+
+# @var loki_release_name
+# @var loki_release_name:type: string
+# @var loki_release_name:description: >
+# Loki helm release name
+loki_release_name: "loki"
+
+# @var loki_deployment_mode
+# @var loki_deployment_mode:type: string
+# @var loki_deployment_mode:description: >
+# Loki deployment mode : SingleBinary / SimpleScalable / Distributed
+# Only SingleBinary is handle by this role for now
+loki_deployment_mode: "SingleBinary"
+
+# @var loki_auth_enabled
+# @var loki_auth_enabled:type: boolean
+# @var loki_auth_enabled:description: >
+# Enable Loki authentication
+loki_auth_enabled: false
+
+# @var loki_readiness_probe
+# @var loki_readiness_probe:type: dict
+# @var loki_readiness_probe:description: >
+# Loki service readiness probe
+# @var loki_readiness_probe:example: >
+# loki_readiness_probe:
+#   initialDelaySeconds: 120
+#   periodSeconds: 60
+#   timeoutSeconds: 30
+#   failureThreshold: 10
+
+# @var loki_enable_tracing
+# @var loki_enable_tracing:type: boolean
+# @var loki_enable_tracing:description: >
+# Enable tracing
+loki_enable_tracing: false
+
+# @var loki_ingester_config
+# @var loki_ingester_config:type: dict
+# @var loki_ingester_config:description: >
+# Ingester configuration
+# @var loki_ingester_config:example: >
+# loki_ingester_config:
+#   chunk_encoding: "snappy"
+
+# @var loki_querier_config
+# @var loki_querier_config:type: dict
+# @var loki_querier_config:description: >
+# Querier configuration
+# @var loki_querier_config:example: >
+# loki_querier_config:
+#   max_concurrent: 4
+
+# @var loki_single_binary_replication_factor
+# @var loki_single_binary_replication_factor:type: int
+# @var loki_single_binary_replication_factor:description: >
+# Number of replica for SingleBinary deployment
+# https://grafana.com/docs/loki/latest/setup/install/helm/install-monolithic/?pg=oss-loki&plcmt=quick-links#single-replica-or-multiple-replicas
+loki_single_binary_replication_factor: 1
+
+# @var loki_single_binary_resources
+# @var loki_single_binary_resources:type: dict
+# @var loki_single_binary_resources:description: >
+# CPU and memory resource request and limit for SingleBinary deployment
+# @var loki_single_binary_resources:example: >
+# loki_single_binary_resources:
+#   requests:
+#     memory: 2Gi
+#   limits:
+#     memory: 4Gi
+
+# @var loki_schema_config
+# @var loki_schema_config:type: dict
+# @var loki_schema_config:description: >
+# Schema config for Loki
+# @var loki_schema_config:example: >
+# loki_schema_config:
+#   configs:
+#     - from: "2024-04-01"
+#       store: tsdb
+#       object_store: s3
+#       schema: v13
+#       index:
+#         prefix: loki_index_
+#         period: 24h
+
+# @var loki_limits_config
+# @var loki_limits_config:type: dict
+# @var loki_limits_config:description: >
+# Limit config
+loki_limits_config:
+  allow_structured_metadata: true
+  volume_enabled: true
+
+# @var loki_minio_enabled
+# @var loki_minio_enabled:type: boolean
+# @var loki_minio_enabled:description: >
+# Enable minio as object storage
+loki_minio_enabled: false
+
+# @var loki_ingress_enabled
+# @var loki_ingress_enabled:type: boolean
+# @var loki_ingress_enabled:description: >
+# Enable ingress for Loki gateway
+loki_ingress_enabled: false
+
+# @var loki_ingress_class_name
+# @var loki_ingress_class_name:type: string
+# @var loki_ingress_class_name:description: >
+# Ingress classname for Loki gateway
+# @var loki_ingress_class_name:example: >
+# loki_ingress_class_name: "traefik"
+
+# @var loki_ingress_annotations
+# @var loki_ingress_annotations:type: dict
+# @var loki_ingress_annotations:description: >
+# Annotation for Loki ingress
+# @var loki_ingress_annotations:example: >
+# loki_ingress_annotations:
+#   kubernetes.io/ingress.class: "{{ loki_ingress_class_name }}"
+#   kubernetes.io/tls-acme: "false"
+
+# @var loki_ingress_tls_enabled
+# @var loki_ingress_tls_enabled:type: boolean
+# @var loki_ingress_tls_enabled:description: >
+# Enable TLS for Loki ingress
+# @var loki_ingress_tls_enabled:example: >
+# loki_ingress_tls_enabled: false
+
+# @var loki_storage_type
+# @var loki_storage_type:type: string
+# @var loki_storage_type:description: >
+# Storage backend for loki : only S3 or Azure
+# @var loki_storage_type:example: >
+# loki_storage_type: "s3"
+
+# @var loki_storage_filesystem_directory
+# @var loki_storage_filesystem_directory:type: string
+# @var loki_storage_filesystem_directory:description: >
+# Directory for filesystem storage
+loki_storage_filesystem_directory: "/tmp/loki"
+
+# @var loki_storage_chunks_directory
+# @var loki_storage_chunks_directory:type: string
+# @var loki_storage_chunks_directory:description: >
+# Directory for filesystem chunks storage
+loki_storage_chunks_directory: "/var/loki/chunks"
+
+# @var loki_storage_rules_directory
+# @var loki_storage_rules_directory:type: string
+# @var loki_storage_rules_directory:description: >
+# Directory for filesystem rules storage
+loki_storage_rules_directory: "/var/loki/rules"
+
+# @var loki_storage_admin_api_directory
+# @var loki_storage_admin_api_directory:type: string
+# @var loki_storage_admin_api_directory:description: >
+# Directory for filesystem admin api storage
+loki_storage_admin_api_directory: "/var/loki/admin"
+
+# @var loki_storage_s3_bucket_name
+# @var loki_storage_s3_bucket_name:type: string
+# @var loki_storage_s3_bucket_name:description: >
+# S3 storage bucket name
+
+# @var loki_storage_s3_endpoint
+# @var loki_storage_s3_endpoint:type: string
+# @var loki_storage_s3_endpoint:description: >
+# S3 Endpoint to connect to
+
+# @var loki_storage_s3_region
+# @var loki_storage_s3_region:type: string
+# @var loki_storage_s3_region:description: >
+# S3 region to use
+
+# @var loki_storage_s3_access_key_id
+# @var loki_storage_s3_access_key_id:type: string
+# @var loki_storage_s3_access_key_id:description: >
+# Access key Id for S3 storage
+
+# @var loki_storage_s3_secret_access_key
+# @var loki_storage_s3_secret_access_key:type: string
+# @var loki_storage_s3_secret_access_key:description: >
+# Secret access key for S3 storage
+
+# @var loki_storage_s3_force_path_style
+# @var loki_storage_s3_force_path_style:type: boolean
+# @var loki_storage_s3_force_path_style:description: >
+# Force the request to use path-style addressing
+
+# @var loki_storage_s3_insecure
+# @var loki_storage_s3_insecure:type: boolean
+# @var loki_storage_s3_insecure:description: >
+# Disable https on s3 connection
+
+# @var loki_storage_s3_http_config
+# @var loki_storage_s3_http_config:type: dict
+# @var loki_storage_s3_http_config:description: >
+# Additionnal HTTP config for S3 Storage
+# loki_storage_s3_http_config:example: >
+# loki_storage_s3_http_config:
+#   timeout: 30s
+#   insecure_skip_verify: true
+
+# @var loki_storage_azure_account_name
+# @var loki_storage_azure_account_name:type: string
+# @var loki_storage_azure_account_name:description: >
+# Azure storage account name
+
+# @var loki_storage_azure_account_key
+# @var loki_storage_azure_account_key:type: string
+# @var loki_storage_azure_account_key:description: >
+# Azure storage account key
+
+# @var loki_storage_azure_container_name
+# @var loki_storage_azure_container_name:type: string
+# @var loki_storage_azure_container_name:description: >
+# Name of the storage account blob container used to store chunks. This
+# container must be created before running cortex.
+
+# @var loki_storage_azure_use_managed_identity
+# @var loki_storage_azure_use_managed_identity:type: boolean
+# @var loki_storage_azure_use_managed_identity:description: >
+# Use Managed Identity to authenticate to the Azure storage account.
+
+# @var loki_storage_azure_user_assigned_id
+# @var loki_storage_azure_user_assigned_id:type: string
+# @var loki_storage_azure_user_assigned_id:description: >
+# User assigned identity ID to authenticate to the Azure storage account
+
+# @var loki_storage_azure_request_timeout
+# @var loki_storage_azure_request_timeout:type: string
+# @var loki_storage_azure_request_timeout:description: >
+# Timeout for requests made against azure blob storage
+
+# @var loki_storage_azure_endpoint_suffix
+# @var loki_storage_azure_endpoint_suffix:type: dict
+# @var loki_storage_azure_endpoint_suffix:description: >
+# Azure storage endpoint suffix without schema. The storage account name will be
+# prefixed to this value to create the FQDN
+
+# @var loki_storage_azure_connection_string
+# @var loki_storage_azure_connection_string:type: dict
+# @var loki_storage_azure_connection_string:description: >
+# Connection String for assure storage
+# If set, the values of `account-name` and
+# `endpoint-suffix` values will not be used. Use this method over `account-key`
+# if you need to authenticate via a SAS token. Or if you use the Azurite
+# emulator.

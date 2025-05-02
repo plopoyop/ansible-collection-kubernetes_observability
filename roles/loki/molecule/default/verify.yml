@@ -1,0 +1,31 @@
+---
+- name: Verify
+  hosts: localhost
+  connection: local
+  gather_facts: true
+
+  tasks:
+    - name: "Pause for job to complete."
+      ansible.builtin.pause:
+        seconds: 120
+
+    - name: "Get 'loki' namespace info."
+      kubernetes.core.k8s_info:
+        kind: Namespace
+        name: "loki"
+      register: namespace
+
+    - name: Assert that 'loki' namespace is active
+      ansible.builtin.assert:
+        that: namespace['resources'][0]['status']['phase'] == "Active"
+
+    - name: "Get 'loki' statefulset info."
+      kubernetes.core.k8s_info:
+        kind: "StatefulSet"
+        name: "loki"
+        namespace: "loki"
+      register: loki_statefulset
+
+    - name: "Assert that 'loki' is deployed"
+      ansible.builtin.assert:
+        that: loki_statefulset['resources'][0]['status']['availableReplicas'] == 1

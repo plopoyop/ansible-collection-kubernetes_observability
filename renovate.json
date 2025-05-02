@@ -12,6 +12,11 @@
     },
     {
       "matchDatasources": ["helm"],
+      "matchPackageNames": ["loki"],
+      "registryUrls": ["https://grafana.github.io/helm-charts/"]
+    },
+    {
+      "matchDatasources": ["helm"],
       "matchPackageNames": ["victoria-metrics-single"],
       "registryUrls": ["https://victoriametrics.github.io/helm-charts/"]
     },
@@ -35,6 +40,20 @@
       ],
       "depNameTemplate": "grafana",
       "autoReplaceStringTemplate": "{{#if pipe}}grafana | v{{newValue}}{{else}}grafana_chart_version: {{#if quote}}\"{{newValue}}\"{{else}}{{newValue}}{{/if}}{{/if}}",
+      "datasourceTemplate": "helm"
+    },{
+      "customType": "regex",
+      "fileMatch": [
+        "roles/loki/defaults/main.yml$",
+        "roles/loki/README.md$",
+        "^README.md$"
+      ],
+      "matchStrings": [
+        "loki_chart_version:\\s*(?<quote>\")?(?<currentValue>[0-9\\.]+)\"?",
+        "loki\\s*(?<pipe>\\|)\\s?v(?<currentValue>[0-9\\.]+)"
+      ],
+      "depNameTemplate": "loki",
+      "autoReplaceStringTemplate": "{{#if pipe}}loki | v{{newValue}}{{else}}loki_chart_version: {{#if quote}}\"{{newValue}}\"{{else}}{{newValue}}{{/if}}{{/if}}",
       "datasourceTemplate": "helm"
     },{
       "customType": "regex",

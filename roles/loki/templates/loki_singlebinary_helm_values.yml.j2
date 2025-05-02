@@ -1,0 +1,161 @@
+loki:
+  auth_enabled: {{ loki_auth_enabled }}
+  schemaConfig: {{ loki_schema_config }}
+
+{% if loki_server_config is defined %}
+  server: {{ loki_server_config }}
+{% endif %}
+
+{% if loki_ingester_config is defined %}
+  ingester: {{ loki_ingester_config }}
+{% endif %}
+
+{% if loki_querier_config is defined %}
+  querier: {{ loki_querier_config }}
+{% endif %}
+
+{% if loki_compactor_config is defined %}
+  compactor: {{ loki_compactor_config }}
+{% endif %}
+
+  pattern_ingester:
+    enabled: true
+
+  limits_config: {{ loki_limits_config }}
+
+  ruler:
+    enable_api: true
+
+{% if loki_enable_tracing %}
+  tracing:
+    enabled: true
+{% endif %}
+
+{% if loki_readiness_probe is defined %}
+  readinessProbe: {{ loki_readiness_probe }}
+{% endif %}
+
+{% if loki_additionnal_server_config is defined %}
+  {{ loki_additionnal_server_config | ansible.builtin.to_nice_yaml | indent(2) }}
+{% endif %}
+
+  commonConfig:
+    replication_factor: {{ loki_single_binary_replication_factor }}
+
+  storage_config:
+{% if loki_storage_type == "filesystem" %}
+    filesystem:
+      directory: {{ loki_storage_filesystem_directory }}
+    use_thanos_objstore: false
+{% else %}
+    use_thanos_objstore: true
+    object_store:
+{% endif %}
+{% if loki_storage_type == "s3" %}
+      s3:
+        bucket_name: "{{ loki_storage_s3_bucket_name }}"
+        endpoint: "{{ loki_storage_s3_endpoint }}"
+        region: "{{ loki_storage_s3_region }}"
+        access_key_id: "{{ loki_storage_s3_access_key_id }}"
+        secret_access_key: "{{ loki_storage_s3_secret_access_key }}"
+{% elif loki_storage_type == "azure"  %}
+      azure:
+        account_name: "{{ loki_storage_azure_account_name }}"
+        account_key: "{{ loki_storage_azure_account_key }}"
+        container_name: "{{ loki_storage_azure_container_name }}"
+{% endif %}
+
+  storage:
+    type: "{{ loki_storage_type }}"
+
+{% if loki_storage_type == "filesystem" %}
+    filesystem:
+      chunks_directory: "{{ loki_storage_chunks_directory }}"
+      rules_directory: "{{ loki_storage_rules_directory }}"
+      admin_api_directory: "{{ loki_storage_admin_api_directory }}"
+{% else %}
+    bucketNames:
+      chunks: "{{ loki_storage_s3_bucket_name }}"
+      ruler: "{{ loki_storage_s3_bucket_name }}"
+      admin: "{{ loki_storage_s3_bucket_name }}"
+{% endif %}
+
+{% if loki_storage_type == "s3" %}
+    s3:
+      endpoint: "{{ loki_storage_s3_endpoint }}"
+      accessKeyId: "{{ loki_storage_s3_access_key_id }}"
+      secretAccessKey: "{{ loki_storage_s3_secret_access_key }}"
+      s3ForcePathStyle: {{ loki_storage_s3_force_path_style }}
+      insecure: {{ loki_storage_s3_insecure }}
+      http_config: {{ loki_storage_s3_http_config }}
+      region: "{{ loki_storage_s3_region }}"
+{% elif loki_storage_type == "azure" %}
+    azure:
+      accountName: "{{ loki_storage_azure_account_name }}"
+      accountKey: "{{ loki_storage_azure_account_key }}"
+      connectionString: "{{ loki_storage_azure_connection_string }}"
+      useManagedIdentity: "{{ loki_storage_azure_use_managed_identity }}"
+      useFederatedToken: "{{ loki_storage_azure_use_federated_token }}"
+      userAssignedId: "{{ loki_storage_azure_user_assigned_id }}"
+      requestTimeout: "{{ loki_storage_azure_request_timeout }}"
+      endpointSuffix: "{{ loki_storage_azure_endpoint_suffix }}"
+{% endif %}
+
+{% if loki_additionnal_config is defined %}
+{{ loki_additionnal_config | to_nice_yaml }}
+{% endif %}
+
+{% if loki_ingress_enabled %}
+gateway:
+  ingress:
+    enabled: true
+    ingressClassName: {{ loki_ingress_class_name }}
+    annotations: {{ loki_ingress_annotations }}
+    hosts:
+      - host: {{ loki_ingress_hostname }}
+        paths:
+          - path: /
+            pathType: Prefix
+{% if loki_ingress_tls_enabled %}
+    tls:
+      - secretName: {{ loki_ingress_tls_secret_name }}
+        hosts:
+          - {{ loki_ingress_hostname }}
+{% endif %}
+{% endif %}
+
+minio:
+  enabled: {{ loki_minio_enabled }}
+
+deploymentMode: "SingleBinary"
+
+singleBinary:
+  replicas: {{ loki_single_binary_replication_factor }}
+{% if loki_single_binary_resources is defined %}
+  resources: {{ loki_single_binary_resources }}
+{% endif %}
+
+backend:
+  replicas: 0
+read:
+  replicas: 0
+write:
+  replicas: 0
+ingester:
+  replicas: 0
+querier:
+  replicas: 0
+queryFrontend:
+  replicas: 0
+queryScheduler:
+  replicas: 0
+distributor:
+  replicas: 0
+compactor:
+  replicas: 0
+indexGateway:
+  replicas: 0
+bloomCompactor:
+  replicas: 0
+bloomGateway:
+  replicas: 0
