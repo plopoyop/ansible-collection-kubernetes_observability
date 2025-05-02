@@ -12,6 +12,11 @@
 
 - Victoriametrics role test fail [\#21](https://github.com/plopoyop/ansible-collection-kubernetes_observability/issues/21)
 
+**Closed issues:**
+
+- Update Helm release grafana to v8.14.0 [\#25](https://github.com/plopoyop/ansible-collection-kubernetes_observability/issues/25)
+- Update Helm release victoria-metrics-agent to v0.19.0 [\#24](https://github.com/plopoyop/ansible-collection-kubernetes_observability/issues/24)
+
 ## [1.0.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/1.0.0) (2025-04-26)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5ac51d0b3b13a0db88e5681db628146045468509...1.0.0)

@@ -46,9 +46,9 @@ You can call the roles from this collection in your Ansible playbooks as follows
 
 | Role Name       | Helm Chart Version | README Link                                 |
 | ---------       | ------------------ | ------------------------------------        |
-| grafana | v8.13.1      | [View README](roles/grafana/README.md) |
-| victoriametrics_single_chart_version: 0.18.0      | [View README](roles/victoriametrics/README.md) |
-| vmagent | v0.18.2      | [View README](roles/victoriametrics/README.md) |
+| grafana_chart_version: 8.14.1      | [View README](roles/grafana/README.md) |
+| victoriametrics single | v0.18.0      | [View README](roles/victoriametrics/README.md) |
+| vmagent: 0.19.0      | [View README](roles/victoriametrics/README.md) |
 
 ## Customization
 
