@@ -7,7 +7,7 @@
   tasks:
     - name: "Pause for job to complete."
       ansible.builtin.pause:
-        seconds: 5
+        seconds: 60
 
     - name: "Get 'victoriametrics' namespace info."
       kubernetes.core.k8s_info:
