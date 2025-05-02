@@ -6,6 +6,7 @@
 
 **Implemented enhancements:**
 
+- Add loki role [\#11](https://github.com/plopoyop/ansible-collection-kubernetes_observability/issues/11)
 - Add grafana role [\#10](https://github.com/plopoyop/ansible-collection-kubernetes_observability/issues/10)
 
 **Fixed bugs:**
