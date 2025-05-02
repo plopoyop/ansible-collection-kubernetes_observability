@@ -1,0 +1,21 @@
+---
+- name: "Create Loki namespace"
+  kubernetes.core.k8s:
+    name: "{{ loki_namespace }}"
+    api_version: "v1"
+    kind: "Namespace"
+    state: "present"
+
+- name: "Add grafana helm repo"
+  kubernetes.core.helm_repository:
+    name: "{{ loki_grafana_helm_repo_name }}"
+    repo_url: "{{ loki_grafana_helm_repo_url }}"
+
+- name: Deploy Loki chart
+  kubernetes.core.helm:
+    name: "{{ loki_release_name }}"
+    chart_ref: "{{ loki_helm_chart_ref }}"
+    namespace: "{{ loki_namespace }}"
+    chart_version: "{{ loki_chart_version }}"
+    state: "present"
+    values: "{{ lookup('template', 'loki_{{ loki_deployment_mode | lower }}_helm_values.yml.j2') | from_yaml }}"
