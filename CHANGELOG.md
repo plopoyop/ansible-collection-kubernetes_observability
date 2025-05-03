@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.1](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/1.1.1) (2025-05-03)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/1.1.0...1.1.1)
+
+**Closed issues:**
+
+- Update Helm release grafana to v8.14.2 [\#27](https://github.com/plopoyop/ansible-collection-kubernetes_observability/issues/27)
+
 ## [1.1.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/1.1.0) (2025-05-02)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/1.0.0...1.1.0)
@@ -8,16 +16,25 @@
 
 - Add loki role [\#11](https://github.com/plopoyop/ansible-collection-kubernetes_observability/issues/11)
 - Add grafana role [\#10](https://github.com/plopoyop/ansible-collection-kubernetes_observability/issues/10)
+- Feature/role/loki [\#20](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/20) ([plopoyop](https://github.com/plopoyop))
+- Grafana role [\#16](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/16) ([plopoyop](https://github.com/plopoyop))
 
 **Fixed bugs:**
 
 - Victoriametrics role test fail [\#21](https://github.com/plopoyop/ansible-collection-kubernetes_observability/issues/21)
+- Fix victoriametrics test [\#22](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/22) ([plopoyop](https://github.com/plopoyop))
 
 **Closed issues:**
 
 - Update Helm release grafana to v8.14.0 [\#25](https://github.com/plopoyop/ansible-collection-kubernetes_observability/issues/25)
 - Update Helm release victoria-metrics-agent to v0.19.0 [\#24](https://github.com/plopoyop/ansible-collection-kubernetes_observability/issues/24)
 - Update Helm release victoria-metrics-single to v0.18.0 [\#23](https://github.com/plopoyop/ansible-collection-kubernetes_observability/issues/23)
+
+**Merged pull requests:**
+
+- Update Helm release victoria-metrics-single to v0.18.0 [\#19](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/19) ([plopoyop](https://github.com/plopoyop))
+- Update Helm release victoria-metrics-agent to v0.19.0 [\#18](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/18) ([plopoyop](https://github.com/plopoyop))
+- Update Helm release grafana to v8.14.0 [\#17](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/17) ([plopoyop](https://github.com/plopoyop))
 
 ## [1.0.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/1.0.0) (2025-04-26)
 
