@@ -1,8 +1,12 @@
 # Changelog
 
-## [1.1.1](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/1.1.1) (2025-05-06)
+## [1.2.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/1.2.0) (2025-05-23)
 
-[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/1.1.0...1.1.1)
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/1.1.0...1.2.0)
+
+**Implemented enhancements:**
+
+- Add Opentelemtry role [\#9](https://github.com/plopoyop/ansible-collection-kubernetes_observability/issues/9)
 
 **Closed issues:**
 
