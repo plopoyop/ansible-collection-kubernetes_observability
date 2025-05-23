@@ -14,6 +14,11 @@ provisioner:
     KUBECONFIG: ~/.kube/config-molecule-test
     K8S_AUTH_KUBECONFIG: ~/.kube/config-molecule-test
 
+dependency:
+  name: galaxy
+  options:
+    role-file: meta/requirements.yml
+
 scenario:
   name: default
   test_sequence:
