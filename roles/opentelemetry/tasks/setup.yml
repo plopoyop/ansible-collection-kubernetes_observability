@@ -1,0 +1,33 @@
+---
+- name: "Create OpenTelemetry namespace"
+  kubernetes.core.k8s:
+    name: "{{ opentelemetry_namespace }}"
+    api_version: v1
+    kind: Namespace
+    state: present
+
+- name: Add OpenTelemetry helm repo
+  kubernetes.core.helm_repository:
+    name: "{{ opentelemetry_helm_repo_name }}"
+    repo_url: "{{ opentelemetry_helm_repo_url }}"
+
+- name: Deploy OpenTelemetry Kube stack
+  kubernetes.core.helm:
+    name: "{{ opentelemetry_release_name }}"
+    chart_ref: "{{ opentelemetry_kube_stack_chart_ref }}"
+    namespace: "{{ opentelemetry_namespace }}"
+    chart_version: "{{ opentelemetry_chart_version }}"
+    update_repo_cache: true
+    state: "present"
+    values: "{{ lookup('template', 'opentelemetry_collector_helm_values.yml.j2') | from_yaml }}"
+    wait: true
+
+- name: Deploy OpenTelemetry Instrumentation Resources
+  kubernetes.core.k8s:
+    state: "{{ instrumentation.state | default('present') }}"
+    template: "opentelemetry_instrumentation.yml.j2"
+    namespace: "{{ opentelemetry_namespace }}"
+  loop:
+    "{{ opentelemetry_instrumentations }}"
+  loop_control:
+    loop_var: instrumentation
