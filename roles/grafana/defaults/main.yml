@@ -16,7 +16,7 @@ grafana_namespace: "grafana"
 # @var grafana_chart_version:type: string
 # @var grafana_chart_version:description: >
 # Grafana chart version
-grafana_chart_version: 8.14.2
+grafana_chart_version: 8.15.0
 
 # @var grafana_deployment_name
 # @var grafana_deployment_name:type: string
