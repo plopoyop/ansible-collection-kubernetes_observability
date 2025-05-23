@@ -1,0 +1,17 @@
+---
+galaxy_info:
+  description: "Install and configure Opentelemetry Stack on kubernetes"
+  role_name: "opentelemetry"
+  author: "Clément Hubert"
+
+  license: "MLP2"
+
+  min_ansible_version: "2.1"
+
+  galaxy_tags:
+    - "kubernetes"
+    - "opentelemetry"
+    - "observability"
+
+dependencies: []
+  # - plopoyop.kubernetes.cert_manager

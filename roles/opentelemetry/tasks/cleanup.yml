@@ -1,0 +1,19 @@
+---
+- name: "Remove Opentelemetry release"
+  kubernetes.core.helm:
+    name: "{{ opentelemetry_release_name }}"
+    namespace: "{{ opentelemetry_namespace }}"
+    chart_ref: "{{ opentelemetry_kube_stack_chart_ref }}"
+    state: "absent"
+    wait: true
+
+- name: "Pause for job to complete."
+  ansible.builtin.pause:
+    seconds: 20
+
+- name: "Remove Opentelemetry namespace"
+  kubernetes.core.k8s:
+    name: "{{ opentelemetry_namespace }}"
+    api_version: "v1"
+    kind: "Namespace"
+    state: "absent"

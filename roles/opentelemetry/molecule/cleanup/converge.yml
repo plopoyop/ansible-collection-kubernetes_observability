@@ -1,0 +1,11 @@
+---
+- name: Converge
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  vars:
+    opentelemetry_enabled: false
+  tasks:
+    - name: "Call Opentelemetry role"
+      ansible.builtin.import_role:
+        name: "opentelemetry"

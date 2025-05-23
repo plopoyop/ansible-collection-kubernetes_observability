@@ -1,0 +1,19 @@
+apiVersion: opentelemetry.io/v1alpha1
+kind: Instrumentation
+metadata:
+  name: "{{ instrumentation.name }}"
+spec:
+  exporter:
+    endpoint: "{{ instrumentation.endpoint }}"
+{% if instrumentation.propagators is defined %}
+  propagators: {{ instrumentation.propagators }}
+{% endif %}
+{% if instrumentation.sampler is defined %}
+  sampler: {{ instrumentation.sampler }}
+{% endif %}
+{% if instrumentation.env is defined %}
+  env: {{ instrumentation.env }}
+{% endif %}
+{% if instrumentation.instrumentations is defined %}
+  {{ instrumentation.instrumentations | ansible.builtin.to_nice_yaml | indent(2) }}
+{% endif %}

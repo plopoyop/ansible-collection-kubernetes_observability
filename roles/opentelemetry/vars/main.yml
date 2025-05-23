@@ -1,0 +1,5 @@
+---
+# vars file for opentelemetry
+opentelemetry_helm_repo_name: "open-telemetry"
+opentelemetry_helm_repo_url: "https://open-telemetry.github.io/opentelemetry-helm-charts"
+opentelemetry_kube_stack_chart_ref: "{{ opentelemetry_helm_repo_name }}/opentelemetry-kube-stack"

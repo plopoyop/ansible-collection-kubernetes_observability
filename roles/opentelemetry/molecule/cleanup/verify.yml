@@ -1,0 +1,31 @@
+---
+- name: Verify
+  hosts: localhost
+  connection: local
+  gather_facts: true
+
+  tasks:
+    - name: "Pause for job to complete."
+      ansible.builtin.pause:
+        seconds: 10
+
+    - name: "Get 'opentelemetry' namespace info."
+      kubernetes.core.k8s_info:
+        kind: "Namespace"
+        name: "opentelemetry"
+      register: namespace_opentelemetry
+
+    - name: "Assert that 'opentelemetry' namespace is removed"
+      ansible.builtin.assert:
+        that: namespace_opentelemetry['resources'] == []
+
+    - name: "Get 'opentelemetry operator' deployment info."
+      kubernetes.core.k8s_info:
+        kind: "Deployment"
+        name: "otel-collector-opentelemetry-operator"
+        namespace: "opentelemetry"
+      register: otel_operator
+
+    - name: "Assert that 'opentelemetry operator' is removed"
+      ansible.builtin.assert:
+        that: otel_operator['resources'] == []

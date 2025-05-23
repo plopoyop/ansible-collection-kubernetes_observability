@@ -1,0 +1,72 @@
+clusterName: "{{ opentelemetry_cluster_name }}"
+
+{% if opentelemetry_operator_config is defined %}
+opentelemetry-operator:
+  {{ opentelemetry_operator_config | ansible.builtin.to_nice_yaml | indent(2) }}
+{% endif %}
+
+{% if opentelemetry_default_collector_config_enabled is defined %}
+defaultCRConfig:
+  enabled: {{ opentelemetry_default_collector_config_enabled }}
+
+{% if opentelemetry_default_collector_additionnal_config is defined %}
+  {{ opentelemetry_default_collector_additionnal_config | ansible.builtin.to_nice_yaml | indent(2) }}
+{% endif %}
+
+  config:
+{% if opentelemetry_default_collector_config_receivers is defined %}
+    receivers: {{ opentelemetry_default_collector_config_receivers }}
+{% endif %}
+{% if opentelemetry_default_collector_config_exporters is defined %}
+    exporters: {{ opentelemetry_default_collector_config_exporters }}
+{% endif %}
+{% if opentelemetry_default_collector_config_processors is defined %}
+    processors: {{ opentelemetry_default_collector_config_processors }}
+{% endif %}
+{% if opentelemetry_default_collector_config_extensions is defined %}
+    extensions: {{ opentelemetry_default_collector_config_extensions }}
+{% endif %}
+{% if opentelemetry_default_collector_config_services is defined %}
+    services: {{ opentelemetry_default_collector_config_services }}
+{% endif %}
+{% endif %}
+
+collectors:
+{% if opentelemetry_collectors_daemon_config is defined %}
+  daemon:
+    {{ opentelemetry_collectors_daemon_config | ansible.builtin.to_nice_yaml | indent(4) }}
+{% endif %}
+
+{% if opentelemetry_collectors_cluster_config is defined %}
+  cluster:
+    {{ opentelemetry_collectors_cluster_config | ansible.builtin.to_nice_yaml | indent(4) }}
+{% endif %}
+
+{% if opentelemetry_collectors is defined %}
+  {{ opentelemetry_collectors | ansible.builtin.to_nice_yaml | indent(2) }}
+{% endif %}
+
+{% if opentelemetry_additionnal_config is defined %}
+{{ opentelemetry_additionnal_config | ansible.builtin.to_nice_yaml }}
+{% endif %}
+
+kubernetesServiceMonitors:
+  enabled: {{ opentelemetry_kubernetes_service_monitors_enabled }}
+kubeApiServer:
+  enabled: {{ opentelemetry_kube_api_enabled }}
+kubelet:
+  enabled: {{ opentelemetry_kubelet_enabled }}
+kubeControllerManager:
+  enabled: {{ opentelemetry_kube_controller_manager_enabled }}
+kubeDns:
+  enabled: {{ opentelemetry_kube_dns_enabled }}
+kubeEtcd:
+  enabled: {{ opentelemetry_kube_etcd_enabled }}
+kubeScheduler:
+  enabled: {{ opentelemetry_kube_scheduler_enabled }}
+kubeProxy:
+  enabled: {{ opentelemetry_kube_proxy_enabled }}
+kubeStateMetrics:
+  enabled: {{ opentelemetry_kube_state_metrics_enabled }}
+nodeExporter:
+  enabled: {{ opentelemetry_node_exporter_enabled }}

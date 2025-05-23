@@ -46,6 +46,8 @@ You can call the roles from this collection in your Ansible playbooks as follows
 
 | Role Name       | Helm Chart Version | README Link                                 |
 | ---------       | ------------------ | ------------------------------------        |
+| grafana | 8.14.2      | [View README](roles/grafana/README.md) |
+| opentelemetry k8s stack | v0.5.2      | [View README](roles/opentelemetry/README.md) |
 | grafana_chart_version: 8.14.2      | [View README](roles/grafana/README.md) |
 | loki | v6.29.0      | [View README](roles/loki/README.md) |
 | victoriametrics single | v0.18.0      | [View README](roles/victoriametrics/README.md) |

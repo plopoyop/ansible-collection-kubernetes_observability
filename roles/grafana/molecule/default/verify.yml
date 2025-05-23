@@ -13,11 +13,11 @@
       kubernetes.core.k8s_info:
         kind: Namespace
         name: "grafana"
-      register: namespace
+      register: namespace_grafana
 
     - name: Assert that 'grafana' namespace is active
       ansible.builtin.assert:
-        that: namespace['resources'][0]['status']['phase'] == "Active"
+        that: namespace_grafana['resources'][0]['status']['phase'] == "Active"
 
     - name: "Get 'grafana' deployment info."
       kubernetes.core.k8s_info:

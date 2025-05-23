@@ -1,0 +1,9 @@
+---
+# tasks file for opentelemetry
+- name: "Include K8s stack install when enabled"
+  ansible.builtin.include_tasks: "setup.yml"
+  when: opentelemetry_enabled
+
+- name: "Include cleanup when disabled"
+  ansible.builtin.include_tasks: "cleanup.yml"
+  when: not opentelemetry_enabled
