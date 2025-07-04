@@ -1,34 +1,50 @@
 # Changelog
 
+## [1.3.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/1.3.0) (2025-07-04)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/1.2.0...1.3.0)
+
+## 🚀 New Features
+
+- change generate changelog action [\#40](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/40) ([plopoyop](https://github.com/plopoyop))
+
 ## [1.2.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/1.2.0) (2025-05-23)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/1.1.0...1.2.0)
 
-**Implemented enhancements:**
+## 🚀 New Features
 
 - Add Opentelemtry role [\#9](https://github.com/plopoyop/ansible-collection-kubernetes_observability/issues/9)
+- Add opentelemetry role [\#36](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/36) ([plopoyop](https://github.com/plopoyop))
 
-**Closed issues:**
+## ⚙️ Dependencies
 
 - Update Helm release grafana to v8.14.2 [\#27](https://github.com/plopoyop/ansible-collection-kubernetes_observability/issues/27)
+- Update renovatebot/github-action action to v42 [\#28](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/28) ([plopoyop](https://github.com/plopoyop))
+- Update Helm release grafana to v8.14.2 [\#26](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/26) ([plopoyop](https://github.com/plopoyop))
+
+**Merged pull requests:**
+
+- Update Helm release grafana to v8.15.0 [\#30](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/30) ([plopoyop](https://github.com/plopoyop))
+- Update renovatebot/github-action action to v42.0.1 [\#29](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/29) ([plopoyop](https://github.com/plopoyop))
 
 ## [1.1.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/1.1.0) (2025-05-02)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/1.0.0...1.1.0)
 
-**Implemented enhancements:**
+## 🚀 New Features
 
 - Add loki role [\#11](https://github.com/plopoyop/ansible-collection-kubernetes_observability/issues/11)
 - Add grafana role [\#10](https://github.com/plopoyop/ansible-collection-kubernetes_observability/issues/10)
 - Feature/role/loki [\#20](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/20) ([plopoyop](https://github.com/plopoyop))
 - Grafana role [\#16](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/16) ([plopoyop](https://github.com/plopoyop))
 
-**Fixed bugs:**
+## 🐛 Bug Fixes
 
 - Victoriametrics role test fail [\#21](https://github.com/plopoyop/ansible-collection-kubernetes_observability/issues/21)
 - Fix victoriametrics test [\#22](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/22) ([plopoyop](https://github.com/plopoyop))
 
-**Closed issues:**
+## ⚙️ Dependencies
 
 - Update Helm release grafana to v8.14.0 [\#25](https://github.com/plopoyop/ansible-collection-kubernetes_observability/issues/25)
 - Update Helm release victoria-metrics-agent to v0.19.0 [\#24](https://github.com/plopoyop/ansible-collection-kubernetes_observability/issues/24)
@@ -44,7 +60,7 @@
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5ac51d0b3b13a0db88e5681db628146045468509...1.0.0)
 
-**Implemented enhancements:**
+## 🚀 New Features
 
 - Repo setup [\#12](https://github.com/plopoyop/ansible-collection-kubernetes_observability/issues/12)
 - Add VictoriaMetrics Role [\#8](https://github.com/plopoyop/ansible-collection-kubernetes_observability/issues/8)
