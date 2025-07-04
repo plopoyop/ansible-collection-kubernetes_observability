@@ -6,6 +6,7 @@
 
 ## 🚀 New Features
 
+- Update renovate config [\#41](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/41) ([plopoyop](https://github.com/plopoyop))
 - change generate changelog action [\#40](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/40) ([plopoyop](https://github.com/plopoyop))
 
 ## [1.2.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/1.2.0) (2025-05-23)
