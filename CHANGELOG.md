@@ -1,13 +1,17 @@
 # Changelog
 
-## [1.3.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/1.3.0) (2025-07-04)
+## [2.0.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/2.0.0) (2025-07-04)
 
-[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/1.2.0...1.3.0)
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/1.2.0...2.0.0)
 
 ## 🚀 New Features
 
 - Update renovate config [\#41](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/41) ([plopoyop](https://github.com/plopoyop))
 - change generate changelog action [\#40](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/40) ([plopoyop](https://github.com/plopoyop))
+
+## ⚙️ Dependencies
+
+- Update Helm release grafana to v9 [\#31](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/31) ([plopoyop](https://github.com/plopoyop))
 
 ## [1.2.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/1.2.0) (2025-05-23)
 
