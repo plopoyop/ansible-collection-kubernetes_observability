@@ -227,7 +227,7 @@ VMAgent chart version
 #### Default value
 
 ```YAML
-victoriametrics_vmagent_chart_version: 0.19.0
+victoriametrics_vmagent_chart_version: 0.23.0
 ```
 
 ### victoriametrics_vmagent_config_scrap_configs
