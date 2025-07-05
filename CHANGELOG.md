@@ -9,6 +9,10 @@
 - Update renovate config [\#41](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/41) ([plopoyop](https://github.com/plopoyop))
 - change generate changelog action [\#40](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/40) ([plopoyop](https://github.com/plopoyop))
 
+## 🐛 Bug Fixes
+
+- Renovate mess up the README [\#37](https://github.com/plopoyop/ansible-collection-kubernetes_observability/issues/37)
+
 ## ⚙️ Dependencies
 
 - fix\(helm\): update chart grafana \(9.2.9 → 9.2.10\) [\#45](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/45) ([plopoyop](https://github.com/plopoyop))
@@ -20,6 +24,10 @@
 - Update Helm release victoria-metrics-single to v0.19.0 [\#34](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/34) ([plopoyop](https://github.com/plopoyop))
 - Update Helm release victoria-metrics-agent to v0.20.0 [\#33](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/33) ([plopoyop](https://github.com/plopoyop))
 - Update Helm release grafana to v9 [\#31](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/31) ([plopoyop](https://github.com/plopoyop))
+
+**Merged pull requests:**
+
+- chore\(config\): migrate renovate config [\#47](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/47) ([plopoyop](https://github.com/plopoyop))
 
 ## [1.2.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/1.2.0) (2025-05-23)
 
