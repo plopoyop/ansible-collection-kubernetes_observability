@@ -16,6 +16,10 @@
 - Update renovatebot/github-action action to v43 [\#39](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/39) ([plopoyop](https://github.com/plopoyop))
 - Update Helm release grafana to v9 [\#31](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/31) ([plopoyop](https://github.com/plopoyop))
 
+**Merged pull requests:**
+
+- Update Helm release victoria-metrics-agent to v0.20.0 [\#33](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/33) ([plopoyop](https://github.com/plopoyop))
+
 ## [1.2.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/1.2.0) (2025-05-23)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/1.1.0...1.2.0)
