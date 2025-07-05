@@ -11,6 +11,7 @@
 
 ## ⚙️ Dependencies
 
+- fix\(helm\): update chart grafana \(9.2.9 → 9.2.10\) [\#45](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/45) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update pre-commit hook ansible/ansible-lint \(v25.1.3 → v25.6.1\) [\#43](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/43) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update pre-commit hook adrienverge/yamllint \(v1.35.1 → v1.37.1\) [\#42](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/42) ([plopoyop](https://github.com/plopoyop))
 - Update renovatebot/github-action action to v43 [\#39](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/39) ([plopoyop](https://github.com/plopoyop))
