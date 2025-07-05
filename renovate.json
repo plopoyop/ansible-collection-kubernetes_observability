@@ -6,36 +6,66 @@
   ],
   "packageRules": [
     {
-      "matchDatasources": ["helm"],
-      "matchPackageNames": ["grafana"],
-      "registryUrls": ["https://grafana.github.io/helm-charts/"]
+      "matchDatasources": [
+        "helm"
+      ],
+      "matchPackageNames": [
+        "grafana"
+      ],
+      "registryUrls": [
+        "https://grafana.github.io/helm-charts/"
+      ]
     },
     {
-      "matchDatasources": ["helm"],
-      "matchPackageNames": ["opentelemetry-kube-stack"],
-      "registryUrls": ["https://open-telemetry.github.io/opentelemetry-helm-charts/"]
+      "matchDatasources": [
+        "helm"
+      ],
+      "matchPackageNames": [
+        "opentelemetry-kube-stack"
+      ],
+      "registryUrls": [
+        "https://open-telemetry.github.io/opentelemetry-helm-charts/"
+      ]
     },
     {
-      "matchDatasources": ["helm"],
-      "matchPackageNames": ["loki"],
-      "registryUrls": ["https://grafana.github.io/helm-charts/"]
+      "matchDatasources": [
+        "helm"
+      ],
+      "matchPackageNames": [
+        "loki"
+      ],
+      "registryUrls": [
+        "https://grafana.github.io/helm-charts/"
+      ]
     },
     {
-      "matchDatasources": ["helm"],
-      "matchPackageNames": ["victoria-metrics-single"],
-      "registryUrls": ["https://victoriametrics.github.io/helm-charts/"]
+      "matchDatasources": [
+        "helm"
+      ],
+      "matchPackageNames": [
+        "victoria-metrics-single"
+      ],
+      "registryUrls": [
+        "https://victoriametrics.github.io/helm-charts/"
+      ]
     },
     {
-      "matchDatasources": ["helm"],
-      "matchPackageNames": ["victoria-metrics-agent"],
-      "registryUrls": ["https://victoriametrics.github.io/helm-charts/"]
+      "matchDatasources": [
+        "helm"
+      ],
+      "matchPackageNames": [
+        "victoria-metrics-agent"
+      ],
+      "registryUrls": [
+        "https://victoriametrics.github.io/helm-charts/"
+      ]
     }
   ],
   "customManagers": [
     {
       "customType": "regex",
-      "fileMatch": [
-        "^README.md$"
+      "managerFilePatterns": [
+        "/^README.md$/"
       ],
       "matchStrings": [
         "grafana\\s*\\|\\s?v(?<currentValue>[0-9\\.]+)"
@@ -43,11 +73,12 @@
       "depNameTemplate": "grafana",
       "autoReplaceStringTemplate": "grafana | v{{newValue}}",
       "datasourceTemplate": "helm"
-      },{
+    },
+    {
       "customType": "regex",
-      "fileMatch": [
-        "roles/grafana/defaults/main.yml$",
-        "roles/grafana/README.md$"
+      "managerFilePatterns": [
+        "/roles/grafana/defaults/main.yml$/",
+        "/roles/grafana/README.md$/"
       ],
       "matchStrings": [
         "grafana_chart_version:\\s*(?<quote>\")?(?<currentValue>[0-9\\.]+)\"?"
@@ -55,10 +86,11 @@
       "depNameTemplate": "grafana",
       "autoReplaceStringTemplate": "grafana_chart_version: {{#if quote}}\"{{newValue}}\"{{else}}{{newValue}}{{/if}}",
       "datasourceTemplate": "helm"
-    },{
+    },
+    {
       "customType": "regex",
-      "fileMatch": [
-        "^README.md$"
+      "managerFilePatterns": [
+        "/^README.md$/"
       ],
       "matchStrings": [
         "opentelemetry k8s stack\\s*\\|\\s?v(?<currentValue>[0-9\\.]+)"
@@ -66,11 +98,12 @@
       "depNameTemplate": "opentelemetry-kube-stack",
       "autoReplaceStringTemplate": "opentelemetry k8s stack | v{{newValue}}",
       "datasourceTemplate": "helm"
-      },{
+    },
+    {
       "customType": "regex",
-      "fileMatch": [
-        "roles/opentelemetry/defaults/main.yml$",
-        "roles/opentelemetry/README.md$"
+      "managerFilePatterns": [
+        "/roles/opentelemetry/defaults/main.yml$/",
+        "/roles/opentelemetry/README.md$/"
       ],
       "matchStrings": [
         "opentelemetry_chart_version:\\s*(?<quote>\")?(?<currentValue>[0-9\\.]+)\"?"
@@ -78,10 +111,11 @@
       "depNameTemplate": "opentelemetry-kube-stack",
       "autoReplaceStringTemplate": "opentelemetry_chart_version: {{#if quote}}\"{{newValue}}\"{{else}}{{newValue}}{{/if}}",
       "datasourceTemplate": "helm"
-    },{
+    },
+    {
       "customType": "regex",
-      "fileMatch": [
-        "^README.md$"
+      "managerFilePatterns": [
+        "/^README.md$/"
       ],
       "matchStrings": [
         "loki\\s*\\|\\s?v(?<currentValue>[0-9\\.]+)"
@@ -89,11 +123,12 @@
       "depNameTemplate": "loki",
       "autoReplaceStringTemplate": "loki | v{{newValue}}",
       "datasourceTemplate": "helm"
-      },{
+    },
+    {
       "customType": "regex",
-      "fileMatch": [
-        "roles/loki/defaults/main.yml$",
-        "roles/loki/README.md$"
+      "managerFilePatterns": [
+        "/roles/loki/defaults/main.yml$/",
+        "/roles/loki/README.md$/"
       ],
       "matchStrings": [
         "loki_chart_version:\\s*(?<quote>\")?(?<currentValue>[0-9\\.]+)\"?"
@@ -101,10 +136,11 @@
       "depNameTemplate": "loki",
       "autoReplaceStringTemplate": "loki_chart_version: {{#if quote}}\"{{newValue}}\"{{else}}{{newValue}}{{/if}}",
       "datasourceTemplate": "helm"
-    },{
+    },
+    {
       "customType": "regex",
-      "fileMatch": [
-        "^README.md$"
+      "managerFilePatterns": [
+        "/^README.md$/"
       ],
       "matchStrings": [
         "victoriametrics\\s*single\\s*\\|\\s?v(?<currentValue>[0-9\\.]+)"
@@ -112,11 +148,12 @@
       "depNameTemplate": "victoria-metrics-single",
       "autoReplaceStringTemplate": "victoriametrics single | v{{newValue}}",
       "datasourceTemplate": "helm"
-    },{
+    },
+    {
       "customType": "regex",
-      "fileMatch": [
-        "roles/victoriametrics/defaults/main.yml$",
-        "roles/victoriametrics/README.md$"
+      "managerFilePatterns": [
+        "/roles/victoriametrics/defaults/main.yml$/",
+        "/roles/victoriametrics/README.md$/"
       ],
       "matchStrings": [
         "victoriametrics_single_chart_version:\\s*(?<quote>\")?(?<currentValue>[0-9\\.]+)\"?"
@@ -124,10 +161,11 @@
       "depNameTemplate": "victoria-metrics-single",
       "autoReplaceStringTemplate": "victoriametrics_single_chart_version: {{#if quote}}\"{{newValue}}\"{{else}}{{newValue}}{{/if}}",
       "datasourceTemplate": "helm"
-    },{
+    },
+    {
       "customType": "regex",
-      "fileMatch": [
-        "^README.md$"
+      "managerFilePatterns": [
+        "/^README.md$/"
       ],
       "matchStrings": [
         "vmagent\\s*\\|\\s?v(?<currentValue>[0-9\\.]+)"
@@ -135,11 +173,12 @@
       "depNameTemplate": "victoria-metrics-agent",
       "autoReplaceStringTemplate": "vmagent | v{{newValue}}",
       "datasourceTemplate": "helm"
-    },{
+    },
+    {
       "customType": "regex",
-      "fileMatch": [
-        "roles/victoriametrics/defaults/main.yml$",
-        "roles/victoriametrics/README.md$"
+      "managerFilePatterns": [
+        "/roles/victoriametrics/defaults/main.yml$/",
+        "/roles/victoriametrics/README.md$/"
       ],
       "matchStrings": [
         "victoriametrics_vmagent_chart_version:\\s*(?<quote>\")?(?<currentValue>[0-9\\.]+)\"?"
