@@ -15,6 +15,7 @@
 - feat\(deps\): update pre-commit hook ansible/ansible-lint \(v25.1.3 → v25.6.1\) [\#43](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/43) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update pre-commit hook adrienverge/yamllint \(v1.35.1 → v1.37.1\) [\#42](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/42) ([plopoyop](https://github.com/plopoyop))
 - Update renovatebot/github-action action to v43 [\#39](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/39) ([plopoyop](https://github.com/plopoyop))
+- Update Helm release opentelemetry-kube-stack to v0.6.0 [\#38](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/38) ([plopoyop](https://github.com/plopoyop))
 - Update Helm release loki to v6.30.0 [\#35](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/35) ([plopoyop](https://github.com/plopoyop))
 - Update Helm release victoria-metrics-single to v0.19.0 [\#34](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/34) ([plopoyop](https://github.com/plopoyop))
 - Update Helm release victoria-metrics-agent to v0.20.0 [\#33](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/33) ([plopoyop](https://github.com/plopoyop))
