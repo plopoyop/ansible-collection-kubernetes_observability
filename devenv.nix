@@ -28,5 +28,12 @@
 
     mkdir -p $ANSIBLE_ROLES_PATH
     mkdir -p $ANSIBLE_COLLECTIONS_PATH
+
+    export ANSIBLE_ROLES_PATH=$ANSIBLE_ROLES_PATH:$PWD/roles
+
+    echo $GITHUB_WORKSPACE
+    if [ -n "$GITHUB_WORKSPACE" ]; then
+      export ANSIBLE_ROLES_PATH=$ANSIBLE_ROLES_PATH:$GITHUB_WORKSPACE/roles
+    fi
   '';
 }
