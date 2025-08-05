@@ -16,7 +16,7 @@ victoriametrics_single_namespace: "victoriametrics"
 # @var victoriametrics_single_chart_version:type: string
 # @var victoriametrics_single_chart_version:description: >
 # Victoriametrics Single Server chart version
-victoriametrics_single_chart_version: 0.22.0
+victoriametrics_single_chart_version: 0.23.0
 
 # @var victoriametrics_single_deployment_name
 # @var victoriametrics_single_deployment_name:type: string
