@@ -4,6 +4,10 @@
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/2.0.0...3.0.0)
 
+## 🐛 Bug Fixes
+
+- install dependencies [\#57](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/57) ([plopoyop](https://github.com/plopoyop))
+
 ## ⚙️ Dependencies
 
 - update devenv [\#56](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/56) ([plopoyop](https://github.com/plopoyop))
