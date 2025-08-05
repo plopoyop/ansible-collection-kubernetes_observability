@@ -1,5 +1,23 @@
 # Changelog
 
+## [3.0.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/3.0.0) (2025-08-05)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/2.0.0...3.0.0)
+
+## 🐛 Bug Fixes
+
+- install dependencies [\#57](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/57) ([plopoyop](https://github.com/plopoyop))
+
+## ⚙️ Dependencies
+
+- update devenv [\#56](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/56) ([plopoyop](https://github.com/plopoyop))
+- feat\(ci\)!: Update hugo19941994/delete-draft-releases action \(v1.0.1 → v2.0.0\) [\#55](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/55) ([plopoyop](https://github.com/plopoyop))
+- feat\(helm\): update chart grafana \(9.2.10 → 9.3.0\) [\#53](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/53) ([plopoyop](https://github.com/plopoyop))
+- fix\(ci\): update renovatebot/github-action action \(v43.0.2 → v43.0.3\) [\#51](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/51) ([plopoyop](https://github.com/plopoyop))
+- feat\(helm\): update chart victoria-metrics-single \(0.22.0 → 0.23.0\) [\#50](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/50) ([plopoyop](https://github.com/plopoyop))
+- feat\(helm\): update chart victoria-metrics-agent \(0.23.0 → 0.24.0\) [\#49](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/49) ([plopoyop](https://github.com/plopoyop))
+- feat\(helm\): update chart loki \(6.30.1 → 6.31.0\) [\#48](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/48) ([plopoyop](https://github.com/plopoyop))
+
 ## [2.0.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/2.0.0) (2025-07-05)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/1.2.0...2.0.0)
