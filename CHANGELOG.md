@@ -14,6 +14,7 @@
 - feat\(ci\)!: Update hugo19941994/delete-draft-releases action \(v1.0.1 → v2.0.0\) [\#55](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/55) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart grafana \(9.2.10 → 9.3.0\) [\#53](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/53) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v43.0.2 → v43.0.3\) [\#51](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/51) ([plopoyop](https://github.com/plopoyop))
+- feat\(helm\): update chart victoria-metrics-single \(0.22.0 → 0.23.0\) [\#50](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/50) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart victoria-metrics-agent \(0.23.0 → 0.24.0\) [\#49](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/49) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart loki \(6.30.1 → 6.31.0\) [\#48](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/48) ([plopoyop](https://github.com/plopoyop))
 
