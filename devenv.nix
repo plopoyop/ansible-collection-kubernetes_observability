@@ -29,6 +29,8 @@
     mkdir -p $ANSIBLE_ROLES_PATH
     mkdir -p $ANSIBLE_COLLECTIONS_PATH
 
+    find . -type f -iname requirements.yml -exec ansible-galaxy install -r {} \;
+
     export ANSIBLE_ROLES_PATH=$ANSIBLE_ROLES_PATH:$PWD/roles
 
     echo $GITHUB_WORKSPACE
