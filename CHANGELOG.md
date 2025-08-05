@@ -1,6 +1,6 @@
 # Changelog
 
-## [3.0.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/3.0.0) (2025-08-04)
+## [3.0.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/3.0.0) (2025-08-05)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/2.0.0...3.0.0)
 
@@ -9,6 +9,7 @@
 - update devenv [\#56](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/56) ([plopoyop](https://github.com/plopoyop))
 - feat\(ci\)!: Update hugo19941994/delete-draft-releases action \(v1.0.1 → v2.0.0\) [\#55](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/55) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v43.0.2 → v43.0.3\) [\#51](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/51) ([plopoyop](https://github.com/plopoyop))
+- feat\(helm\): update chart loki \(6.30.1 → 6.31.0\) [\#48](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/48) ([plopoyop](https://github.com/plopoyop))
 
 ## [2.0.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/2.0.0) (2025-07-05)
 
