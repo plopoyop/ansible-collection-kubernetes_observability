@@ -50,7 +50,7 @@ You can call the roles from this collection in your Ansible playbooks as follows
 | opentelemetry k8s stack | v0.6.3      | [View README](roles/opentelemetry/README.md) |
 | loki | v6.34.0      | [View README](roles/loki/README.md) |
 | victoriametrics single | v0.23.0      | [View README](roles/victoriametrics/README.md) |
-| vmagent | v0.25.1      | [View README](roles/victoriametrics/README.md) |
+| vmagent | v0.25.2      | [View README](roles/victoriametrics/README.md) |
 
 ## Customization
 
