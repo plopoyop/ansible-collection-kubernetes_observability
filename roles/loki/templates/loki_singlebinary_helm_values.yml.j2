@@ -72,7 +72,6 @@ loki:
     filesystem:
       chunks_directory: "{{ loki_storage_chunks_directory }}"
       rules_directory: "{{ loki_storage_rules_directory }}"
-      admin_api_directory: "{{ loki_storage_admin_api_directory }}"
 {% else %}
     bucketNames:
       chunks: "{{ loki_storage_s3_bucket_name }}"

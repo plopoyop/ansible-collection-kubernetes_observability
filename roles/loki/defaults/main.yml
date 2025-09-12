@@ -16,7 +16,7 @@ loki_namespace: "loki"
 # @var loki_chart_version:type: string
 # @var loki_chart_version:description: >
 # Grafana chart version
-loki_chart_version: 6.34.0
+loki_chart_version: 6.35.1
 
 # @var loki_release_name
 # @var loki_release_name:type: string
@@ -170,12 +170,6 @@ loki_storage_chunks_directory: "/var/loki/chunks"
 # @var loki_storage_rules_directory:description: >
 # Directory for filesystem rules storage
 loki_storage_rules_directory: "/var/loki/rules"
-
-# @var loki_storage_admin_api_directory
-# @var loki_storage_admin_api_directory:type: string
-# @var loki_storage_admin_api_directory:description: >
-# Directory for filesystem admin api storage
-loki_storage_admin_api_directory: "/var/loki/admin"
 
 # @var loki_storage_s3_bucket_name
 # @var loki_storage_s3_bucket_name:type: string
