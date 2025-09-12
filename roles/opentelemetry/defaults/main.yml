@@ -58,22 +58,20 @@ opentelemetry_cluster_name: "{{ ansible_host }}"
 # @var opentelemetry_default_collector_config_receivers:type: dict
 # @var opentelemetry_default_collector_config_receivers:description: >
 # Opentelemetry receivers to apply to all collectors
-# opentelemetry_default_collector_config_receivers:example: >
-# opentelemetry_default_collector_config_receivers:
-#   otlp:
-#     protocols:
-#       grpc:
-#         endpoint: 0.0.0.0:4317
-#       http:
-#         endpoint: 0.0.0.0:4318
+opentelemetry_default_collector_config_receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: 0.0.0.0:4317
+      http:
+        endpoint: 0.0.0.0:4318
 
 # @var opentelemetry_default_collector_config_exporters
 # @var opentelemetry_default_collector_config_exporters:type: dict
 # @var opentelemetry_default_collector_config_exporters:description: >
 # Opentelemetry exporters to apply to all collectors
-# opentelemetry_default_collector_config_exporters:example: >
-# opentelemetry_default_collector_config_exporters:
-#   debug: {}
+opentelemetry_default_collector_config_exporters:
+  debug: {}
 
 # @var opentelemetry_default_collector_config_processors
 # @var opentelemetry_default_collector_config_processors:type: dict
