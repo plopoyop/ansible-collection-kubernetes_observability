@@ -10,6 +10,7 @@
 - feat\(ci\)!: Update actions/checkout action \(v4 → v5\) [\#68](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/68) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update pre-commit hook ansible/ansible-lint \(v25.7.0 → v25.8.1\) [\#67](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/67) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\)!: Update pre-commit hook pre-commit/pre-commit-hooks \(v5.0.0 → v6.0.0\) [\#66](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/66) ([plopoyop](https://github.com/plopoyop))
+- feat\(helm\): update chart victoria-metrics-single \(0.23.0 → 0.24.2\) [\#65](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/65) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart opentelemetry-kube-stack \(0.6.3 → 0.8.0\) [\#64](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/64) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart loki \(6.34.0 → 6.35.1\) [\#63](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/63) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart grafana \(9.3.0 → 9.3.1\) [\#62](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/62) ([plopoyop](https://github.com/plopoyop))
