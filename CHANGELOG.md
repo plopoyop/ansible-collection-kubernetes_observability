@@ -6,6 +6,7 @@
 
 ## ⚙️ Dependencies
 
+- feat\(deps\): update pre-commit hook ansible/ansible-lint \(v25.7.0 → v25.8.1\) [\#67](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/67) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\)!: Update pre-commit hook pre-commit/pre-commit-hooks \(v5.0.0 → v6.0.0\) [\#66](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/66) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v43.0.5 → v43.0.6\) [\#61](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/61) ([plopoyop](https://github.com/plopoyop))
 
