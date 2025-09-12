@@ -37,11 +37,6 @@ collectors:
     {{ opentelemetry_collectors_daemon_config | ansible.builtin.to_nice_yaml | indent(4) }}
 {% endif %}
 
-{% if opentelemetry_collectors_cluster_config is defined %}
-  cluster:
-    {{ opentelemetry_collectors_cluster_config | ansible.builtin.to_nice_yaml | indent(4) }}
-{% endif %}
-
 {% if opentelemetry_collectors is defined %}
   {{ opentelemetry_collectors | ansible.builtin.to_nice_yaml | indent(2) }}
 {% endif %}

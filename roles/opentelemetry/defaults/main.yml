@@ -16,7 +16,7 @@ opentelemetry_namespace: "opentelemetry"
 # @var opentelemetry_chart_version:type: string
 # @var opentelemetry_chart_version:description: >
 # Opentelemetry chart version
-opentelemetry_chart_version: 0.6.3
+opentelemetry_chart_version: 0.8.0
 
 # @var opentelemetry_release_name
 # @var opentelemetry_release_name:type: string
@@ -58,22 +58,20 @@ opentelemetry_cluster_name: "{{ ansible_host }}"
 # @var opentelemetry_default_collector_config_receivers:type: dict
 # @var opentelemetry_default_collector_config_receivers:description: >
 # Opentelemetry receivers to apply to all collectors
-# opentelemetry_default_collector_config_receivers:example: >
-# opentelemetry_default_collector_config_receivers:
-#   otlp:
-#     protocols:
-#       grpc:
-#         endpoint: 0.0.0.0:4317
-#       http:
-#         endpoint: 0.0.0.0:4318
+opentelemetry_default_collector_config_receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: 0.0.0.0:4317
+      http:
+        endpoint: 0.0.0.0:4318
 
 # @var opentelemetry_default_collector_config_exporters
 # @var opentelemetry_default_collector_config_exporters:type: dict
 # @var opentelemetry_default_collector_config_exporters:description: >
 # Opentelemetry exporters to apply to all collectors
-# opentelemetry_default_collector_config_exporters:example: >
-# opentelemetry_default_collector_config_exporters:
-#   debug: {}
+opentelemetry_default_collector_config_exporters:
+  debug: {}
 
 # @var opentelemetry_default_collector_config_processors
 # @var opentelemetry_default_collector_config_processors:type: dict
@@ -113,20 +111,6 @@ opentelemetry_cluster_name: "{{ ansible_host }}"
 # Configmap for default daemon collector
 # opentelemetry_collectors_daemon_config:example: >
 # opentelemetry_collectors_daemon_config:
-#   resources:
-#     limits:
-#       cpu: 400m
-#       memory: 7500Mi
-#     requests:
-#       cpu: 200m
-#       memory: 250Mi
-
-# @var opentelemetry_collectors_cluster_config
-# @var opentelemetry_collectors_cluster_config:type: dict
-# @var opentelemetry_collectors_cluster_config:description: >
-# Configmap for default cluster collector
-# opentelemetry_collectors_cluster_config:example: >
-# opentelemetry_collectors_cluster_config:
 #   resources:
 #     limits:
 #       cpu: 400m
