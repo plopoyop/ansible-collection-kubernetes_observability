@@ -1,5 +1,14 @@
 # Changelog
 
+## [4.0.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/4.0.0) (2025-09-12)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/3.0.0...4.0.0)
+
+## ⚙️ Dependencies
+
+- feat\(deps\)!: Update pre-commit hook pre-commit/pre-commit-hooks \(v5.0.0 → v6.0.0\) [\#66](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/66) ([plopoyop](https://github.com/plopoyop))
+- fix\(ci\): update renovatebot/github-action action \(v43.0.5 → v43.0.6\) [\#61](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/61) ([plopoyop](https://github.com/plopoyop))
+
 ## [3.0.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/3.0.0) (2025-08-05)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/2.0.0...3.0.0)
