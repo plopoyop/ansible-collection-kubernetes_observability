@@ -30,17 +30,6 @@
       ansible.builtin.assert:
         that: otel_operator['resources'][0]['status']['availableReplicas'] == 1
 
-    - name: "Get 'opentelemetry cluster collector' deployment info."
-      kubernetes.core.k8s_info:
-        kind: "Deployment"
-        name: "otel-collector-cluster-stats-collector"
-        namespace: "opentelemetry"
-      register: otel_cluster_collector
-
-    - name: "Assert that 'opentelemetry cluster collector' is deployed"
-      ansible.builtin.assert:
-        that: otel_cluster_collector['resources'][0]['status']['availableReplicas'] == 1
-
     - name: "Get 'opentelemetry daemon collector' deployment info."
       kubernetes.core.k8s_info:
         kind: "DaemonSet"

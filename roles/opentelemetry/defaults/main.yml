@@ -119,20 +119,6 @@ opentelemetry_default_collector_config_exporters:
 #       cpu: 200m
 #       memory: 250Mi
 
-# @var opentelemetry_collectors_cluster_config
-# @var opentelemetry_collectors_cluster_config:type: dict
-# @var opentelemetry_collectors_cluster_config:description: >
-# Configmap for default cluster collector
-# opentelemetry_collectors_cluster_config:example: >
-# opentelemetry_collectors_cluster_config:
-#   resources:
-#     limits:
-#       cpu: 400m
-#       memory: 7500Mi
-#     requests:
-#       cpu: 200m
-#       memory: 250Mi
-
 # @var opentelemetry_collectors
 # @var opentelemetry_collectors:type: dict
 # @var opentelemetry_collectors:description: >

@@ -10,7 +10,6 @@ Install and configure Opentelemetry Stack on kubernetes
   - [opentelemetry_chart_version](#opentelemetry_chart_version)
   - [opentelemetry_cluster_name](#opentelemetry_cluster_name)
   - [opentelemetry_collectors](#opentelemetry_collectors)
-  - [opentelemetry_collectors_cluster_config](#opentelemetry_collectors_cluster_config)
   - [opentelemetry_collectors_daemon_config](#opentelemetry_collectors_daemon_config)
   - [opentelemetry_default_collector_additionnal_config](#opentelemetry_default_collector_additionnal_config)
   - [opentelemetry_default_collector_config_enabled](#opentelemetry_default_collector_config_enabled)
@@ -84,19 +83,6 @@ opentelemetry_collectors:
 collectorName:
 enabled: true
 name: "example"
-
-### opentelemetry_collectors_cluster_config
-
-Configmap for default cluster collector
-opentelemetry_collectors_cluster_config:example: >
-opentelemetry_collectors_cluster_config:
-resources:
-limits:
-cpu: 400m
-memory: 7500Mi
-requests:
-cpu: 200m
-memory: 250Mi
 
 ### opentelemetry_collectors_daemon_config
 

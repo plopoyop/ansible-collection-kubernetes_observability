@@ -6,8 +6,6 @@
   vars:
     opentelemetry_collectors_daemon_config:
       enabled: true
-    opentelemetry_collectors_cluster_config:
-      enabled: true
     opentelemetry_instrumentations:
       - name: "demo-instrumentation"
         endpoint: "http://otel-collector-daemon-collector.opentelemetry.svc.cluster.local:4318"
