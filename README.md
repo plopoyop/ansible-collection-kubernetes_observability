@@ -48,7 +48,7 @@ You can call the roles from this collection in your Ansible playbooks as follows
 | ---------       | ------------------ | ------------------------------------        |
 | grafana | v9.4.5      | [View README](roles/grafana/README.md) |
 | opentelemetry k8s stack | v0.9.1      | [View README](roles/opentelemetry/README.md) |
-| loki | v6.35.1      | [View README](roles/loki/README.md) |
+| loki | v6.40.0      | [View README](roles/loki/README.md) |
 | victoriametrics single | v0.24.5      | [View README](roles/victoriametrics/README.md) |
 | vmagent | v0.25.6      | [View README](roles/victoriametrics/README.md) |
 
