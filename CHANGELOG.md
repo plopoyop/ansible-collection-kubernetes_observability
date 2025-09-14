@@ -1,11 +1,16 @@
 # Changelog
 
-## [4.0.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/4.0.0) (2025-09-12)
+## [4.0.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/4.0.0) (2025-09-14)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/3.0.0...4.0.0)
 
 ## ⚙️ Dependencies
 
+- feat\(helm\): update chart grafana \(9.3.1 → 9.4.5\) [\#74](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/74) ([plopoyop](https://github.com/plopoyop))
+- fix\(helm\): update chart victoria-metrics-single \(0.24.2 → 0.24.5\) [\#73](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/73) ([plopoyop](https://github.com/plopoyop))
+- fix\(helm\): update chart victoria-metrics-agent \(0.25.2 → 0.25.6\) [\#72](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/72) ([plopoyop](https://github.com/plopoyop))
+- fix\(deps\): update pre-commit hook ansible/ansible-lint \(v25.8.1 → v25.8.2\) [\#71](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/71) ([plopoyop](https://github.com/plopoyop))
+- fix\(ci\): update renovatebot/github-action action \(v43.0.6 → v43.0.11\) [\#70](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/70) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart victoria-metrics-agent \(0.25.1 → 0.25.2\) [\#69](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/69) ([plopoyop](https://github.com/plopoyop))
 - feat\(ci\)!: Update actions/checkout action \(v4 → v5\) [\#68](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/68) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update pre-commit hook ansible/ansible-lint \(v25.7.0 → v25.8.1\) [\#67](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/67) ([plopoyop](https://github.com/plopoyop))
