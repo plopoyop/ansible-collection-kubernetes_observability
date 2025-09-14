@@ -62,7 +62,7 @@ Opentelemetry chart version
 #### Default value
 
 ```YAML
-opentelemetry_chart_version: 0.8.0
+opentelemetry_chart_version: 0.9.1
 ```
 
 ### opentelemetry_cluster_name
