@@ -6,6 +6,7 @@
 
 ## ⚙️ Dependencies
 
+- fix\(helm\): update chart victoria-metrics-agent \(0.25.2 → 0.25.6\) [\#72](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/72) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update pre-commit hook ansible/ansible-lint \(v25.8.1 → v25.8.2\) [\#71](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/71) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v43.0.6 → v43.0.11\) [\#70](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/70) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart victoria-metrics-agent \(0.25.1 → 0.25.2\) [\#69](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/69) ([plopoyop](https://github.com/plopoyop))
