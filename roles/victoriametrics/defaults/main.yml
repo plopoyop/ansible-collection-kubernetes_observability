@@ -16,7 +16,7 @@ victoriametrics_single_namespace: "victoriametrics"
 # @var victoriametrics_single_chart_version:type: string
 # @var victoriametrics_single_chart_version:description: >
 # Victoriametrics Single Server chart version
-victoriametrics_single_chart_version: 0.24.2
+victoriametrics_single_chart_version: 0.24.5
 
 # @var victoriametrics_single_deployment_name
 # @var victoriametrics_single_deployment_name:type: string
@@ -130,7 +130,7 @@ victoriametrics_vmagent_namespace: "victoriametrics"
 # @var victoriametrics_vmagent_chart_version:type: string
 # @var victoriametrics_vmagent_chart_version:description: >
 # VMAgent chart version
-victoriametrics_vmagent_chart_version: 0.25.2
+victoriametrics_vmagent_chart_version: 0.25.6
 
 # @var victoriametrics_vmagent_deployment_name
 # @var victoriametrics_vmagent_deployment_name:type: string
