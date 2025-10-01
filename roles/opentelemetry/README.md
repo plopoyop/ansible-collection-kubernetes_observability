@@ -8,6 +8,7 @@ Install and configure Opentelemetry Stack on kubernetes
 - [Default Variables](#default-variables)
   - [opentelemetry_additionnal_config](#opentelemetry_additionnal_config)
   - [opentelemetry_chart_version](#opentelemetry_chart_version)
+  - [opentelemetry_cleanup_job_image_repository](#opentelemetry_cleanup_job_image_repository)
   - [opentelemetry_cluster_name](#opentelemetry_cluster_name)
   - [opentelemetry_collectors](#opentelemetry_collectors)
   - [opentelemetry_collectors_daemon_config](#opentelemetry_collectors_daemon_config)
@@ -63,6 +64,16 @@ Opentelemetry chart version
 
 ```YAML
 opentelemetry_chart_version: 0.9.3
+```
+
+### opentelemetry_cleanup_job_image_repository
+
+Cleanup job delete hook image name
+
+#### Default value
+
+```YAML
+opentelemetry_cleanup_job_image_repository: bitnamisecure/kubectl
 ```
 
 ### opentelemetry_cluster_name
