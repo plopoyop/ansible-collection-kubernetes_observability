@@ -45,6 +45,10 @@ collectors:
 {{ opentelemetry_additionnal_config | ansible.builtin.to_nice_yaml }}
 {% endif %}
 
+cleanupJob:
+  image:
+    repository: "{{ opentelemetry_cleanup_job_image_repository }}"
+
 kubernetesServiceMonitors:
   enabled: {{ opentelemetry_kubernetes_service_monitors_enabled }}
 kubeApiServer:
