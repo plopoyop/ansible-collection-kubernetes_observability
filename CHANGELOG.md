@@ -1,5 +1,23 @@
 # Changelog
 
+## [4.1.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/4.1.0) (2025-10-01)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/4.0.0...4.1.0)
+
+## 🐛 Bug Fixes
+
+- force cleanup job image name [\#85](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/85) ([plopoyop](https://github.com/plopoyop))
+
+## ⚙️ Dependencies
+
+- feat\(deps\): update pre-commit hook ansible/ansible-lint \(v25.8.2 → v25.9.0\) [\#81](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/81) ([plopoyop](https://github.com/plopoyop))
+- fix\(helm\): update chart opentelemetry-kube-stack \(0.9.1 → 0.9.3\) [\#78](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/78) ([plopoyop](https://github.com/plopoyop))
+- fix\(ci\): update renovatebot/github-action action \(v43.0.11 → v43.0.12\) [\#77](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/77) ([plopoyop](https://github.com/plopoyop))
+
+**Closed issues:**
+
+- Opentelemetry cleanup doesn't work [\#84](https://github.com/plopoyop/ansible-collection-kubernetes_observability/issues/84)
+
 ## [4.0.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/4.0.0) (2025-09-14)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/3.0.0...4.0.0)
