@@ -25,7 +25,6 @@ Install and configure Grafana on kubernetes
   - [loki_schema_config](#loki_schema_config)
   - [loki_single_binary_replication_factor](#loki_single_binary_replication_factor)
   - [loki_single_binary_resources](#loki_single_binary_resources)
-  - [loki_storage_admin_api_directory](#loki_storage_admin_api_directory)
   - [loki_storage_azure_account_key](#loki_storage_azure_account_key)
   - [loki_storage_azure_account_name](#loki_storage_azure_account_name)
   - [loki_storage_azure_connection_string](#loki_storage_azure_connection_string)
@@ -271,16 +270,6 @@ loki_single_binary_resources:
     memory: 2Gi
   limits:
     memory: 4Gi
-```
-
-### loki_storage_admin_api_directory
-
-Directory for filesystem admin api storage
-
-#### Default value
-
-```YAML
-loki_storage_admin_api_directory: /var/loki/admin
 ```
 
 ### loki_storage_azure_account_key
