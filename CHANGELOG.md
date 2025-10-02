@@ -8,6 +8,10 @@
 
 - force cleanup job image name [\#85](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/85) ([plopoyop](https://github.com/plopoyop))
 
+## 📖 Documentation Updates
+
+- update grafana & loki readme [\#86](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/86) ([plopoyop](https://github.com/plopoyop))
+
 ## ⚙️ Dependencies
 
 - update devenv to 1.9.1 [\#87](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/87) ([plopoyop](https://github.com/plopoyop))
