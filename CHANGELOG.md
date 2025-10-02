@@ -10,6 +10,7 @@
 
 ## ⚙️ Dependencies
 
+- update devenv to 1.9.1 [\#87](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/87) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart loki \(6.40.0 → 6.41.1\) [\#83](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/83) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\)!: Update chart grafana \(9.4.5 → 10.0.0\) [\#82](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/82) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update pre-commit hook ansible/ansible-lint \(v25.8.2 → v25.9.0\) [\#81](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/81) ([plopoyop](https://github.com/plopoyop))
