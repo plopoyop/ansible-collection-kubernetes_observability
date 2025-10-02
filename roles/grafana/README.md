@@ -27,6 +27,7 @@ Install and configure Grafana on kubernetes
   - [grafana_notifiers](#grafana_notifiers)
   - [grafana_plugins](#grafana_plugins)
   - [grafana_replicas](#grafana_replicas)
+  - [grafana_resources](#grafana_resources)
 - [Dependencies](#dependencies)
 - [License](#license)
 - [Author](#author)
@@ -323,6 +324,28 @@ Number of pod replicas for Grafana
 
 ```YAML
 grafana_replicas: 1
+```
+
+### grafana_resources
+
+Annotations for Grafana ingress
+
+#### Default value
+
+```YAML
+grafana_resources: {}
+```
+
+#### Example usage
+
+```YAML
+grafana_resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
 ```
 
 
