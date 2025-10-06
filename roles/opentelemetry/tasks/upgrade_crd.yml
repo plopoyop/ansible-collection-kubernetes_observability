@@ -1,0 +1,20 @@
+---
+- name: Validate CRD URLs
+  ansible.builtin.uri:
+    url: "{{ opentelemetry_current_crd }}"
+    method: HEAD
+    return_content: false
+    status_code: 200
+  changed_when: false
+
+- name: Apply CRD
+  kubernetes.core.k8s:
+    state: "patched"
+    force: true
+    apply: true
+    definition: "{{ lookup('ansible.builtin.url', '{{ opentelemetry_current_crd }}', split_lines=false) }}"
+    namespace: "{{ opentelemetry_namespace }}"
+  register: opentelemetry_current_crd_apply_results
+  retries: 3
+  delay: 5
+  until: opentelemetry_current_crd_apply_results is succeeded

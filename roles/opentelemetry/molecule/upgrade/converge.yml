@@ -1,0 +1,20 @@
+---
+- name: Converge
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  vars:
+    opentelemetry_upgrade_crd: true
+    opentelemetry_collectors_daemon_config:
+      enabled: true
+    opentelemetry_instrumentations:
+      - name: "demo-instrumentation"
+        endpoint: "http://otel-collector-daemon-collector.opentelemetry.svc.cluster.local:4318"
+        state: "present"
+        propagators:
+          - tracecontext
+          - baggage
+  tasks:
+    - name: "Call Opentelemetry role"
+      ansible.builtin.import_role:
+        name: "opentelemetry"

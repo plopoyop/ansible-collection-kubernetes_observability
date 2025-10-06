@@ -3,3 +3,8 @@
 opentelemetry_helm_repo_name: "open-telemetry"
 opentelemetry_helm_repo_url: "https://open-telemetry.github.io/opentelemetry-helm-charts"
 opentelemetry_kube_stack_chart_ref: "{{ opentelemetry_helm_repo_name }}/opentelemetry-kube-stack"
+opentelemetry_crds_to_upgrade:
+  - "https://raw.githubusercontent.com/open-telemetry/opentelemetry-operator/refs/{{ opentelemetry_operator_crd_version }}/config/crd/bases/opentelemetry.io_opentelemetrycollectors.yaml"
+  - "https://raw.githubusercontent.com/open-telemetry/opentelemetry-operator/refs/{{ opentelemetry_operator_crd_version }}/config/crd/bases/opentelemetry.io_opampbridges.yaml"
+  - "https://raw.githubusercontent.com/open-telemetry/opentelemetry-operator/refs/{{ opentelemetry_operator_crd_version }}/config/crd/bases/opentelemetry.io_instrumentations.yaml"
+  - "https://raw.githubusercontent.com/open-telemetry/opentelemetry-operator/refs/{{ opentelemetry_operator_crd_version }}/config/crd/bases/opentelemetry.io_targetallocators.yaml"
