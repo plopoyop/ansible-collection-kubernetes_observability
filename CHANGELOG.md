@@ -1,6 +1,6 @@
 # Changelog
 
-## [5.0.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.0.0) (2025-10-02)
+## [5.0.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.0.0) (2025-10-06)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/4.0.0...5.0.0)
 
@@ -14,6 +14,8 @@
 
 ## ⚙️ Dependencies
 
+- fix\(deps\): update pre-commit hook ansible/ansible-lint \(v25.9.0 → v25.9.1\) [\#89](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/89) ([plopoyop](https://github.com/plopoyop))
+- fix\(ci\): update renovatebot/github-action action \(v43.0.12 → v43.0.14\) [\#88](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/88) ([plopoyop](https://github.com/plopoyop))
 - update devenv to 1.9.1 [\#87](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/87) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart loki \(6.40.0 → 6.41.1\) [\#83](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/83) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\)!: Update chart grafana \(9.4.5 → 10.0.0\) [\#82](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/82) ([plopoyop](https://github.com/plopoyop))
