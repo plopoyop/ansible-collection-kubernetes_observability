@@ -11,6 +11,21 @@
     name: "{{ opentelemetry_helm_repo_name }}"
     repo_url: "{{ opentelemetry_helm_repo_url }}"
 
+- name: Gather information about test-chart with pending state
+  kubernetes.core.helm_info:
+    name: "{{ opentelemetry_release_name }}"
+    release_namespace: "{{ opentelemetry_namespace }}"
+    release_state:
+      - "deployed"
+  register: "opentelemetry_current_release"
+
+- name: Upgrade CRDs with content from github
+  ansible.builtin.include_tasks: "upgrade_crd.yml"
+  loop: "{{ opentelemetry_crds_to_upgrade }}"
+  loop_control:
+    loop_var: "opentelemetry_current_crd"
+  when: opentelemetry_upgrade_crd and (opentelemetry_current_release.status.status is defined or opentelemetry_crd_force_upgrade)
+
 - name: Deploy OpenTelemetry Kube stack
   kubernetes.core.helm:
     name: "{{ opentelemetry_release_name }}"

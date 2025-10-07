@@ -231,3 +231,21 @@ opentelemetry_node_exporter_enabled: true
 #           - name: OTEL_METRICS_EXPORTER
 #             value: "none"
 opentelemetry_instrumentations: []
+
+# @var opentelemetry_upgrade_crd
+# @var opentelemetry_upgrade_crd:type: boolean
+# @var opentelemetry_upgrade_crd:description: >
+# Upgrade CRDs with github manifest
+opentelemetry_upgrade_crd: false
+
+# @var opentelemetry_operator_crd_version
+# @var opentelemetry_operator_crd_version:type: string
+# @var opentelemetry_operator_crd_version:description: >
+# Git ref for CRDs manifest
+opentelemetry_operator_crd_version: "tags/v0.136.0"
+
+# @var opentelemetry_crd_force_upgrade
+# @var opentelemetry_crd_force_upgrade:type: boolean
+# @var opentelemetry_crd_force_upgrade:description: >
+# Force CRDs upgrade, even if helm package is not in "deployed" state
+opentelemetry_crd_force_upgrade: false

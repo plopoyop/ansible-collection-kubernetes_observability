@@ -12,6 +12,7 @@ Install and configure Opentelemetry Stack on kubernetes
   - [opentelemetry_cluster_name](#opentelemetry_cluster_name)
   - [opentelemetry_collectors](#opentelemetry_collectors)
   - [opentelemetry_collectors_daemon_config](#opentelemetry_collectors_daemon_config)
+  - [opentelemetry_crd_force_upgrade](#opentelemetry_crd_force_upgrade)
   - [opentelemetry_default_collector_additionnal_config](#opentelemetry_default_collector_additionnal_config)
   - [opentelemetry_default_collector_config_enabled](#opentelemetry_default_collector_config_enabled)
   - [opentelemetry_default_collector_config_exporters](#opentelemetry_default_collector_config_exporters)
@@ -33,7 +34,9 @@ Install and configure Opentelemetry Stack on kubernetes
   - [opentelemetry_namespace](#opentelemetry_namespace)
   - [opentelemetry_node_exporter_enabled](#opentelemetry_node_exporter_enabled)
   - [opentelemetry_operator_config](#opentelemetry_operator_config)
+  - [opentelemetry_operator_crd_version](#opentelemetry_operator_crd_version)
   - [opentelemetry_release_name](#opentelemetry_release_name)
+  - [opentelemetry_upgrade_crd](#opentelemetry_upgrade_crd)
 - [Dependencies](#dependencies)
 - [License](#license)
 - [Author](#author)
@@ -73,7 +76,7 @@ Cleanup job delete hook image name
 #### Default value
 
 ```YAML
-opentelemetry_cleanup_job_image_repository: bitnamisecure/kubectl
+opentelemetry_cleanup_job_image_repository: rancher/kubectl
 ```
 
 ### opentelemetry_cluster_name
@@ -107,6 +110,16 @@ memory: 7500Mi
 requests:
 cpu: 200m
 memory: 250Mi
+
+### opentelemetry_crd_force_upgrade
+
+Force CRDs upgrade, even if helm package is not in "deployed" state
+
+#### Default value
+
+```YAML
+opentelemetry_crd_force_upgrade: false
+```
 
 ### opentelemetry_default_collector_additionnal_config
 
@@ -344,6 +357,16 @@ manager:
 collectorImage:
 repository: otel/opentelemetry-collector-contrib
 
+### opentelemetry_operator_crd_version
+
+Git ref for CRDs manifest
+
+#### Default value
+
+```YAML
+opentelemetry_operator_crd_version: tags/v0.136.0
+```
+
 ### opentelemetry_release_name
 
 Release name for Opentelemetry
@@ -352,6 +375,16 @@ Release name for Opentelemetry
 
 ```YAML
 opentelemetry_release_name: otel-collector
+```
+
+### opentelemetry_upgrade_crd
+
+Upgrade CRDs with github manifest
+
+#### Default value
+
+```YAML
+opentelemetry_upgrade_crd: false
 ```
 
 
