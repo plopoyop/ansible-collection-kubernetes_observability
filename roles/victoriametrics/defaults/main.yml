@@ -130,7 +130,7 @@ victoriametrics_vmagent_namespace: "victoriametrics"
 # @var victoriametrics_vmagent_chart_version:type: string
 # @var victoriametrics_vmagent_chart_version:description: >
 # VMAgent chart version
-victoriametrics_vmagent_chart_version: 0.25.9
+victoriametrics_vmagent_chart_version: 0.25.10
 
 # @var victoriametrics_vmagent_deployment_name
 # @var victoriametrics_vmagent_deployment_name:type: string
