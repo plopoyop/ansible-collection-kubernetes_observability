@@ -1,6 +1,6 @@
 # Changelog
 
-## [5.0.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.0.0) (2025-10-06)
+## [5.0.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.0.0) (2025-10-07)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/4.0.0...5.0.0)
 
@@ -29,6 +29,10 @@
 **Closed issues:**
 
 - Opentelemetry cleanup doesn't work [\#84](https://github.com/plopoyop/ansible-collection-kubernetes_observability/issues/84)
+
+**Merged pull requests:**
+
+- Upgrade opentelemetry CRDs [\#93](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/93) ([plopoyop](https://github.com/plopoyop))
 
 ## [4.0.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/4.0.0) (2025-09-14)
 
