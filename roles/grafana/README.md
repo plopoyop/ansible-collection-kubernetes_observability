@@ -73,7 +73,7 @@ Grafana chart version
 #### Default value
 
 ```YAML
-grafana_chart_version: 10.0.0
+grafana_chart_version: 10.1.0
 ```
 
 ### grafana_dashboard_providers
