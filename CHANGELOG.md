@@ -1,8 +1,12 @@
 # Changelog
 
-## [5.0.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.0.0) (2025-10-07)
+## [5.0.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.0.0) (2025-11-02)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/4.0.0...5.0.0)
+
+## 🚀 New Features
+
+- Upgrade opentelemetry CRDs [\#93](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/93) ([plopoyop](https://github.com/plopoyop))
 
 ## 🐛 Bug Fixes
 
@@ -14,6 +18,7 @@
 
 ## ⚙️ Dependencies
 
+- fix\(ci\): update renovatebot/github-action action \(v43.0.14 → v43.0.16\) [\#94](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/94) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart opentelemetry-kube-stack \(0.9.3 → 0.11.0\) [\#92](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/92) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart loki \(6.41.1 → 6.42.0\) [\#91](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/91) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart victoria-metrics-agent \(0.25.9 → 0.25.10\) [\#90](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/90) ([plopoyop](https://github.com/plopoyop))
@@ -31,10 +36,6 @@
 **Closed issues:**
 
 - Opentelemetry cleanup doesn't work [\#84](https://github.com/plopoyop/ansible-collection-kubernetes_observability/issues/84)
-
-**Merged pull requests:**
-
-- Upgrade opentelemetry CRDs [\#93](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/93) ([plopoyop](https://github.com/plopoyop))
 
 ## [4.0.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/4.0.0) (2025-09-14)
 
