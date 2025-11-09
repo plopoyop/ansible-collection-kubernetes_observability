@@ -18,6 +18,7 @@
 
 ## ⚙️ Dependencies
 
+- fix\(helm\): update chart grafana \(10.1.0 → 10.1.4\) [\#102](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/102) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v43.0.16 → v43.0.20\) [\#101](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/101) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart loki \(6.42.0 → 6.43.0\) [\#100](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/100) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart victoria-metrics-single \(0.24.6 → 0.25.1\) [\#99](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/99) ([plopoyop](https://github.com/plopoyop))
