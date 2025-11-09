@@ -1,6 +1,6 @@
 # Changelog
 
-## [5.0.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.0.0) (2025-11-02)
+## [5.0.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.0.0) (2025-11-09)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/4.0.0...5.0.0)
 
@@ -18,6 +18,7 @@
 
 ## ⚙️ Dependencies
 
+- fix\(ci\): update renovatebot/github-action action \(v43.0.16 → v43.0.20\) [\#101](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/101) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart loki \(6.42.0 → 6.43.0\) [\#100](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/100) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart victoria-metrics-single \(0.24.6 → 0.25.1\) [\#99](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/99) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart victoria-metrics-agent \(0.25.10 → 0.26.1\) [\#98](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/98) ([plopoyop](https://github.com/plopoyop))
