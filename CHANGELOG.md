@@ -1,11 +1,12 @@
 # Changelog
 
-## [5.0.1](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.0.1) (2025-11-16)
+## [5.1.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.1.0) (2025-11-16)
 
-[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5.0.0...5.0.1)
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5.0.0...5.1.0)
 
 ## ⚙️ Dependencies
 
+- feat\(helm\): update chart opentelemetry-kube-stack \(0.11.1 → 0.12.0\) [\#109](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/109) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update pre-commit hook ansible/ansible-lint \(v25.9.2 → v25.11.0\) [\#108](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/108) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v44.0.0 → v44.0.2\) [\#107](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/107) ([plopoyop](https://github.com/plopoyop))
 
