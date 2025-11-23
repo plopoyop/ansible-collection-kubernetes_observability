@@ -7,6 +7,7 @@
 ## ⚙️ Dependencies
 
 - feat\(ci\)!: Update actions/checkout action \(v5 → v6\) [\#115](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/115) ([plopoyop](https://github.com/plopoyop))
+- fix\(helm\): update chart opentelemetry-kube-stack \(0.12.0 → 0.12.3\) [\#111](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/111) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v44.0.2 → v44.0.3\) [\#110](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/110) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart opentelemetry-kube-stack \(0.11.1 → 0.12.0\) [\#109](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/109) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update pre-commit hook ansible/ansible-lint \(v25.9.2 → v25.11.0\) [\#108](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/108) ([plopoyop](https://github.com/plopoyop))
