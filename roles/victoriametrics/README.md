@@ -49,7 +49,7 @@ Victoriametrics Single Server chart version
 #### Default value
 
 ```YAML
-victoriametrics_single_chart_version: 0.25.4
+victoriametrics_single_chart_version: 0.25.5
 ```
 
 ### victoriametrics_single_deployment_name
