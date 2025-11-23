@@ -16,7 +16,7 @@ opentelemetry_namespace: "opentelemetry"
 # @var opentelemetry_chart_version:type: string
 # @var opentelemetry_chart_version:description: >
 # Opentelemetry chart version
-opentelemetry_chart_version: 0.12.0
+opentelemetry_chart_version: 0.12.3
 
 # @var opentelemetry_release_name
 # @var opentelemetry_release_name:type: string
