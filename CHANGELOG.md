@@ -1,5 +1,13 @@
 # Changelog
 
+## [5.1.1](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.1.1) (2025-11-26)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5.1.0...5.1.1)
+
+## 🐛 Bug Fixes
+
+- Fix missing victoriametrics chart version [\#116](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/116) ([plopoyop](https://github.com/plopoyop))
+
 ## [5.1.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.1.0) (2025-11-23)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5.0.0...5.1.0)
