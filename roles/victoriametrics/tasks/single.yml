@@ -16,5 +16,6 @@
     name: "{{ victoriametrics_single_deployment_name }}"
     chart_ref: "{{ victoriametrics_single_chart_ref }}"
     namespace: "{{ victoriametrics_single_namespace }}"
+    chart_version: "{{ victoriametrics_single_chart_version }}"
     state: "present"
     values: "{{ lookup('template', 'victoriametrics_single_helm_values.yml.j2') | from_yaml }}"
