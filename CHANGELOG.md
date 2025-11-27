@@ -1,8 +1,12 @@
 # Changelog
 
-## [5.1.1](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.1.1) (2025-11-26)
+## [5.2.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.2.0) (2025-11-27)
 
-[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5.1.0...5.1.1)
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5.1.0...5.2.0)
+
+## 🚀 New Features
+
+- migrate from devenv to devbox [\#117](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/117) ([plopoyop](https://github.com/plopoyop))
 
 ## 🐛 Bug Fixes
 
