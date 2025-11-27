@@ -4,7 +4,6 @@
   connection: local
   gather_facts: false
   vars:
-    cloud_provider: "{{ lookup('env', 'DEVENV_DOTFILE') }}/bin/cloud-provider-kind"
     grafana_admin_password: "admin"
   tasks:
     - name: Build a kind cluster (wait for control plane).

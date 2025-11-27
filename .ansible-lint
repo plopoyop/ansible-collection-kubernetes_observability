@@ -5,5 +5,4 @@ skip_list:
 offline: true
 
 exclude_paths:
-  - ".devenv/"
   - "roles/opentelemetry/molecule/"

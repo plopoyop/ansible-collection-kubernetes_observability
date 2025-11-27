@@ -1,0 +1,34 @@
+{
+    "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/main/.schema/devbox.schema.json",
+    "packages": [
+      "ansible-doctor@8.0.0",
+      "ansible-lint@25.8.2",
+      "git@2.51.0",
+      "glibcLocales@2.40-66",
+      "go-task@3.45.4",
+      "kind@0.30.0",
+      "kubectl@1.34.1",
+      "kubernetes-helm@3.19.1",
+      "pre-commit@4.3.0",
+      "python313Packages.ansible@12.2.0",
+      "python313Packages.kubernetes@33.1.0",
+      "python313Packages.molecule@25.11.0",
+      "python313Packages.molecule-plugins@23.5.3",
+      "yamllint@1.37.1"
+    ],
+    "env": {
+      "DEVBOX_NO_PROMPT": "1",
+      "DEVBOX_VIRTUAL_ENV": "${DEVBOX_PROJECT_ROOT}/.devbox/virtenv"
+    },
+    "shell": {
+      "init_hook": [
+        "export ANSIBLE_HOME=${DEVBOX_VIRTUAL_ENV}/ansible;",
+        "export ANSIBLE_GALAXY_ROLES_PATH=${DEVBOX_VIRTUAL_ENV}/ansible/roles;",
+        "export ANSIBLE_GALAXY_COLLECTIONS_PATH=${DEVBOX_VIRTUAL_ENV}/ansible/collections;",
+        "export ANSIBLE_COLLECTION_ROLES_PATH=${DEVBOX_PROJECT_ROOT}/roles;",
+        "export ANSIBLE_ROLES_PATH=${ANSIBLE_GALAXY_ROLES_PATH}:${ANSIBLE_COLLECTION_ROLES_PATH};",
+        "export ANSIBLE_COLLECTIONS_PATH=${ANSIBLE_GALAXY_COLLECTIONS_PATH};",
+        "task prepare"
+      ]
+    }
+  }

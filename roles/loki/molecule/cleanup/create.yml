@@ -4,7 +4,6 @@
   connection: local
   gather_facts: false
   vars:
-    cloud_provider: "{{ lookup('env', 'DEVENV_DOTFILE') }}/bin/cloud-provider-kind"
     loki_storage_type: "filesystem"
     loki_schema_config:
       configs:
