@@ -4,7 +4,16 @@
   connection: local
   gather_facts: false
   vars:
-    opentelemetry_chart_version: "0.5.3"
+    opentelemetry_chart_version: 0.12.0
+    opentelemetry_collectors_daemon_config:
+      enabled: true
+    opentelemetry_instrumentations:
+      - name: "demo-instrumentation"
+        endpoint: "http://otel-collector-daemon-collector.opentelemetry.svc.cluster.local:4318"
+        state: "present"
+        propagators:
+          - tracecontext
+          - baggage
   tasks:
     - name: Build a kind cluster (wait for control plane).
       ansible.builtin.command: >-
