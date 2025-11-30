@@ -1,6 +1,6 @@
 # Changelog
 
-## [5.2.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.2.0) (2025-11-27)
+## [5.2.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.2.0) (2025-11-30)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5.1.0...5.2.0)
 
@@ -11,6 +11,13 @@
 ## 🐛 Bug Fixes
 
 - Fix missing victoriametrics chart version [\#116](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/116) ([plopoyop](https://github.com/plopoyop))
+
+## ⚙️ Dependencies
+
+- fix\(deps\): update kubectl \(1.34.1 → 1.34.2\) [\#121](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/121) ([plopoyop](https://github.com/plopoyop))
+- fix\(deps\): update go-task \(3.45.4 → 3.45.5\) [\#120](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/120) ([plopoyop](https://github.com/plopoyop))
+- fix\(deps\): update git \(2.51.0 → 2.51.2\) [\#119](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/119) ([plopoyop](https://github.com/plopoyop))
+- fix\(ci\): update renovatebot/github-action action \(v44.0.3 → v44.0.4\) [\#118](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/118) ([plopoyop](https://github.com/plopoyop))
 
 ## [5.1.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.1.0) (2025-11-23)
 
