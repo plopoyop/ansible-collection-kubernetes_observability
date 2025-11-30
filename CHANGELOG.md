@@ -14,6 +14,7 @@
 
 ## ⚙️ Dependencies
 
+- feat\(ci\)!: Update actions/checkout action \(v5 → v6\) [\#124](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/124) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update pre-commit hook ansible/ansible-lint \(v25.11.0 → v25.11.1\) [\#122](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/122) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update kubectl \(1.34.1 → 1.34.2\) [\#121](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/121) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update go-task \(3.45.4 → 3.45.5\) [\#120](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/120) ([plopoyop](https://github.com/plopoyop))
