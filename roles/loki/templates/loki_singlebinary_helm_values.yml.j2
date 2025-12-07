@@ -35,8 +35,8 @@ loki:
   readinessProbe: {{ loki_readiness_probe }}
 {% endif %}
 
-{% if loki_additionnal_server_config is defined %}
-  {{ loki_additionnal_server_config | ansible.builtin.to_nice_yaml | indent(2) }}
+{% if loki_additional_server_config is defined %}
+  {{ loki_additional_server_config | ansible.builtin.to_nice_yaml | indent(2) }}
 {% endif %}
 
   commonConfig:
@@ -100,8 +100,8 @@ loki:
       endpointSuffix: "{{ loki_storage_azure_endpoint_suffix }}"
 {% endif %}
 
-{% if loki_additionnal_config is defined %}
-{{ loki_additionnal_config | to_nice_yaml }}
+{% if loki_additional_config is defined %}
+{{ loki_additional_config | to_nice_yaml }}
 {% endif %}
 
 {% if loki_ingress_enabled %}

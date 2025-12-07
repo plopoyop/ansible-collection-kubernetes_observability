@@ -6,14 +6,14 @@ Install and configure Opentelemetry Stack on kubernetes
 
 - [Requirements](#requirements)
 - [Default Variables](#default-variables)
-  - [opentelemetry_additionnal_config](#opentelemetry_additionnal_config)
+  - [opentelemetry_additional_config](#opentelemetry_additional_config)
   - [opentelemetry_chart_version](#opentelemetry_chart_version)
   - [opentelemetry_cleanup_job_image_repository](#opentelemetry_cleanup_job_image_repository)
   - [opentelemetry_cluster_name](#opentelemetry_cluster_name)
   - [opentelemetry_collectors](#opentelemetry_collectors)
   - [opentelemetry_collectors_daemon_config](#opentelemetry_collectors_daemon_config)
   - [opentelemetry_crd_force_upgrade](#opentelemetry_crd_force_upgrade)
-  - [opentelemetry_default_collector_additionnal_config](#opentelemetry_default_collector_additionnal_config)
+  - [opentelemetry_default_collector_additional_config](#opentelemetry_default_collector_additional_config)
   - [opentelemetry_default_collector_config_enabled](#opentelemetry_default_collector_config_enabled)
   - [opentelemetry_default_collector_config_exporters](#opentelemetry_default_collector_config_exporters)
   - [opentelemetry_default_collector_config_extensions](#opentelemetry_default_collector_config_extensions)
@@ -50,11 +50,11 @@ Install and configure Opentelemetry Stack on kubernetes
 
 ## Default Variables
 
-### opentelemetry_additionnal_config
+### opentelemetry_additional_config
 
-Additionnal values for opentelemetry helm chart
-opentelemetry_additionnal_config:example: >
-opentelemetry_additionnal_config:
+additional values for opentelemetry helm chart
+opentelemetry_additional_config:example: >
+opentelemetry_additional_config:
 manager:
 collectorImage:
 repository: otel/opentelemetry-collector-contrib
@@ -91,7 +91,7 @@ opentelemetry_cluster_name: '{{ ansible_host }}'
 
 ### opentelemetry_collectors
 
-Additionnal collectors to create
+additional collectors to create
 opentelemetry_collectors:example: >
 opentelemetry_collectors:
 collectorName:
@@ -121,14 +121,14 @@ Force CRDs upgrade, even if helm package is not in "deployed" state
 opentelemetry_crd_force_upgrade: false
 ```
 
-### opentelemetry_default_collector_additionnal_config
+### opentelemetry_default_collector_additional_config
 
-Additionnal configuration to apply for all collectors
+additional configuration to apply for all collectors
 
 #### Example usage
 
 ```YAML
-opentelemetry_default_collector_additionnal_config:
+opentelemetry_default_collector_additional_config:
   targetAllocator:
     enabled: false
 ```
