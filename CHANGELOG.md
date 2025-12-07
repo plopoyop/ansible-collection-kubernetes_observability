@@ -1,6 +1,6 @@
 # Changelog
 
-## [5.2.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.2.0) (2025-11-30)
+## [5.2.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.2.0) (2025-12-07)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5.1.0...5.2.0)
 
@@ -14,6 +14,12 @@
 
 ## ⚙️ Dependencies
 
+- feat\(deps\): update python313packages.molecule \(25.11.0 → 25.12.0\) [\#130](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/130) ([plopoyop](https://github.com/plopoyop))
+- feat\(deps\): update pre-commit hook ansible/ansible-lint \(v25.11.1 → v25.12.0\) [\#129](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/129) ([plopoyop](https://github.com/plopoyop))
+- feat\(deps\): update pre-commit \(4.3.0 → 4.5.0\) [\#128](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/128) ([plopoyop](https://github.com/plopoyop))
+- fix\(helm\): update chart opentelemetry-kube-stack \(0.12.3 → 0.12.5\) [\#127](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/127) ([plopoyop](https://github.com/plopoyop))
+- fix\(deps\): update ansible-doctor \(8.0.0 → 8.0.1\) [\#126](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/126) ([plopoyop](https://github.com/plopoyop))
+- fix\(ci\): update renovatebot/github-action action \(v44.0.4 → v44.0.5\) [\#125](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/125) ([plopoyop](https://github.com/plopoyop))
 - feat\(ci\)!: Update actions/checkout action \(v5 → v6\) [\#124](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/124) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart opentelemetry-kube-stack \(0.12.0 → 0.12.3\) [\#123](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/123) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update pre-commit hook ansible/ansible-lint \(v25.11.0 → v25.11.1\) [\#122](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/122) ([plopoyop](https://github.com/plopoyop))
