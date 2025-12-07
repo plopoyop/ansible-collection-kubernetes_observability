@@ -6,6 +6,7 @@
 
 ## 🚀 New Features
 
+- Multiple coding style fixes [\#135](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/135) ([plopoyop](https://github.com/plopoyop))
 - migrate from devenv to devbox [\#117](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/117) ([plopoyop](https://github.com/plopoyop))
 
 ## 🐛 Bug Fixes
