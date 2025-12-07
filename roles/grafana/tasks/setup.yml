@@ -18,4 +18,4 @@
     namespace: "{{ grafana_namespace }}"
     chart_version: "{{ grafana_chart_version }}"
     state: present
-    values: "{{ lookup('template', 'grafana_helm_values.yml.j2') | from_yaml }}"
+    values: "{{ lookup('ansible.builtin.template', 'grafana_helm_values.yml.j2') | from_yaml }}"

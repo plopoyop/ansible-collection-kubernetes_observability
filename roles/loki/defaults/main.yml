@@ -209,7 +209,7 @@ loki_storage_rules_directory: "/var/loki/rules"
 # @var loki_storage_s3_http_config
 # @var loki_storage_s3_http_config:type: dict
 # @var loki_storage_s3_http_config:description: >
-# Additionnal HTTP config for S3 Storage
+# additional HTTP config for S3 Storage
 # loki_storage_s3_http_config:example: >
 # loki_storage_s3_http_config:
 #   timeout: 30s

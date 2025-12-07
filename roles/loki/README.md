@@ -358,7 +358,7 @@ Force the request to use path-style addressing
 
 ### loki_storage_s3_http_config
 
-Additionnal HTTP config for S3 Storage
+additional HTTP config for S3 Storage
 loki_storage_s3_http_config:example: >
 loki_storage_s3_http_config:
 timeout: 30s

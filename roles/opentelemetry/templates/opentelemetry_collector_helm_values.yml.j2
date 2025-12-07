@@ -9,8 +9,8 @@ opentelemetry-operator:
 defaultCRConfig:
   enabled: {{ opentelemetry_default_collector_config_enabled }}
 
-{% if opentelemetry_default_collector_additionnal_config is defined %}
-  {{ opentelemetry_default_collector_additionnal_config | ansible.builtin.to_nice_yaml | indent(2) }}
+{% if opentelemetry_default_collector_additional_config is defined %}
+  {{ opentelemetry_default_collector_additional_config | ansible.builtin.to_nice_yaml | indent(2) }}
 {% endif %}
 
   config:
@@ -41,8 +41,8 @@ collectors:
   {{ opentelemetry_collectors | ansible.builtin.to_nice_yaml | indent(2) }}
 {% endif %}
 
-{% if opentelemetry_additionnal_config is defined %}
-{{ opentelemetry_additionnal_config | ansible.builtin.to_nice_yaml }}
+{% if opentelemetry_additional_config is defined %}
+{{ opentelemetry_additional_config | ansible.builtin.to_nice_yaml }}
 {% endif %}
 
 cleanupJob:
