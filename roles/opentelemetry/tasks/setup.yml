@@ -34,7 +34,7 @@
     chart_version: "{{ opentelemetry_chart_version }}"
     update_repo_cache: true
     state: "present"
-    values: "{{ lookup('template', 'opentelemetry_collector_helm_values.yml.j2') | from_yaml }}"
+    values: "{{ lookup('ansible.builtin.template', 'opentelemetry_collector_helm_values.yml.j2') | from_yaml }}"
     wait: true
 
 - name: Deploy OpenTelemetry Instrumentation Resources

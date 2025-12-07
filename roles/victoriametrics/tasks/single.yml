@@ -18,4 +18,4 @@
     namespace: "{{ victoriametrics_single_namespace }}"
     chart_version: "{{ victoriametrics_single_chart_version }}"
     state: "present"
-    values: "{{ lookup('template', 'victoriametrics_single_helm_values.yml.j2') | from_yaml }}"
+    values: "{{ lookup('ansible.builtin.template', 'victoriametrics_single_helm_values.yml.j2') | from_yaml }}"
