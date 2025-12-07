@@ -1,8 +1,8 @@
 # Changelog
 
-## [5.2.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.2.0) (2025-12-07)
+## [6.0.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/6.0.0) (2025-12-07)
 
-[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5.1.0...5.2.0)
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5.1.0...6.0.0)
 
 ## 🚀 New Features
 
@@ -14,6 +14,7 @@
 
 ## ⚙️ Dependencies
 
+- feat\(deps\)!: Update python313Packages.ansible \(12.2.0 → 13.0.0\) [\#134](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/134) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update python313packages.molecule \(25.11.0 → 25.12.0\) [\#130](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/130) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update pre-commit hook ansible/ansible-lint \(v25.11.1 → v25.12.0\) [\#129](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/129) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update pre-commit \(4.3.0 → 4.5.0\) [\#128](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/128) ([plopoyop](https://github.com/plopoyop))
