@@ -15,6 +15,7 @@
 
 ## ⚙️ Dependencies
 
+- feat\(helm\): update chart loki \(6.46.0 → 6.49.0\) [\#140](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/140) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart grafana \(10.3.0 → 10.3.1\) [\#137](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/137) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update pre-commit hook ansible/ansible-lint \(v25.12.0 → v25.12.1\) [\#136](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/136) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\)!: Update python313Packages.ansible \(12.2.0 → 13.0.0\) [\#134](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/134) ([plopoyop](https://github.com/plopoyop))
