@@ -1,6 +1,6 @@
 # Changelog
 
-## [6.0.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/6.0.0) (2025-12-07)
+## [6.0.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/6.0.0) (2025-12-14)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5.1.0...6.0.0)
 
@@ -15,6 +15,8 @@
 
 ## ⚙️ Dependencies
 
+- fix\(helm\): update chart grafana \(10.3.0 → 10.3.1\) [\#137](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/137) ([plopoyop](https://github.com/plopoyop))
+- fix\(deps\): update pre-commit hook ansible/ansible-lint \(v25.12.0 → v25.12.1\) [\#136](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/136) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\)!: Update python313Packages.ansible \(12.2.0 → 13.0.0\) [\#134](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/134) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart victoria-metrics-single \(0.25.5 → 0.26.0\) [\#133](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/133) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart victoria-metrics-agent \(0.26.5 → 0.27.1\) [\#132](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/132) ([plopoyop](https://github.com/plopoyop))
