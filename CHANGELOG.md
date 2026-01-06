@@ -1,11 +1,12 @@
 # Changelog
 
-## [5.2.1](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.2.1) (2026-01-06)
+## [5.3.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.3.0) (2026-01-06)
 
-[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5.2.0...5.2.1)
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5.2.0...5.3.0)
 
 ## ⚙️ Dependencies
 
+- feat\(helm\): update chart grafana \(10.3.1 → 10.5.3\) [\#144](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/144) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update pre-commit hook ansible/ansible-lint \(v25.12.1 → v25.12.2\) [\#142](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/142) ([plopoyop](https://github.com/plopoyop))
 
 **Merged pull requests:**
