@@ -6,6 +6,7 @@
 
 ## ⚙️ Dependencies
 
+- feat\(helm\): update chart victoria-metrics-single \(0.26.0 → 0.28.0\) [\#146](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/146) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart grafana \(10.3.1 → 10.5.3\) [\#144](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/144) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update pre-commit hook ansible/ansible-lint \(v25.12.1 → v25.12.2\) [\#142](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/142) ([plopoyop](https://github.com/plopoyop))
 
