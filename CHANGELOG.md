@@ -1,12 +1,16 @@
 # Changelog
 
-## [5.2.1](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.2.1) (2026-01-04)
+## [5.2.1](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.2.1) (2026-01-06)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5.2.0...5.2.1)
 
 ## ⚙️ Dependencies
 
 - fix\(deps\): update pre-commit hook ansible/ansible-lint \(v25.12.1 → v25.12.2\) [\#142](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/142) ([plopoyop](https://github.com/plopoyop))
+
+**Merged pull requests:**
+
+- feat\(deps\): update python313packages.ansible \(13.0.0 → 13.1.0\) [\#143](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/143) ([plopoyop](https://github.com/plopoyop))
 
 ## [5.2.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.2.0) (2025-12-14)
 
