@@ -6,6 +6,7 @@
 
 ## ⚙️ Dependencies
 
+- fix\(helm\): update chart grafana \(10.5.3 → 10.5.5\) [\#148](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/148) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v44.2.2 → v44.2.3\) [\#147](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/147) ([plopoyop](https://github.com/plopoyop))
 
 **Merged pull requests:**
