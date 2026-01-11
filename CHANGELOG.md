@@ -1,5 +1,13 @@
 # Changelog
 
+## [5.3.2](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.3.2) (2026-01-11)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5.3.1...5.3.2)
+
+**Merged pull requests:**
+
+- feat\(deps\): update git \(2.51.2 → 2.52.0\) [\#150](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/150) ([plopoyop](https://github.com/plopoyop))
+
 ## [5.3.1](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.3.1) (2026-01-10)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5.3.0...5.3.1)
