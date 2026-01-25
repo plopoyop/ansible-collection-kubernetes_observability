@@ -1,17 +1,19 @@
 # Changelog
 
-## [5.3.2](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.3.2) (2026-01-18)
+## [5.3.2](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.3.2) (2026-01-25)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5.3.1...5.3.2)
 
 ## ⚙️ Dependencies
 
+- fix\(ci\): update renovatebot/github-action action \(v44.2.4 → v44.2.5\) [\#156](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/156) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update pre-commit hook ansible/ansible-lint \(v26.1.0 → v26.1.1\) [\#153](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/153) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v44.2.3 → v44.2.4\) [\#152](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/152) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\)!: Update pre-commit hook ansible/ansible-lint \(v25.12.2 → v26.1.0\) [\#151](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/151) ([plopoyop](https://github.com/plopoyop))
 
 **Merged pull requests:**
 
+- feat\(deps\): update ansible-doctor \(8.1.1 → 8.2.0\) [\#157](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/157) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update kubectl \(1.34.3 → 1.35.0\) [\#155](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/155) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update git \(2.51.2 → 2.52.0\) [\#150](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/150) ([plopoyop](https://github.com/plopoyop))
 
