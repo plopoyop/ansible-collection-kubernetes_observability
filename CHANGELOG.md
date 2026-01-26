@@ -1,8 +1,12 @@
 # Changelog
 
-## [5.3.2](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.3.2) (2026-01-25)
+## [5.3.2](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.3.2) (2026-01-26)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5.3.1...5.3.2)
+
+## 🐛 Bug Fixes
+
+- Pin urllib3 to version 2.5 [\#158](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/158) ([plopoyop](https://github.com/plopoyop))
 
 ## ⚙️ Dependencies
 
