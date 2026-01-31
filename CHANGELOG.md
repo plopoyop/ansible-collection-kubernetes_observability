@@ -1,11 +1,15 @@
 # Changelog
 
-## [5.3.3](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.3.3) (2026-01-31)
+## [5.4.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.4.0) (2026-01-31)
 
-[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5.3.2...5.3.3)
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5.3.2...5.4.0)
 
 ## ⚙️ Dependencies
 
+- feat\(ci\)!: Update renovatebot/github-action action \(v44.2.6 → v46.0.0\) [\#166](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/166) ([plopoyop](https://github.com/plopoyop))
+- feat\(helm\): update chart loki \(6.49.0 → 6.51.0\) [\#162](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/162) ([plopoyop](https://github.com/plopoyop))
+- feat\(deps\): update pre-commit hook adrienverge/yamllint \(v1.37.1 → v1.38.0\) [\#161](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/161) ([plopoyop](https://github.com/plopoyop))
+- fix\(helm\): update chart grafana \(10.5.8 → 10.5.15\) [\#160](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/160) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v44.2.5 → v44.2.6\) [\#159](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/159) ([plopoyop](https://github.com/plopoyop))
 
 ## [5.3.2](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.3.2) (2026-01-26)
