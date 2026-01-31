@@ -7,6 +7,7 @@
 ## ⚙️ Dependencies
 
 - feat\(ci\)!: Update renovatebot/github-action action \(v44.2.6 → v46.0.0\) [\#166](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/166) ([plopoyop](https://github.com/plopoyop))
+- feat\(helm\): update chart victoria-metrics-agent \(0.29.0 → 0.30.0\) [\#164](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/164) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart loki \(6.49.0 → 6.51.0\) [\#162](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/162) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update pre-commit hook adrienverge/yamllint \(v1.37.1 → v1.38.0\) [\#161](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/161) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart grafana \(10.5.8 → 10.5.15\) [\#160](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/160) ([plopoyop](https://github.com/plopoyop))
