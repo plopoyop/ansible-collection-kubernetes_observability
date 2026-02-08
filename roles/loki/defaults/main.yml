@@ -16,7 +16,7 @@ loki_namespace: "loki"
 # @var loki_chart_version:type: string
 # @var loki_chart_version:description: >
 # Grafana chart version
-loki_chart_version: 6.51.0
+loki_chart_version: 6.52.0
 
 # @var loki_release_name
 # @var loki_release_name:type: string
