@@ -6,6 +6,7 @@
 
 ## ⚙️ Dependencies
 
+- feat\(helm\): update chart loki \(6.51.0 → 6.52.0\) [\#170](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/170) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v46.0.0 → v46.0.1\) [\#169](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/169) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart victoria-metrics-single \(0.29.0 → 0.30.0\) [\#168](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/168) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart victoria-metrics-agent \(0.30.0 → 0.31.0\) [\#167](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/167) ([plopoyop](https://github.com/plopoyop))
