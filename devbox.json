@@ -5,7 +5,7 @@
       "path:.#ansible-lint",
       "git@2.52.0",
       "glibcLocales@2.40-66",
-      "go-task@3.45.5",
+      "go-task@3.48.0",
       "kind@0.31.0",
       "kubectl@1.35.0",
       "kubernetes-helm@3.19.1",
