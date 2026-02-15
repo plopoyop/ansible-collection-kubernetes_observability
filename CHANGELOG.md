@@ -1,11 +1,12 @@
 # Changelog
 
-## [5.4.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.4.0) (2026-02-08)
+## [5.4.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.4.0) (2026-02-15)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5.3.2...5.4.0)
 
 ## ⚙️ Dependencies
 
+- fix\(ci\): update renovatebot/github-action action \(v46.0.1 → v46.0.2\) [\#171](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/171) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart loki \(6.51.0 → 6.52.0\) [\#170](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/170) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v46.0.0 → v46.0.1\) [\#169](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/169) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart victoria-metrics-single \(0.29.0 → 0.30.0\) [\#168](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/168) ([plopoyop](https://github.com/plopoyop))
@@ -18,6 +19,10 @@
 - feat\(deps\): update pre-commit hook adrienverge/yamllint \(v1.37.1 → v1.38.0\) [\#161](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/161) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart grafana \(10.5.8 → 10.5.15\) [\#160](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/160) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v44.2.5 → v44.2.6\) [\#159](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/159) ([plopoyop](https://github.com/plopoyop))
+
+**Merged pull requests:**
+
+- feat\(deps\): update go-task \(3.45.5 → 3.48.0\) [\#172](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/172) ([plopoyop](https://github.com/plopoyop))
 
 ## [5.3.2](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.3.2) (2026-01-26)
 
