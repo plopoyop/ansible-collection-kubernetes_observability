@@ -6,6 +6,7 @@
 
 ## ⚙️ Dependencies
 
+- feat\(ci\)!: Update artis3n/ansible\_galaxy\_collection action \(v2 → v3\) [\#178](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/178) ([plopoyop](https://github.com/plopoyop))
 - feat\(ci\): update renovatebot/github-action action \(v46.0.2 → v46.1.1\) [\#173](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/173) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v46.0.1 → v46.0.2\) [\#171](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/171) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart loki \(6.51.0 → 6.52.0\) [\#170](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/170) ([plopoyop](https://github.com/plopoyop))
