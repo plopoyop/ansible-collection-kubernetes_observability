@@ -1,11 +1,12 @@
 # Changelog
 
-## [5.4.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.4.0) (2026-02-15)
+## [5.4.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.4.0) (2026-02-22)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5.3.2...5.4.0)
 
 ## ⚙️ Dependencies
 
+- feat\(ci\): update renovatebot/github-action action \(v46.0.2 → v46.1.1\) [\#173](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/173) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v46.0.1 → v46.0.2\) [\#171](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/171) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart loki \(6.51.0 → 6.52.0\) [\#170](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/170) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v46.0.0 → v46.0.1\) [\#169](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/169) ([plopoyop](https://github.com/plopoyop))
