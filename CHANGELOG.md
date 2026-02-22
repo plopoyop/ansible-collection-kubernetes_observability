@@ -8,6 +8,7 @@
 
 - feat\(ci\)!: Update artis3n/ansible\_galaxy\_collection action \(v2 → v3\) [\#178](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/178) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart victoria-metrics-single \(0.30.0 → 0.31.0\) [\#177](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/177) ([plopoyop](https://github.com/plopoyop))
+- feat\(helm\): update chart victoria-metrics-agent \(0.31.0 → 0.32.0\) [\#176](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/176) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart opentelemetry-kube-stack \(0.13.1 → 0.14.4\) [\#175](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/175) ([plopoyop](https://github.com/plopoyop))
 - feat\(ci\): update renovatebot/github-action action \(v46.0.2 → v46.1.1\) [\#173](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/173) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v46.0.1 → v46.0.2\) [\#171](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/171) ([plopoyop](https://github.com/plopoyop))
