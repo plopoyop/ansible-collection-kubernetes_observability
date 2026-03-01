@@ -3,7 +3,7 @@
     "packages": [
       "path:.#ansible-doctor",
       "path:.#ansible-lint",
-      "git@2.52.0",
+      "git@2.53.0",
       "glibcLocales@2.40-66",
       "go-task@3.48.0",
       "kind@0.31.0",
