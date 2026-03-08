@@ -7,6 +7,7 @@
 ## ⚙️ Dependencies
 
 - fix\(ci\): update renovatebot/github-action action \(v46.1.2 → v46.1.3\) [\#182](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/182) ([plopoyop](https://github.com/plopoyop))
+- fix\(helm\): update chart opentelemetry-kube-stack \(0.14.4 → 0.14.6\) [\#180](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/180) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v46.1.1 → v46.1.2\) [\#179](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/179) ([plopoyop](https://github.com/plopoyop))
 
 **Merged pull requests:**
