@@ -201,87 +201,87 @@
         }
       }
     },
-    "kubectl@1.35.0": {
-      "last_modified": "2026-01-09T13:41:53Z",
-      "resolved": "github:NixOS/nixpkgs/5f02c91314c8ba4afe83b256b023756412218535#kubectl",
+    "kubectl@1.35.2": {
+      "last_modified": "2026-03-12T22:11:02Z",
+      "resolved": "github:NixOS/nixpkgs/24f4544180242cd80bb2492ce6907243bc716e08#kubectl",
       "source": "devbox-search",
-      "version": "1.35.0",
+      "version": "1.35.2",
       "systems": {
         "aarch64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/1pmn1vxfffzz5mxj3h0ijzpsynq50l5g-kubectl-1.35.0",
+              "path": "/nix/store/mkd1avr61r30gbfb4n0z4mj5913yh9mk-kubectl-1.35.2",
               "default": true
             },
             {
               "name": "man",
-              "path": "/nix/store/hh6nircg2v5iickmqfyx469f69rj0kag-kubectl-1.35.0-man",
+              "path": "/nix/store/vagy3nj2pa5b9yp8r7flq6wr28i8q6c0-kubectl-1.35.2-man",
               "default": true
             },
             {
               "name": "convert",
-              "path": "/nix/store/z72fbf5mxilrrlsfvdacxbw27k0gszdf-kubectl-1.35.0-convert"
+              "path": "/nix/store/dwmv3h7b5zp6qiznr8zav9xqg5hcfi2v-kubectl-1.35.2-convert"
             }
           ],
-          "store_path": "/nix/store/1pmn1vxfffzz5mxj3h0ijzpsynq50l5g-kubectl-1.35.0"
+          "store_path": "/nix/store/mkd1avr61r30gbfb4n0z4mj5913yh9mk-kubectl-1.35.2"
         },
         "aarch64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/fj8rhz380v89c3mq3br9ipislabppj4c-kubectl-1.35.0",
+              "path": "/nix/store/vxnmjnsdsgnnvgvdl4qbhmg3nawypcc4-kubectl-1.35.2",
               "default": true
             },
             {
               "name": "man",
-              "path": "/nix/store/hawgdz85f9qq9nalyq4nbrjbjw1f3356-kubectl-1.35.0-man",
+              "path": "/nix/store/1zmldjbz9zsavgl25n7jsg0i6wjqn2ka-kubectl-1.35.2-man",
               "default": true
             },
             {
               "name": "convert",
-              "path": "/nix/store/dv5kh8sv8q3kkzcw4lnbkknm2pzxv5ig-kubectl-1.35.0-convert"
+              "path": "/nix/store/nrx47hadz5jlarh5709a82fgw6v0kd1c-kubectl-1.35.2-convert"
             }
           ],
-          "store_path": "/nix/store/fj8rhz380v89c3mq3br9ipislabppj4c-kubectl-1.35.0"
+          "store_path": "/nix/store/vxnmjnsdsgnnvgvdl4qbhmg3nawypcc4-kubectl-1.35.2"
         },
         "x86_64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/d3gm9hvgbdhin2jh7nd8gwrf90jlmsw7-kubectl-1.35.0",
+              "path": "/nix/store/lm4das1r72pbn5bpqwhjisyx2a1cqvzw-kubectl-1.35.2",
               "default": true
             },
             {
               "name": "man",
-              "path": "/nix/store/za9ay0cna5hcqqmdk0flwinkd882997n-kubectl-1.35.0-man",
+              "path": "/nix/store/sadazjva7b450x1jy871j01fhanjy8lz-kubectl-1.35.2-man",
               "default": true
             },
             {
               "name": "convert",
-              "path": "/nix/store/5r5vrq35nbcp8wgflvwmigvr6iqx85n5-kubectl-1.35.0-convert"
+              "path": "/nix/store/xlvvcxcp4q28shl9fmg3wcyfg33rfk9y-kubectl-1.35.2-convert"
             }
           ],
-          "store_path": "/nix/store/d3gm9hvgbdhin2jh7nd8gwrf90jlmsw7-kubectl-1.35.0"
+          "store_path": "/nix/store/lm4das1r72pbn5bpqwhjisyx2a1cqvzw-kubectl-1.35.2"
         },
         "x86_64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/bbnq3nrmlhq0yjfhw84ciscpbr6hsb3b-kubectl-1.35.0",
+              "path": "/nix/store/5kws6h64r04kcwgdqppdw0p6h42i3j02-kubectl-1.35.2",
               "default": true
             },
             {
               "name": "man",
-              "path": "/nix/store/mnm7km6ik2x0pfhnylfm06vgxqvc78k0-kubectl-1.35.0-man",
+              "path": "/nix/store/7wsa1bdvvc7d5n37jbnmr5rsw89abrzp-kubectl-1.35.2-man",
               "default": true
             },
             {
               "name": "convert",
-              "path": "/nix/store/c88x5qq16ih9i7iv4zyx81w2zijqzmlf-kubectl-1.35.0-convert"
+              "path": "/nix/store/50r2dcxxjnrs42sawlsllshf5h57kvwy-kubectl-1.35.2-convert"
             }
           ],
-          "store_path": "/nix/store/bbnq3nrmlhq0yjfhw84ciscpbr6hsb3b-kubectl-1.35.0"
+          "store_path": "/nix/store/5kws6h64r04kcwgdqppdw0p6h42i3j02-kubectl-1.35.2"
         }
       }
     },
