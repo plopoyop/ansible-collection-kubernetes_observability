@@ -7,6 +7,7 @@
 ## ⚙️ Dependencies
 
 - feat\(ci\): update jetify-com/devbox-install-action action \(v0.14.0 → v0.15.0\) [\#194](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/194) ([plopoyop](https://github.com/plopoyop))
+- fix\(helm\): update chart opentelemetry-kube-stack \(0.14.6 → 0.14.9\) [\#193](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/193) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v46.1.6 → v46.1.7\) [\#192](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/192) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v46.1.4 → v46.1.5\) [\#188](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/188) ([plopoyop](https://github.com/plopoyop))
 
