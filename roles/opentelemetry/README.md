@@ -66,7 +66,7 @@ Opentelemetry chart version
 #### Default value
 
 ```YAML
-opentelemetry_chart_version: 0.14.9
+opentelemetry_chart_version: 0.14.10
 ```
 
 ### opentelemetry_cleanup_job_image_repository
