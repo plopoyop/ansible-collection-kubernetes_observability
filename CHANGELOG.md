@@ -1,5 +1,13 @@
 # Changelog
 
+## [5.6.2](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.6.2) (2026-04-08)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5.6.1...5.6.2)
+
+## ⚙️ Dependencies
+
+- feat\(deps\): update pre-commit hook ansible/ansible-lint \(v26.3.0 → v26.4.0\) [\#196](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/196) ([plopoyop](https://github.com/plopoyop))
+
 ## [5.6.1](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.6.1) (2026-04-05)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5.6.0...5.6.1)
