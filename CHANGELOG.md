@@ -7,6 +7,7 @@
 ## ⚙️ Dependencies
 
 - feat\(deps\): update pre-commit hook ansible/ansible-lint \(v26.3.0 → v26.4.0\) [\#196](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/196) ([plopoyop](https://github.com/plopoyop))
+- fix\(helm\): update chart opentelemetry-kube-stack \(0.14.9 → 0.14.10\) [\#195](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/195) ([plopoyop](https://github.com/plopoyop))
 
 ## [5.6.1](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.6.1) (2026-04-05)
 
