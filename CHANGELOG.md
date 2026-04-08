@@ -1,11 +1,13 @@
 # Changelog
 
-## [5.6.2](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.6.2) (2026-04-08)
+## [5.7.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.7.0) (2026-04-08)
 
-[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5.6.1...5.6.2)
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5.6.1...5.7.0)
 
 ## ⚙️ Dependencies
 
+- feat\(ci\)!: Update hugo19941994/delete-draft-releases action \(v2.0.0 → v3.0.0\) [\#199](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/199) ([plopoyop](https://github.com/plopoyop))
+- feat\(helm\): update chart victoria-metrics-single \(0.32.0 → 0.34.0\) [\#198](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/198) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update pre-commit hook ansible/ansible-lint \(v26.3.0 → v26.4.0\) [\#196](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/196) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart opentelemetry-kube-stack \(0.14.9 → 0.14.10\) [\#195](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/195) ([plopoyop](https://github.com/plopoyop))
 
