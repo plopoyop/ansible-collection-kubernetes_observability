@@ -6,6 +6,7 @@
 
 ## ⚙️ Dependencies
 
+- fix\(helm\): update chart opentelemetry-kube-stack \(0.14.10 → 0.14.11\) [\#201](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/201) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v46.1.7 → v46.1.8\) [\#200](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/200) ([plopoyop](https://github.com/plopoyop))
 - feat\(ci\)!: Update hugo19941994/delete-draft-releases action \(v2.0.0 → v3.0.0\) [\#199](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/199) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart victoria-metrics-single \(0.32.0 → 0.34.0\) [\#198](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/198) ([plopoyop](https://github.com/plopoyop))
