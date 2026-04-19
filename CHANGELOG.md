@@ -6,6 +6,7 @@
 
 ## ⚙️ Dependencies
 
+- feat\(helm\): update chart victoria-metrics-single \(0.34.0 → 0.35.0\) [\#205](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/205) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart victoria-metrics-agent \(0.35.0 → 0.36.0\) [\#204](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/204) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v46.1.8 → v46.1.9\) [\#203](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/203) ([plopoyop](https://github.com/plopoyop))
 
