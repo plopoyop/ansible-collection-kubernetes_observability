@@ -6,6 +6,7 @@
 
 ## 🐛 Bug Fixes
 
+- Fix ansible lint pre commit [\#207](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/207) ([plopoyop](https://github.com/plopoyop))
 - Revert to official packages after urllib fix [\#206](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/206) ([plopoyop](https://github.com/plopoyop))
 
 ## ⚙️ Dependencies
