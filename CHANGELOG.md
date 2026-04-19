@@ -4,6 +4,10 @@
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5.7.0...5.8.0)
 
+## 🐛 Bug Fixes
+
+- Revert to official packages after urllib fix [\#206](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/206) ([plopoyop](https://github.com/plopoyop))
+
 ## ⚙️ Dependencies
 
 - feat\(helm\): update chart victoria-metrics-single \(0.34.0 → 0.35.0\) [\#205](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/205) ([plopoyop](https://github.com/plopoyop))
