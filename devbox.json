@@ -1,8 +1,8 @@
 {
     "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/main/.schema/devbox.schema.json",
     "packages": [
-      "path:.#ansible-doctor",
-      "path:.#ansible-lint",
+      "ansible-doctor@8.3.0",
+      "ansible-lint@25.8.2",
       "git@2.53.0",
       "glibcLocales@2.40-66",
       "go-task@3.48.0",
@@ -10,11 +10,10 @@
       "kubectl@1.35.3",
       "kubernetes-helm@3.19.1",
       "pre-commit@4.5.1",
-      "path:.#ansible",
-      "path:.#kubernetes",
-      "path:.#molecule",
-      "path:.#molecule-plugins",
-      "path:.#urllib3",
+      "python313Packages.ansible@13.5.0",
+      "python313Packages.kubernetes@35.0.0",
+      "python313Packages.molecule@25.12.0",
+      "python313Packages.molecule-plugins@23.5.3",
       "yamllint@1.37.1"
     ],
     "env": {
