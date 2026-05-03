@@ -101,7 +101,7 @@ loki:
 {% endif %}
 
 {% if loki_additional_config is defined %}
-{{ loki_additional_config | to_nice_yaml }}
+{{ loki_additional_config | ansible.builtin.to_nice_yaml }}
 {% endif %}
 
 {% if loki_ingress_enabled %}
