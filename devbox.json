@@ -7,7 +7,7 @@
       "glibcLocales@2.40-66",
       "go-task@3.48.0",
       "kind@0.31.0",
-      "kubectl@1.35.3",
+      "kubectl@1.35.4",
       "kubernetes-helm@3.19.1",
       "prek@0.3.8",
       "python313Packages.ansible@13.5.0",
