@@ -5,50 +5,66 @@
   gather_facts: true
 
   tasks:
-    - name: "Pause for job to complete."
-      ansible.builtin.pause:
-        seconds: 60
-
-    - name: "Get 'opentelemetry' namespace info."
+    - name: "Wait for 'opentelemetry' namespace to be active."
       kubernetes.core.k8s_info:
         kind: "Namespace"
         name: "opentelemetry"
       register: namespace_opentelemetry
+      until:
+        - namespace_opentelemetry.resources | length > 0
+        - namespace_opentelemetry.resources[0].status.phase == "Active"
+      retries: 30
+      delay: 5
 
-    - name: Assert that 'opentelemetry' namespace is active
+    - name: "Assert that 'opentelemetry' namespace is active."
       ansible.builtin.assert:
-        that: namespace_opentelemetry['resources'][0]['status']['phase'] == "Active"
+        that:
+          - namespace_opentelemetry.resources | length > 0
+          - namespace_opentelemetry.resources[0].status.phase == "Active"
+        fail_msg: "Namespace 'opentelemetry' is not active."
 
-    - name: "Get 'opentelemetry operator' deployment info."
+    - name: "Wait for 'opentelemetry operator' deployment to be deployed."
       kubernetes.core.k8s_info:
         kind: "Deployment"
         name: "otel-collector-opentelemetry-operator"
         namespace: "opentelemetry"
       register: otel_operator
+      until: otel_operator.resources[0].status.availableReplicas | default(0) == 1
+      retries: 30
+      delay: 5
 
-    - name: "Assert that 'opentelemetry operator' is deployed"
+    - name: "Assert that 'opentelemetry operator' is deployed."
       ansible.builtin.assert:
-        that: otel_operator['resources'][0]['status']['availableReplicas'] == 1
+        that: otel_operator.resources[0].status.availableReplicas | default(0) == 1
+        fail_msg: "Deployment 'otel-collector-opentelemetry-operator' is not deployed."
 
-    - name: "Get 'opentelemetry daemon collector' deployment info."
+    - name: "Wait for 'opentelemetry daemon collector' DaemonSet to be deployed."
       kubernetes.core.k8s_info:
         kind: "DaemonSet"
         name: "otel-collector-daemon-collector"
         namespace: "opentelemetry"
       register: otel_daemon_collector
+      until: otel_daemon_collector.resources[0].status.numberAvailable | default(0) == 1
+      retries: 30
+      delay: 5
 
-    - name: "Assert that 'opentelemetry daemon collector' is deployed"
+    - name: "Assert that 'opentelemetry daemon collector' is deployed."
       ansible.builtin.assert:
-        that: otel_daemon_collector['resources'][0]['status']['numberAvailable'] == 1
+        that: otel_daemon_collector.resources[0].status.numberAvailable | default(0) == 1
+        fail_msg: "DaemonSet 'otel-collector-daemon-collector' is not deployed."
 
-    - name: "Get 'demo-instrumentation' info."
+    - name: "Wait for 'demo-instrumentation' to be created."
       kubernetes.core.k8s_info:
         api_version: "opentelemetry.io/v1alpha1"
         kind: "Instrumentation"
         name: "demo-instrumentation"
         namespace: "opentelemetry"
       register: demo_instrumentation
+      until: demo_instrumentation.resources[0] is defined
+      retries: 30
+      delay: 5
 
-    - name: "Assert that 'demo-instrumentation' is created"
+    - name: "Assert that 'demo-instrumentation' is created."
       ansible.builtin.assert:
-        that: demo_instrumentation['resources'][0] is defined
+        that: demo_instrumentation.resources[0] is defined
+        fail_msg: "Instrumentation 'demo-instrumentation' is not created."

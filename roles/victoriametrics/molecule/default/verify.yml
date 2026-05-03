@@ -5,38 +5,50 @@
   gather_facts: true
 
   tasks:
-    - name: "Pause for job to complete."
-      ansible.builtin.pause:
-        seconds: 60
-
-    - name: "Get 'victoriametrics' namespace info."
+    - name: "Wait for 'victoriametrics' namespace to be active."
       kubernetes.core.k8s_info:
         kind: Namespace
         name: "victoriametrics"
       register: namespace_victoriametrics
+      until:
+        - namespace_victoriametrics.resources | length > 0
+        - namespace_victoriametrics.resources[0].status.phase == "Active"
+      retries: 30
+      delay: 5
 
-    - name: Assert that 'victoriametrics' namespace is active
+    - name: "Assert that 'victoriametrics' namespace is active."
       ansible.builtin.assert:
-        that: namespace_victoriametrics['resources'][0]['status']['phase'] == "Active"
+        that:
+          - namespace_victoriametrics.resources | length > 0
+          - namespace_victoriametrics.resources[0].status.phase == "Active"
+        fail_msg: "Namespace 'victoriametrics' is not active."
 
-    - name: "Get 'vmagent' deployment info."
+    - name: "Wait for 'vmagent' deployment to be deployed."
       kubernetes.core.k8s_info:
         kind: "Deployment"
         name: "vmagent-victoria-metrics-agent"
         namespace: "victoriametrics"
       register: vmagent_deployment
+      until: vmagent_deployment.resources[0].status.availableReplicas | default(0) == 1
+      retries: 30
+      delay: 5
 
-    - name: "Assert that 'vmagent' is deployed"
+    - name: "Assert that 'vmagent' is deployed."
       ansible.builtin.assert:
-        that: vmagent_deployment['resources'][0]['status']['availableReplicas'] == 1
+        that: vmagent_deployment.resources[0].status.availableReplicas | default(0) == 1
+        fail_msg: "Deployment 'vmagent-victoria-metrics-agent' is not deployed."
 
-    - name: "Get 'single-server' statefull set info."
+    - name: "Wait for 'single-server' StatefulSet to be deployed."
       kubernetes.core.k8s_info:
         kind: "StatefulSet"
         name: "vms-victoria-metrics-single-server"
         namespace: "victoriametrics"
       register: single_server_statefullset
+      until: single_server_statefullset.resources[0].status.availableReplicas | default(0) == 1
+      retries: 30
+      delay: 5
 
-    - name: "Assert that 'single-server' is deployed"
+    - name: "Assert that 'single-server' is deployed."
       ansible.builtin.assert:
-        that: single_server_statefullset['resources'][0]['status']['availableReplicas'] == 1
+        that: single_server_statefullset.resources[0].status.availableReplicas | default(0) == 1
+        fail_msg: "StatefulSet 'vms-victoria-metrics-single-server' is not deployed."

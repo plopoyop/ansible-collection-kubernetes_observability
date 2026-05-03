@@ -5,27 +5,35 @@
   gather_facts: true
 
   tasks:
-    - name: "Pause for job to complete."
-      ansible.builtin.pause:
-        seconds: 120
-
-    - name: "Get 'grafana' namespace info."
+    - name: "Wait for 'grafana' namespace to be active."
       kubernetes.core.k8s_info:
         kind: Namespace
         name: "grafana"
       register: namespace_grafana
+      until:
+        - namespace_grafana.resources | length > 0
+        - namespace_grafana.resources[0].status.phase == "Active"
+      retries: 30
+      delay: 5
 
-    - name: Assert that 'grafana' namespace is active
+    - name: "Assert that 'grafana' namespace is active."
       ansible.builtin.assert:
-        that: namespace_grafana['resources'][0]['status']['phase'] == "Active"
+        that:
+          - namespace_grafana.resources | length > 0
+          - namespace_grafana.resources[0].status.phase == "Active"
+        fail_msg: "Namespace 'grafana' is not active."
 
-    - name: "Get 'grafana' deployment info."
+    - name: "Wait for 'grafana' deployment to be deployed."
       kubernetes.core.k8s_info:
         kind: "Deployment"
         name: "grafana"
         namespace: "grafana"
       register: grafana_deployment
+      until: grafana_deployment.resources[0].status.availableReplicas | default(0) == 1
+      retries: 30
+      delay: 5
 
-    - name: "Assert that 'grafana' is deployed"
+    - name: "Assert that 'grafana' is deployed."
       ansible.builtin.assert:
-        that: grafana_deployment['resources'][0]['status']['availableReplicas'] == 1
+        that: grafana_deployment.resources[0].status.availableReplicas | default(0) == 1
+        fail_msg: "Deployment 'grafana' is not deployed."

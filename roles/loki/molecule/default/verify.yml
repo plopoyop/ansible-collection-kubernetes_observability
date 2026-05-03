@@ -5,27 +5,35 @@
   gather_facts: true
 
   tasks:
-    - name: "Pause for job to complete."
-      ansible.builtin.pause:
-        seconds: 120
-
-    - name: "Get 'loki' namespace info."
+    - name: "Wait for 'loki' namespace to be active."
       kubernetes.core.k8s_info:
         kind: Namespace
         name: "loki"
       register: namespace_loki
+      until:
+        - namespace_loki.resources | length > 0
+        - namespace_loki.resources[0].status.phase == "Active"
+      retries: 30
+      delay: 5
 
-    - name: Assert that 'loki' namespace is active
+    - name: "Assert that 'loki' namespace is active."
       ansible.builtin.assert:
-        that: namespace_loki['resources'][0]['status']['phase'] == "Active"
+        that:
+          - namespace_loki.resources | length > 0
+          - namespace_loki.resources[0].status.phase == "Active"
+        fail_msg: "Namespace 'loki' is not active."
 
-    - name: "Get 'loki' statefulset info."
+    - name: "Wait for 'loki' statefulset to be deployed."
       kubernetes.core.k8s_info:
         kind: "StatefulSet"
         name: "loki"
         namespace: "loki"
       register: loki_statefulset
+      until: loki_statefulset.resources[0].status.availableReplicas | default(0) == 1
+      retries: 30
+      delay: 5
 
-    - name: "Assert that 'loki' is deployed"
+    - name: "Assert that 'loki' is deployed."
       ansible.builtin.assert:
-        that: loki_statefulset['resources'][0]['status']['availableReplicas'] == 1
+        that: loki_statefulset.resources[0].status.availableReplicas | default(0) == 1
+        fail_msg: "StatefulSet 'loki' is not deployed."

@@ -5,27 +5,31 @@
   gather_facts: true
 
   tasks:
-    - name: "Pause for job to complete."
-      ansible.builtin.pause:
-        seconds: 5
-
-    - name: "Get 'loki' namespace info."
+    - name: "Wait for 'loki' namespace to be removed."
       kubernetes.core.k8s_info:
         kind: Namespace
         name: "loki"
       register: namespace_loki
+      until: namespace_loki.resources | length == 0
+      retries: 30
+      delay: 5
 
-    - name: Assert that 'loki' namespace is active
+    - name: "Assert that 'loki' namespace is removed."
       ansible.builtin.assert:
-        that: namespace_loki['resources'] == []
+        that: namespace_loki.resources | length == 0
+        fail_msg: "Namespace 'loki' is still present."
 
-    - name: "Get 'loki' statefulset info."
+    - name: "Wait for 'loki' statefulset to be removed."
       kubernetes.core.k8s_info:
         kind: "StatefulSet"
         name: "loki"
         namespace: "loki"
       register: loki_statefulset
+      until: loki_statefulset.resources | length == 0
+      retries: 30
+      delay: 5
 
-    - name: "Assert that 'loki' is deployed"
+    - name: "Assert that 'loki' statefulset is removed."
       ansible.builtin.assert:
-        that: loki_statefulset['resources'] == []
+        that: loki_statefulset.resources | length == 0
+        fail_msg: "StatefulSet 'loki' is still present."
