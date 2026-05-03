@@ -2,7 +2,7 @@
 
 Install and configure Grafana on kubernetes
 
-## Table of content
+## Table of contents
 
 - [Requirements](#requirements)
 - [Default Variables](#default-variables)
@@ -53,14 +53,15 @@ Install and configure Grafana on kubernetes
 
 ## Requirements
 
-- Minimum Ansible version: `2.1`
-
+- Minimum Ansible version: `2.17`
 
 ## Default Variables
 
 ### loki_auth_enabled
 
 Enable Loki authentication
+
+**_Type:_** boolean<br />
 
 #### Default value
 
@@ -71,6 +72,8 @@ loki_auth_enabled: false
 ### loki_chart_version
 
 Grafana chart version
+
+**_Type:_** string<br />
 
 #### Default value
 
@@ -83,6 +86,8 @@ loki_chart_version: 6.55.0
 Loki deployment mode : SingleBinary / SimpleScalable / Distributed
 Only SingleBinary is handle by this role for now
 
+**_Type:_** string<br />
+
 #### Default value
 
 ```YAML
@@ -92,6 +97,8 @@ loki_deployment_mode: SingleBinary
 ### loki_enable_tracing
 
 Enable tracing
+
+**_Type:_** boolean<br />
 
 #### Default value
 
@@ -103,6 +110,8 @@ loki_enable_tracing: false
 
 Install Loki chart
 
+**_Type:_** boolean<br />
+
 #### Default value
 
 ```YAML
@@ -112,6 +121,8 @@ loki_enabled: true
 ### loki_ingester_config
 
 Ingester configuration
+
+**_Type:_** dict<br />
 
 #### Example usage
 
@@ -123,6 +134,8 @@ loki_ingester_config:
 ### loki_ingress_annotations
 
 Annotation for Loki ingress
+
+**_Type:_** dict<br />
 
 #### Example usage
 
@@ -136,6 +149,8 @@ loki_ingress_annotations:
 
 Ingress classname for Loki gateway
 
+**_Type:_** string<br />
+
 #### Example usage
 
 ```YAML
@@ -145,6 +160,8 @@ loki_ingress_class_name: "traefik"
 ### loki_ingress_enabled
 
 Enable ingress for Loki gateway
+
+**_Type:_** boolean<br />
 
 #### Default value
 
@@ -156,6 +173,8 @@ loki_ingress_enabled: false
 
 Enable TLS for Loki ingress
 
+**_Type:_** boolean<br />
+
 #### Example usage
 
 ```YAML
@@ -165,6 +184,8 @@ loki_ingress_tls_enabled: false
 ### loki_limits_config
 
 Limit config
+
+**_Type:_** dict<br />
 
 #### Default value
 
@@ -178,6 +199,8 @@ loki_limits_config:
 
 Enable minio as object storage
 
+**_Type:_** boolean<br />
+
 #### Default value
 
 ```YAML
@@ -187,6 +210,8 @@ loki_minio_enabled: false
 ### loki_namespace
 
 K8s namespace to install Loki chart
+
+**_Type:_** string<br />
 
 #### Default value
 
@@ -198,6 +223,8 @@ loki_namespace: loki
 
 Querier configuration
 
+**_Type:_** dict<br />
+
 #### Example usage
 
 ```YAML
@@ -208,6 +235,8 @@ loki_querier_config:
 ### loki_readiness_probe
 
 Loki service readiness probe
+
+**_Type:_** dict<br />
 
 #### Example usage
 
@@ -223,6 +252,8 @@ loki_readiness_probe:
 
 Loki helm release name
 
+**_Type:_** string<br />
+
 #### Default value
 
 ```YAML
@@ -232,6 +263,8 @@ loki_release_name: loki
 ### loki_schema_config
 
 Schema config for Loki
+
+**_Type:_** dict<br />
 
 #### Example usage
 
@@ -252,6 +285,8 @@ loki_schema_config:
 Number of replica for SingleBinary deployment
 https://grafana.com/docs/loki/latest/setup/install/helm/install-monolithic/?pg=oss-loki&plcmt=quick-links#single-replica-or-multiple-replicas
 
+**_Type:_** int<br />
+
 #### Default value
 
 ```YAML
@@ -261,6 +296,8 @@ loki_single_binary_replication_factor: 1
 ### loki_single_binary_resources
 
 CPU and memory resource request and limit for SingleBinary deployment
+
+**_Type:_** dict<br />
 
 #### Example usage
 
@@ -276,9 +313,13 @@ loki_single_binary_resources:
 
 Azure storage account key
 
+**_Type:_** string<br />
+
 ### loki_storage_azure_account_name
 
 Azure storage account name
+
+**_Type:_** string<br />
 
 ### loki_storage_azure_connection_string
 
@@ -288,31 +329,45 @@ If set, the values of `account-name` and
 if you need to authenticate via a SAS token. Or if you use the Azurite
 emulator.
 
+**_Type:_** dict<br />
+
 ### loki_storage_azure_container_name
 
 Name of the storage account blob container used to store chunks. This
 container must be created before running cortex.
+
+**_Type:_** string<br />
 
 ### loki_storage_azure_endpoint_suffix
 
 Azure storage endpoint suffix without schema. The storage account name will be
 prefixed to this value to create the FQDN
 
+**_Type:_** dict<br />
+
 ### loki_storage_azure_request_timeout
 
 Timeout for requests made against azure blob storage
+
+**_Type:_** string<br />
 
 ### loki_storage_azure_use_managed_identity
 
 Use Managed Identity to authenticate to the Azure storage account.
 
+**_Type:_** boolean<br />
+
 ### loki_storage_azure_user_assigned_id
 
 User assigned identity ID to authenticate to the Azure storage account
 
+**_Type:_** string<br />
+
 ### loki_storage_chunks_directory
 
 Directory for filesystem chunks storage
+
+**_Type:_** string<br />
 
 #### Default value
 
@@ -324,6 +379,8 @@ loki_storage_chunks_directory: /var/loki/chunks
 
 Directory for filesystem storage
 
+**_Type:_** string<br />
+
 #### Default value
 
 ```YAML
@@ -333,6 +390,8 @@ loki_storage_filesystem_directory: /tmp/loki
 ### loki_storage_rules_directory
 
 Directory for filesystem rules storage
+
+**_Type:_** string<br />
 
 #### Default value
 
@@ -344,17 +403,25 @@ loki_storage_rules_directory: /var/loki/rules
 
 Access key Id for S3 storage
 
+**_Type:_** string<br />
+
 ### loki_storage_s3_bucket_name
 
 S3 storage bucket name
+
+**_Type:_** string<br />
 
 ### loki_storage_s3_endpoint
 
 S3 Endpoint to connect to
 
+**_Type:_** string<br />
+
 ### loki_storage_s3_force_path_style
 
 Force the request to use path-style addressing
+
+**_Type:_** boolean<br />
 
 ### loki_storage_s3_http_config
 
@@ -364,21 +431,31 @@ loki_storage_s3_http_config:
 timeout: 30s
 insecure_skip_verify: true
 
+**_Type:_** dict<br />
+
 ### loki_storage_s3_insecure
 
 Disable https on s3 connection
+
+**_Type:_** boolean<br />
 
 ### loki_storage_s3_region
 
 S3 region to use
 
+**_Type:_** string<br />
+
 ### loki_storage_s3_secret_access_key
 
 Secret access key for S3 storage
 
+**_Type:_** string<br />
+
 ### loki_storage_type
 
 Storage backend for loki : only S3 or Azure
+
+**_Type:_** string<br />
 
 #### Example usage
 
@@ -386,15 +463,13 @@ Storage backend for loki : only S3 or Azure
 loki_storage_type: "s3"
 ```
 
-
-
 ## Dependencies
 
 None.
 
 ## License
 
-MLP2
+MPL-2.0
 
 ## Author
 

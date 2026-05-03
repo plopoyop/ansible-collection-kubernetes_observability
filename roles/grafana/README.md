@@ -2,7 +2,7 @@
 
 Install and configure Grafana on kubernetes
 
-## Table of content
+## Table of contents
 
 - [Requirements](#requirements)
 - [Default Variables](#default-variables)
@@ -36,8 +36,7 @@ Install and configure Grafana on kubernetes
 
 ## Requirements
 
-- Minimum Ansible version: `2.1`
-
+- Minimum Ansible version: `2.17`
 
 ## Default Variables
 
@@ -45,9 +44,13 @@ Install and configure Grafana on kubernetes
 
 Password for Grafana admin user
 
+**_Type:_** string<br />
+
 ### grafana_admin_user
 
 Grafana admin user
+
+**_Type:_** string<br />
 
 #### Default value
 
@@ -60,6 +63,8 @@ grafana_admin_user: admin
 Configure grafana alerting
 ref: https://docs.grafana.com/alerting/set-up/provision-alerting-resources/file-provisioning/
 
+**_Type:_** dict<br />
+
 #### Default value
 
 ```YAML
@@ -69,6 +74,8 @@ grafana_alerting: {}
 ### grafana_chart_version
 
 Grafana chart version
+
+**_Type:_** string<br />
 
 #### Default value
 
@@ -80,6 +87,8 @@ grafana_chart_version: 10.5.15
 
 Configure grafana dashboard providers
 ref: http://docs.grafana.org/administration/provisioning/#dashboards
+
+**_Type:_** dict<br />
 
 #### Default value
 
@@ -109,6 +118,8 @@ grafana_dashboard_providers
 Configure grafana dashboard to import
 ref: https://grafana.com/dashboards
 
+**_Type:_** dict<br />
+
 #### Default value
 
 ```YAML
@@ -135,6 +146,8 @@ grafana_dashboards:
 
 Configure grafana datasources
 ref: http://docs.grafana.org/administration/provisioning/#datasources
+
+**_Type:_** dict<br />
 
 #### Default value
 
@@ -169,6 +182,8 @@ grafana_datasources:
 
 Grafana deployment name
 
+**_Type:_** string<br />
+
 #### Default value
 
 ```YAML
@@ -179,6 +194,8 @@ grafana_deployment_name: grafana
 
 Install Grafana chart
 
+**_Type:_** boolean<br />
+
 #### Default value
 
 ```YAML
@@ -188,6 +205,8 @@ grafana_enabled: true
 ### grafana_ingress_annotations
 
 Annotations for Grafana ingress
+
+**_Type:_** dict<br />
 
 #### Example usage
 
@@ -201,9 +220,13 @@ grafana_ingress_annotations:
 
 Ingress classname for Grafana
 
+**_Type:_** string<br />
+
 ### grafana_ingress_enabled
 
 Enable ingress for Grafana
+
+**_Type:_** boolean<br />
 
 #### Default value
 
@@ -215,9 +238,13 @@ grafana_ingress_enabled: false
 
 Hostname for Grafana ingress
 
+**_Type:_** string<br />
+
 ### grafana_ingress_labels
 
 Labels for Grafana ingress
+
+**_Type:_** dict<br />
 
 #### Example usage
 
@@ -230,6 +257,8 @@ grafana_ingress_labels:
 
 Enable TLS for Grafana ingress
 
+**_Type:_** boolean<br />
+
 #### Default value
 
 ```YAML
@@ -240,10 +269,14 @@ grafana_ingress_tls_enabled: false
 
 Secret name for Grafana TLS certificate
 
+**_Type:_** string<br />
+
 ### grafana_ini
 
 Grafana's primary configuration
 ref: http://docs.grafana.org/installation/configuration/
+
+**_Type:_** dict<br />
 
 #### Default value
 
@@ -263,6 +296,8 @@ grafana_ini:
 
 K8s namespace to install Grafana chart
 
+**_Type:_** string<br />
+
 #### Default value
 
 ```YAML
@@ -273,6 +308,8 @@ grafana_namespace: grafana
 
 Configure notifiers
 ref: http://docs.grafana.org/administration/provisioning/#alert-notification-channels
+
+**_Type:_** dict<br />
 
 #### Default value
 
@@ -302,6 +339,8 @@ grafana_notifiers:
 
 Grafana plugins to install
 
+**_Type:_** list<br />
+
 #### Default value
 
 ```YAML
@@ -320,6 +359,8 @@ grafana_plugins:
 
 Number of pod replicas for Grafana
 
+**_Type:_** int<br />
+
 #### Default value
 
 ```YAML
@@ -329,6 +370,8 @@ grafana_replicas: 1
 ### grafana_resources
 
 Annotations for Grafana ingress
+
+**_Type:_** dict<br />
 
 #### Default value
 
@@ -348,15 +391,13 @@ grafana_resources:
     memory: 128Mi
 ```
 
-
-
 ## Dependencies
 
 None.
 
 ## License
 
-MLP2
+MPL-2.0
 
 ## Author
 

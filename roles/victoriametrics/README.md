@@ -2,7 +2,7 @@
 
 Install and configure VictoriaMetrics on kubernetes
 
-## Table of content
+## Table of contents
 
 - [Requirements](#requirements)
 - [Default Variables](#default-variables)
@@ -37,14 +37,15 @@ Install and configure VictoriaMetrics on kubernetes
 
 ## Requirements
 
-- Minimum Ansible version: `2.1`
-
+- Minimum Ansible version: `2.17`
 
 ## Default Variables
 
 ### victoriametrics_single_chart_version
 
 Victoriametrics Single Server chart version
+
+**_Type:_** string<br />
 
 #### Default value
 
@@ -56,6 +57,8 @@ victoriametrics_single_chart_version: 0.35.0
 
 Victoriametrics Single Server deployment name
 
+**_Type:_** string<br />
+
 #### Default value
 
 ```YAML
@@ -66,6 +69,8 @@ victoriametrics_single_deployment_name: vms
 
 Install Victoriametrics Single Server chart
 
+**_Type:_** boolean<br />
+
 #### Default value
 
 ```YAML
@@ -75,6 +80,8 @@ victoriametrics_single_enabled: true
 ### victoriametrics_single_extra_args
 
 VictoriaMetrics Single Server resources requests and limits
+
+**_Type:_** dict<br />
 
 #### Default value
 
@@ -92,6 +99,8 @@ victoriametrics_single_extra_args:
 ### victoriametrics_single_ingress_annotation
 
 Annotations for VictoriaMetrics Single Server ingress
+
+**_Type:_** dict<br />
 
 #### Default value
 
@@ -112,9 +121,13 @@ victoriametrics_single_ingress_annotation:
 Ingress classname for VictoriaMetrics Single Server
 victoriametrics_single_ingress_classname: ""
 
+**_Type:_** string<br />
+
 ### victoriametrics_single_ingress_enabled
 
 Enable ingress for VictoriaMetrics Single Server
+
+**_Type:_** boolean<br />
 
 #### Default value
 
@@ -126,9 +139,13 @@ victoriametrics_single_ingress_enabled: false
 
 Hostname for VictoriaMetrics Single Server ingress
 
+**_Type:_** string<br />
+
 ### victoriametrics_single_ingress_tls_enabled
 
 Enable tls for VictoriaMetrics Single Server ingress
+
+**_Type:_** boolean<br />
 
 #### Default value
 
@@ -140,6 +157,8 @@ victoriametrics_single_ingress_tls_enabled: false
 
 Secret name for VictoriaMetrics Single Server ingress cert
 
+**_Type:_** string<br />
+
 #### Example usage
 
 ```YAML
@@ -150,6 +169,8 @@ victoriametrics_single_ingress_tls_secret_name: "victoriametrics-cert"
 
 VictoriaMetrics Single Server mode: deployment, statefulSet
 
+**_Type:_** int<br />
+
 #### Default value
 
 ```YAML
@@ -159,6 +180,8 @@ victoriametrics_single_mode: statefulSet
 ### victoriametrics_single_namespace
 
 K8s namespace to install Victoriametrics Single Server chart
+
+**_Type:_** string<br />
 
 #### Default value
 
@@ -171,6 +194,8 @@ victoriametrics_single_namespace: victoriametrics
 VictoriaMetrics Single Server Size of the volume
 Should be calculated based on the metrics you send and retention policy you set.
 
+**_Type:_** string<br />
+
 #### Default value
 
 ```YAML
@@ -181,6 +206,8 @@ victoriametrics_single_persistant_volume_size: 16Gi
 
 Number of victoriametrics single replicas
 
+**_Type:_** int<br />
+
 #### Default value
 
 ```YAML
@@ -190,6 +217,8 @@ victoriametrics_single_replica_count: 1
 ### victoriametrics_single_resources
 
 VictoriaMetrics Single Server resources requests and limits
+
+**_Type:_** dict<br />
 
 #### Default value
 
@@ -214,6 +243,8 @@ victoriametrics_single_resources:
 Data retention period. Possible units character: h(ours), d(ays), w(eeks), y(ears), if no unit character specified - month.
 The minimum retention period is 24h. See these [docs](https://docs.victoriametrics.com/single-server-victoriametrics/#retention)
 
+**_Type:_** string<br />
+
 #### Default value
 
 ```YAML
@@ -223,6 +254,8 @@ victoriametrics_single_retention_period: '1'
 ### victoriametrics_vmagent_chart_version
 
 VMAgent chart version
+
+**_Type:_** string<br />
 
 #### Default value
 
@@ -234,9 +267,13 @@ victoriametrics_vmagent_chart_version: 0.36.0
 
 VMAgent scrape configuration
 
+**_Type:_** dict<br />
+
 ### victoriametrics_vmagent_config_scrape_interval
 
 VMAgent scrape interval
+
+**_Type:_** string<br />
 
 #### Default value
 
@@ -248,6 +285,8 @@ victoriametrics_vmagent_config_scrape_interval: 10s
 
 VMAgent deployment name
 
+**_Type:_** string<br />
+
 #### Default value
 
 ```YAML
@@ -257,6 +296,8 @@ victoriametrics_vmagent_deployment_name: vmagent
 ### victoriametrics_vmagent_enabled
 
 Install VMAgent chart
+
+**_Type:_** boolean<br />
 
 #### Default value
 
@@ -268,6 +309,8 @@ victoriametrics_vmagent_enabled: true
 
 K8s namespace to install VMAgent
 
+**_Type:_** string<br />
+
 #### Default value
 
 ```YAML
@@ -278,6 +321,8 @@ victoriametrics_vmagent_namespace: victoriametrics
 
 generates `remoteWrite.*` flags and config maps with value content for values, that are of type list of map.
 Each item should contain `url` param to pass validation.
+
+**_Type:_** list<br />
 
 #### Default value
 
@@ -297,15 +342,13 @@ victoriametrics_vmagent_remote_write:
   - url: http://prometheus:8480/insert/0/prometheus
 ```
 
-
-
 ## Dependencies
 
 None.
 
 ## License
 
-MLP2
+MPL-2.0
 
 ## Author
 
