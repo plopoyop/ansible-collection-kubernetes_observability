@@ -47,6 +47,7 @@ You can call the roles from this collection in your Ansible playbooks as follows
 | Role Name       | Helm Chart Version | Role Tag                                      | README Link                                 |
 | ---------       | ------------------ | --------------------------------------------- | ------------------------------------        |
 | grafana | v10.5.15      | `grafana`                                     | [View README](roles/grafana/README.md) |
+| jaeger | v4.7.0      | `jaeger`                                      | [View README](roles/jaeger/README.md) |
 | opentelemetry k8s stack | v0.14.11      | `opentelemetry`                               | [View README](roles/opentelemetry/README.md) |
 | loki | v6.55.0      | `loki`                                        | [View README](roles/loki/README.md) |
 | victoriametrics single | v0.35.0      | `victoriametrics` / `victoriametrics_single`  | [View README](roles/victoriametrics/README.md) |
@@ -58,7 +59,7 @@ Every role in this collection ships tagged tasks so you can selectively run only
 
 Three kinds of tags are exposed:
 
-- **Role tag** — named after the role itself (e.g. `grafana`, `loki`, `opentelemetry`, `victoriametrics`). Use it to scope a run to a single tool. The `victoriametrics` role additionally exposes the sub-tags `victoriametrics_single` and `victoriametrics_vmagent` to target each component independently.
+- **Role tag** — named after the role itself (e.g. `grafana`, `jaeger`, `loki`, `opentelemetry`, `victoriametrics`). Use it to scope a run to a single tool. The `victoriametrics` role additionally exposes the sub-tags `victoriametrics_single` and `victoriametrics_vmagent` to target each component independently.
 - **Action tag** — `install` or `uninstall`. The role's `*_enabled` variable controls which one runs:
   - When `<role>_enabled: true`, the setup tasks (tagged `install`) are executed.
   - When `<role>_enabled: false`, the cleanup tasks (tagged `uninstall`) are executed.
