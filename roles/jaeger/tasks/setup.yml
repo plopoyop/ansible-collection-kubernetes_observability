@@ -1,0 +1,28 @@
+---
+- name: "Create Jaeger namespace"
+  kubernetes.core.k8s:
+    name: "{{ jaeger_namespace }}"
+    api_version: "v1"
+    kind: "Namespace"
+    state: "present"
+  tags:
+    - "namespace"
+
+- name: "Add jaegertracing helm repo"
+  kubernetes.core.helm_repository:
+    name: "{{ jaeger_helm_repo_name }}"
+    repo_url: "{{ jaeger_helm_repo_url }}"
+  tags:
+    - "helm_repository"
+
+- name: "Deploy Jaeger chart"
+  kubernetes.core.helm:
+    name: "{{ jaeger_deployment_name }}"
+    chart_ref: "{{ jaeger_helm_chart_ref }}"
+    namespace: "{{ jaeger_namespace }}"
+    chart_version: "{{ jaeger_chart_version }}"
+    state: "present"
+    update_repo_cache: true
+    values: "{{ lookup('ansible.builtin.template', 'jaeger_helm_values.yml.j2') | ansible.builtin.from_yaml }}"
+  tags:
+    - "helm_chart"

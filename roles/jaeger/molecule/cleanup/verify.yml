@@ -1,0 +1,35 @@
+---
+- name: "Verify"
+  hosts: "localhost"
+  connection: "local"
+  gather_facts: true
+
+  tasks:
+    - name: "Wait for 'jaeger' namespace to be removed."
+      kubernetes.core.k8s_info:
+        kind: "Namespace"
+        name: "jaeger"
+      register: namespace_jaeger
+      until: namespace_jaeger.resources | length == 0
+      retries: 30
+      delay: 5
+
+    - name: "Assert that 'jaeger' namespace is removed."
+      ansible.builtin.assert:
+        that: namespace_jaeger.resources | length == 0
+        fail_msg: "Namespace 'jaeger' is still present."
+
+    - name: "Wait for 'jaeger' deployment to be removed."
+      kubernetes.core.k8s_info:
+        kind: "Deployment"
+        name: "jaeger"
+        namespace: "jaeger"
+      register: jaeger_deployment
+      until: jaeger_deployment.resources | length == 0
+      retries: 30
+      delay: 5
+
+    - name: "Assert that 'jaeger' deployment is removed."
+      ansible.builtin.assert:
+        that: jaeger_deployment.resources | length == 0
+        fail_msg: "Deployment 'jaeger' is still present."
