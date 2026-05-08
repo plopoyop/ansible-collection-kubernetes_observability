@@ -1,0 +1,17 @@
+---
+galaxy_info:
+  description: "Install and configure Jaeger on kubernetes"
+  role_name: "jaeger"
+  author: "Clément Hubert"
+
+  license: MPL-2.0
+
+  min_ansible_version: "2.17"
+
+  galaxy_tags:
+    - "kubernetes"
+    - "jaeger"
+    - "tracing"
+    - "observability"
+
+dependencies: []

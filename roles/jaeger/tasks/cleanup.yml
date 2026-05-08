@@ -1,0 +1,23 @@
+---
+- name: "Remove Jaeger instance"
+  kubernetes.core.helm:
+    name: "{{ jaeger_deployment_name }}"
+    namespace: "{{ jaeger_namespace }}"
+    chart_ref: "{{ jaeger_helm_chart_ref }}"
+    state: "absent"
+    wait: true
+  tags:
+    - "helm_chart"
+
+- name: "Pause for job to complete."
+  ansible.builtin.pause:
+    seconds: 30
+
+- name: "Remove Jaeger namespace"
+  kubernetes.core.k8s:
+    name: "{{ jaeger_namespace }}"
+    api_version: "v1"
+    kind: "Namespace"
+    state: "absent"
+  tags:
+    - "namespace"

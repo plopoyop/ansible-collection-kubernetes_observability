@@ -1,0 +1,150 @@
+---
+# defaults file for jaeger
+# @var jaeger_enabled
+# @var jaeger_enabled:type: boolean
+# @var jaeger_enabled:description: >
+# Install Jaeger chart
+jaeger_enabled: true
+
+# @var jaeger_namespace
+# @var jaeger_namespace:type: string
+# @var jaeger_namespace:description: >
+# K8s namespace to install Jaeger chart
+jaeger_namespace: "jaeger"
+
+# @var jaeger_chart_version
+# @var jaeger_chart_version:type: string
+# @var jaeger_chart_version:description: >
+# Jaeger chart version
+jaeger_chart_version: "4.7.0"
+
+# @var jaeger_deployment_name
+# @var jaeger_deployment_name:type: string
+# @var jaeger_deployment_name:description: >
+# Jaeger helm release name
+jaeger_deployment_name: "jaeger"
+
+# @var jaeger_replicas
+# @var jaeger_replicas:type: int
+# @var jaeger_replicas:description: >
+# Number of pod replicas for Jaeger
+jaeger_replicas: 1
+
+# @var jaeger_image_tag
+# @var jaeger_image_tag:type: string
+# @var jaeger_image_tag:description: >
+# Override the Jaeger container image tag (leave empty to use the chart default)
+jaeger_image_tag: ""
+
+# @var jaeger_resources
+# @var jaeger_resources:type: dict
+# @var jaeger_resources:description: >
+# Resource requests/limits for Jaeger pods
+# @var jaeger_resources:example: >
+# jaeger_resources:
+#   limits:
+#     cpu: 500m
+#     memory: 512Mi
+#   requests:
+#     cpu: 100m
+#     memory: 256Mi
+jaeger_resources: {}
+
+# @var jaeger_storage_type
+# @var jaeger_storage_type:type: string
+# @var jaeger_storage_type:description: >
+# Jaeger storage backend ("cassandra", "elasticsearch", or empty for the default in-memory backend)
+jaeger_storage_type: ""
+
+# @var jaeger_storage_cassandra
+# @var jaeger_storage_cassandra:type: dict
+# @var jaeger_storage_cassandra:description: >
+# Cassandra storage backend configuration (only used when jaeger_storage_type is "cassandra")
+# @var jaeger_storage_cassandra:example: >
+# jaeger_storage_cassandra:
+#   host: "cassandra"
+#   port: 9042
+#   user: "jaeger"
+#   usePassword: true
+#   password: "changeme"
+#   keyspace: "jaeger_v1_dc1"
+jaeger_storage_cassandra: {}
+
+# @var jaeger_storage_elasticsearch
+# @var jaeger_storage_elasticsearch:type: dict
+# @var jaeger_storage_elasticsearch:description: >
+# Elasticsearch storage backend configuration (only used when jaeger_storage_type is "elasticsearch")
+# @var jaeger_storage_elasticsearch:example: >
+# jaeger_storage_elasticsearch:
+#   url: "http://elasticsearch:9200"
+#   user: "elastic"
+#   password: "changeme"
+jaeger_storage_elasticsearch: {}
+
+# @var jaeger_uiconfig
+# @var jaeger_uiconfig:type: dict
+# @var jaeger_uiconfig:description: >
+# Jaeger UI configuration (passed as-is to the chart `uiconfig` value)
+jaeger_uiconfig: {}
+
+# @var jaeger_userconfig
+# @var jaeger_userconfig:type: dict
+# @var jaeger_userconfig:description: >
+# User configuration overriding service, extensions, receivers and exporters
+jaeger_userconfig: {}
+
+# @var jaeger_extra_env
+# @var jaeger_extra_env:type: list
+# @var jaeger_extra_env:description: >
+# Additional environment variables passed to the Jaeger container
+# @var jaeger_extra_env:example: >
+# jaeger_extra_env:
+#   - name: "LOG_LEVEL"
+#     value: "debug"
+jaeger_extra_env: []
+
+# @var jaeger_ingress_enabled
+# @var jaeger_ingress_enabled:type: boolean
+# @var jaeger_ingress_enabled:description: >
+# Enable ingress for the Jaeger UI
+jaeger_ingress_enabled: false
+
+# @var jaeger_ingress_class_name
+# @var jaeger_ingress_class_name:type: string
+# @var jaeger_ingress_class_name:description: >
+# Ingress class name for Jaeger
+
+# @var jaeger_ingress_hostname
+# @var jaeger_ingress_hostname:type: string
+# @var jaeger_ingress_hostname:description: >
+# Hostname for the Jaeger ingress
+
+# @var jaeger_ingress_tls_enabled
+# @var jaeger_ingress_tls_enabled:type: boolean
+# @var jaeger_ingress_tls_enabled:description: >
+# Enable TLS for the Jaeger ingress
+jaeger_ingress_tls_enabled: false
+
+# @var jaeger_ingress_tls_secret_name
+# @var jaeger_ingress_tls_secret_name:type: string
+# @var jaeger_ingress_tls_secret_name:description: >
+# Secret name for the Jaeger TLS certificate
+
+# @var jaeger_ingress_annotations
+# @var jaeger_ingress_annotations:type: dict
+# @var jaeger_ingress_annotations:description: >
+# Annotations applied to the Jaeger ingress
+# @var jaeger_ingress_annotations:example: >
+# jaeger_ingress_annotations:
+#   kubernetes.io/ingress.class: "{{ jaeger_ingress_class_name }}"
+#   cert-manager.io/cluster-issuer: "letsencrypt-prod"
+jaeger_ingress_annotations: {}
+
+# @var jaeger_ingress_labels
+# @var jaeger_ingress_labels:type: dict
+# @var jaeger_ingress_labels:description: >
+# Labels applied to the Jaeger ingress
+# @var jaeger_ingress_labels:example: >
+# jaeger_ingress_labels:
+#   app: jaeger
+jaeger_ingress_labels: {}

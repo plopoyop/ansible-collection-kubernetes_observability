@@ -1,0 +1,6 @@
+---
+# vars file for jaeger
+jaeger_helm_repo_name: "jaegertracing"
+jaeger_helm_repo_url: "https://jaegertracing.github.io/helm-charts"
+
+jaeger_helm_chart_ref: "{{ jaeger_helm_repo_name }}/jaeger"

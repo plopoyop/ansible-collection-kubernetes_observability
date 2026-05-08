@@ -1,0 +1,44 @@
+jaeger:
+  enabled: true
+  replicas: {{ jaeger_replicas }}
+{% if jaeger_image_tag | length > 0 %}
+  image:
+    tag: "{{ jaeger_image_tag }}"
+{% endif %}
+{% if jaeger_extra_env | length > 0 %}
+  extraEnv: {{ jaeger_extra_env | ansible.builtin.to_json }}
+{% endif %}
+
+  resources: {{ jaeger_resources | ansible.builtin.to_json }}
+
+  ingress:
+    enabled: {{ jaeger_ingress_enabled | ansible.builtin.to_json }}
+{% if jaeger_ingress_enabled %}
+    ingressClassName: "{{ jaeger_ingress_class_name }}"
+    annotations: {{ jaeger_ingress_annotations | ansible.builtin.to_json }}
+    labels: {{ jaeger_ingress_labels | ansible.builtin.to_json }}
+    pathType: "Prefix"
+    hosts:
+      - "{{ jaeger_ingress_hostname }}"
+{% if jaeger_ingress_tls_enabled %}
+    tls:
+      - secretName: "{{ jaeger_ingress_tls_secret_name }}"
+        hosts:
+          - "{{ jaeger_ingress_hostname }}"
+{% endif %}
+{% endif %}
+
+{% if jaeger_storage_type | length > 0 %}
+storage:
+  type: "{{ jaeger_storage_type }}"
+{% if jaeger_storage_type == "cassandra" and jaeger_storage_cassandra | length > 0 %}
+  cassandra: {{ jaeger_storage_cassandra | ansible.builtin.to_json }}
+{% endif %}
+{% if jaeger_storage_type == "elasticsearch" and jaeger_storage_elasticsearch | length > 0 %}
+  elasticsearch: {{ jaeger_storage_elasticsearch | ansible.builtin.to_json }}
+{% endif %}
+{% endif %}
+
+uiconfig: {{ jaeger_uiconfig | ansible.builtin.to_json }}
+
+userconfig: {{ jaeger_userconfig | ansible.builtin.to_json }}

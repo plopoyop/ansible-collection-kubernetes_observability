@@ -1,0 +1,14 @@
+---
+- name: "Include setup when enabled"
+  ansible.builtin.include_tasks: "setup.yml"
+  when: jaeger_enabled
+  tags:
+    - "jaeger"
+    - "install"
+
+- name: "Include cleanup when disabled"
+  ansible.builtin.include_tasks: "cleanup.yml"
+  when: not jaeger_enabled
+  tags:
+    - "jaeger"
+    - "uninstall"

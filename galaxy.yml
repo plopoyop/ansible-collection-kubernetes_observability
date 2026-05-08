@@ -18,6 +18,8 @@ tags:
   - grafana
   - victoriametrics
   - loki
+  - jaeger
+  - tracing
 dependencies:
   kubernetes.core: '>=5.1.0'
 repository: 'https://github.com/plopoyop/ansible-collection-kubernetes_observability'
