@@ -25,35 +25,44 @@
 - Fix ansible lint pre commit [\#207](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/207) ([plopoyop](https://github.com/plopoyop))
 - Revert to official packages after urllib fix [\#206](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/206) ([plopoyop](https://github.com/plopoyop))
 
-## ⚙️ Dependencies
+## ⛵ Helm Charts
 
 - feat\(helm\): update chart victoria-metrics-single \(0.34.0 → 0.35.0\) [\#205](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/205) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart victoria-metrics-agent \(0.35.0 → 0.36.0\) [\#204](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/204) ([plopoyop](https://github.com/plopoyop))
+
+## ⚙️ Dependencies
+
 - fix\(ci\): update renovatebot/github-action action \(v46.1.8 → v46.1.9\) [\#203](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/203) ([plopoyop](https://github.com/plopoyop))
 
 ## [5.7.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.7.0) (2026-04-12)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5.6.1...5.7.0)
 
+## ⛵ Helm Charts
+
+- fix\(helm\): update chart opentelemetry-kube-stack \(0.14.10 → 0.14.11\) [\#201](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/201) ([plopoyop](https://github.com/plopoyop))
+- feat\(helm\): update chart victoria-metrics-single \(0.32.0 → 0.34.0\) [\#198](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/198) ([plopoyop](https://github.com/plopoyop))
+- feat\(helm\): update chart victoria-metrics-agent \(0.33.0 → 0.35.0\) [\#197](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/197) ([plopoyop](https://github.com/plopoyop))
+- fix\(helm\): update chart opentelemetry-kube-stack \(0.14.9 → 0.14.10\) [\#195](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/195) ([plopoyop](https://github.com/plopoyop))
+
 ## ⚙️ Dependencies
 
 - feat\(ci\)!: Update softprops/action-gh-release action \(v2 → v3\) [\#202](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/202) ([plopoyop](https://github.com/plopoyop))
-- fix\(helm\): update chart opentelemetry-kube-stack \(0.14.10 → 0.14.11\) [\#201](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/201) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v46.1.7 → v46.1.8\) [\#200](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/200) ([plopoyop](https://github.com/plopoyop))
 - feat\(ci\)!: Update hugo19941994/delete-draft-releases action \(v2.0.0 → v3.0.0\) [\#199](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/199) ([plopoyop](https://github.com/plopoyop))
-- feat\(helm\): update chart victoria-metrics-single \(0.32.0 → 0.34.0\) [\#198](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/198) ([plopoyop](https://github.com/plopoyop))
-- feat\(helm\): update chart victoria-metrics-agent \(0.33.0 → 0.35.0\) [\#197](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/197) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update pre-commit hook ansible/ansible-lint \(v26.3.0 → v26.4.0\) [\#196](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/196) ([plopoyop](https://github.com/plopoyop))
-- fix\(helm\): update chart opentelemetry-kube-stack \(0.14.9 → 0.14.10\) [\#195](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/195) ([plopoyop](https://github.com/plopoyop))
 
 ## [5.6.1](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.6.1) (2026-04-05)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5.6.0...5.6.1)
 
+## ⛵ Helm Charts
+
+- fix\(helm\): update chart opentelemetry-kube-stack \(0.14.6 → 0.14.9\) [\#193](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/193) ([plopoyop](https://github.com/plopoyop))
+
 ## ⚙️ Dependencies
 
 - feat\(ci\): update jetify-com/devbox-install-action action \(v0.14.0 → v0.15.0\) [\#194](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/194) ([plopoyop](https://github.com/plopoyop))
-- fix\(helm\): update chart opentelemetry-kube-stack \(0.14.6 → 0.14.9\) [\#193](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/193) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v46.1.6 → v46.1.7\) [\#192](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/192) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v46.1.4 → v46.1.5\) [\#188](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/188) ([plopoyop](https://github.com/plopoyop))
 
@@ -67,22 +76,28 @@
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5.5.0...5.6.0)
 
-## ⚙️ Dependencies
+## ⛵ Helm Charts
 
 - feat\(helm\): update chart loki \(6.53.0 → 6.55.0\) [\#187](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/187) ([plopoyop](https://github.com/plopoyop))
+
+## ⚙️ Dependencies
+
 - fix\(ci\): update renovatebot/github-action action \(v46.1.3 → v46.1.4\) [\#186](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/186) ([plopoyop](https://github.com/plopoyop))
 
 ## [5.5.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.5.0) (2026-03-08)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5.4.0...5.5.0)
 
-## ⚙️ Dependencies
+## ⛵ Helm Charts
 
 - feat\(helm\): update chart victoria-metrics-single \(0.31.0 → 0.32.0\) [\#185](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/185) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart victoria-metrics-agent \(0.32.0 → 0.33.0\) [\#184](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/184) ([plopoyop](https://github.com/plopoyop))
+- fix\(helm\): update chart opentelemetry-kube-stack \(0.14.4 → 0.14.6\) [\#180](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/180) ([plopoyop](https://github.com/plopoyop))
+
+## ⚙️ Dependencies
+
 - feat\(deps\): update pre-commit hook ansible/ansible-lint \(v26.1.1 → v26.3.0\) [\#183](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/183) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v46.1.2 → v46.1.3\) [\#182](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/182) ([plopoyop](https://github.com/plopoyop))
-- fix\(helm\): update chart opentelemetry-kube-stack \(0.14.4 → 0.14.6\) [\#180](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/180) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v46.1.1 → v46.1.2\) [\#179](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/179) ([plopoyop](https://github.com/plopoyop))
 
 **Merged pull requests:**
@@ -93,26 +108,29 @@
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5.3.2...5.4.0)
 
-## ⚙️ Dependencies
+## ⛵ Helm Charts
 
-- feat\(ci\)!: Update artis3n/ansible\_galaxy\_collection action \(v2 → v3\) [\#178](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/178) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart victoria-metrics-single \(0.30.0 → 0.31.0\) [\#177](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/177) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart victoria-metrics-agent \(0.31.0 → 0.32.0\) [\#176](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/176) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart opentelemetry-kube-stack \(0.13.1 → 0.14.4\) [\#175](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/175) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart loki \(6.52.0 → 6.53.0\) [\#174](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/174) ([plopoyop](https://github.com/plopoyop))
-- feat\(ci\): update renovatebot/github-action action \(v46.0.2 → v46.1.1\) [\#173](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/173) ([plopoyop](https://github.com/plopoyop))
-- fix\(ci\): update renovatebot/github-action action \(v46.0.1 → v46.0.2\) [\#171](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/171) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart loki \(6.51.0 → 6.52.0\) [\#170](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/170) ([plopoyop](https://github.com/plopoyop))
-- fix\(ci\): update renovatebot/github-action action \(v46.0.0 → v46.0.1\) [\#169](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/169) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart victoria-metrics-single \(0.29.0 → 0.30.0\) [\#168](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/168) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart victoria-metrics-agent \(0.30.0 → 0.31.0\) [\#167](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/167) ([plopoyop](https://github.com/plopoyop))
-- feat\(ci\)!: Update renovatebot/github-action action \(v44.2.6 → v46.0.0\) [\#166](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/166) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart victoria-metrics-single \(0.28.0 → 0.29.0\) [\#165](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/165) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart victoria-metrics-agent \(0.29.0 → 0.30.0\) [\#164](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/164) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart opentelemetry-kube-stack \(0.12.6 → 0.13.1\) [\#163](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/163) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart loki \(6.49.0 → 6.51.0\) [\#162](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/162) ([plopoyop](https://github.com/plopoyop))
-- feat\(deps\): update pre-commit hook adrienverge/yamllint \(v1.37.1 → v1.38.0\) [\#161](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/161) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart grafana \(10.5.8 → 10.5.15\) [\#160](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/160) ([plopoyop](https://github.com/plopoyop))
+
+## ⚙️ Dependencies
+
+- feat\(ci\)!: Update artis3n/ansible\_galaxy\_collection action \(v2 → v3\) [\#178](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/178) ([plopoyop](https://github.com/plopoyop))
+- feat\(ci\): update renovatebot/github-action action \(v46.0.2 → v46.1.1\) [\#173](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/173) ([plopoyop](https://github.com/plopoyop))
+- fix\(ci\): update renovatebot/github-action action \(v46.0.1 → v46.0.2\) [\#171](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/171) ([plopoyop](https://github.com/plopoyop))
+- fix\(ci\): update renovatebot/github-action action \(v46.0.0 → v46.0.1\) [\#169](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/169) ([plopoyop](https://github.com/plopoyop))
+- feat\(ci\)!: Update renovatebot/github-action action \(v44.2.6 → v46.0.0\) [\#166](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/166) ([plopoyop](https://github.com/plopoyop))
+- feat\(deps\): update pre-commit hook adrienverge/yamllint \(v1.37.1 → v1.38.0\) [\#161](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/161) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v44.2.5 → v44.2.6\) [\#159](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/159) ([plopoyop](https://github.com/plopoyop))
 
 **Merged pull requests:**
@@ -127,10 +145,13 @@
 
 - Pin urllib3 to version 2.5 [\#158](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/158) ([plopoyop](https://github.com/plopoyop))
 
+## ⛵ Helm Charts
+
+- fix\(helm\): update chart grafana \(10.5.5 → 10.5.8\) [\#154](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/154) ([plopoyop](https://github.com/plopoyop))
+
 ## ⚙️ Dependencies
 
 - fix\(ci\): update renovatebot/github-action action \(v44.2.4 → v44.2.5\) [\#156](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/156) ([plopoyop](https://github.com/plopoyop))
-- fix\(helm\): update chart grafana \(10.5.5 → 10.5.8\) [\#154](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/154) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update pre-commit hook ansible/ansible-lint \(v26.1.0 → v26.1.1\) [\#153](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/153) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v44.2.3 → v44.2.4\) [\#152](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/152) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\)!: Update pre-commit hook ansible/ansible-lint \(v25.12.2 → v26.1.0\) [\#151](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/151) ([plopoyop](https://github.com/plopoyop))
@@ -145,9 +166,12 @@
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5.3.0...5.3.1)
 
-## ⚙️ Dependencies
+## ⛵ Helm Charts
 
 - fix\(helm\): update chart grafana \(10.5.3 → 10.5.5\) [\#148](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/148) ([plopoyop](https://github.com/plopoyop))
+
+## ⚙️ Dependencies
+
 - fix\(ci\): update renovatebot/github-action action \(v44.2.2 → v44.2.3\) [\#147](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/147) ([plopoyop](https://github.com/plopoyop))
 
 **Merged pull requests:**
@@ -158,11 +182,14 @@
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5.2.0...5.3.0)
 
-## ⚙️ Dependencies
+## ⛵ Helm Charts
 
 - feat\(helm\): update chart victoria-metrics-single \(0.26.0 → 0.28.0\) [\#146](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/146) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart victoria-metrics-agent \(0.27.1 → 0.29.0\) [\#145](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/145) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart grafana \(10.3.1 → 10.5.3\) [\#144](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/144) ([plopoyop](https://github.com/plopoyop))
+
+## ⚙️ Dependencies
+
 - fix\(deps\): update pre-commit hook ansible/ansible-lint \(v25.12.1 → v25.12.2\) [\#142](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/142) ([plopoyop](https://github.com/plopoyop))
 
 **Merged pull requests:**
@@ -183,25 +210,28 @@
 
 - Fix missing victoriametrics chart version [\#116](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/116) ([plopoyop](https://github.com/plopoyop))
 
-## ⚙️ Dependencies
+## ⛵ Helm Charts
 
 - feat\(helm\): update chart loki \(6.46.0 → 6.49.0\) [\#140](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/140) ([plopoyop](https://github.com/plopoyop))
-- feat\(ci\): update renovatebot/github-action action \(v44.0.5 → v44.1.0\) [\#139](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/139) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart opentelemetry-kube-stack \(0.12.5 → 0.12.6\) [\#138](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/138) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart grafana \(10.3.0 → 10.3.1\) [\#137](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/137) ([plopoyop](https://github.com/plopoyop))
-- fix\(deps\): update pre-commit hook ansible/ansible-lint \(v25.12.0 → v25.12.1\) [\#136](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/136) ([plopoyop](https://github.com/plopoyop))
-- feat\(deps\)!: Update python313Packages.ansible \(12.2.0 → 13.0.0\) [\#134](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/134) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart victoria-metrics-single \(0.25.5 → 0.26.0\) [\#133](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/133) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart victoria-metrics-agent \(0.26.5 → 0.27.1\) [\#132](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/132) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart grafana \(10.2.0 → 10.3.0\) [\#131](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/131) ([plopoyop](https://github.com/plopoyop))
+- fix\(helm\): update chart opentelemetry-kube-stack \(0.12.3 → 0.12.5\) [\#127](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/127) ([plopoyop](https://github.com/plopoyop))
+- fix\(helm\): update chart opentelemetry-kube-stack \(0.12.0 → 0.12.3\) [\#123](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/123) ([plopoyop](https://github.com/plopoyop))
+
+## ⚙️ Dependencies
+
+- feat\(ci\): update renovatebot/github-action action \(v44.0.5 → v44.1.0\) [\#139](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/139) ([plopoyop](https://github.com/plopoyop))
+- fix\(deps\): update pre-commit hook ansible/ansible-lint \(v25.12.0 → v25.12.1\) [\#136](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/136) ([plopoyop](https://github.com/plopoyop))
+- feat\(deps\)!: Update python313Packages.ansible \(12.2.0 → 13.0.0\) [\#134](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/134) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update python313packages.molecule \(25.11.0 → 25.12.0\) [\#130](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/130) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update pre-commit hook ansible/ansible-lint \(v25.11.1 → v25.12.0\) [\#129](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/129) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update pre-commit \(4.3.0 → 4.5.0\) [\#128](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/128) ([plopoyop](https://github.com/plopoyop))
-- fix\(helm\): update chart opentelemetry-kube-stack \(0.12.3 → 0.12.5\) [\#127](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/127) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update ansible-doctor \(8.0.0 → 8.0.1\) [\#126](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/126) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v44.0.4 → v44.0.5\) [\#125](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/125) ([plopoyop](https://github.com/plopoyop))
 - feat\(ci\)!: Update actions/checkout action \(v5 → v6\) [\#124](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/124) ([plopoyop](https://github.com/plopoyop))
-- fix\(helm\): update chart opentelemetry-kube-stack \(0.12.0 → 0.12.3\) [\#123](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/123) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update pre-commit hook ansible/ansible-lint \(v25.11.0 → v25.11.1\) [\#122](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/122) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update kubectl \(1.34.1 → 1.34.2\) [\#121](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/121) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update go-task \(3.45.4 → 3.45.5\) [\#120](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/120) ([plopoyop](https://github.com/plopoyop))
@@ -212,15 +242,18 @@
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5.0.0...5.1.0)
 
-## ⚙️ Dependencies
+## ⛵ Helm Charts
 
-- feat\(ci\)!: Update actions/checkout action \(v5 → v6\) [\#115](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/115) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart grafana \(10.1.4 → 10.2.0\) [\#114](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/114) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart victoria-metrics-single \(0.25.4 → 0.25.5\) [\#113](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/113) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart victoria-metrics-agent \(0.26.4 → 0.26.5\) [\#112](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/112) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart opentelemetry-kube-stack \(0.12.0 → 0.12.3\) [\#111](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/111) ([plopoyop](https://github.com/plopoyop))
-- fix\(ci\): update renovatebot/github-action action \(v44.0.2 → v44.0.3\) [\#110](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/110) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart opentelemetry-kube-stack \(0.11.1 → 0.12.0\) [\#109](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/109) ([plopoyop](https://github.com/plopoyop))
+
+## ⚙️ Dependencies
+
+- feat\(ci\)!: Update actions/checkout action \(v5 → v6\) [\#115](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/115) ([plopoyop](https://github.com/plopoyop))
+- fix\(ci\): update renovatebot/github-action action \(v44.0.2 → v44.0.3\) [\#110](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/110) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update pre-commit hook ansible/ansible-lint \(v25.9.2 → v25.11.0\) [\#108](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/108) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v44.0.0 → v44.0.2\) [\#107](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/107) ([plopoyop](https://github.com/plopoyop))
 
@@ -240,31 +273,34 @@
 
 - update grafana & loki readme [\#86](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/86) ([plopoyop](https://github.com/plopoyop))
 
-## ⚙️ Dependencies
+## ⛵ Helm Charts
 
-- feat\(ci\)!: Update renovatebot/github-action action \(v43.0.16 → v44.0.0\) [\#106](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/106) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart loki \(6.43.0 → 6.46.0\) [\#105](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/105) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart victoria-metrics-single \(0.25.1 → 0.25.4\) [\#104](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/104) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart victoria-metrics-agent \(0.26.1 → 0.26.4\) [\#103](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/103) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart grafana \(10.1.0 → 10.1.4\) [\#102](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/102) ([plopoyop](https://github.com/plopoyop))
-- fix\(ci\): update renovatebot/github-action action \(v43.0.16 → v43.0.20\) [\#101](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/101) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart loki \(6.42.0 → 6.43.0\) [\#100](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/100) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart victoria-metrics-single \(0.24.6 → 0.25.1\) [\#99](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/99) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart victoria-metrics-agent \(0.25.10 → 0.26.1\) [\#98](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/98) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart grafana \(10.0.0 → 10.1.0\) [\#97](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/97) ([plopoyop](https://github.com/plopoyop))
-- fix\(ci\): update renovatebot/github-action action \(v43.0.14 → v43.0.16\) [\#94](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/94) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart opentelemetry-kube-stack \(0.9.3 → 0.11.0\) [\#92](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/92) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart loki \(6.41.1 → 6.42.0\) [\#91](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/91) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart victoria-metrics-agent \(0.25.9 → 0.25.10\) [\#90](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/90) ([plopoyop](https://github.com/plopoyop))
-- fix\(deps\): update pre-commit hook ansible/ansible-lint \(v25.9.0 → v25.9.1\) [\#89](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/89) ([plopoyop](https://github.com/plopoyop))
-- fix\(ci\): update renovatebot/github-action action \(v43.0.12 → v43.0.14\) [\#88](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/88) ([plopoyop](https://github.com/plopoyop))
-- update devenv to 1.9.1 [\#87](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/87) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart loki \(6.40.0 → 6.41.1\) [\#83](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/83) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\)!: Update chart grafana \(9.4.5 → 10.0.0\) [\#82](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/82) ([plopoyop](https://github.com/plopoyop))
-- feat\(deps\): update pre-commit hook ansible/ansible-lint \(v25.8.2 → v25.9.0\) [\#81](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/81) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart victoria-metrics-single \(0.24.5 → 0.24.6\) [\#80](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/80) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart victoria-metrics-agent \(0.25.6 → 0.25.9\) [\#79](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/79) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart opentelemetry-kube-stack \(0.9.1 → 0.9.3\) [\#78](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/78) ([plopoyop](https://github.com/plopoyop))
+
+## ⚙️ Dependencies
+
+- feat\(ci\)!: Update renovatebot/github-action action \(v43.0.16 → v44.0.0\) [\#106](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/106) ([plopoyop](https://github.com/plopoyop))
+- fix\(ci\): update renovatebot/github-action action \(v43.0.16 → v43.0.20\) [\#101](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/101) ([plopoyop](https://github.com/plopoyop))
+- fix\(ci\): update renovatebot/github-action action \(v43.0.14 → v43.0.16\) [\#94](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/94) ([plopoyop](https://github.com/plopoyop))
+- fix\(deps\): update pre-commit hook ansible/ansible-lint \(v25.9.0 → v25.9.1\) [\#89](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/89) ([plopoyop](https://github.com/plopoyop))
+- fix\(ci\): update renovatebot/github-action action \(v43.0.12 → v43.0.14\) [\#88](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/88) ([plopoyop](https://github.com/plopoyop))
+- update devenv to 1.9.1 [\#87](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/87) ([plopoyop](https://github.com/plopoyop))
+- feat\(deps\): update pre-commit hook ansible/ansible-lint \(v25.8.2 → v25.9.0\) [\#81](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/81) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v43.0.11 → v43.0.12\) [\#77](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/77) ([plopoyop](https://github.com/plopoyop))
 
 **Closed issues:**
@@ -275,23 +311,26 @@
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/3.0.0...4.0.0)
 
-## ⚙️ Dependencies
+## ⛵ Helm Charts
 
 - feat\(helm\): update chart opentelemetry-kube-stack \(0.8.0 → 0.9.1\) [\#76](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/76) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart loki \(6.35.1 → 6.40.0\) [\#75](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/75) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart grafana \(9.3.1 → 9.4.5\) [\#74](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/74) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart victoria-metrics-single \(0.24.2 → 0.24.5\) [\#73](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/73) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart victoria-metrics-agent \(0.25.2 → 0.25.6\) [\#72](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/72) ([plopoyop](https://github.com/plopoyop))
-- fix\(deps\): update pre-commit hook ansible/ansible-lint \(v25.8.1 → v25.8.2\) [\#71](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/71) ([plopoyop](https://github.com/plopoyop))
-- fix\(ci\): update renovatebot/github-action action \(v43.0.6 → v43.0.11\) [\#70](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/70) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart victoria-metrics-agent \(0.25.1 → 0.25.2\) [\#69](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/69) ([plopoyop](https://github.com/plopoyop))
-- feat\(ci\)!: Update actions/checkout action \(v4 → v5\) [\#68](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/68) ([plopoyop](https://github.com/plopoyop))
-- feat\(deps\): update pre-commit hook ansible/ansible-lint \(v25.7.0 → v25.8.1\) [\#67](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/67) ([plopoyop](https://github.com/plopoyop))
-- feat\(deps\)!: Update pre-commit hook pre-commit/pre-commit-hooks \(v5.0.0 → v6.0.0\) [\#66](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/66) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart victoria-metrics-single \(0.23.0 → 0.24.2\) [\#65](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/65) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart opentelemetry-kube-stack \(0.6.3 → 0.8.0\) [\#64](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/64) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart loki \(6.34.0 → 6.35.1\) [\#63](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/63) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart grafana \(9.3.0 → 9.3.1\) [\#62](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/62) ([plopoyop](https://github.com/plopoyop))
+
+## ⚙️ Dependencies
+
+- fix\(deps\): update pre-commit hook ansible/ansible-lint \(v25.8.1 → v25.8.2\) [\#71](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/71) ([plopoyop](https://github.com/plopoyop))
+- fix\(ci\): update renovatebot/github-action action \(v43.0.6 → v43.0.11\) [\#70](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/70) ([plopoyop](https://github.com/plopoyop))
+- feat\(ci\)!: Update actions/checkout action \(v4 → v5\) [\#68](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/68) ([plopoyop](https://github.com/plopoyop))
+- feat\(deps\): update pre-commit hook ansible/ansible-lint \(v25.7.0 → v25.8.1\) [\#67](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/67) ([plopoyop](https://github.com/plopoyop))
+- feat\(deps\)!: Update pre-commit hook pre-commit/pre-commit-hooks \(v5.0.0 → v6.0.0\) [\#66](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/66) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v43.0.5 → v43.0.6\) [\#61](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/61) ([plopoyop](https://github.com/plopoyop))
 
 ## [3.0.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/3.0.0) (2025-08-05)
@@ -302,20 +341,23 @@
 
 - install dependencies [\#57](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/57) ([plopoyop](https://github.com/plopoyop))
 
-## ⚙️ Dependencies
+## ⛵ Helm Charts
 
 - feat\(helm\): update chart victoria-metrics-agent \(0.24.0 → 0.25.1\) [\#60](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/60) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart loki \(6.31.0 → 6.34.0\) [\#59](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/59) ([plopoyop](https://github.com/plopoyop))
+- feat\(helm\): update chart grafana \(9.2.10 → 9.3.0\) [\#53](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/53) ([plopoyop](https://github.com/plopoyop))
+- fix\(helm\): update chart opentelemetry-kube-stack \(0.6.2 → 0.6.3\) [\#52](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/52) ([plopoyop](https://github.com/plopoyop))
+- feat\(helm\): update chart victoria-metrics-single \(0.22.0 → 0.23.0\) [\#50](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/50) ([plopoyop](https://github.com/plopoyop))
+- feat\(helm\): update chart victoria-metrics-agent \(0.23.0 → 0.24.0\) [\#49](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/49) ([plopoyop](https://github.com/plopoyop))
+- feat\(helm\): update chart loki \(6.30.1 → 6.31.0\) [\#48](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/48) ([plopoyop](https://github.com/plopoyop))
+
+## ⚙️ Dependencies
+
 - fix\(ci\): update renovatebot/github-action action \(v43.0.3 → v43.0.5\) [\#58](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/58) ([plopoyop](https://github.com/plopoyop))
 - update devenv [\#56](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/56) ([plopoyop](https://github.com/plopoyop))
 - feat\(ci\)!: Update hugo19941994/delete-draft-releases action \(v1.0.1 → v2.0.0\) [\#55](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/55) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update pre-commit hook ansible/ansible-lint \(v25.6.1 → v25.7.0\) [\#54](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/54) ([plopoyop](https://github.com/plopoyop))
-- feat\(helm\): update chart grafana \(9.2.10 → 9.3.0\) [\#53](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/53) ([plopoyop](https://github.com/plopoyop))
-- fix\(helm\): update chart opentelemetry-kube-stack \(0.6.2 → 0.6.3\) [\#52](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/52) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v43.0.2 → v43.0.3\) [\#51](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/51) ([plopoyop](https://github.com/plopoyop))
-- feat\(helm\): update chart victoria-metrics-single \(0.22.0 → 0.23.0\) [\#50](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/50) ([plopoyop](https://github.com/plopoyop))
-- feat\(helm\): update chart victoria-metrics-agent \(0.23.0 → 0.24.0\) [\#49](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/49) ([plopoyop](https://github.com/plopoyop))
-- feat\(helm\): update chart loki \(6.30.1 → 6.31.0\) [\#48](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/48) ([plopoyop](https://github.com/plopoyop))
 
 ## [2.0.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/2.0.0) (2025-07-05)
 
@@ -330,16 +372,19 @@
 
 - Renovate mess up the README [\#37](https://github.com/plopoyop/ansible-collection-kubernetes_observability/issues/37)
 
-## ⚙️ Dependencies
+## ⛵ Helm Charts
 
 - fix\(helm\): update chart grafana \(9.2.9 → 9.2.10\) [\#45](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/45) ([plopoyop](https://github.com/plopoyop))
-- feat\(deps\): update pre-commit hook ansible/ansible-lint \(v25.1.3 → v25.6.1\) [\#43](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/43) ([plopoyop](https://github.com/plopoyop))
-- feat\(deps\): update pre-commit hook adrienverge/yamllint \(v1.35.1 → v1.37.1\) [\#42](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/42) ([plopoyop](https://github.com/plopoyop))
-- Update renovatebot/github-action action to v43 [\#39](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/39) ([plopoyop](https://github.com/plopoyop))
 - Update Helm release opentelemetry-kube-stack to v0.6.0 [\#38](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/38) ([plopoyop](https://github.com/plopoyop))
 - Update Helm release loki to v6.30.0 [\#35](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/35) ([plopoyop](https://github.com/plopoyop))
 - Update Helm release victoria-metrics-single to v0.19.0 [\#34](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/34) ([plopoyop](https://github.com/plopoyop))
 - Update Helm release victoria-metrics-agent to v0.20.0 [\#33](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/33) ([plopoyop](https://github.com/plopoyop))
+
+## ⚙️ Dependencies
+
+- feat\(deps\): update pre-commit hook ansible/ansible-lint \(v25.1.3 → v25.6.1\) [\#43](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/43) ([plopoyop](https://github.com/plopoyop))
+- feat\(deps\): update pre-commit hook adrienverge/yamllint \(v1.35.1 → v1.37.1\) [\#42](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/42) ([plopoyop](https://github.com/plopoyop))
+- Update renovatebot/github-action action to v43 [\#39](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/39) ([plopoyop](https://github.com/plopoyop))
 - Update Helm release grafana to v9 [\#31](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/31) ([plopoyop](https://github.com/plopoyop))
 
 **Merged pull requests:**
