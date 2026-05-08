@@ -6,8 +6,8 @@ on:
   push:
     branches: [main]
     paths:
-      - 'roles/**'
-      - '.github/**'
+      - "roles/**"
+      - ".github/**"
       - devbox.json
       - devbox.lock
       - flake.nix
@@ -15,8 +15,8 @@ on:
   pull_request:
     branches: [main]
     paths:
-      - 'roles/**'
-      - '.github/**'
+      - "roles/**"
+      - ".github/**"
       - devbox.json
       - devbox.lock
       - flake.nix
@@ -27,6 +27,11 @@ jobs:
     uses: ./.github/workflows/test-role.yaml
     with:
       role_name: "grafana"
+
+  jaeger:
+    uses: ./.github/workflows/test-role.yaml
+    with:
+      role_name: "jaeger"
 
   opentelemetry:
     uses: ./.github/workflows/test-role.yaml

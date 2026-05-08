@@ -60,6 +60,17 @@
       "registryUrls": [
         "https://victoriametrics.github.io/helm-charts/"
       ]
+    },
+    {
+      "matchDatasources": [
+        "helm"
+      ],
+      "matchPackageNames": [
+        "jaeger"
+      ],
+      "registryUrls": [
+        "https://jaegertracing.github.io/helm-charts/"
+      ]
     }
   ],
   "customManagers": [
@@ -186,6 +197,31 @@
       ],
       "depNameTemplate": "victoria-metrics-agent",
       "autoReplaceStringTemplate": "victoriametrics_vmagent_chart_version: {{#if quote}}\"{{newValue}}\"{{else}}{{newValue}}{{/if}}",
+      "datasourceTemplate": "helm"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/^README.md$/"
+      ],
+      "matchStrings": [
+        "jaeger\\s*\\|\\s?v(?<currentValue>[0-9\\.]+)"
+      ],
+      "depNameTemplate": "jaeger",
+      "autoReplaceStringTemplate": "jaeger | v{{newValue}}",
+      "datasourceTemplate": "helm"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/roles/jaeger/defaults/main.yml$/",
+        "/roles/jaeger/README.md$/"
+      ],
+      "matchStrings": [
+        "jaeger_chart_version:\\s*(?<quote>\")?(?<currentValue>[0-9\\.]+)\"?"
+      ],
+      "depNameTemplate": "jaeger",
+      "autoReplaceStringTemplate": "jaeger_chart_version: {{#if quote}}\"{{newValue}}\"{{else}}{{newValue}}{{/if}}",
       "datasourceTemplate": "helm"
     }
   ]
