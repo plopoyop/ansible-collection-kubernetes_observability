@@ -6,6 +6,7 @@
 
 ## 🚀 New Features
 
+- Add jaeger role [\#215](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/215) ([plopoyop](https://github.com/plopoyop))
 - Add tags on tasks [\#214](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/214) ([plopoyop](https://github.com/plopoyop))
 
 ## ⚙️ Dependencies
