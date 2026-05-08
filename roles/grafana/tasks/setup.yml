@@ -5,11 +5,15 @@
     api_version: v1
     kind: Namespace
     state: present
+  tags:
+    - "namespace"
 
 - name: "Add grafana helm repo"
   kubernetes.core.helm_repository:
     name: "{{ grafana_helm_repo_name }}"
     repo_url: "{{ grafana_helm_repo_url }}"
+  tags:
+    - "helm_repository"
 
 - name: "Deploy grafana chart"
   kubernetes.core.helm:
@@ -19,3 +23,5 @@
     chart_version: "{{ grafana_chart_version }}"
     state: present
     values: "{{ lookup('ansible.builtin.template', 'grafana_helm_values.yml.j2') | ansible.builtin.from_yaml }}"
+  tags:
+    - "helm_chart"

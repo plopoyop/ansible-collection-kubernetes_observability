@@ -5,11 +5,15 @@
     api_version: v1
     kind: Namespace
     state: present
+  tags:
+    - "namespace"
 
 - name: Add OpenTelemetry helm repo
   kubernetes.core.helm_repository:
     name: "{{ opentelemetry_helm_repo_name }}"
     repo_url: "{{ opentelemetry_helm_repo_url }}"
+  tags:
+    - "helm_repository"
 
 - name: Gather information about test-chart with pending state
   kubernetes.core.helm_info:
@@ -18,6 +22,8 @@
     release_state:
       - "deployed"
   register: "opentelemetry_current_release"
+  tags:
+    - "helm_chart"
 
 - name: Upgrade CRDs with content from github
   ansible.builtin.include_tasks: "upgrade_crd.yml"
@@ -25,6 +31,8 @@
   loop_control:
     loop_var: "opentelemetry_current_crd"
   when: opentelemetry_upgrade_crd and (opentelemetry_current_release.status.status is defined or opentelemetry_crd_force_upgrade)
+  tags:
+    - "crds"
 
 - name: Deploy OpenTelemetry Kube stack
   kubernetes.core.helm:
@@ -36,6 +44,8 @@
     state: "present"
     values: "{{ lookup('ansible.builtin.template', 'opentelemetry_collector_helm_values.yml.j2') | ansible.builtin.from_yaml }}"
     wait: true
+  tags:
+    - "helm_chart"
 
 - name: Deploy OpenTelemetry Instrumentation Resources
   kubernetes.core.k8s:
@@ -46,3 +56,5 @@
     "{{ opentelemetry_instrumentations }}"
   loop_control:
     loop_var: instrumentation
+  tags:
+    - "manifest"

@@ -44,13 +44,87 @@ You can call the roles from this collection in your Ansible playbooks as follows
 ## Collection content
 ### List of Roles and Helm Chart Versions
 
-| Role Name       | Helm Chart Version | README Link                                 |
-| ---------       | ------------------ | ------------------------------------        |
-| grafana | v10.5.15      | [View README](roles/grafana/README.md) |
-| opentelemetry k8s stack | v0.14.11      | [View README](roles/opentelemetry/README.md) |
-| loki | v6.55.0      | [View README](roles/loki/README.md) |
-| victoriametrics single | v0.35.0      | [View README](roles/victoriametrics/README.md) |
-| vmagent | v0.36.0      | [View README](roles/victoriametrics/README.md) |
+| Role Name       | Helm Chart Version | Role Tag                                      | README Link                                 |
+| ---------       | ------------------ | --------------------------------------------- | ------------------------------------        |
+| grafana | v10.5.15      | `grafana`                                     | [View README](roles/grafana/README.md) |
+| opentelemetry k8s stack | v0.14.11      | `opentelemetry`                               | [View README](roles/opentelemetry/README.md) |
+| loki | v6.55.0      | `loki`                                        | [View README](roles/loki/README.md) |
+| victoriametrics single | v0.35.0      | `victoriametrics` / `victoriametrics_single`  | [View README](roles/victoriametrics/README.md) |
+| vmagent | v0.36.0      | `victoriametrics` / `victoriametrics_vmagent` | [View README](roles/victoriametrics/README.md) |
+
+### Tags
+
+Every role in this collection ships tagged tasks so you can selectively run only what you need with `ansible-playbook --tags` or skip parts with `--skip-tags`.
+
+Three kinds of tags are exposed:
+
+- **Role tag** — named after the role itself (e.g. `grafana`, `loki`, `opentelemetry`, `victoriametrics`). Use it to scope a run to a single tool. The `victoriametrics` role additionally exposes the sub-tags `victoriametrics_single` and `victoriametrics_vmagent` to target each component independently.
+- **Action tag** — `install` or `uninstall`. The role's `*_enabled` variable controls which one runs:
+  - When `<role>_enabled: true`, the setup tasks (tagged `install`) are executed.
+  - When `<role>_enabled: false`, the cleanup tasks (tagged `uninstall`) are executed.
+- **Task-type tag** — applied per task to scope a run to a specific phase (e.g. only create the namespace, only upgrade CRDs):
+
+  | Tag               | Applied to                                                                                                  |
+  | ----------------- | ----------------------------------------------------------------------------------------------------------- |
+  | `namespace`       | Namespace creation/deletion                                                                                 |
+  | `helm_repository` | Adding/removing helm repositories                                                                           |
+  | `helm_chart`      | Helm chart install/upgrade/uninstall (and related `helm_info`)                                              |
+  | `crds`            | CRD upgrade tasks (e.g. OpenTelemetry `upgrade_crd.yml`)                                                    |
+  | `manifest`        | Other Kubernetes resources (e.g. OpenTelemetry Instrumentation custom resources)                            |
+
+  Pure helper tasks (`set_fact`, `pause`, `uri` validations) carry only the role + action tags so they run alongside any phase that needs them.
+
+> **Note:** the `victoriametrics` role only exposes the `install` action tag (no cleanup flow is provided) and is driven by two separate variables: `victoriametrics_single_enabled` and `victoriametrics_vmagent_enabled`.
+
+#### Examples
+
+Install only Grafana:
+
+```sh
+ansible-playbook playbook.yml --tags "grafana,install"
+```
+
+Install only the VictoriaMetrics vmagent component:
+
+```sh
+ansible-playbook playbook.yml --tags "victoriametrics_vmagent,install"
+```
+
+Run install actions for every role:
+
+```sh
+ansible-playbook playbook.yml --tags "install"
+```
+
+Uninstall only Loki (requires `loki_enabled: false`):
+
+```sh
+ansible-playbook playbook.yml --tags "loki,uninstall"
+```
+
+Run everything except OpenTelemetry:
+
+```sh
+ansible-playbook playbook.yml --skip-tags "opentelemetry"
+```
+
+Prepare prerequisites only (create namespace + add helm repo) without installing the chart, e.g. for Grafana:
+
+```sh
+ansible-playbook playbook.yml --tags "grafana,namespace,helm_repository"
+```
+
+Upgrade only the OpenTelemetry CRDs (skip the helm release and instrumentation manifests):
+
+```sh
+ansible-playbook playbook.yml --tags "opentelemetry,crds"
+```
+
+Uninstall Loki but keep its namespace:
+
+```sh
+ansible-playbook playbook.yml --tags "loki,uninstall" --skip-tags "namespace"
+```
 
 ## Customization
 
