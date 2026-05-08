@@ -1,8 +1,12 @@
 # Changelog
 
-## [5.8.1](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.8.1) (2026-05-03)
+## [5.9.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.9.0) (2026-05-08)
 
-[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5.8.0...5.8.1)
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5.8.0...5.9.0)
+
+## 🚀 New Features
+
+- Add tags on tasks [\#214](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/214) ([plopoyop](https://github.com/plopoyop))
 
 ## ⚙️ Dependencies
 
