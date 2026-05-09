@@ -1,11 +1,12 @@
 # Changelog
 
-## [5.9.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.9.0) (2026-05-08)
+## [5.9.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.9.0) (2026-05-09)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5.8.0...5.9.0)
 
 ## 🚀 New Features
 
+- Add VictoriaLogs single role [\#216](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/216) ([plopoyop](https://github.com/plopoyop))
 - Add jaeger role [\#215](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/215) ([plopoyop](https://github.com/plopoyop))
 - Add tags on tasks [\#214](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/214) ([plopoyop](https://github.com/plopoyop))
 
