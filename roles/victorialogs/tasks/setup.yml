@@ -1,0 +1,28 @@
+---
+- name: "Create VictoriaLogs namespace"
+  kubernetes.core.k8s:
+    name: "{{ victorialogs_namespace }}"
+    api_version: "v1"
+    kind: "Namespace"
+    state: "present"
+  tags:
+    - "namespace"
+
+- name: "Add VictoriaMetrics helm repo"
+  kubernetes.core.helm_repository:
+    name: "{{ victorialogs_helm_repo_name }}"
+    repo_url: "{{ victorialogs_helm_repo_url }}"
+  tags:
+    - "helm_repository"
+
+- name: "Deploy VictoriaLogs single chart"
+  kubernetes.core.helm:
+    name: "{{ victorialogs_deployment_name }}"
+    chart_ref: "{{ victorialogs_helm_chart_ref }}"
+    namespace: "{{ victorialogs_namespace }}"
+    chart_version: "{{ victorialogs_chart_version }}"
+    state: "present"
+    update_repo_cache: true
+    values: "{{ lookup('ansible.builtin.template', 'victorialogs_helm_values.yml.j2') | ansible.builtin.from_yaml }}"
+  tags:
+    - "helm_chart"

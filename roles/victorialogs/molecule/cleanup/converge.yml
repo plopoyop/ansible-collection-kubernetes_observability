@@ -1,0 +1,11 @@
+---
+- name: "Converge"
+  hosts: "localhost"
+  connection: "local"
+  gather_facts: false
+  vars:
+    victorialogs_enabled: false
+  tasks:
+    - name: "Call victorialogs role"
+      ansible.builtin.import_role:
+        name: "victorialogs"

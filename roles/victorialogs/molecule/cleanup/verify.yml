@@ -1,0 +1,35 @@
+---
+- name: "Verify"
+  hosts: "localhost"
+  connection: "local"
+  gather_facts: true
+
+  tasks:
+    - name: "Wait for 'victorialogs' namespace to be removed."
+      kubernetes.core.k8s_info:
+        kind: "Namespace"
+        name: "victorialogs"
+      register: namespace_victorialogs
+      until: namespace_victorialogs.resources | length == 0
+      retries: 30
+      delay: 5
+
+    - name: "Assert that 'victorialogs' namespace is removed."
+      ansible.builtin.assert:
+        that: namespace_victorialogs.resources | length == 0
+        fail_msg: "Namespace 'victorialogs' is still present."
+
+    - name: "Wait for VictoriaLogs single StatefulSet to be removed."
+      kubernetes.core.k8s_info:
+        kind: "StatefulSet"
+        name: "vlogs-victoria-logs-single-server"
+        namespace: "victorialogs"
+      register: victorialogs_statefulset
+      until: victorialogs_statefulset.resources | length == 0
+      retries: 30
+      delay: 5
+
+    - name: "Assert that VictoriaLogs single StatefulSet is removed."
+      ansible.builtin.assert:
+        that: victorialogs_statefulset.resources | length == 0
+        fail_msg: "StatefulSet 'vlogs-victoria-logs-single-server' is still present."

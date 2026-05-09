@@ -1,0 +1,39 @@
+---
+- name: "Verify"
+  hosts: "localhost"
+  connection: "local"
+  gather_facts: true
+
+  tasks:
+    - name: "Wait for 'victorialogs' namespace to be active."
+      kubernetes.core.k8s_info:
+        kind: "Namespace"
+        name: "victorialogs"
+      register: namespace_victorialogs
+      until:
+        - namespace_victorialogs.resources | length > 0
+        - namespace_victorialogs.resources[0].status.phase == "Active"
+      retries: 30
+      delay: 5
+
+    - name: "Assert that 'victorialogs' namespace is active."
+      ansible.builtin.assert:
+        that:
+          - namespace_victorialogs.resources | length > 0
+          - namespace_victorialogs.resources[0].status.phase == "Active"
+        fail_msg: "Namespace 'victorialogs' is not active."
+
+    - name: "Wait for VictoriaLogs single StatefulSet to be deployed."
+      kubernetes.core.k8s_info:
+        kind: "StatefulSet"
+        name: "vlogs-victoria-logs-single-server"
+        namespace: "victorialogs"
+      register: victorialogs_statefulset
+      until: victorialogs_statefulset.resources[0].status.availableReplicas | default(0) == 1
+      retries: 30
+      delay: 5
+
+    - name: "Assert that VictoriaLogs single is deployed."
+      ansible.builtin.assert:
+        that: victorialogs_statefulset.resources[0].status.availableReplicas | default(0) == 1
+        fail_msg: "StatefulSet 'vlogs-victoria-logs-single-server' is not deployed."
