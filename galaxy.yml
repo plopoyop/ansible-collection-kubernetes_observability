@@ -20,6 +20,8 @@ tags:
   - loki
   - jaeger
   - tracing
+  - victorialogs
+  - logs
 dependencies:
   kubernetes.core: '>=5.1.0'
 repository: 'https://github.com/plopoyop/ansible-collection-kubernetes_observability'
