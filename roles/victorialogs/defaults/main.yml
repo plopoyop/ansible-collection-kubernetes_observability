@@ -1,0 +1,193 @@
+---
+# defaults file for victorialogs
+# @var victorialogs_enabled
+# @var victorialogs_enabled:type: boolean
+# @var victorialogs_enabled:description: >
+# Install VictoriaLogs single chart
+victorialogs_enabled: true
+
+# @var victorialogs_namespace
+# @var victorialogs_namespace:type: string
+# @var victorialogs_namespace:description: >
+# K8s namespace to install VictoriaLogs single chart
+victorialogs_namespace: "victorialogs"
+
+# @var victorialogs_chart_version
+# @var victorialogs_chart_version:type: string
+# @var victorialogs_chart_version:description: >
+# VictoriaLogs single chart version
+victorialogs_chart_version: "0.12.4"
+
+# @var victorialogs_deployment_name
+# @var victorialogs_deployment_name:type: string
+# @var victorialogs_deployment_name:description: >
+# VictoriaLogs single helm release name
+victorialogs_deployment_name: "vlogs"
+
+# @var victorialogs_replica_count
+# @var victorialogs_replica_count:type: int
+# @var victorialogs_replica_count:description: >
+# Number of VictoriaLogs single replicas
+victorialogs_replica_count: 1
+
+# @var victorialogs_retention_period
+# @var victorialogs_retention_period:type: string
+# @var victorialogs_retention_period:description: >
+# Data retention period. Possible units character: h(ours), d(ays), w(eeks), y(ears), if no unit character specified - month.
+# See [the docs](https://docs.victoriametrics.com/victorialogs/#retention).
+victorialogs_retention_period: "1"
+
+# @var victorialogs_retention_disk_space_usage
+# @var victorialogs_retention_disk_space_usage:type: string
+# @var victorialogs_retention_disk_space_usage:description: >
+# Maximum disk space usage for the retained logs (e.g. "10GB"). Empty means unlimited.
+victorialogs_retention_disk_space_usage: ""
+
+# @var victorialogs_resources
+# @var victorialogs_resources:type: dict
+# @var victorialogs_resources:description: >
+# Resources requests and limits for the VictoriaLogs single pod
+# @var victorialogs_resources:example: >
+# victorialogs_resources:
+#   limits:
+#     cpu: 500m
+#     memory: 512Mi
+#   requests:
+#     cpu: 100m
+#     memory: 256Mi
+victorialogs_resources: {}
+
+# @var victorialogs_extra_args
+# @var victorialogs_extra_args:type: dict
+# @var victorialogs_extra_args:description: >
+# Additional CLI flags to pass to the VictoriaLogs binary
+# @var victorialogs_extra_args:example: >
+# victorialogs_extra_args:
+#   search.maxQueryDuration: "30s"
+victorialogs_extra_args: {}
+
+# @var victorialogs_extra_env
+# @var victorialogs_extra_env:type: list
+# @var victorialogs_extra_env:description: >
+# Additional environment variables passed to the VictoriaLogs container
+# @var victorialogs_extra_env:example: >
+# victorialogs_extra_env:
+#   - name: "GOMAXPROCS"
+#     value: "2"
+victorialogs_extra_env: []
+
+# @var victorialogs_persistent_volume_enabled
+# @var victorialogs_persistent_volume_enabled:type: boolean
+# @var victorialogs_persistent_volume_enabled:description: >
+# Enable persistent volume for VictoriaLogs single
+victorialogs_persistent_volume_enabled: true
+
+# @var victorialogs_persistent_volume_size
+# @var victorialogs_persistent_volume_size:type: string
+# @var victorialogs_persistent_volume_size:description: >
+# Size of the VictoriaLogs single persistent volume
+victorialogs_persistent_volume_size: "10Gi"
+
+# @var victorialogs_persistent_volume_storage_class
+# @var victorialogs_persistent_volume_storage_class:type: string
+# @var victorialogs_persistent_volume_storage_class:description: >
+# StorageClass to use for the VictoriaLogs single persistent volume (empty to use the cluster default)
+victorialogs_persistent_volume_storage_class: ""
+
+# @var victorialogs_persistent_volume_access_modes
+# @var victorialogs_persistent_volume_access_modes:type: list
+# @var victorialogs_persistent_volume_access_modes:description: >
+# Access modes for the VictoriaLogs single persistent volume
+victorialogs_persistent_volume_access_modes:
+  - "ReadWriteOnce"
+
+# @var victorialogs_service_type
+# @var victorialogs_service_type:type: string
+# @var victorialogs_service_type:description: >
+# Service type for the VictoriaLogs single service
+victorialogs_service_type: "ClusterIP"
+
+# @var victorialogs_service_port
+# @var victorialogs_service_port:type: int
+# @var victorialogs_service_port:description: >
+# Service port for the VictoriaLogs single service
+victorialogs_service_port: 9428
+
+# @var victorialogs_service_monitor_enabled
+# @var victorialogs_service_monitor_enabled:type: boolean
+# @var victorialogs_service_monitor_enabled:description: >
+# Enable a Prometheus-operator ServiceMonitor for VictoriaLogs single
+victorialogs_service_monitor_enabled: false
+
+# @var victorialogs_pod_annotations
+# @var victorialogs_pod_annotations:type: dict
+# @var victorialogs_pod_annotations:description: >
+# Annotations applied to the VictoriaLogs single pod
+victorialogs_pod_annotations: {}
+
+# @var victorialogs_pod_labels
+# @var victorialogs_pod_labels:type: dict
+# @var victorialogs_pod_labels:description: >
+# Labels applied to the VictoriaLogs single pod
+victorialogs_pod_labels: {}
+
+# @var victorialogs_node_selector
+# @var victorialogs_node_selector:type: dict
+# @var victorialogs_node_selector:description: >
+# Node selector for the VictoriaLogs single pod
+victorialogs_node_selector: {}
+
+# @var victorialogs_tolerations
+# @var victorialogs_tolerations:type: list
+# @var victorialogs_tolerations:description: >
+# Tolerations for the VictoriaLogs single pod
+victorialogs_tolerations: []
+
+# @var victorialogs_affinity
+# @var victorialogs_affinity:type: dict
+# @var victorialogs_affinity:description: >
+# Affinity rules for the VictoriaLogs single pod
+victorialogs_affinity: {}
+
+# @var victorialogs_ingress_enabled
+# @var victorialogs_ingress_enabled:type: boolean
+# @var victorialogs_ingress_enabled:description: >
+# Enable ingress for VictoriaLogs single
+victorialogs_ingress_enabled: false
+
+# @var victorialogs_ingress_classname
+# @var victorialogs_ingress_classname:type: string
+# @var victorialogs_ingress_classname:description: >
+# Ingress class name for VictoriaLogs single
+
+# @var victorialogs_ingress_hostname
+# @var victorialogs_ingress_hostname:type: string
+# @var victorialogs_ingress_hostname:description: >
+# Hostname for the VictoriaLogs single ingress
+
+# @var victorialogs_ingress_tls_enabled
+# @var victorialogs_ingress_tls_enabled:type: boolean
+# @var victorialogs_ingress_tls_enabled:description: >
+# Enable TLS for the VictoriaLogs single ingress
+victorialogs_ingress_tls_enabled: false
+
+# @var victorialogs_ingress_tls_secret_name
+# @var victorialogs_ingress_tls_secret_name:type: string
+# @var victorialogs_ingress_tls_secret_name:description: >
+# Secret name for the VictoriaLogs single TLS certificate
+
+# @var victorialogs_ingress_annotations
+# @var victorialogs_ingress_annotations:type: dict
+# @var victorialogs_ingress_annotations:description: >
+# Annotations applied to the VictoriaLogs single ingress
+# @var victorialogs_ingress_annotations:example: >
+# victorialogs_ingress_annotations:
+#   kubernetes.io/ingress.class: "traefik"
+#   cert-manager.io/cluster-issuer: "letsencrypt-prod"
+victorialogs_ingress_annotations: {}
+
+# @var victorialogs_ingress_labels
+# @var victorialogs_ingress_labels:type: dict
+# @var victorialogs_ingress_labels:description: >
+# Labels applied to the VictoriaLogs single ingress
+victorialogs_ingress_labels: {}

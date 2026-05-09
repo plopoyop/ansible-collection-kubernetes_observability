@@ -1,0 +1,55 @@
+server:
+  enabled: true
+  replicaCount: {{ victorialogs_replica_count }}
+  retentionPeriod: "{{ victorialogs_retention_period }}"
+{% if victorialogs_retention_disk_space_usage | length > 0 %}
+  retentionDiskSpaceUsage: "{{ victorialogs_retention_disk_space_usage }}"
+{% endif %}
+
+  extraArgs: {{ victorialogs_extra_args | ansible.builtin.to_json }}
+{% if victorialogs_extra_env | length > 0 %}
+  extraEnv: {{ victorialogs_extra_env | ansible.builtin.to_json }}
+{% endif %}
+
+  resources: {{ victorialogs_resources | ansible.builtin.to_json }}
+
+  persistentVolume:
+    enabled: {{ victorialogs_persistent_volume_enabled | ansible.builtin.to_json }}
+    size: "{{ victorialogs_persistent_volume_size }}"
+    accessModes: {{ victorialogs_persistent_volume_access_modes | ansible.builtin.to_json }}
+{% if victorialogs_persistent_volume_storage_class | length > 0 %}
+    storageClassName: "{{ victorialogs_persistent_volume_storage_class }}"
+{% endif %}
+
+  service:
+    type: "{{ victorialogs_service_type }}"
+    servicePort: {{ victorialogs_service_port }}
+
+  podAnnotations: {{ victorialogs_pod_annotations | ansible.builtin.to_json }}
+  podLabels: {{ victorialogs_pod_labels | ansible.builtin.to_json }}
+
+  nodeSelector: {{ victorialogs_node_selector | ansible.builtin.to_json }}
+  tolerations: {{ victorialogs_tolerations | ansible.builtin.to_json }}
+  affinity: {{ victorialogs_affinity | ansible.builtin.to_json }}
+
+{% if victorialogs_ingress_enabled %}
+  ingress:
+    enabled: true
+    ingressClassName: "{{ victorialogs_ingress_classname }}"
+    annotations: {{ victorialogs_ingress_annotations | ansible.builtin.to_json }}
+    labels: {{ victorialogs_ingress_labels | ansible.builtin.to_json }}
+    pathType: "Prefix"
+    hosts:
+      - name: "{{ victorialogs_ingress_hostname }}"
+        path:
+          - "/"
+{% if victorialogs_ingress_tls_enabled %}
+    tls:
+      - secretName: "{{ victorialogs_ingress_tls_secret_name }}"
+        hosts:
+          - "{{ victorialogs_ingress_hostname }}"
+{% endif %}
+{% endif %}
+
+serviceMonitor:
+  enabled: {{ victorialogs_service_monitor_enabled | ansible.builtin.to_json }}

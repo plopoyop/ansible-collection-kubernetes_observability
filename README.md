@@ -52,6 +52,7 @@ You can call the roles from this collection in your Ansible playbooks as follows
 | loki | v6.55.0      | `loki`                                        | [View README](roles/loki/README.md) |
 | victoriametrics single | v0.35.0      | `victoriametrics` / `victoriametrics_single`  | [View README](roles/victoriametrics/README.md) |
 | vmagent | v0.36.0      | `victoriametrics` / `victoriametrics_vmagent` | [View README](roles/victoriametrics/README.md) |
+| victorialogs single | v0.12.4      | `victorialogs`                                | [View README](roles/victorialogs/README.md) |
 
 ### Tags
 
@@ -59,7 +60,7 @@ Every role in this collection ships tagged tasks so you can selectively run only
 
 Three kinds of tags are exposed:
 
-- **Role tag** — named after the role itself (e.g. `grafana`, `jaeger`, `loki`, `opentelemetry`, `victoriametrics`). Use it to scope a run to a single tool. The `victoriametrics` role additionally exposes the sub-tags `victoriametrics_single` and `victoriametrics_vmagent` to target each component independently.
+- **Role tag** — named after the role itself (e.g. `grafana`, `jaeger`, `loki`, `opentelemetry`, `victorialogs`, `victoriametrics`). Use it to scope a run to a single tool. The `victoriametrics` role additionally exposes the sub-tags `victoriametrics_single` and `victoriametrics_vmagent` to target each component independently.
 - **Action tag** — `install` or `uninstall`. The role's `*_enabled` variable controls which one runs:
   - When `<role>_enabled: true`, the setup tasks (tagged `install`) are executed.
   - When `<role>_enabled: false`, the cleanup tasks (tagged `uninstall`) are executed.

@@ -43,6 +43,11 @@ jobs:
     with:
       role_name: "loki"
 
+  victorialogs:
+    uses: ./.github/workflows/test-role.yaml
+    with:
+      role_name: "victorialogs"
+
   victoriametrics:
     uses: ./.github/workflows/test-role.yaml
     with:

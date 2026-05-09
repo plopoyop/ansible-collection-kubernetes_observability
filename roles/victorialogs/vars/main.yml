@@ -1,0 +1,5 @@
+---
+# vars file for victorialogs
+victorialogs_helm_repo_name: "vm"
+victorialogs_helm_repo_url: "https://victoriametrics.github.io/helm-charts/"
+victorialogs_helm_chart_ref: "{{ victorialogs_helm_repo_name }}/victoria-logs-single"
