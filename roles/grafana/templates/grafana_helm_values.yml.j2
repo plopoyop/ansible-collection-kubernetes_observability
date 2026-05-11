@@ -4,36 +4,38 @@ adminPassword: "{{ grafana_admin_password }}"
 replicas: {{ grafana_replicas }}
 
 ingress:
-  enabled: {{ grafana_ingress_enabled }}
+  enabled: {{ grafana_ingress_enabled | ansible.builtin.to_json }}
 {% if grafana_ingress_enabled %}
-  ingressClassName: {{ grafana_ingress_class_name }}
-  annotations: {{ grafana_ingress_annotations }}
-  labels: {{ grafana_ingress_labels }}
-  path: /
-  pathType: Prefix
+  ingressClassName: "{{ grafana_ingress_class_name }}"
+  annotations: {{ grafana_ingress_annotations | ansible.builtin.to_json }}
+{% if grafana_ingress_labels | length > 0 %}
+  labels: {{ grafana_ingress_labels | ansible.builtin.to_json }}
+{% endif %}
+  path: "/"
+  pathType: "Prefix"
   hosts:
-    - {{ grafana_ingress_hostname }}
+    - "{{ grafana_ingress_hostname }}"
   extraPaths: []
 {% if grafana_ingress_tls_enabled %}
   tls:
-    - secretName: {{ grafana_ingress_tls_secret_name }}
+    - secretName: "{{ grafana_ingress_tls_secret_name }}"
       hosts:
-        - {{ grafana_ingress_hostname }}
+        - "{{ grafana_ingress_hostname }}"
 {% endif %}
 {% endif %}
 
-resources: {{ grafana_resources }}
+resources: {{ grafana_resources | ansible.builtin.to_json }}
 
-grafana.ini: {{ grafana_ini }}
+grafana.ini: {{ grafana_ini | ansible.builtin.to_json }}
 
-plugins: {{ grafana_plugins }}
+plugins: {{ grafana_plugins | ansible.builtin.to_json }}
 
-datasources: {{ grafana_datasources }}
+datasources: {{ grafana_datasources | ansible.builtin.to_json }}
 
-alerting: {{ grafana_alerting }}
+alerting: {{ grafana_alerting | ansible.builtin.to_json }}
 
-notifiers: {{ grafana_notifiers }}
+notifiers: {{ grafana_notifiers | ansible.builtin.to_json }}
 
-dashboardProviders: {{ grafana_dashboard_providers }}
+dashboardProviders: {{ grafana_dashboard_providers | ansible.builtin.to_json }}
 
-dashboards: {{ grafana_dashboards }}
+dashboards: {{ grafana_dashboards | ansible.builtin.to_json }}
