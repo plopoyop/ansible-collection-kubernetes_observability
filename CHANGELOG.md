@@ -1,5 +1,13 @@
 # Changelog
 
+## [5.9.1](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.9.1) (2026-05-11)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5.9.0...5.9.1)
+
+## 🐛 Bug Fixes
+
+- Clean templates [\#219](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/219) ([plopoyop](https://github.com/plopoyop))
+
 ## [5.9.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.9.0) (2026-05-10)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5.8.0...5.9.0)
