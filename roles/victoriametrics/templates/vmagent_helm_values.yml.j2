@@ -1,9 +1,9 @@
-remoteWrite: {{ victoriametrics_vmagent_remote_write }}
+remoteWrite: {{ victoriametrics_vmagent_remote_write | ansible.builtin.to_json }}
 
 config:
   global:
     scrape_interval: "{{ victoriametrics_vmagent_config_scrape_interval }}"
 
 {% if victoriametrics_vmagent_config_scrap_configs is defined %}
-  scrape_configs: {{ victoriametrics_vmagent_config_scrap_configs }}
+  scrape_configs: {{ victoriametrics_vmagent_config_scrap_configs | ansible.builtin.to_json }}
 {% endif %}

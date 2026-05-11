@@ -1,27 +1,27 @@
 loki:
-  auth_enabled: {{ loki_auth_enabled }}
-  schemaConfig: {{ loki_schema_config }}
+  auth_enabled: {{ loki_auth_enabled | ansible.builtin.to_json }}
+  schemaConfig: {{ loki_schema_config | ansible.builtin.to_json }}
 
 {% if loki_server_config is defined %}
-  server: {{ loki_server_config }}
+  server: {{ loki_server_config | ansible.builtin.to_json }}
 {% endif %}
 
 {% if loki_ingester_config is defined %}
-  ingester: {{ loki_ingester_config }}
+  ingester: {{ loki_ingester_config | ansible.builtin.to_json }}
 {% endif %}
 
 {% if loki_querier_config is defined %}
-  querier: {{ loki_querier_config }}
+  querier: {{ loki_querier_config | ansible.builtin.to_json }}
 {% endif %}
 
 {% if loki_compactor_config is defined %}
-  compactor: {{ loki_compactor_config }}
+  compactor: {{ loki_compactor_config | ansible.builtin.to_json }}
 {% endif %}
 
   pattern_ingester:
     enabled: true
 
-  limits_config: {{ loki_limits_config }}
+  limits_config: {{ loki_limits_config | ansible.builtin.to_json }}
 
   ruler:
     enable_api: true
@@ -32,7 +32,7 @@ loki:
 {% endif %}
 
 {% if loki_readiness_probe is defined %}
-  readinessProbe: {{ loki_readiness_probe }}
+  readinessProbe: {{ loki_readiness_probe | ansible.builtin.to_json }}
 {% endif %}
 
 {% if loki_additional_server_config is defined %}
@@ -45,7 +45,7 @@ loki:
   storage_config:
 {% if loki_storage_type == "filesystem" %}
     filesystem:
-      directory: {{ loki_storage_filesystem_directory }}
+      directory: "{{ loki_storage_filesystem_directory }}"
     use_thanos_objstore: false
 {% else %}
     use_thanos_objstore: true
@@ -84,9 +84,9 @@ loki:
       endpoint: "{{ loki_storage_s3_endpoint }}"
       accessKeyId: "{{ loki_storage_s3_access_key_id }}"
       secretAccessKey: "{{ loki_storage_s3_secret_access_key }}"
-      s3ForcePathStyle: {{ loki_storage_s3_force_path_style }}
-      insecure: {{ loki_storage_s3_insecure }}
-      http_config: {{ loki_storage_s3_http_config }}
+      s3ForcePathStyle: {{ loki_storage_s3_force_path_style | ansible.builtin.to_json }}
+      insecure: {{ loki_storage_s3_insecure | ansible.builtin.to_json }}
+      http_config: {{ loki_storage_s3_http_config | ansible.builtin.to_json }}
       region: "{{ loki_storage_s3_region }}"
 {% elif loki_storage_type == "azure" %}
     azure:
@@ -108,30 +108,30 @@ loki:
 gateway:
   ingress:
     enabled: true
-    ingressClassName: {{ loki_ingress_class_name }}
-    annotations: {{ loki_ingress_annotations }}
+    ingressClassName: "{{ loki_ingress_class_name }}"
+    annotations: {{ loki_ingress_annotations | ansible.builtin.to_json }}
     hosts:
-      - host: {{ loki_ingress_hostname }}
+      - host: "{{ loki_ingress_hostname }}"
         paths:
-          - path: /
-            pathType: Prefix
+          - path: "/"
+            pathType: "Prefix"
 {% if loki_ingress_tls_enabled %}
     tls:
-      - secretName: {{ loki_ingress_tls_secret_name }}
+      - secretName: "{{ loki_ingress_tls_secret_name }}"
         hosts:
-          - {{ loki_ingress_hostname }}
+          - "{{ loki_ingress_hostname }}"
 {% endif %}
 {% endif %}
 
 minio:
-  enabled: {{ loki_minio_enabled }}
+  enabled: {{ loki_minio_enabled | ansible.builtin.to_json }}
 
 deploymentMode: "SingleBinary"
 
 singleBinary:
   replicas: {{ loki_single_binary_replication_factor }}
 {% if loki_single_binary_resources is defined %}
-  resources: {{ loki_single_binary_resources }}
+  resources: {{ loki_single_binary_resources | ansible.builtin.to_json }}
 {% endif %}
 
 backend:

@@ -7,7 +7,7 @@ opentelemetry-operator:
 
 {% if opentelemetry_default_collector_config_enabled is defined %}
 defaultCRConfig:
-  enabled: {{ opentelemetry_default_collector_config_enabled }}
+  enabled: {{ opentelemetry_default_collector_config_enabled | ansible.builtin.to_json }}
 
 {% if opentelemetry_default_collector_additional_config is defined %}
   {{ opentelemetry_default_collector_additional_config | ansible.builtin.to_nice_yaml | indent(2) }}
@@ -15,19 +15,19 @@ defaultCRConfig:
 
   config:
 {% if opentelemetry_default_collector_config_receivers is defined %}
-    receivers: {{ opentelemetry_default_collector_config_receivers }}
+    receivers: {{ opentelemetry_default_collector_config_receivers | ansible.builtin.to_json }}
 {% endif %}
 {% if opentelemetry_default_collector_config_exporters is defined %}
-    exporters: {{ opentelemetry_default_collector_config_exporters }}
+    exporters: {{ opentelemetry_default_collector_config_exporters | ansible.builtin.to_json }}
 {% endif %}
 {% if opentelemetry_default_collector_config_processors is defined %}
-    processors: {{ opentelemetry_default_collector_config_processors }}
+    processors: {{ opentelemetry_default_collector_config_processors | ansible.builtin.to_json }}
 {% endif %}
 {% if opentelemetry_default_collector_config_extensions is defined %}
-    extensions: {{ opentelemetry_default_collector_config_extensions }}
+    extensions: {{ opentelemetry_default_collector_config_extensions | ansible.builtin.to_json }}
 {% endif %}
 {% if opentelemetry_default_collector_config_services is defined %}
-    services: {{ opentelemetry_default_collector_config_services }}
+    services: {{ opentelemetry_default_collector_config_services | ansible.builtin.to_json }}
 {% endif %}
 {% endif %}
 
@@ -50,22 +50,22 @@ cleanupJob:
     repository: "{{ opentelemetry_cleanup_job_image_repository }}"
 
 kubernetesServiceMonitors:
-  enabled: {{ opentelemetry_kubernetes_service_monitors_enabled }}
+  enabled: {{ opentelemetry_kubernetes_service_monitors_enabled | ansible.builtin.to_json }}
 kubeApiServer:
-  enabled: {{ opentelemetry_kube_api_enabled }}
+  enabled: {{ opentelemetry_kube_api_enabled | ansible.builtin.to_json }}
 kubelet:
-  enabled: {{ opentelemetry_kubelet_enabled }}
+  enabled: {{ opentelemetry_kubelet_enabled | ansible.builtin.to_json }}
 kubeControllerManager:
-  enabled: {{ opentelemetry_kube_controller_manager_enabled }}
+  enabled: {{ opentelemetry_kube_controller_manager_enabled | ansible.builtin.to_json }}
 kubeDns:
-  enabled: {{ opentelemetry_kube_dns_enabled }}
+  enabled: {{ opentelemetry_kube_dns_enabled | ansible.builtin.to_json }}
 kubeEtcd:
-  enabled: {{ opentelemetry_kube_etcd_enabled }}
+  enabled: {{ opentelemetry_kube_etcd_enabled | ansible.builtin.to_json }}
 kubeScheduler:
-  enabled: {{ opentelemetry_kube_scheduler_enabled }}
+  enabled: {{ opentelemetry_kube_scheduler_enabled | ansible.builtin.to_json }}
 kubeProxy:
-  enabled: {{ opentelemetry_kube_proxy_enabled }}
+  enabled: {{ opentelemetry_kube_proxy_enabled | ansible.builtin.to_json }}
 kubeStateMetrics:
-  enabled: {{ opentelemetry_kube_state_metrics_enabled }}
+  enabled: {{ opentelemetry_kube_state_metrics_enabled | ansible.builtin.to_json }}
 nodeExporter:
-  enabled: {{ opentelemetry_node_exporter_enabled }}
+  enabled: {{ opentelemetry_node_exporter_enabled | ansible.builtin.to_json }}
