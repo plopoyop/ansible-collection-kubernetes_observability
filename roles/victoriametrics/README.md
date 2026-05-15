@@ -19,6 +19,7 @@ Install and configure VictoriaMetrics on kubernetes
   - [victoriametrics_single_mode](#victoriametrics_single_mode)
   - [victoriametrics_single_namespace](#victoriametrics_single_namespace)
   - [victoriametrics_single_persistant_volume_size](#victoriametrics_single_persistant_volume_size)
+  - [victoriametrics_single_pod_annotations](#victoriametrics_single_pod_annotations)
   - [victoriametrics_single_replica_count](#victoriametrics_single_replica_count)
   - [victoriametrics_single_resources](#victoriametrics_single_resources)
   - [victoriametrics_single_retention_period](#victoriametrics_single_retention_period)
@@ -27,8 +28,11 @@ Install and configure VictoriaMetrics on kubernetes
   - [victoriametrics_vmagent_config_scrape_interval](#victoriametrics_vmagent_config_scrape_interval)
   - [victoriametrics_vmagent_deployment_name](#victoriametrics_vmagent_deployment_name)
   - [victoriametrics_vmagent_enabled](#victoriametrics_vmagent_enabled)
+  - [victoriametrics_vmagent_extra_args](#victoriametrics_vmagent_extra_args)
   - [victoriametrics_vmagent_namespace](#victoriametrics_vmagent_namespace)
+  - [victoriametrics_vmagent_pod_annotations](#victoriametrics_vmagent_pod_annotations)
   - [victoriametrics_vmagent_remote_write](#victoriametrics_vmagent_remote_write)
+- [Discovered Tags](#discovered-tags)
 - [Dependencies](#dependencies)
 - [License](#license)
 - [Author](#author)
@@ -202,6 +206,26 @@ Should be calculated based on the metrics you send and retention policy you set.
 victoriametrics_single_persistant_volume_size: 16Gi
 ```
 
+### victoriametrics_single_pod_annotations
+
+Annotations for VictoriaMetrics Single Server pods
+
+**_Type:_** dict<br />
+
+#### Default value
+
+```YAML
+victoriametrics_single_pod_annotations: {}
+```
+
+#### Example usage
+
+```YAML
+victoriametrics_single_pod_annotations:
+  prometheus.io/scrape: "true"
+  prometheus.io/port: "8428"
+```
+
 ### victoriametrics_single_replica_count
 
 Number of victoriametrics single replicas
@@ -305,6 +329,20 @@ Install VMAgent chart
 victoriametrics_vmagent_enabled: true
 ```
 
+### victoriametrics_vmagent_extra_args
+
+Extra command-line flags for vmagent
+
+**_Type:_** dict<br />
+
+#### Example usage
+
+```YAML
+victoriametrics_vmagent_extra_args:
+  remoteWrite.forcePromProto: "true"
+  remoteWrite.label: "cluster=tech"
+```
+
 ### victoriametrics_vmagent_namespace
 
 K8s namespace to install VMAgent
@@ -315,6 +353,26 @@ K8s namespace to install VMAgent
 
 ```YAML
 victoriametrics_vmagent_namespace: victoriametrics
+```
+
+### victoriametrics_vmagent_pod_annotations
+
+Annotations for VMAgent pods
+
+**_Type:_** dict<br />
+
+#### Default value
+
+```YAML
+victoriametrics_vmagent_pod_annotations: {}
+```
+
+#### Example usage
+
+```YAML
+victoriametrics_vmagent_pod_annotations:
+  prometheus.io/scrape: "true"
+  prometheus.io/port: "8429"
 ```
 
 ### victoriametrics_vmagent_remote_write
@@ -341,6 +399,22 @@ victoriametrics_vmagent_remote_write:
         regex: "dev"
   - url: http://prometheus:8480/insert/0/prometheus
 ```
+
+## Discovered Tags
+
+**_helm_chart_**
+
+**_helm_repository_**
+
+**_install_**
+
+**_namespace_**
+
+**_victoriametrics_**
+
+**_victoriametrics_single_**
+
+**_victoriametrics_vmagent_**
 
 ## Dependencies
 

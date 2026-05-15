@@ -9,6 +9,7 @@ server:
 
   resources: {{ victoriametrics_single_resources | ansible.builtin.to_json }}
 
+  podAnnotations: {{ victoriametrics_single_pod_annotations | ansible.builtin.to_json }}
 
   mode: "{{ victoriametrics_single_mode }}"
 

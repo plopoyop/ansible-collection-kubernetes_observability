@@ -113,6 +113,16 @@ victoriametrics_single_ingress_tls_enabled: false
 #   kubernetes.io/tls-acme: 'true'
 victoriametrics_single_ingress_annotation: {}
 
+# @var victoriametrics_single_pod_annotations
+# @var victoriametrics_single_pod_annotations:type: dict
+# @var victoriametrics_single_pod_annotations:description: >
+# Annotations for VictoriaMetrics Single Server pods
+# @var victoriametrics_single_pod_annotations:example: >
+# victoriametrics_single_pod_annotations:
+#   prometheus.io/scrape: "true"
+#   prometheus.io/port: "8428"
+victoriametrics_single_pod_annotations: {}
+
 # defaults file for victoriametrics
 # @var victoriametrics_vmagent_enabled
 # @var victoriametrics_vmagent_enabled:type: boolean
@@ -153,11 +163,30 @@ victoriametrics_vmagent_deployment_name: "vmagent"
 #   - url: http://prometheus:8480/insert/0/prometheus
 victoriametrics_vmagent_remote_write: []
 
+# @var victoriametrics_vmagent_pod_annotations
+# @var victoriametrics_vmagent_pod_annotations:type: dict
+# @var victoriametrics_vmagent_pod_annotations:description: >
+# Annotations for VMAgent pods
+# @var victoriametrics_vmagent_pod_annotations:example: >
+# victoriametrics_vmagent_pod_annotations:
+#   prometheus.io/scrape: "true"
+#   prometheus.io/port: "8429"
+victoriametrics_vmagent_pod_annotations: {}
+
 # @var victoriametrics_vmagent_config_scrape_interval
 # @var victoriametrics_vmagent_config_scrape_interval:type: string
 # @var victoriametrics_vmagent_config_scrape_interval:description: >
 # VMAgent scrape interval
 victoriametrics_vmagent_config_scrape_interval: "10s"
+
+# @var victoriametrics_vmagent_extra_args
+# @var victoriametrics_vmagent_extra_args:type: dict
+# @var victoriametrics_vmagent_extra_args:description: >
+# Extra command-line flags for vmagent
+# @var victoriametrics_vmagent_extra_args:example: >
+# victoriametrics_vmagent_extra_args:
+#   remoteWrite.forcePromProto: "true"
+#   remoteWrite.label: "cluster=tech"
 
 # @var victoriametrics_vmagent_config_scrap_configs
 # @var victoriametrics_vmagent_config_scrap_configs:type: dict
