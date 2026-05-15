@@ -212,3 +212,13 @@ grafana_alerting: {}
 #       settings:
 #         addresses: an_email_address@example.com
 grafana_notifiers: {}
+
+# @var grafana_extra_helm_values
+# @var grafana_extra_helm_values:type: dict
+# @var grafana_extra_helm_values:description: >
+# Extra Helm values to pass chart-level fields not covered by a dedicated variable
+# @var grafana_extra_helm_values:example: >
+# grafana_extra_helm_values:
+#   assertNoLeakedSecrets: false
+#   envFromSecret: "grafana-oauth-env"
+grafana_extra_helm_values: {}

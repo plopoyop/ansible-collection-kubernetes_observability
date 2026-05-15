@@ -39,3 +39,7 @@ notifiers: {{ grafana_notifiers | ansible.builtin.to_json }}
 dashboardProviders: {{ grafana_dashboard_providers | ansible.builtin.to_json }}
 
 dashboards: {{ grafana_dashboards | ansible.builtin.to_json }}
+
+{% if grafana_extra_helm_values %}
+{{ grafana_extra_helm_values | ansible.builtin.to_nice_yaml | indent(0) }}
+{% endif %}
