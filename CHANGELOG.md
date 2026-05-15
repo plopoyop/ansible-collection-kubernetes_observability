@@ -6,6 +6,7 @@
 
 ## 🚀 New Features
 
+- Add new values on victoria helm charts [\#222](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/222) ([plopoyop](https://github.com/plopoyop))
 - Add grafana\_extra\_helm\_values [\#221](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/221) ([plopoyop](https://github.com/plopoyop))
 
 ## 🐛 Bug Fixes
