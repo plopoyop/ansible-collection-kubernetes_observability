@@ -14,7 +14,7 @@
         "grafana"
       ],
       "registryUrls": [
-        "https://grafana.github.io/helm-charts/"
+        "https://grafana-community.github.io/helm-charts/"
       ]
     },
     {
@@ -36,7 +36,7 @@
         "loki"
       ],
       "registryUrls": [
-        "https://grafana.github.io/helm-charts/"
+        "https://grafana-community.github.io/helm-charts/"
       ]
     },
     {

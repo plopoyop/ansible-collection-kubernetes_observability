@@ -1,5 +1,5 @@
 ---
 # vars file for loki
-loki_grafana_helm_repo_name: "grafana"
-loki_grafana_helm_repo_url: "https://grafana.github.io/helm-charts"
+loki_grafana_helm_repo_name: "grafana-community"
+loki_grafana_helm_repo_url: "https://grafana-community.github.io/helm-charts"
 loki_helm_chart_ref: "{{ loki_grafana_helm_repo_name }}/loki"
