@@ -1,8 +1,12 @@
 # Changelog
 
-## [5.9.2](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.9.2) (2026-05-15)
+## [5.10.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.10.0) (2026-05-15)
 
-[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5.9.1...5.9.2)
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5.9.1...5.10.0)
+
+## 🚀 New Features
+
+- Add grafana\_extra\_helm\_values [\#221](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/221) ([plopoyop](https://github.com/plopoyop))
 
 ## 🐛 Bug Fixes
 
