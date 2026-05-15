@@ -1,5 +1,13 @@
 # Changelog
 
+## [5.9.2](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.9.2) (2026-05-15)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5.9.1...5.9.2)
+
+## 🐛 Bug Fixes
+
+- Migrate grafana & loki to community chart [\#220](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/220) ([plopoyop](https://github.com/plopoyop))
+
 ## [5.9.1](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.9.1) (2026-05-11)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5.9.0...5.9.1)
