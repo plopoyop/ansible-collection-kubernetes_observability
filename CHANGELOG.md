@@ -13,6 +13,10 @@
 
 - Migrate grafana & loki to community chart [\#220](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/220) ([plopoyop](https://github.com/plopoyop))
 
+## ⛵ Helm Charts
+
+- fix\(helm\): update chart opentelemetry-kube-stack \(0.14.11 → 0.14.13\) [\#224](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/224) ([plopoyop](https://github.com/plopoyop))
+
 ## ⚙️ Dependencies
 
 - fix\(ci\): update renovatebot/github-action action \(v46.1.13 → v46.1.14\) [\#223](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/223) ([plopoyop](https://github.com/plopoyop))
