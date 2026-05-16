@@ -1,6 +1,6 @@
 # Changelog
 
-## [5.10.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.10.0) (2026-05-15)
+## [5.10.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.10.0) (2026-05-16)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5.9.1...5.10.0)
 
@@ -12,6 +12,14 @@
 ## 🐛 Bug Fixes
 
 - Migrate grafana & loki to community chart [\#220](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/220) ([plopoyop](https://github.com/plopoyop))
+
+## ⚙️ Dependencies
+
+- fix\(ci\): update renovatebot/github-action action \(v46.1.13 → v46.1.14\) [\#223](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/223) ([plopoyop](https://github.com/plopoyop))
+
+**Merged pull requests:**
+
+- feat\(deps\): update kubectl \(1.35.4 → 1.36.0\) [\#225](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/225) ([plopoyop](https://github.com/plopoyop))
 
 ## [5.9.1](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.9.1) (2026-05-11)
 
