@@ -1,6 +1,6 @@
 # Changelog
 
-## [5.10.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.10.0) (2026-05-16)
+## [5.10.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.10.0) (2026-05-17)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5.9.1...5.10.0)
 
@@ -23,6 +23,7 @@
 
 **Merged pull requests:**
 
+- feat\(deps\): update kubernetes-helm \(3.19.1 → 3.20.2\) [\#226](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/226) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update kubectl \(1.35.4 → 1.36.0\) [\#225](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/225) ([plopoyop](https://github.com/plopoyop))
 
 ## [5.9.1](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/5.9.1) (2026-05-11)
