@@ -26,6 +26,7 @@
 
 **Merged pull requests:**
 
+- feat\(deps\)!: Update python313Packages.molecule \(25.12.0 → 26.4.0\) [\#231](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/231) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update kubernetes-helm \(3.19.1 → 3.20.2\) [\#226](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/226) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update kubectl \(1.35.4 → 1.36.0\) [\#225](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/225) ([plopoyop](https://github.com/plopoyop))
 
