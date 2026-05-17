@@ -49,7 +49,7 @@ You can call the roles from this collection in your Ansible playbooks as follows
 | grafana | v12.3.3      | `grafana`                                     | [View README](roles/grafana/README.md) |
 | jaeger | v4.7.0      | `jaeger`                                      | [View README](roles/jaeger/README.md) |
 | opentelemetry k8s stack | v0.14.13      | `opentelemetry`                               | [View README](roles/opentelemetry/README.md) |
-| loki | v6.55.0      | `loki`                                        | [View README](roles/loki/README.md) |
+| loki | v15.0.1      | `loki`                                        | [View README](roles/loki/README.md) |
 | victoriametrics single | v0.35.0      | `victoriametrics` / `victoriametrics_single`  | [View README](roles/victoriametrics/README.md) |
 | vmagent | v0.36.0      | `victoriametrics` / `victoriametrics_vmagent` | [View README](roles/victoriametrics/README.md) |
 | victorialogs single | v0.12.4      | `victorialogs`                                | [View README](roles/victorialogs/README.md) |
