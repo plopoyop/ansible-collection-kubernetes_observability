@@ -1,5 +1,14 @@
 # Changelog
 
+## [6.0.1](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/6.0.1) (2026-05-24)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/6.0.0...6.0.1)
+
+**Merged pull requests:**
+
+- fix\(deps\): update kubectl \(1.36.0 → 1.36.1\) [\#235](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/235) ([plopoyop](https://github.com/plopoyop))
+- fix\(deps\): update ansible-doctor \(8.3.0 → 8.3.1\) [\#234](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/234) ([plopoyop](https://github.com/plopoyop))
+
 ## [6.0.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/6.0.0) (2026-05-17)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/5.9.1...6.0.0)
