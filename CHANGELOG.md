@@ -1,11 +1,12 @@
 # Changelog
 
-## [6.0.1](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/6.0.1) (2026-05-31)
+## [6.0.1](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/6.0.1) (2026-06-03)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/6.0.0...6.0.1)
 
 **Merged pull requests:**
 
+- chore\(renovate\): Update schedule [\#238](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/238) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update python313packages.ansible \(13.5.0 → 13.6.0\) [\#237](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/237) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update git \(2.53.0 → 2.54.0\) [\#236](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/236) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update kubectl \(1.36.0 → 1.36.1\) [\#235](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/235) ([plopoyop](https://github.com/plopoyop))
