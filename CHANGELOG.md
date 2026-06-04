@@ -1,5 +1,13 @@
 # Changelog
 
+## [7.0.1](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/7.0.1) (2026-06-04)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/7.0.0...7.0.1)
+
+**Merged pull requests:**
+
+- feat\(deps\): update python313packages.ansible \(13.6.0 → 13.7.0\) [\#246](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/246) ([plopoyop](https://github.com/plopoyop))
+
 ## [7.0.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/7.0.0) (2026-06-03)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/6.0.0...7.0.0)
