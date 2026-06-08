@@ -1,5 +1,13 @@
 # Changelog
 
+## [7.2.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/7.2.0) (2026-06-08)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/7.1.0...7.2.0)
+
+## ⛵ Helm Charts
+
+- feat\(helm\): update chart jaeger \(4.9.0 → 4.11.0\) [\#249](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/249) ([plopoyop](https://github.com/plopoyop))
+
 ## [7.1.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/7.1.0) (2026-06-08)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/7.0.0...7.1.0)
