@@ -1,8 +1,12 @@
 # Changelog
 
-## [7.0.1](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/7.0.1) (2026-06-04)
+## [7.0.1](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/7.0.1) (2026-06-08)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/7.0.0...7.0.1)
+
+## ⛵ Helm Charts
+
+- fix\(helm\): update chart loki \(17.1.6 → 17.1.7\) [\#247](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/247) ([plopoyop](https://github.com/plopoyop))
 
 **Merged pull requests:**
 
