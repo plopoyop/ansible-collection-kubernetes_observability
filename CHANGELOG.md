@@ -4,6 +4,10 @@
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/7.2.0...7.2.1)
 
+## ⛵ Helm Charts
+
+- fix\(helm\): update chart loki \(17.3.0 → 17.3.1\) [\#257](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/257) ([plopoyop](https://github.com/plopoyop))
+
 ## ⚙️ Dependencies
 
 - fix\(ci\): update renovatebot/github-action action \(v46.1.14 → v46.1.15\) [\#256](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/256) ([plopoyop](https://github.com/plopoyop))
