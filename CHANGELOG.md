@@ -7,6 +7,7 @@
 ## 🐛 Bug Fixes
 
 - fix\(opentelemetry\): Missing empty dict check in template [\#265](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/265) ([plopoyop](https://github.com/plopoyop))
+- Update Jaeger role values template for newest chart version [\#264](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/264) ([plopoyop](https://github.com/plopoyop))
 
 ## ⛵ Helm Charts
 
