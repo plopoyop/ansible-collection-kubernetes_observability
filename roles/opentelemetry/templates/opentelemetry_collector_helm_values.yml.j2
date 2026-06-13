@@ -41,7 +41,7 @@ collectors:
   {{ opentelemetry_collectors | ansible.builtin.to_nice_yaml | indent(2) }}
 {% endif %}
 
-{% if opentelemetry_additional_config is defined %}
+{% if opentelemetry_additional_config is defined and opentelemetry_additional_config | length > 0 %}
 {{ opentelemetry_additional_config | ansible.builtin.to_nice_yaml }}
 {% endif %}
 
