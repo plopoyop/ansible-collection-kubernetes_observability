@@ -4,6 +4,10 @@
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/7.2.0...7.3.0)
 
+## 🐛 Bug Fixes
+
+- fix\(opentelemetry\): Missing empty dict check in template [\#265](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/265) ([plopoyop](https://github.com/plopoyop))
+
 ## ⛵ Helm Charts
 
 - feat\(helm\): update chart opentelemetry-kube-stack \(0.15.2 → 0.16.0\) [\#263](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/263) ([plopoyop](https://github.com/plopoyop))
