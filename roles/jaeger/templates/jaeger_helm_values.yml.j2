@@ -28,17 +28,6 @@ jaeger:
 {% endif %}
 {% endif %}
 
-{% if jaeger_storage_type | length > 0 %}
-storage:
-  type: "{{ jaeger_storage_type }}"
-{% if jaeger_storage_type == "cassandra" and jaeger_storage_cassandra | length > 0 %}
-  cassandra: {{ jaeger_storage_cassandra | ansible.builtin.to_json }}
-{% endif %}
-{% if jaeger_storage_type == "elasticsearch" and jaeger_storage_elasticsearch | length > 0 %}
-  elasticsearch: {{ jaeger_storage_elasticsearch | ansible.builtin.to_json }}
-{% endif %}
-{% endif %}
-
 uiconfig: {{ jaeger_uiconfig | ansible.builtin.to_json }}
 
 userconfig: {{ jaeger_userconfig | ansible.builtin.to_json }}

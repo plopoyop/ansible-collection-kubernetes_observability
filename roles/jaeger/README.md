@@ -21,9 +21,6 @@ Install and configure Jaeger on kubernetes
   - [jaeger_namespace](#jaeger_namespace)
   - [jaeger_replicas](#jaeger_replicas)
   - [jaeger_resources](#jaeger_resources)
-  - [jaeger_storage_cassandra](#jaeger_storage_cassandra)
-  - [jaeger_storage_elasticsearch](#jaeger_storage_elasticsearch)
-  - [jaeger_storage_type](#jaeger_storage_type)
   - [jaeger_uiconfig](#jaeger_uiconfig)
   - [jaeger_userconfig](#jaeger_userconfig)
 - [Discovered Tags](#discovered-tags)
@@ -133,6 +130,12 @@ Ingress class name for Jaeger
 
 **_Type:_** string<br />
 
+#### Default value
+
+```YAML
+jaeger_ingress_class_name: ''
+```
+
 ### jaeger_ingress_enabled
 
 Enable ingress for the Jaeger UI
@@ -150,6 +153,12 @@ jaeger_ingress_enabled: false
 Hostname for the Jaeger ingress
 
 **_Type:_** string<br />
+
+#### Default value
+
+```YAML
+jaeger_ingress_hostname: ''
+```
 
 ### jaeger_ingress_labels
 
@@ -188,6 +197,12 @@ Secret name for the Jaeger TLS certificate
 
 **_Type:_** string<br />
 
+#### Default value
+
+```YAML
+jaeger_ingress_tls_secret_name: ''
+```
+
 ### jaeger_namespace
 
 K8s namespace to install Jaeger chart
@@ -214,7 +229,7 @@ jaeger_replicas: 1
 
 ### jaeger_resources
 
-Resource requests/limits for Jaeger pods
+Resource requests/limits for the Jaeger Deployment
 
 **_Type:_** dict<br />
 
@@ -236,66 +251,10 @@ jaeger_resources:
     memory: 256Mi
 ```
 
-### jaeger_storage_cassandra
-
-Cassandra storage backend configuration (only used when jaeger_storage_type is "cassandra")
-
-**_Type:_** dict<br />
-
-#### Default value
-
-```YAML
-jaeger_storage_cassandra: {}
-```
-
-#### Example usage
-
-```YAML
-jaeger_storage_cassandra:
-  host: "cassandra"
-  port: 9042
-  user: "jaeger"
-  usePassword: true
-  password: "changeme"
-  keyspace: "jaeger_v1_dc1"
-```
-
-### jaeger_storage_elasticsearch
-
-Elasticsearch storage backend configuration (only used when jaeger_storage_type is "elasticsearch")
-
-**_Type:_** dict<br />
-
-#### Default value
-
-```YAML
-jaeger_storage_elasticsearch: {}
-```
-
-#### Example usage
-
-```YAML
-jaeger_storage_elasticsearch:
-  url: "http://elasticsearch:9200"
-  user: "elastic"
-  password: "changeme"
-```
-
-### jaeger_storage_type
-
-Jaeger storage backend ("cassandra", "elasticsearch", or empty for the default in-memory backend)
-
-**_Type:_** string<br />
-
-#### Default value
-
-```YAML
-jaeger_storage_type: ''
-```
-
 ### jaeger_uiconfig
 
-Jaeger UI configuration (passed as-is to the chart `uiconfig` value)
+Jaeger UI configuration JSON (rendered as a ConfigMap, mounted at
+`/etc/jaeger/ui-config.json`). See https://www.jaegertracing.io/docs/latest/deployment/frontend-ui/
 
 **_Type:_** dict<br />
 
@@ -307,7 +266,10 @@ jaeger_uiconfig: {}
 
 ### jaeger_userconfig
 
-User configuration overriding service, extensions, receivers and exporters
+Jaeger 2.x config YAML (rendered as a ConfigMap, passed to the binary
+via `--config /etc/jaeger/user-config.yaml`). This is the ONLY hook to
+configure storage backend (badger / ES / Cassandra), receivers, exporters,
+extensions and sampling on Jaeger 2.x.
 
 **_Type:_** dict<br />
 
@@ -315,6 +277,27 @@ User configuration overriding service, extensions, receivers and exporters
 
 ```YAML
 jaeger_userconfig: {}
+```
+
+#### Example usage
+
+```YAML
+jaeger_userconfig:
+  service:
+    extensions: [jaeger_storage, jaeger_query]
+    pipelines:
+      traces:
+        receivers: [otlp]
+        exporters: [jaeger_storage_exporter]
+  extensions:
+    jaeger_storage:
+      backends:
+        some_storage:
+          badger:
+            directories:
+              keys: "/tmp/jaeger/keys"
+              values: "/tmp/jaeger/values"
+            ephemeral: true
 ```
 
 ## Discovered Tags

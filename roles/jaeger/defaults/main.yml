@@ -39,7 +39,7 @@ jaeger_image_tag: ""
 # @var jaeger_resources
 # @var jaeger_resources:type: dict
 # @var jaeger_resources:description: >
-# Resource requests/limits for Jaeger pods
+# Resource requests/limits for the Jaeger Deployment
 # @var jaeger_resources:example: >
 # jaeger_resources:
 #   limits:
@@ -49,49 +49,6 @@ jaeger_image_tag: ""
 #     cpu: 100m
 #     memory: 256Mi
 jaeger_resources: {}
-
-# @var jaeger_storage_type
-# @var jaeger_storage_type:type: string
-# @var jaeger_storage_type:description: >
-# Jaeger storage backend ("cassandra", "elasticsearch", or empty for the default in-memory backend)
-jaeger_storage_type: ""
-
-# @var jaeger_storage_cassandra
-# @var jaeger_storage_cassandra:type: dict
-# @var jaeger_storage_cassandra:description: >
-# Cassandra storage backend configuration (only used when jaeger_storage_type is "cassandra")
-# @var jaeger_storage_cassandra:example: >
-# jaeger_storage_cassandra:
-#   host: "cassandra"
-#   port: 9042
-#   user: "jaeger"
-#   usePassword: true
-#   password: "changeme"
-#   keyspace: "jaeger_v1_dc1"
-jaeger_storage_cassandra: {}
-
-# @var jaeger_storage_elasticsearch
-# @var jaeger_storage_elasticsearch:type: dict
-# @var jaeger_storage_elasticsearch:description: >
-# Elasticsearch storage backend configuration (only used when jaeger_storage_type is "elasticsearch")
-# @var jaeger_storage_elasticsearch:example: >
-# jaeger_storage_elasticsearch:
-#   url: "http://elasticsearch:9200"
-#   user: "elastic"
-#   password: "changeme"
-jaeger_storage_elasticsearch: {}
-
-# @var jaeger_uiconfig
-# @var jaeger_uiconfig:type: dict
-# @var jaeger_uiconfig:description: >
-# Jaeger UI configuration (passed as-is to the chart `uiconfig` value)
-jaeger_uiconfig: {}
-
-# @var jaeger_userconfig
-# @var jaeger_userconfig:type: dict
-# @var jaeger_userconfig:description: >
-# User configuration overriding service, extensions, receivers and exporters
-jaeger_userconfig: {}
 
 # @var jaeger_extra_env
 # @var jaeger_extra_env:type: list
@@ -103,6 +60,39 @@ jaeger_userconfig: {}
 #     value: "debug"
 jaeger_extra_env: []
 
+# @var jaeger_uiconfig
+# @var jaeger_uiconfig:type: dict
+# @var jaeger_uiconfig:description: >
+# Jaeger UI configuration JSON (rendered as a ConfigMap, mounted at
+# `/etc/jaeger/ui-config.json`). See https://www.jaegertracing.io/docs/latest/deployment/frontend-ui/
+jaeger_uiconfig: {}
+
+# @var jaeger_userconfig
+# @var jaeger_userconfig:type: dict
+# @var jaeger_userconfig:description: >
+# Jaeger 2.x config YAML (rendered as a ConfigMap, passed to the binary
+# via `--config /etc/jaeger/user-config.yaml`). This is the ONLY hook to
+# configure storage backend (badger / ES / Cassandra), receivers, exporters,
+# extensions and sampling on Jaeger 2.x.
+# @var jaeger_userconfig:example: >
+# jaeger_userconfig:
+#   service:
+#     extensions: [jaeger_storage, jaeger_query]
+#     pipelines:
+#       traces:
+#         receivers: [otlp]
+#         exporters: [jaeger_storage_exporter]
+#   extensions:
+#     jaeger_storage:
+#       backends:
+#         some_storage:
+#           badger:
+#             directories:
+#               keys: "/tmp/jaeger/keys"
+#               values: "/tmp/jaeger/values"
+#             ephemeral: true
+jaeger_userconfig: {}
+
 # @var jaeger_ingress_enabled
 # @var jaeger_ingress_enabled:type: boolean
 # @var jaeger_ingress_enabled:description: >
@@ -113,11 +103,13 @@ jaeger_ingress_enabled: false
 # @var jaeger_ingress_class_name:type: string
 # @var jaeger_ingress_class_name:description: >
 # Ingress class name for Jaeger
+jaeger_ingress_class_name: ""
 
 # @var jaeger_ingress_hostname
 # @var jaeger_ingress_hostname:type: string
 # @var jaeger_ingress_hostname:description: >
 # Hostname for the Jaeger ingress
+jaeger_ingress_hostname: ""
 
 # @var jaeger_ingress_tls_enabled
 # @var jaeger_ingress_tls_enabled:type: boolean
@@ -129,6 +121,7 @@ jaeger_ingress_tls_enabled: false
 # @var jaeger_ingress_tls_secret_name:type: string
 # @var jaeger_ingress_tls_secret_name:description: >
 # Secret name for the Jaeger TLS certificate
+jaeger_ingress_tls_secret_name: ""
 
 # @var jaeger_ingress_annotations
 # @var jaeger_ingress_annotations:type: dict
