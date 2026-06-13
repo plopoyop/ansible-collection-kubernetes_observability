@@ -1,0 +1,176 @@
+---
+# Gateway collector — OpenTelemetry-recommended "gateway pattern" implementation.
+# Called from setup.yml when `opentelemetry_gateway_enabled: true`, *before*
+# the helm task so the gateway collector spec AND its supporting resources
+# (htpasswd Secret + Ingress) are included in the chart values.
+#
+# All resources go through helm via:
+#   - `collectors.<gateway_name>` (the OpenTelemetryCollector CR + the
+#     operator-spawned Service/Deployment) → driven by
+#     `opentelemetry_collectors[<gateway_name>]`
+#   - `extraObjects[]` (Secret + Ingress) → driven by
+#     `opentelemetry_additional_config.extraObjects`
+#
+# That way helm owns the full lifecycle: a `helm upgrade` after disabling
+# the gateway tears everything down, and credential rotation is reflected
+# through a pod-annotation checksum so the operator triggers a rollout.
+
+- name: "Compute gateway derived values"
+  ansible.builtin.set_fact:
+    _opentelemetry_gateway_full_name: "{{ opentelemetry_release_name }}-{{ opentelemetry_gateway_name }}"
+    _opentelemetry_gateway_htpasswd_secret_name: "{{ opentelemetry_release_name }}-{{ opentelemetry_gateway_name }}-htpasswd"
+    _opentelemetry_gateway_auth_enabled: "{{ (opentelemetry_gateway_htpasswd | default('') | length) > 0 }}"
+
+- name: "Build the gateway collector spec"
+  ansible.builtin.set_fact:
+    opentelemetry_collectors: >-
+      {{
+        (opentelemetry_collectors | default({}))
+        | combine({ opentelemetry_gateway_name: _opentelemetry_gateway_collector_spec }, recursive=True)
+      }}
+  vars:
+    _volumes: >-
+      {{
+        [{
+          'name': 'htpasswd',
+          'secret': {'secretName': _opentelemetry_gateway_htpasswd_secret_name}
+        }]
+        if _opentelemetry_gateway_auth_enabled else []
+      }}
+    _volume_mounts: >-
+      {{
+        [{
+          'name': 'htpasswd',
+          'mountPath': '/etc/otel-auth',
+          'readOnly': true
+        }]
+        if _opentelemetry_gateway_auth_enabled else []
+      }}
+    # Credential rotation: the basicauth/server extension caches the
+    # htpasswd file at startup, so secret content changes only take effect
+    # when the pod restarts. Putting a checksum of the content in
+    # podAnnotations makes the operator roll the pod whenever the content
+    # differs from the previous apply.
+    _pod_annotations: >-
+      {{
+        {'checksum/htpasswd': (opentelemetry_gateway_htpasswd | hash('sha256'))}
+        if _opentelemetry_gateway_auth_enabled else {}
+      }}
+    _extensions: >-
+      {{
+        {'basicauth/server': {'htpasswd': {'file': '/etc/otel-auth/htpasswd'}}}
+        if _opentelemetry_gateway_auth_enabled else {}
+      }}
+    _service_extensions: >-
+      {{
+        ['basicauth/server']
+        if _opentelemetry_gateway_auth_enabled else []
+      }}
+    # Auto-wire basicauth/server onto the OTLP HTTP receiver. We deep-merge
+    # so the user keeps full control of receiver options (compression,
+    # max_recv_msg_size, …).
+    _otlp_http_auth_overlay:
+      otlp:
+        protocols:
+          http:
+            auth:
+              authenticator: "basicauth/server"
+    _receivers: >-
+      {{
+        opentelemetry_gateway_receivers
+        | combine(_otlp_http_auth_overlay, recursive=True)
+        if _opentelemetry_gateway_auth_enabled
+        else opentelemetry_gateway_receivers
+      }}
+    # If the user did not provide explicit pipelines, route every receiver +
+    # processor + exporter into metrics & logs pipelines. Works for the
+    # common case of homogeneous OTLP exporters; override when you have
+    # signal-specific routing.
+    _default_pipelines:
+      metrics:
+        receivers: "{{ opentelemetry_gateway_receivers.keys() | list }}"
+        processors: "{{ opentelemetry_gateway_processors.keys() | list }}"
+        exporters: "{{ opentelemetry_gateway_exporters.keys() | list }}"
+      logs:
+        receivers: "{{ opentelemetry_gateway_receivers.keys() | list }}"
+        processors: "{{ opentelemetry_gateway_processors.keys() | list }}"
+        exporters: "{{ opentelemetry_gateway_exporters.keys() | list }}"
+    _pipelines: "{{ opentelemetry_gateway_pipelines if (opentelemetry_gateway_pipelines | length > 0) else _default_pipelines }}"
+    _opentelemetry_gateway_collector_spec:
+      enabled: true
+      mode: "{{ opentelemetry_gateway_mode }}"
+      replicas: "{{ opentelemetry_gateway_replicas }}"
+      # Predictable service name (`<release>-<gateway_name>-collector`),
+      # otherwise the chart defaults to `<release>-collector` which
+      # collides with any other non-daemon collector. Required for the
+      # Ingress backend reference below.
+      fullnameOverride: "{{ _opentelemetry_gateway_full_name }}"
+      resources: "{{ opentelemetry_gateway_resources }}"
+      volumes: "{{ _volumes }}"
+      volumeMounts: "{{ _volume_mounts }}"
+      podAnnotations: "{{ _pod_annotations }}"
+      config:
+        extensions: "{{ _extensions }}"
+        receivers: "{{ _receivers }}"
+        processors: "{{ opentelemetry_gateway_processors }}"
+        exporters: "{{ opentelemetry_gateway_exporters }}"
+        service:
+          extensions: "{{ _service_extensions }}"
+          pipelines: "{{ _pipelines }}"
+
+- name: "Inject the gateway Secret + Ingress as chart extraObjects"
+  ansible.builtin.set_fact:
+    opentelemetry_additional_config: >-
+      {{
+        (opentelemetry_additional_config | default({}))
+        | combine({
+            'extraObjects': (
+              ((opentelemetry_additional_config | default({})).extraObjects | default([]))
+              + _gateway_extra_objects
+            )
+          })
+      }}
+  when: _gateway_extra_objects | length > 0
+  vars:
+    _htpasswd_secret_obj:
+      apiVersion: "v1"
+      kind: "Secret"
+      metadata:
+        name: "{{ _opentelemetry_gateway_htpasswd_secret_name }}"
+        namespace: "{{ opentelemetry_namespace }}"
+      type: "Opaque"
+      stringData:
+        htpasswd: "{{ opentelemetry_gateway_htpasswd }}"
+    _ingress_obj:
+      apiVersion: "networking.k8s.io/v1"
+      kind: "Ingress"
+      metadata:
+        name: "{{ _opentelemetry_gateway_full_name }}"
+        namespace: "{{ opentelemetry_namespace }}"
+        annotations: "{{ opentelemetry_gateway_ingress_annotations }}"
+      spec:
+        ingressClassName: "{{ opentelemetry_gateway_ingress_class_name }}"
+        tls: >-
+          {{
+            [{
+              'hosts': [opentelemetry_gateway_ingress_hostname],
+              'secretName': opentelemetry_gateway_ingress_tls_secret_name
+            }]
+            if opentelemetry_gateway_ingress_tls_enabled else []
+          }}
+        rules:
+          - host: "{{ opentelemetry_gateway_ingress_hostname }}"
+            http:
+              paths:
+                - path: "/"
+                  pathType: "Prefix"
+                  backend:
+                    service:
+                      name: "{{ _opentelemetry_gateway_full_name }}-collector"
+                      port:
+                        name: "otlp-http"
+    _gateway_extra_objects: >-
+      {{
+        ([_htpasswd_secret_obj] if _opentelemetry_gateway_auth_enabled else [])
+        + ([_ingress_obj] if opentelemetry_gateway_ingress_enabled else [])
+      }}
