@@ -1,11 +1,13 @@
 # Changelog
 
-## [7.2.1](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/7.2.1) (2026-06-13)
+## [7.3.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/7.3.0) (2026-06-13)
 
-[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/7.2.0...7.2.1)
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/7.2.0...7.3.0)
 
 ## ⛵ Helm Charts
 
+- feat\(helm\): update chart opentelemetry-kube-stack \(0.15.2 → 0.16.0\) [\#263](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/263) ([plopoyop](https://github.com/plopoyop))
+- fix\(helm\): update chart victoria-metrics-single \(0.40.0 → 0.40.1\) [\#262](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/262) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart victoria-logs-single \(0.13.6 → 0.13.7\) [\#260](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/260) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart loki \(17.3.1 → 17.3.2\) [\#258](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/258) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart loki \(17.3.0 → 17.3.1\) [\#257](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/257) ([plopoyop](https://github.com/plopoyop))
