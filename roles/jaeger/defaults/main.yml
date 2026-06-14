@@ -16,7 +16,7 @@ jaeger_namespace: "jaeger"
 # @var jaeger_chart_version:type: string
 # @var jaeger_chart_version:description: >
 # Jaeger chart version
-jaeger_chart_version: 4.11.0
+jaeger_chart_version: 4.11.1
 
 # @var jaeger_deployment_name
 # @var jaeger_deployment_name:type: string

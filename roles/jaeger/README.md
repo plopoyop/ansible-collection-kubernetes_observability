@@ -45,7 +45,7 @@ Jaeger chart version
 #### Default value
 
 ```YAML
-jaeger_chart_version: 4.11.0
+jaeger_chart_version: 4.11.1
 ```
 
 ### jaeger_deployment_name
