@@ -52,7 +52,7 @@ You can call the roles from this collection in your Ansible playbooks as follows
 | loki | v17.4.1      | `loki`                                        | [View README](roles/loki/README.md) |
 | victoriametrics single | v0.40.1      | `victoriametrics` / `victoriametrics_single`  | [View README](roles/victoriametrics/README.md) |
 | vmagent | v0.41.2      | `victoriametrics` / `victoriametrics_vmagent` | [View README](roles/victoriametrics/README.md) |
-| victorialogs single | v0.13.7      | `victorialogs`                                | [View README](roles/victorialogs/README.md) |
+| victorialogs single | v0.13.8      | `victorialogs`                                | [View README](roles/victorialogs/README.md) |
 
 ### Tags
 

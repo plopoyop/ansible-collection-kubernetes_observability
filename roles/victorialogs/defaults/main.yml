@@ -16,7 +16,7 @@ victorialogs_namespace: "victorialogs"
 # @var victorialogs_chart_version:type: string
 # @var victorialogs_chart_version:description: >
 # VictoriaLogs single chart version
-victorialogs_chart_version: 0.13.7
+victorialogs_chart_version: 0.13.8
 
 # @var victorialogs_deployment_name
 # @var victorialogs_deployment_name:type: string
