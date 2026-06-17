@@ -4,9 +4,15 @@
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/7.3.0...7.3.1)
 
+## ⛵ Helm Charts
+
+- fix\(helm\): update chart grafana \(12.4.5 → 12.4.7\) [\#271](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/271) ([plopoyop](https://github.com/plopoyop))
+- fix\(helm\): update chart loki \(17.4.0 → 17.4.1\) [\#269](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/269) ([plopoyop](https://github.com/plopoyop))
+
 **Merged pull requests:**
 
 - feat\(deps\)!: Update python313Packages.molecule-plugins \(23.5.3 → 25.8.12\) [\#274](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/274) ([plopoyop](https://github.com/plopoyop))
+- feat\(deps\)!: Update kubernetes-helm \(3.20.2 → 4.2.0\) [\#273](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/273) ([plopoyop](https://github.com/plopoyop))
 
 ## [7.3.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/7.3.0) (2026-06-14)
 
