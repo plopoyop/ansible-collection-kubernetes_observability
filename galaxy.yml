@@ -23,7 +23,7 @@ tags:
   - victorialogs
   - logs
 dependencies:
-  kubernetes.core: '>=5.1.0'
-repository: 'https://github.com/plopoyop/ansible-collection-kubernetes_observability'
-issues: 'https://github.com/plopoyop/ansible-collection-kubernetes_observability/issues'
+  kubernetes.core: ">=6.4.0"
+repository: "https://github.com/plopoyop/ansible-collection-kubernetes_observability"
+issues: "https://github.com/plopoyop/ansible-collection-kubernetes_observability/issues"
 build_ignore: []

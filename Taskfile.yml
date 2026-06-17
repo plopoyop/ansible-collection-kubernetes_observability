@@ -14,6 +14,16 @@ tasks:
     desc: "Prepare development environment"
     cmds:
       - task: pre-commit
+      - mkdir -p ${ANSIBLE_GALAXY_COLLECTIONS_PATH}
+      - task: install-collections
+
+  install-collections:
+    desc: "Install required Ansible collections into the workspace collections path"
+    cmds:
+      - ansible-galaxy collection install -r requirements.yml -p ${ANSIBLE_GALAXY_COLLECTIONS_PATH} --force
+    sources:
+      - requirements.yml
+    method: checksum
 
   pre-commit:
     desc: "Install pre-commit hooks"
