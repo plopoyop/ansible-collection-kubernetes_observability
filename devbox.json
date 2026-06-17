@@ -8,7 +8,7 @@
       "go-task@3.48.0",
       "kind@0.31.0",
       "kubectl@1.36.1",
-      "kubernetes-helm@3.20.2",
+      "kubernetes-helm@4.2.0",
       "prek@0.3.11",
       "python313Packages.ansible@13.7.0",
       "python313Packages.kubernetes@35.0.0",
