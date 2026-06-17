@@ -1,5 +1,13 @@
 # Changelog
 
+## [7.3.1](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/7.3.1) (2026-06-17)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/7.3.0...7.3.1)
+
+**Merged pull requests:**
+
+- feat\(deps\)!: Update python313Packages.molecule-plugins \(23.5.3 → 25.8.12\) [\#274](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/274) ([plopoyop](https://github.com/plopoyop))
+
 ## [7.3.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/7.3.0) (2026-06-14)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/7.2.0...7.3.0)
