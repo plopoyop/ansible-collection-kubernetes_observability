@@ -2,9 +2,17 @@ remoteWrite: {{ victoriametrics_vmagent_remote_write | ansible.builtin.to_json }
 
 podAnnotations: {{ victoriametrics_vmagent_pod_annotations | ansible.builtin.to_json }}
 
-{% if victoriametrics_vmagent_extra_args is defined %}
+{% if victoriametrics_vmagent_extra_args is defined and victoriametrics_vmagent_extra_args %}
 extraArgs:
   {{ victoriametrics_vmagent_extra_args | ansible.builtin.to_nice_yaml | indent(2) }}
+{% endif %}
+
+{% if victoriametrics_vmagent_extra_volumes %}
+extraVolumes: {{ victoriametrics_vmagent_extra_volumes | ansible.builtin.to_json }}
+{% endif %}
+
+{% if victoriametrics_vmagent_extra_volume_mounts %}
+extraVolumeMounts: {{ victoriametrics_vmagent_extra_volume_mounts | ansible.builtin.to_json }}
 {% endif %}
 
 config:
@@ -13,4 +21,12 @@ config:
 
 {% if victoriametrics_vmagent_config_scrap_configs is defined %}
   scrape_configs: {{ victoriametrics_vmagent_config_scrap_configs | ansible.builtin.to_json }}
+{% endif %}
+
+{% if victoriametrics_vmagent_extra_scrape_configs %}
+extraScrapeConfigs: {{ victoriametrics_vmagent_extra_scrape_configs | ansible.builtin.to_json }}
+{% endif %}
+
+{% if victoriametrics_vmagent_additional_values | length > 0 %}
+{{ victoriametrics_vmagent_additional_values | ansible.builtin.to_nice_yaml }}
 {% endif %}

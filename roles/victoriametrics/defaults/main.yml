@@ -173,12 +173,6 @@ victoriametrics_vmagent_remote_write: []
 #   prometheus.io/port: "8429"
 victoriametrics_vmagent_pod_annotations: {}
 
-# @var victoriametrics_vmagent_config_scrape_interval
-# @var victoriametrics_vmagent_config_scrape_interval:type: string
-# @var victoriametrics_vmagent_config_scrape_interval:description: >
-# VMAgent scrape interval
-victoriametrics_vmagent_config_scrape_interval: "10s"
-
 # @var victoriametrics_vmagent_extra_args
 # @var victoriametrics_vmagent_extra_args:type: dict
 # @var victoriametrics_vmagent_extra_args:description: >
@@ -187,6 +181,68 @@ victoriametrics_vmagent_config_scrape_interval: "10s"
 # victoriametrics_vmagent_extra_args:
 #   remoteWrite.forcePromProto: "true"
 #   remoteWrite.label: "cluster=tech"
+victoriametrics_vmagent_extra_args: {}
+
+# @var victoriametrics_vmagent_extra_volumes
+# @var victoriametrics_vmagent_extra_volumes:type: list
+# @var victoriametrics_vmagent_extra_volumes:description: >
+# Extra pod volumes for vmagent
+# @var victoriametrics_vmagent_extra_volumes:example: >
+# victoriametrics_vmagent_extra_volumes:
+#   - name: "remote-write-auth"
+#     secret:
+#       secretName: "vmagent-basic-auth"
+victoriametrics_vmagent_extra_volumes: []
+
+# @var victoriametrics_vmagent_extra_volume_mounts
+# @var victoriametrics_vmagent_extra_volume_mounts:type: list
+# @var victoriametrics_vmagent_extra_volume_mounts:description: >
+# Extra volume mounts for vmagent container
+# @var victoriametrics_vmagent_extra_volume_mounts:example: >
+# victoriametrics_vmagent_extra_volume_mounts:
+#   - name: "remote-write-auth"
+#     mountPath: "/etc/vmagent-auth"
+#     readOnly: true
+victoriametrics_vmagent_extra_volume_mounts: []
+
+# @var victoriametrics_vmagent_additional_values
+# @var victoriametrics_vmagent_additional_values:type: dict
+# @var victoriametrics_vmagent_additional_values:description: >
+# Additional vmagent helm values merged as-is
+# @var victoriametrics_vmagent_additional_values:example: >
+# victoriametrics_vmagent_additional_values:
+#   extraObjects:
+#     - apiVersion: v1
+#       kind: Secret
+#       metadata:
+#         name: vmagent-basic-auth
+#       stringData:
+#         password: "{{ remote_write_password }}"
+victoriametrics_vmagent_additional_values: {}
+
+# @var victoriametrics_vmagent_extra_scrape_configs
+# @var victoriametrics_vmagent_extra_scrape_configs:type: list
+# @var victoriametrics_vmagent_extra_scrape_configs:description: >
+# Additional scrape configs appended to the defaults
+# @var victoriametrics_vmagent_extra_scrape_configs:example: >
+# victoriametrics_vmagent_extra_scrape_configs:
+#   - job_name: "kube-state-metrics"
+#     honor_labels: true
+#     kubernetes_sd_configs:
+#       - role: endpoints
+#         namespaces:
+#           names: ["opentelemetry"]
+#     relabel_configs:
+#       - source_labels: [__meta_kubernetes_service_name]
+#         regex: ".*kube-state-metrics"
+#         action: keep
+victoriametrics_vmagent_extra_scrape_configs: []
+
+# @var victoriametrics_vmagent_config_scrape_interval
+# @var victoriametrics_vmagent_config_scrape_interval:type: string
+# @var victoriametrics_vmagent_config_scrape_interval:description: >
+# VMAgent scrape interval
+victoriametrics_vmagent_config_scrape_interval: "10s"
 
 # @var victoriametrics_vmagent_config_scrap_configs
 # @var victoriametrics_vmagent_config_scrap_configs:type: dict
