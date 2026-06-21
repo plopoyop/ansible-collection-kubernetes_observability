@@ -15,6 +15,10 @@
 - fix\(helm\): update chart loki \(17.4.1 → 17.4.6\) [\#276](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/276) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart grafana \(12.4.7 → 12.4.8\) [\#275](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/275) ([plopoyop](https://github.com/plopoyop))
 
+## ⚙️ Dependencies
+
+- feat\(ci\)!: Update actions/checkout action \(v6.0.3 → v7.0.0\) [\#278](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/278) ([plopoyop](https://github.com/plopoyop))
+
 ## [7.3.1](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/7.3.1) (2026-06-17)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/7.3.0...7.3.1)
