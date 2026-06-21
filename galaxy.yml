@@ -1,6 +1,6 @@
 namespace: plopoyop
 name: kubernetes_observability
-version: 7.3.1
+version: 7.4.0
 readme: README.md
 authors:
   - Clément Hubert <clement@plopoyop.me>
