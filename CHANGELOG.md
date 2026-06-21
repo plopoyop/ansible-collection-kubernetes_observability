@@ -6,6 +6,7 @@
 
 ## 🚀 New Features
 
+- Extend vmagent helm values customization [\#281](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/281) ([plopoyop](https://github.com/plopoyop))
 - Add new role vmoperator [\#280](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/280) ([plopoyop](https://github.com/plopoyop))
 
 ## ⛵ Helm Charts
