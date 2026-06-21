@@ -1,0 +1,24 @@
+apiVersion: operator.victoriametrics.com/v1beta1
+kind: VMAlertmanager
+metadata:
+  name: "{{ vmoperator_vmalertmanager_name }}"
+  namespace: "{{ vmoperator_vmalertmanager_namespace }}"
+spec:
+  image:
+    tag: "{{ vmoperator_vmalertmanager_image_tag }}"
+  replicaCount: {{ vmoperator_vmalertmanager_replicas }}
+{% if vmoperator_vmalertmanager_persistent_volume_enabled %}
+  storage:
+    volumeClaimTemplate:
+      spec:
+        resources:
+          requests:
+            storage: "{{ vmoperator_vmalertmanager_persistent_volume_size }}"
+{% endif %}
+{% if vmoperator_vmalertmanager_config %}
+  configRawYaml: |
+{{ vmoperator_vmalertmanager_config | ansible.builtin.to_nice_yaml(indent=2) | indent(4, True) }}
+{% endif %}
+{% if vmoperator_vmalertmanager_resources %}
+  resources: {{ vmoperator_vmalertmanager_resources | ansible.builtin.to_json }}
+{% endif %}

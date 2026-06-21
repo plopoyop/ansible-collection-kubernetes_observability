@@ -1,0 +1,12 @@
+admissionWebhooks:
+  enabled: {{ vmoperator_admission_webhooks_enabled | ansible.builtin.to_json }}
+  certManager:
+    enabled: {{ vmoperator_admission_webhooks_cert_manager_enabled | ansible.builtin.to_json }}
+
+operator:
+  disable_prometheus_converter: {{ vmoperator_disable_prometheus_converter | ansible.builtin.to_json }}
+  enable_converter_owner_references: {{ vmoperator_enable_converter_owner_references | ansible.builtin.to_json }}
+
+{% if vmoperator_resources %}
+resources: {{ vmoperator_resources | ansible.builtin.to_json }}
+{% endif %}

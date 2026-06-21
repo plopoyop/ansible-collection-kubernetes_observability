@@ -1,0 +1,15 @@
+apiVersion: operator.victoriametrics.com/v1beta1
+kind: VMUser
+metadata:
+  name: "{{ vmuser.name }}"
+  namespace: "{{ vmoperator_vmauth_namespace }}"
+spec:
+  username: "{{ vmuser.name }}"
+  passwordRef:
+    name: "vmuser-{{ vmuser.name }}-password"
+    key: "password"
+  targetRefs:
+    - static:
+        url: "{{ vmuser.target_url }}"
+      paths: {{ (vmuser.target_paths | default(['/api/v1/write'])) | ansible.builtin.to_json }}
+{# `extra_spec` is merged into `.spec` by the calling task (recursive combine). #}

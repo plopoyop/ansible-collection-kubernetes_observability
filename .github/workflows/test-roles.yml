@@ -52,3 +52,8 @@ jobs:
     uses: ./.github/workflows/test-role.yaml
     with:
       role_name: "victoriametrics"
+
+  vmoperator:
+    uses: ./.github/workflows/test-role.yaml
+    with:
+      role_name: "vmoperator"

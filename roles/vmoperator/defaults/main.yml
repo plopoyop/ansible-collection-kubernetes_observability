@@ -1,0 +1,442 @@
+---
+# defaults file for vmoperator
+# ------------------------------------------------------------------------------
+# VictoriaMetrics Operator — provides the CRDs backing the whole VictoriaMetrics
+# suite: metrics (VMSingle, VMCluster, VMAgent, VMAlert, VMAlertmanager, VMRule,
+# VMServiceScrape, VMPodScrape, …), logs (VLogs / VictoriaLogs) and traces
+# (VictoriaTraces). It also translates Prometheus Operator CRDs (ServiceMonitor,
+# PrometheusRule, PodMonitor) to their VictoriaMetrics equivalents on the fly.
+# ------------------------------------------------------------------------------
+
+# @var vmoperator_enabled
+# @var vmoperator_enabled:type: boolean
+# @var vmoperator_enabled:description: >
+# Install the VictoriaMetrics Operator chart.
+vmoperator_enabled: false
+
+# @var vmoperator_namespace
+# @var vmoperator_namespace:type: string
+# @var vmoperator_namespace:description: >
+# K8s namespace where the operator runs (CRDs are cluster-scoped).
+vmoperator_namespace: "victoriametrics"
+
+# @var vmoperator_chart_version
+# @var vmoperator_chart_version:type: string
+# @var vmoperator_chart_version:description: >
+# victoria-metrics-operator chart version
+vmoperator_chart_version: "0.51.0"
+
+# @var vmoperator_deployment_name
+# @var vmoperator_deployment_name:type: string
+# @var vmoperator_deployment_name:description: >
+# Helm release name for the operator
+vmoperator_deployment_name: "vm-operator"
+
+# @var vmoperator_admission_webhooks_enabled
+# @var vmoperator_admission_webhooks_enabled:type: boolean
+# @var vmoperator_admission_webhooks_enabled:description: >
+# Enable admission webhooks (validation of CRs). Requires cert-manager when
+# the chart uses its built-in cert-manager integration for webhook TLS.
+vmoperator_admission_webhooks_enabled: true
+
+# @var vmoperator_admission_webhooks_cert_manager_enabled
+# @var vmoperator_admission_webhooks_cert_manager_enabled:type: boolean
+# @var vmoperator_admission_webhooks_cert_manager_enabled:description: >
+# Let cert-manager issue the webhook TLS cert. Set to false if cert-manager
+# is not installed in the cluster (the chart will generate a self-signed
+# cert instead).
+vmoperator_admission_webhooks_cert_manager_enabled: true
+
+# @var vmoperator_disable_prometheus_converter
+# @var vmoperator_disable_prometheus_converter:type: boolean
+# @var vmoperator_disable_prometheus_converter:description: >
+# When false (default), VMOperator watches Prometheus Operator CRDs
+# (ServiceMonitor, PrometheusRule, PodMonitor) and creates equivalent
+# VictoriaMetrics CRDs. Set true to disable if Prometheus Operator runs
+# side-by-side in the same cluster.
+vmoperator_disable_prometheus_converter: false
+
+# @var vmoperator_enable_converter_owner_references
+# @var vmoperator_enable_converter_owner_references:type: boolean
+# @var vmoperator_enable_converter_owner_references:description: >
+# When true, the converted VM CRs have the original Prom CRs as owner
+# references. Recommended to keep false: deleting a PrometheusRule would
+# cascade-delete its VMRule, which prevents picking up the VMRule manually
+# afterwards.
+vmoperator_enable_converter_owner_references: false
+
+# @var vmoperator_resources
+# @var vmoperator_resources:type: dict
+# @var vmoperator_resources:description: >
+# Resource requests and limits for the operator pod
+vmoperator_resources: {}
+
+# @var vmoperator_extra_values
+# @var vmoperator_extra_values:type: dict
+# @var vmoperator_extra_values:description: >
+# Extra helm values merged on top of the templated values. Use for chart
+# settings not exposed by dedicated variables.
+vmoperator_extra_values: {}
+
+# ------------------------------------------------------------------------------
+# VMAlert — evaluator for recording rules and alert rules. Reads from VM,
+# evaluates VMRule / PrometheusRule resources, writes recording rules back
+# to VM and forwards alerts to Alertmanager-compatible notifiers. Managed
+# via the VictoriaMetrics Operator (CR), not via a dedicated helm chart.
+# ------------------------------------------------------------------------------
+
+# @var vmoperator_vmalert_enabled
+# @var vmoperator_vmalert_enabled:type: boolean
+# @var vmoperator_vmalert_enabled:description: >
+# Deploy a VMAlert custom resource. Requires `vmoperator_enabled: true` in
+# the same cluster.
+vmoperator_vmalert_enabled: false
+
+# @var vmoperator_vmalert_namespace
+# @var vmoperator_vmalert_namespace:type: string
+# @var vmoperator_vmalert_namespace:description: >
+# Namespace where the VMAlert CR is applied
+vmoperator_vmalert_namespace: "victoriametrics"
+
+# @var vmoperator_vmalert_name
+# @var vmoperator_vmalert_name:type: string
+# @var vmoperator_vmalert_name:description: >
+# Name of the VMAlert custom resource
+vmoperator_vmalert_name: "vmalert"
+
+# @var vmoperator_vmalert_image_tag
+# @var vmoperator_vmalert_image_tag:type: string
+# @var vmoperator_vmalert_image_tag:description: >
+# VMAlert container image tag (matches a released VictoriaMetrics version)
+vmoperator_vmalert_image_tag: "v1.140.0"
+
+# @var vmoperator_vmalert_replicas
+# @var vmoperator_vmalert_replicas:type: int
+# @var vmoperator_vmalert_replicas:description: >
+# Number of VMAlert replicas
+vmoperator_vmalert_replicas: 1
+
+# @var vmoperator_vmalert_datasource_url
+# @var vmoperator_vmalert_datasource_url:type: string
+# @var vmoperator_vmalert_datasource_url:description: >
+# URL of the VictoriaMetrics instance used as the datasource for rule
+# evaluation queries. Has no default and is required when
+# `vmoperator_vmalert_enabled` is true (enforced by an assert); typically the
+# in-cluster VM Single service deployed by the `victoriametrics` role.
+# @var vmoperator_vmalert_datasource_url:example: >
+# vmoperator_vmalert_datasource_url: "http://vms-victoria-metrics-single-server.victoriametrics.svc.cluster.local:8428"
+vmoperator_vmalert_datasource_url: ""
+
+# @var vmoperator_vmalert_remote_write_url
+# @var vmoperator_vmalert_remote_write_url:type: string
+# @var vmoperator_vmalert_remote_write_url:description: >
+# URL where VMAlert writes back the evaluated recording rules (typically
+# the same VictoriaMetrics instance as the datasource). Leave empty to
+# disable remote write.
+vmoperator_vmalert_remote_write_url: ""
+
+# @var vmoperator_vmalert_notifier_url
+# @var vmoperator_vmalert_notifier_url:type: string
+# @var vmoperator_vmalert_notifier_url:description: >
+# URL of the Alertmanager-compatible endpoint that receives fired alerts.
+# Leave empty to run in blackhole mode: alerts are discarded but recording
+# rules still evaluate (the operator's webhook rejects a VMAlert that has
+# neither a notifier nor blackhole mode).
+vmoperator_vmalert_notifier_url: ""
+
+# @var vmoperator_vmalert_evaluation_interval
+# @var vmoperator_vmalert_evaluation_interval:type: string
+# @var vmoperator_vmalert_evaluation_interval:description: >
+# Default interval at which VMAlert evaluates rule groups
+vmoperator_vmalert_evaluation_interval: "30s"
+
+# @var vmoperator_vmalert_select_all_by_default
+# @var vmoperator_vmalert_select_all_by_default:type: boolean
+# @var vmoperator_vmalert_select_all_by_default:description: >
+# When true, VMAlert picks up every VMRule (and PrometheusRule, if the
+# converter is enabled) cluster-wide regardless of labels/namespace. Set
+# to false and use `vmoperator_vmalert_rule_selector` for scoping by label.
+# Default true matches the "one VMAlert per cluster" use case.
+vmoperator_vmalert_select_all_by_default: true
+
+# @var vmoperator_vmalert_rule_selector
+# @var vmoperator_vmalert_rule_selector:type: dict
+# @var vmoperator_vmalert_rule_selector:description: >
+# Label selector for VMRule / PrometheusRule resources picked up by
+# VMAlert. Honored only when `select_all_by_default: false`.
+vmoperator_vmalert_rule_selector: {}
+
+# @var vmoperator_vmalert_resources
+# @var vmoperator_vmalert_resources:type: dict
+# @var vmoperator_vmalert_resources:description: >
+# Resource requests and limits for the VMAlert pods
+vmoperator_vmalert_resources: {}
+
+# ------------------------------------------------------------------------------
+# VMAlertmanager — Alertmanager instance managed via VictoriaMetrics
+# Operator CR.
+# ------------------------------------------------------------------------------
+
+# @var vmoperator_vmalertmanager_enabled
+# @var vmoperator_vmalertmanager_enabled:type: boolean
+# @var vmoperator_vmalertmanager_enabled:description: >
+# Deploy a VMAlertmanager custom resource. Requires the operator.
+vmoperator_vmalertmanager_enabled: false
+
+# @var vmoperator_vmalertmanager_namespace
+# @var vmoperator_vmalertmanager_namespace:type: string
+# @var vmoperator_vmalertmanager_namespace:description: >
+# Namespace where the VMAlertmanager CR is applied
+vmoperator_vmalertmanager_namespace: "victoriametrics"
+
+# @var vmoperator_vmalertmanager_name
+# @var vmoperator_vmalertmanager_name:type: string
+# @var vmoperator_vmalertmanager_name:description: >
+# Name of the VMAlertmanager custom resource
+vmoperator_vmalertmanager_name: "vmalertmanager"
+
+# @var vmoperator_vmalertmanager_image_tag
+# @var vmoperator_vmalertmanager_image_tag:type: string
+# @var vmoperator_vmalertmanager_image_tag:description: >
+# Alertmanager container image tag
+vmoperator_vmalertmanager_image_tag: "v0.28.1"
+
+# @var vmoperator_vmalertmanager_replicas
+# @var vmoperator_vmalertmanager_replicas:type: int
+# @var vmoperator_vmalertmanager_replicas:description: >
+# Number of Alertmanager replicas (HA cluster gossip mode)
+vmoperator_vmalertmanager_replicas: 1
+
+# @var vmoperator_vmalertmanager_persistent_volume_enabled
+# @var vmoperator_vmalertmanager_persistent_volume_enabled:type: boolean
+# @var vmoperator_vmalertmanager_persistent_volume_enabled:description: >
+# Persist Alertmanager state (nflog, silences) on a PVC
+vmoperator_vmalertmanager_persistent_volume_enabled: false
+
+# @var vmoperator_vmalertmanager_persistent_volume_size
+# @var vmoperator_vmalertmanager_persistent_volume_size:type: string
+# @var vmoperator_vmalertmanager_persistent_volume_size:description: >
+# Size of the persistent volume for Alertmanager state
+vmoperator_vmalertmanager_persistent_volume_size: "2Gi"
+
+# @var vmoperator_vmalertmanager_config
+# @var vmoperator_vmalertmanager_config:type: dict
+# @var vmoperator_vmalertmanager_config:description: >
+# Alertmanager YAML config (routes, receivers, inhibit rules, templates).
+# Rendered as-is into `spec.configRawYaml` of the CR. Leave empty for the
+# operator's default config.
+# @var vmoperator_vmalertmanager_config:example: >
+# vmoperator_vmalertmanager_config:
+#   route:
+#     receiver: "default"
+#   receivers:
+#     - name: "default"
+vmoperator_vmalertmanager_config: {}
+
+# @var vmoperator_vmalertmanager_resources
+# @var vmoperator_vmalertmanager_resources:type: dict
+# @var vmoperator_vmalertmanager_resources:description: >
+# Resource requests and limits for the Alertmanager pods
+vmoperator_vmalertmanager_resources: {}
+
+# ------------------------------------------------------------------------------
+# VMAuth — HTTP reverse-proxy with auth + routing in front of VictoriaMetrics.
+# Typical use case: cross-cluster ingestion gateway exposed publicly while
+# VM stays cluster-local. Managed via VMOperator CR. Users are declared as
+# VMUser CRs (one per consumer), each with its own password Secret.
+# ------------------------------------------------------------------------------
+
+# @var vmoperator_vmauth_enabled
+# @var vmoperator_vmauth_enabled:type: boolean
+# @var vmoperator_vmauth_enabled:description: >
+# Deploy a VMAuth custom resource and its associated VMUser CRs.
+vmoperator_vmauth_enabled: false
+
+# @var vmoperator_vmauth_namespace
+# @var vmoperator_vmauth_namespace:type: string
+# @var vmoperator_vmauth_namespace:description: >
+# Namespace for the VMAuth CR and its child Secrets / VMUser CRs.
+vmoperator_vmauth_namespace: "victoriametrics"
+
+# @var vmoperator_vmauth_name
+# @var vmoperator_vmauth_name:type: string
+# @var vmoperator_vmauth_name:description: >
+# Name of the VMAuth custom resource
+vmoperator_vmauth_name: "vmauth"
+
+# @var vmoperator_vmauth_image_tag
+# @var vmoperator_vmauth_image_tag:type: string
+# @var vmoperator_vmauth_image_tag:description: >
+# VMAuth container image tag (matches a released VictoriaMetrics version)
+vmoperator_vmauth_image_tag: "v1.140.0"
+
+# @var vmoperator_vmauth_replicas
+# @var vmoperator_vmauth_replicas:type: int
+# @var vmoperator_vmauth_replicas:description: >
+# Number of VMAuth replicas
+vmoperator_vmauth_replicas: 2
+
+# @var vmoperator_vmauth_select_all_by_default
+# @var vmoperator_vmauth_select_all_by_default:type: boolean
+# @var vmoperator_vmauth_select_all_by_default:description: >
+# If true, VMAuth picks up every VMUser CR in the cluster (regardless of
+# namespace or labels). Set to false and use
+# `vmoperator_vmauth_user_selector` if you want scoping by label.
+vmoperator_vmauth_select_all_by_default: true
+
+# @var vmoperator_vmauth_user_selector
+# @var vmoperator_vmauth_user_selector:type: dict
+# @var vmoperator_vmauth_user_selector:description: >
+# Label selector for VMUser resources picked up by VMAuth. Honored only when
+# `select_all_by_default: false`.
+vmoperator_vmauth_user_selector: {}
+
+# @var vmoperator_vmauth_unauthorized_access_config
+# @var vmoperator_vmauth_unauthorized_access_config:type: list
+# @var vmoperator_vmauth_unauthorized_access_config:description: >
+# Routes available without authentication (e.g. /health, /-/ready). Each
+# item is a url_map dict per the VMAuth schema. Leave empty for fully
+# authenticated VMAuth.
+# @var vmoperator_vmauth_unauthorized_access_config:example: >
+# vmoperator_vmauth_unauthorized_access_config:
+#   - src_paths: ["/health"]
+#     url_prefix: ["http://vms-victoria-metrics-single-server.victoriametrics.svc:8428"]
+vmoperator_vmauth_unauthorized_access_config: []
+
+# @var vmoperator_vmauth_resources
+# @var vmoperator_vmauth_resources:type: dict
+# @var vmoperator_vmauth_resources:description: >
+# Resource requests and limits for the VMAuth pods
+vmoperator_vmauth_resources: {}
+
+# @var vmoperator_vmauth_ingress_enabled
+# @var vmoperator_vmauth_ingress_enabled:type: boolean
+# @var vmoperator_vmauth_ingress_enabled:description: >
+# Expose VMAuth via Kubernetes Ingress.
+vmoperator_vmauth_ingress_enabled: false
+
+# @var vmoperator_vmauth_ingress_hostname
+# @var vmoperator_vmauth_ingress_hostname:type: string
+# @var vmoperator_vmauth_ingress_hostname:description: >
+# DNS hostname for the VMAuth Ingress
+vmoperator_vmauth_ingress_hostname: ""
+
+# @var vmoperator_vmauth_ingress_class_name
+# @var vmoperator_vmauth_ingress_class_name:type: string
+# @var vmoperator_vmauth_ingress_class_name:description: >
+# Ingress class name (e.g. "traefik", "nginx")
+vmoperator_vmauth_ingress_class_name: ""
+
+# @var vmoperator_vmauth_ingress_annotations
+# @var vmoperator_vmauth_ingress_annotations:type: dict
+# @var vmoperator_vmauth_ingress_annotations:description: >
+# Ingress annotations (cert-manager issuer, external-dns ttl, ingress
+# controller middlewares, etc.). VMAuth handles authentication itself
+# (`VMUser` CRs), so no basic-auth middleware needed.
+vmoperator_vmauth_ingress_annotations: {}
+
+# @var vmoperator_vmauth_ingress_tls_enabled
+# @var vmoperator_vmauth_ingress_tls_enabled:type: boolean
+# @var vmoperator_vmauth_ingress_tls_enabled:description: >
+# Enable TLS on the VMAuth Ingress
+vmoperator_vmauth_ingress_tls_enabled: false
+
+# @var vmoperator_vmauth_ingress_tls_secret_name
+# @var vmoperator_vmauth_ingress_tls_secret_name:type: string
+# @var vmoperator_vmauth_ingress_tls_secret_name:description: >
+# Secret name where the Ingress TLS cert is stored
+vmoperator_vmauth_ingress_tls_secret_name: ""
+
+# @var vmoperator_vmauth_users
+# @var vmoperator_vmauth_users:type: list
+# @var vmoperator_vmauth_users:description: >
+# List of VMUser definitions. Each item creates one VMUser CR plus a
+# password Secret. Fields:
+#   - name (string, required) : VMUser CR name + username
+#   - password (string, required) : plaintext password (typically pulled
+#     from a vault file at the inventory layer)
+#   - target_url (string, required) : backend URL the user is allowed to
+#     reach (e.g. the in-cluster VictoriaMetrics service)
+#   - target_paths (list of string) : path prefixes routed to target_url.
+#     Defaults to `["/api/v1/write"]` (write-only access).
+#   - extra_spec (dict) : extra fields merged into the VMUser spec for
+#     advanced cases (rate-limit, headers, max_concurrent_requests, etc.)
+# @var vmoperator_vmauth_users:example: >
+# vmoperator_vmauth_users:
+#   - name: "vmagent-edge-1"
+#     password: "<from-vault>"
+#     target_url: "http://vms-victoria-metrics-single-server.victoriametrics.svc.cluster.local:8428"
+#     target_paths: ["/api/v1/write"]
+vmoperator_vmauth_users: []
+
+# ------------------------------------------------------------------------------
+# Default rules — VMRule resources curated by VictoriaMetrics, equivalent to
+# the kube-prometheus-mixin but already in VMRule format and adapted to the
+# VictoriaMetrics stack (VM self-monitoring rules included: vmagent, vmalert,
+# vmsingle, vmoperator, etc.).
+#
+# Installs the `victoria-metrics-k8s-stack` chart with all subcharts disabled
+# (operator, VM, VMAgent, KSM, node-exporter, Grafana, etc. — we manage those
+# elsewhere) and only `defaultRules.create: true`. The chart renders the VMRule
+# resources, which the existing VMOperator picks up and feeds to VMAlert.
+#
+# Requires `vmoperator_enabled: true` somewhere in the cluster (the VMRule CRD
+# must exist; the chart depends on the operator's CRDs but not on the operator
+# pod itself).
+# ------------------------------------------------------------------------------
+
+# @var vmoperator_default_rules_enabled
+# @var vmoperator_default_rules_enabled:type: boolean
+# @var vmoperator_default_rules_enabled:description: >
+# Install the curated set of VMRule resources from the `victoria-metrics-k8s-stack`
+# chart (rules-only mode, all subcharts disabled).
+vmoperator_default_rules_enabled: false
+
+# @var vmoperator_default_rules_namespace
+# @var vmoperator_default_rules_namespace:type: string
+# @var vmoperator_default_rules_namespace:description: >
+# Namespace where the VMRule resources are created
+vmoperator_default_rules_namespace: "victoriametrics"
+
+# @var vmoperator_default_rules_chart_version
+# @var vmoperator_default_rules_chart_version:type: string
+# @var vmoperator_default_rules_chart_version:description: >
+# victoria-metrics-k8s-stack chart version
+vmoperator_default_rules_chart_version: "0.79.0"
+
+# @var vmoperator_default_rules_deployment_name
+# @var vmoperator_default_rules_deployment_name:type: string
+# @var vmoperator_default_rules_deployment_name:description: >
+# Helm release name for the rules-only install of k8s-stack
+vmoperator_default_rules_deployment_name: "vm-default-rules"
+
+# @var vmoperator_default_rules_groups
+# @var vmoperator_default_rules_groups:type: dict
+# @var vmoperator_default_rules_groups:description: >
+# Per-group toggles, merged into `defaultRules.groups.<name>.create`. Use to
+# disable rule groups that target components absent from your cluster (e.g.
+# `etcd`, `kubeScheduler`, `kubeControllerManager` on a managed K8s service).
+# @var vmoperator_default_rules_groups:example: >
+# vmoperator_default_rules_groups:
+#   etcd:
+#     create: false
+#   kubeScheduler:
+#     create: false
+#   kubeControllerManager:
+#     create: false
+vmoperator_default_rules_groups: {}
+
+# @var vmoperator_default_rules_additional_group_by_labels
+# @var vmoperator_default_rules_additional_group_by_labels:type: list
+# @var vmoperator_default_rules_additional_group_by_labels:description: >
+# Extra labels added to the `by()` clause of every alert/recording rule.
+# Useful when the cluster label is non-default (e.g. multi-cluster setup).
+vmoperator_default_rules_additional_group_by_labels: []
+
+# @var vmoperator_default_rules_extra_values
+# @var vmoperator_default_rules_extra_values:type: dict
+# @var vmoperator_default_rules_extra_values:description: >
+# Extra helm values merged on top of the templated values. Use for chart
+# settings not exposed by dedicated variables (runbookUrl, custom labels,
+# etc.).
+vmoperator_default_rules_extra_values: {}

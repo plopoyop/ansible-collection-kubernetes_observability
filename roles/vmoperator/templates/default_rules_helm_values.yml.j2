@@ -1,0 +1,57 @@
+# Rules-only install of victoria-metrics-k8s-stack. Every subchart is
+# disabled — the chart only renders the curated set of VMRule resources.
+# VMOperator (managed by this role) picks them up and feeds them to VMAlert.
+
+defaultRules:
+  create: true
+{% if vmoperator_default_rules_additional_group_by_labels %}
+  additionalGroupByLabels: {{ vmoperator_default_rules_additional_group_by_labels | ansible.builtin.to_json }}
+{% endif %}
+{% if vmoperator_default_rules_groups %}
+  groups: {{ vmoperator_default_rules_groups | ansible.builtin.to_json }}
+{% endif %}
+
+# Disable every subchart : the operator, VM, VMAgent, KSM, node-exporter,
+# Grafana, Alertmanager — all installed/managed by other tasks of this role
+# (or by other roles in the consumer's playbook).
+victoria-metrics-operator:
+  enabled: false
+prometheus-operator:
+  enabled: false
+vmsingle:
+  enabled: false
+vmcluster:
+  enabled: false
+vmagent:
+  enabled: false
+vmalert:
+  enabled: false
+vmauth:
+  enabled: false
+alertmanager:
+  enabled: false
+grafana:
+  enabled: false
+kube-state-metrics:
+  enabled: false
+prometheus-node-exporter:
+  enabled: false
+
+# Disable component-level scrapes that the chart would otherwise wire up
+# (these only matter when the chart's own vmsingle/vmagent are enabled).
+kubeApiServer:
+  enabled: false
+kubelet:
+  enabled: false
+kubeControllerManager:
+  enabled: false
+coreDns:
+  enabled: false
+kubeDns:
+  enabled: false
+kubeEtcd:
+  enabled: false
+kubeScheduler:
+  enabled: false
+kubeProxy:
+  enabled: false

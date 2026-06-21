@@ -1,0 +1,22 @@
+---
+galaxy_info:
+  description: >-
+    Install the VictoriaMetrics Operator and manage its custom resources
+    (VMAlert, VMAlertmanager, VMAuth, VMUser, VMRule) on kubernetes. The
+    operator CRDs back the whole VictoriaMetrics suite — metrics
+    (VictoriaMetrics), logs (VictoriaLogs) and traces (VictoriaTraces).
+  role_name: "vmoperator"
+  author: "Clément Hubert"
+
+  license: MPL-2.0
+
+  min_ansible_version: "2.17"
+
+  galaxy_tags:
+    - "kubernetes"
+    - "victoriametrics"
+    - "victorialogs"
+    - "victoriatraces"
+    - "observability"
+
+dependencies: []

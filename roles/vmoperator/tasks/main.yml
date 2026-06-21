@@ -1,0 +1,44 @@
+---
+# import_tasks (static) plutôt que include_tasks : les tags des tâches
+# internes (namespace, preflight, helm_chart, custom_resource, secret) sont
+# ainsi sélectionnables via `--tags`, et le `when:` ci-dessous est propagé à
+# chaque tâche du fichier importé.
+- name: "Include VictoriaMetrics Operator install"
+  ansible.builtin.import_tasks: "operator.yml"
+  when: vmoperator_enabled
+  tags:
+    - "vmoperator"
+    - "vmoperator_operator"
+    - "install"
+
+- name: "Include VMAlertmanager CR deployment"
+  ansible.builtin.import_tasks: "vmalertmanager.yml"
+  when: vmoperator_vmalertmanager_enabled
+  tags:
+    - "vmoperator"
+    - "vmoperator_vmalertmanager"
+    - "install"
+
+- name: "Include VMAlert CR deployment"
+  ansible.builtin.import_tasks: "vmalert.yml"
+  when: vmoperator_vmalert_enabled
+  tags:
+    - "vmoperator"
+    - "vmoperator_vmalert"
+    - "install"
+
+- name: "Include VMAuth CR + VMUsers deployment"
+  ansible.builtin.import_tasks: "vmauth.yml"
+  when: vmoperator_vmauth_enabled
+  tags:
+    - "vmoperator"
+    - "vmoperator_vmauth"
+    - "install"
+
+- name: "Include default rules (rules-only install of k8s-stack chart)"
+  ansible.builtin.import_tasks: "default_rules.yml"
+  when: vmoperator_default_rules_enabled
+  tags:
+    - "vmoperator"
+    - "vmoperator_default_rules"
+    - "install"
