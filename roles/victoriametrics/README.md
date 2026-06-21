@@ -23,12 +23,16 @@ Install and configure VictoriaMetrics on kubernetes
   - [victoriametrics_single_replica_count](#victoriametrics_single_replica_count)
   - [victoriametrics_single_resources](#victoriametrics_single_resources)
   - [victoriametrics_single_retention_period](#victoriametrics_single_retention_period)
+  - [victoriametrics_vmagent_additional_values](#victoriametrics_vmagent_additional_values)
   - [victoriametrics_vmagent_chart_version](#victoriametrics_vmagent_chart_version)
   - [victoriametrics_vmagent_config_scrap_configs](#victoriametrics_vmagent_config_scrap_configs)
   - [victoriametrics_vmagent_config_scrape_interval](#victoriametrics_vmagent_config_scrape_interval)
   - [victoriametrics_vmagent_deployment_name](#victoriametrics_vmagent_deployment_name)
   - [victoriametrics_vmagent_enabled](#victoriametrics_vmagent_enabled)
   - [victoriametrics_vmagent_extra_args](#victoriametrics_vmagent_extra_args)
+  - [victoriametrics_vmagent_extra_scrape_configs](#victoriametrics_vmagent_extra_scrape_configs)
+  - [victoriametrics_vmagent_extra_volume_mounts](#victoriametrics_vmagent_extra_volume_mounts)
+  - [victoriametrics_vmagent_extra_volumes](#victoriametrics_vmagent_extra_volumes)
   - [victoriametrics_vmagent_namespace](#victoriametrics_vmagent_namespace)
   - [victoriametrics_vmagent_pod_annotations](#victoriametrics_vmagent_pod_annotations)
   - [victoriametrics_vmagent_remote_write](#victoriametrics_vmagent_remote_write)
@@ -275,6 +279,31 @@ The minimum retention period is 24h. See these [docs](https://docs.victoriametri
 victoriametrics_single_retention_period: '1'
 ```
 
+### victoriametrics_vmagent_additional_values
+
+Additional vmagent helm values merged as-is
+
+**_Type:_** dict<br />
+
+#### Default value
+
+```YAML
+victoriametrics_vmagent_additional_values: {}
+```
+
+#### Example usage
+
+```YAML
+victoriametrics_vmagent_additional_values:
+  extraObjects:
+    - apiVersion: v1
+      kind: Secret
+      metadata:
+        name: vmagent-basic-auth
+      stringData:
+        password: "{{ remote_write_password }}"
+```
+
 ### victoriametrics_vmagent_chart_version
 
 VMAgent chart version
@@ -335,12 +364,88 @@ Extra command-line flags for vmagent
 
 **_Type:_** dict<br />
 
+#### Default value
+
+```YAML
+victoriametrics_vmagent_extra_args: {}
+```
+
 #### Example usage
 
 ```YAML
 victoriametrics_vmagent_extra_args:
   remoteWrite.forcePromProto: "true"
   remoteWrite.label: "cluster=tech"
+```
+
+### victoriametrics_vmagent_extra_scrape_configs
+
+Additional scrape configs appended to the defaults
+
+**_Type:_** list<br />
+
+#### Default value
+
+```YAML
+victoriametrics_vmagent_extra_scrape_configs: []
+```
+
+#### Example usage
+
+```YAML
+victoriametrics_vmagent_extra_scrape_configs:
+  - job_name: "kube-state-metrics"
+    honor_labels: true
+    kubernetes_sd_configs:
+      - role: endpoints
+        namespaces:
+          names: ["opentelemetry"]
+    relabel_configs:
+      - source_labels: [__meta_kubernetes_service_name]
+        regex: ".*kube-state-metrics"
+        action: keep
+```
+
+### victoriametrics_vmagent_extra_volume_mounts
+
+Extra volume mounts for vmagent container
+
+**_Type:_** list<br />
+
+#### Default value
+
+```YAML
+victoriametrics_vmagent_extra_volume_mounts: []
+```
+
+#### Example usage
+
+```YAML
+victoriametrics_vmagent_extra_volume_mounts:
+  - name: "remote-write-auth"
+    mountPath: "/etc/vmagent-auth"
+    readOnly: true
+```
+
+### victoriametrics_vmagent_extra_volumes
+
+Extra pod volumes for vmagent
+
+**_Type:_** list<br />
+
+#### Default value
+
+```YAML
+victoriametrics_vmagent_extra_volumes: []
+```
+
+#### Example usage
+
+```YAML
+victoriametrics_vmagent_extra_volumes:
+  - name: "remote-write-auth"
+    secret:
+      secretName: "vmagent-basic-auth"
 ```
 
 ### victoriametrics_vmagent_namespace
