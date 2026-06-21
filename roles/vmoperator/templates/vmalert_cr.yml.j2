@@ -1,0 +1,34 @@
+apiVersion: operator.victoriametrics.com/v1beta1
+kind: VMAlert
+metadata:
+  name: "{{ vmoperator_vmalert_name }}"
+  namespace: "{{ vmoperator_vmalert_namespace }}"
+spec:
+  image:
+    tag: "{{ vmoperator_vmalert_image_tag }}"
+  replicaCount: {{ vmoperator_vmalert_replicas }}
+  evaluationInterval: "{{ vmoperator_vmalert_evaluation_interval }}"
+  datasource:
+    url: "{{ vmoperator_vmalert_datasource_url }}"
+{% if vmoperator_vmalert_remote_write_url | length > 0 %}
+  remoteWrite:
+    url: "{{ vmoperator_vmalert_remote_write_url }}"
+{% endif %}
+{% if vmoperator_vmalert_notifier_url | length > 0 %}
+  notifiers:
+    - url: "{{ vmoperator_vmalert_notifier_url }}"
+{% else %}
+  # No notifier configured: enable blackhole so VMAlert still evaluates
+  # recording rules. The operator's admission webhook otherwise rejects a
+  # VMAlert that has neither a notifier nor blackhole mode.
+  extraArgs:
+    notifier.blackhole: "true"
+{% endif %}
+  selectAllByDefault: {{ vmoperator_vmalert_select_all_by_default | ansible.builtin.to_json }}
+{% if vmoperator_vmalert_rule_selector %}
+  ruleSelector:
+    matchLabels: {{ vmoperator_vmalert_rule_selector | ansible.builtin.to_json }}
+{% endif %}
+{% if vmoperator_vmalert_resources %}
+  resources: {{ vmoperator_vmalert_resources | ansible.builtin.to_json }}
+{% endif %}

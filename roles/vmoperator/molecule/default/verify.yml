@@ -1,0 +1,61 @@
+---
+- name: "Verify"
+  hosts: "localhost"
+  connection: "local"
+  gather_facts: true
+
+  tasks:
+    - name: "Wait for 'victoriametrics' namespace to be active."
+      kubernetes.core.k8s_info:
+        kind: "Namespace"
+        name: "victoriametrics"
+      register: namespace_victoriametrics
+      until:
+        - namespace_victoriametrics.resources | length > 0
+        - namespace_victoriametrics.resources[0].status.phase == "Active"
+      retries: 30
+      delay: 5
+
+    - name: "Assert that 'victoriametrics' namespace is active."
+      ansible.builtin.assert:
+        that:
+          - namespace_victoriametrics.resources | length > 0
+          - namespace_victoriametrics.resources[0].status.phase == "Active"
+        fail_msg: "Namespace 'victoriametrics' is not active."
+
+    - name: "Get VictoriaMetrics Operator CRDs."
+      kubernetes.core.k8s_info:
+        api_version: "apiextensions.k8s.io/v1"
+        kind: "CustomResourceDefinition"
+        name: "{{ item }}"
+      register: vmoperator_crds
+      until: vmoperator_crds.resources | length > 0
+      retries: 30
+      delay: 5
+      loop:
+        - "vmalerts.operator.victoriametrics.com"
+        - "vmalertmanagers.operator.victoriametrics.com"
+        - "vmauths.operator.victoriametrics.com"
+        - "vmusers.operator.victoriametrics.com"
+        - "vmrules.operator.victoriametrics.com"
+
+    - name: "Wait for VMAlert deployment to be available."
+      kubernetes.core.k8s_info:
+        api_version: "apps/v1"
+        kind: "Deployment"
+        namespace: "victoriametrics"
+        label_selectors:
+          - "app.kubernetes.io/name=vmalert"
+      register: vmalert_deployment
+      until:
+        - vmalert_deployment.resources | length > 0
+        - vmalert_deployment.resources[0].status.availableReplicas | default(0) >= 1
+      retries: 30
+      delay: 5
+
+    - name: "Assert that VMAlert is deployed."
+      ansible.builtin.assert:
+        that:
+          - vmalert_deployment.resources | length > 0
+          - vmalert_deployment.resources[0].status.availableReplicas | default(0) >= 1
+        fail_msg: "VMAlert deployment is not available."

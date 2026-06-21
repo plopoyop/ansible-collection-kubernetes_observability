@@ -2,7 +2,7 @@
 version: '3'
 
 vars:
-  ROLES_LIST: ["grafana", "jaeger", "loki", "opentelemetry", "victorialogs", "victoriametrics"]
+  ROLES_LIST: ["grafana", "jaeger", "loki", "opentelemetry", "victorialogs", "victoriametrics", "vmoperator"]
 
 tasks:
   default:

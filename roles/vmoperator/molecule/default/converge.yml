@@ -1,0 +1,17 @@
+---
+- name: "Converge"
+  hosts: "localhost"
+  connection: "local"
+  gather_facts: false
+  vars:
+    # No cert-manager in the kind cluster — let the operator chart generate a
+    # self-signed cert for the admission webhook instead.
+    vmoperator_enabled: true
+    vmoperator_admission_webhooks_cert_manager_enabled: false
+    vmoperator_vmalertmanager_enabled: true
+    vmoperator_vmalert_enabled: true
+    vmoperator_vmalert_datasource_url: "http://vmsingle-victoria-metrics-single-server:8428"
+  tasks:
+    - name: "Call vmoperator role"
+      ansible.builtin.import_role:
+        name: "vmoperator"

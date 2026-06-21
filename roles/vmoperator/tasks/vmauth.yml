@@ -1,0 +1,124 @@
+---
+- name: "Assert: each VMUser has the required fields"
+  ansible.builtin.assert:
+    that:
+      - item.name is defined and (item.name | length > 0)
+      - item.password is defined and (item.password | length > 0)
+      - item.target_url is defined and (item.target_url | length > 0)
+    fail_msg: >-
+      Each item of vmoperator_vmauth_users requires non-empty 'name',
+      'password' and 'target_url'.
+  loop: "{{ vmoperator_vmauth_users }}"
+  loop_control:
+    label: "{{ item.name | default('<unnamed>') }}"
+  no_log: true
+  tags:
+    - "preflight"
+
+- name: "Assert: VMAuth ingress config is complete when enabled"
+  ansible.builtin.assert:
+    that:
+      - vmoperator_vmauth_ingress_hostname | length > 0
+      - >-
+        (not vmoperator_vmauth_ingress_tls_enabled)
+        or (vmoperator_vmauth_ingress_tls_secret_name | length > 0)
+    fail_msg: >-
+      When vmoperator_vmauth_ingress_enabled is true,
+      vmoperator_vmauth_ingress_hostname must be set; when TLS is enabled,
+      vmoperator_vmauth_ingress_tls_secret_name is required too.
+  when: vmoperator_vmauth_ingress_enabled
+  tags:
+    - "preflight"
+
+- name: "Pre-check: VMAuth CRD installed"
+  kubernetes.core.k8s_info:
+    api_version: "apiextensions.k8s.io/v1"
+    kind: "CustomResourceDefinition"
+    name: "vmauths.operator.victoriametrics.com"
+  register: vmoperator_vmauth_crd
+  check_mode: false
+  failed_when: not ansible_check_mode and (vmoperator_vmauth_crd.resources | length == 0)
+  tags:
+    - "preflight"
+
+- name: "Pre-check: VMUser CRD installed"
+  kubernetes.core.k8s_info:
+    api_version: "apiextensions.k8s.io/v1"
+    kind: "CustomResourceDefinition"
+    name: "vmusers.operator.victoriametrics.com"
+  register: vmoperator_vmuser_crd
+  check_mode: false
+  failed_when: not ansible_check_mode and (vmoperator_vmuser_crd.resources | length == 0)
+  tags:
+    - "preflight"
+
+# CRDs absentes (check mode + opérateur pas encore installé) : on skip
+# l'apply pour éviter les erreurs de validation côté kube-apiserver. Le
+# `_crd_ready` factorise le test pour les 3 tâches qui suivent.
+- name: "Set fact: VMAuth/VMUser CRDs ready"
+  ansible.builtin.set_fact:
+    vmoperator_vmauth_crd_ready: >-
+      {{ (vmoperator_vmauth_crd.resources | length > 0)
+         and (vmoperator_vmuser_crd.resources | length > 0) }}
+
+- name: "Create namespace for VMAuth CR, VMUser CRs and password Secrets"
+  kubernetes.core.k8s:
+    name: "{{ vmoperator_vmauth_namespace }}"
+    api_version: "v1"
+    kind: "Namespace"
+    state: "present"
+  tags:
+    - "namespace"
+
+# One Secret per VMUser holding the password. The VMUser CR references it
+# via `passwordRef`, which keeps passwords out of the CR YAML itself and
+# allows the consumer to source them from a vault.
+- name: "Create per-user password Secret"
+  kubernetes.core.k8s:
+    state: "present"
+    apply: true
+    definition:
+      apiVersion: "v1"
+      kind: "Secret"
+      metadata:
+        name: "vmuser-{{ item.name }}-password"
+        namespace: "{{ vmoperator_vmauth_namespace }}"
+      type: "Opaque"
+      stringData:
+        password: "{{ item.password }}"
+  loop: "{{ vmoperator_vmauth_users }}"
+  loop_control:
+    label: "{{ item.name }}"
+  no_log: true
+  tags:
+    - "secret"
+
+# `extra_spec` is merged structurally into `.spec` (recursive combine) rather
+# than templated as text, so nested keys keep correct YAML structure.
+- name: "Apply VMUser CRs"
+  kubernetes.core.k8s:
+    state: "present"
+    apply: true
+    definition: >-
+      {{
+        (lookup('ansible.builtin.template', 'vmuser_cr.yml.j2') | ansible.builtin.from_yaml)
+        | ansible.builtin.combine({'spec': item.extra_spec | default({})}, recursive=True)
+      }}
+  loop: "{{ vmoperator_vmauth_users }}"
+  loop_control:
+    label: "{{ item.name }}"
+  vars:
+    vmuser: "{{ item }}"
+  when: vmoperator_vmauth_crd_ready
+  tags:
+    - "custom_resource"
+
+- name: "Apply VMAuth CR"
+  kubernetes.core.k8s:
+    state: "present"
+    apply: true
+    definition: >-
+      {{ lookup('ansible.builtin.template', 'vmauth_cr.yml.j2') | ansible.builtin.from_yaml }}
+  when: vmoperator_vmauth_crd_ready
+  tags:
+    - "custom_resource"

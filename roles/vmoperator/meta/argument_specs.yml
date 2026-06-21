@@ -1,0 +1,266 @@
+---
+# Runtime validation of the role's input interface. Mirrors the typed @var
+# annotations in defaults/main.yml. Defaults here are documentational
+# (ansible-doc / Galaxy) — the authoritative values live in defaults/main.yml.
+argument_specs:
+  main:
+    short_description: "Install the VictoriaMetrics Operator and manage its custom resources"
+    description:
+      - "Install the VictoriaMetrics Operator chart and manage its custom"
+      - "resources (VMAlert, VMAlertmanager, VMAuth, VMUser, VMRule) on"
+      - "Kubernetes, plus an optional rules-only install of the"
+      - "victoria-metrics-k8s-stack chart for the curated VMRule set."
+    options:
+      # ------------------------------------------------------------------ Operator
+      vmoperator_enabled:
+        type: "bool"
+        default: false
+        description: "Install the VictoriaMetrics Operator chart."
+      vmoperator_namespace:
+        type: "str"
+        default: "victoriametrics"
+        description: "K8s namespace where the operator runs (CRDs are cluster-scoped)."
+      vmoperator_chart_version:
+        type: "str"
+        default: "0.51.0"
+        description: "victoria-metrics-operator chart version."
+      vmoperator_deployment_name:
+        type: "str"
+        default: "vm-operator"
+        description: "Helm release name for the operator."
+      vmoperator_admission_webhooks_enabled:
+        type: "bool"
+        default: true
+        description: "Enable admission webhooks (validation of CRs)."
+      vmoperator_admission_webhooks_cert_manager_enabled:
+        type: "bool"
+        default: true
+        description: "Let cert-manager issue the webhook TLS cert (else the chart self-signs)."
+      vmoperator_disable_prometheus_converter:
+        type: "bool"
+        default: false
+        description: "Disable conversion of Prometheus Operator CRDs to VictoriaMetrics CRDs."
+      vmoperator_enable_converter_owner_references:
+        type: "bool"
+        default: false
+        description: "Set the original Prometheus CRs as owner references on converted VM CRs."
+      vmoperator_resources:
+        type: "dict"
+        default: {}
+        description: "Resource requests and limits for the operator pod."
+      vmoperator_extra_values:
+        type: "dict"
+        default: {}
+        description: "Extra helm values merged on top of the templated operator values."
+
+      # ------------------------------------------------------------------ VMAlert
+      vmoperator_vmalert_enabled:
+        type: "bool"
+        default: false
+        description: "Deploy a VMAlert custom resource."
+      vmoperator_vmalert_namespace:
+        type: "str"
+        default: "victoriametrics"
+        description: "Namespace where the VMAlert CR is applied."
+      vmoperator_vmalert_name:
+        type: "str"
+        default: "vmalert"
+        description: "Name of the VMAlert custom resource."
+      vmoperator_vmalert_image_tag:
+        type: "str"
+        default: "v1.140.0"
+        description: "VMAlert container image tag."
+      vmoperator_vmalert_replicas:
+        type: "int"
+        default: 1
+        description: "Number of VMAlert replicas."
+      vmoperator_vmalert_datasource_url:
+        type: "str"
+        default: ""
+        description:
+          - "URL of the VictoriaMetrics instance used as the datasource for rule"
+          - "evaluation. Required (asserted) when vmoperator_vmalert_enabled is true."
+      vmoperator_vmalert_remote_write_url:
+        type: "str"
+        default: ""
+        description: "URL where VMAlert writes back evaluated recording rules. Empty disables it."
+      vmoperator_vmalert_notifier_url:
+        type: "str"
+        default: ""
+        description: "Alertmanager-compatible endpoint that receives fired alerts. Empty disables it."
+      vmoperator_vmalert_evaluation_interval:
+        type: "str"
+        default: "30s"
+        description: "Default interval at which VMAlert evaluates rule groups."
+      vmoperator_vmalert_select_all_by_default:
+        type: "bool"
+        default: true
+        description: "Pick up every VMRule cluster-wide. Set false to scope via rule_selector."
+      vmoperator_vmalert_rule_selector:
+        type: "dict"
+        default: {}
+        description: "Label selector for VMRule resources. Honored only when select_all_by_default is false."
+      vmoperator_vmalert_resources:
+        type: "dict"
+        default: {}
+        description: "Resource requests and limits for the VMAlert pods."
+
+      # ------------------------------------------------------------ VMAlertmanager
+      vmoperator_vmalertmanager_enabled:
+        type: "bool"
+        default: false
+        description: "Deploy a VMAlertmanager custom resource."
+      vmoperator_vmalertmanager_namespace:
+        type: "str"
+        default: "victoriametrics"
+        description: "Namespace where the VMAlertmanager CR is applied."
+      vmoperator_vmalertmanager_name:
+        type: "str"
+        default: "vmalertmanager"
+        description: "Name of the VMAlertmanager custom resource."
+      vmoperator_vmalertmanager_image_tag:
+        type: "str"
+        default: "v0.28.1"
+        description: "Alertmanager container image tag."
+      vmoperator_vmalertmanager_replicas:
+        type: "int"
+        default: 1
+        description: "Number of Alertmanager replicas (HA cluster gossip mode)."
+      vmoperator_vmalertmanager_persistent_volume_enabled:
+        type: "bool"
+        default: false
+        description: "Persist Alertmanager state (nflog, silences) on a PVC."
+      vmoperator_vmalertmanager_persistent_volume_size:
+        type: "str"
+        default: "2Gi"
+        description: "Size of the persistent volume for Alertmanager state."
+      vmoperator_vmalertmanager_config:
+        type: "dict"
+        default: {}
+        description: "Alertmanager YAML config rendered into spec.configRawYaml. Empty uses the operator default."
+      vmoperator_vmalertmanager_resources:
+        type: "dict"
+        default: {}
+        description: "Resource requests and limits for the Alertmanager pods."
+
+      # ------------------------------------------------------------------ VMAuth
+      vmoperator_vmauth_enabled:
+        type: "bool"
+        default: false
+        description: "Deploy a VMAuth custom resource and its associated VMUser CRs."
+      vmoperator_vmauth_namespace:
+        type: "str"
+        default: "victoriametrics"
+        description: "Namespace for the VMAuth CR and its child Secrets / VMUser CRs."
+      vmoperator_vmauth_name:
+        type: "str"
+        default: "vmauth"
+        description: "Name of the VMAuth custom resource."
+      vmoperator_vmauth_image_tag:
+        type: "str"
+        default: "v1.140.0"
+        description: "VMAuth container image tag."
+      vmoperator_vmauth_replicas:
+        type: "int"
+        default: 2
+        description: "Number of VMAuth replicas."
+      vmoperator_vmauth_select_all_by_default:
+        type: "bool"
+        default: true
+        description: "Pick up every VMUser CR cluster-wide. Set false to scope via user_selector."
+      vmoperator_vmauth_user_selector:
+        type: "dict"
+        default: {}
+        description: "Label selector for VMUser resources. Honored only when select_all_by_default is false."
+      vmoperator_vmauth_unauthorized_access_config:
+        type: "list"
+        elements: "dict"
+        default: []
+        description: "Routes available without authentication (each item a url_map dict per the VMAuth schema)."
+      vmoperator_vmauth_resources:
+        type: "dict"
+        default: {}
+        description: "Resource requests and limits for the VMAuth pods."
+      vmoperator_vmauth_ingress_enabled:
+        type: "bool"
+        default: false
+        description: "Expose VMAuth via Kubernetes Ingress."
+      vmoperator_vmauth_ingress_hostname:
+        type: "str"
+        default: ""
+        description: "DNS hostname for the VMAuth Ingress. Required when ingress is enabled."
+      vmoperator_vmauth_ingress_class_name:
+        type: "str"
+        default: ""
+        description: "Ingress class name (e.g. traefik, nginx)."
+      vmoperator_vmauth_ingress_annotations:
+        type: "dict"
+        default: {}
+        description: "Ingress annotations (cert-manager issuer, external-dns, middlewares, etc.)."
+      vmoperator_vmauth_ingress_tls_enabled:
+        type: "bool"
+        default: false
+        description: "Enable TLS on the VMAuth Ingress."
+      vmoperator_vmauth_ingress_tls_secret_name:
+        type: "str"
+        default: ""
+        description: "Secret name where the Ingress TLS cert is stored. Required when ingress TLS is enabled."
+      vmoperator_vmauth_users:
+        type: "list"
+        elements: "dict"
+        default: []
+        description: "List of VMUser definitions. Each item creates one VMUser CR plus a password Secret."
+        options:
+          name:
+            type: "str"
+            required: true
+            description: "VMUser CR name + username."
+          password:
+            type: "str"
+            required: true
+            description: "Plaintext password (typically pulled from a vault file at the inventory layer)."
+          target_url:
+            type: "str"
+            required: true
+            description: "Backend URL the user is allowed to reach."
+          target_paths:
+            type: "list"
+            elements: "str"
+            default:
+              - "/api/v1/write"
+            description: "Path prefixes routed to target_url. Defaults to write-only access."
+          extra_spec:
+            type: "dict"
+            required: false
+            description: "Extra fields merged into the VMUser spec (rate-limit, headers, etc.)."
+
+      # ------------------------------------------------------------ Default rules
+      vmoperator_default_rules_enabled:
+        type: "bool"
+        default: false
+        description: "Install the curated set of VMRule resources (rules-only k8s-stack chart)."
+      vmoperator_default_rules_namespace:
+        type: "str"
+        default: "victoriametrics"
+        description: "Namespace where the VMRule resources are created."
+      vmoperator_default_rules_chart_version:
+        type: "str"
+        default: "0.79.0"
+        description: "victoria-metrics-k8s-stack chart version."
+      vmoperator_default_rules_deployment_name:
+        type: "str"
+        default: "vm-default-rules"
+        description: "Helm release name for the rules-only install of k8s-stack."
+      vmoperator_default_rules_groups:
+        type: "dict"
+        default: {}
+        description: "Per-group toggles merged into defaultRules.groups.<name>.create."
+      vmoperator_default_rules_additional_group_by_labels:
+        type: "list"
+        elements: "str"
+        default: []
+        description: "Extra labels added to the by() clause of every alert/recording rule."
+      vmoperator_default_rules_extra_values:
+        type: "dict"
+        default: {}
+        description: "Extra helm values merged on top of the templated default-rules values."

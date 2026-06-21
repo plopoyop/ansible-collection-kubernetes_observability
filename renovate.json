@@ -82,6 +82,28 @@
       "registryUrls": [
         "https://victoriametrics.github.io/helm-charts/"
       ]
+    },
+    {
+      "matchDatasources": [
+        "helm"
+      ],
+      "matchPackageNames": [
+        "victoria-metrics-operator"
+      ],
+      "registryUrls": [
+        "https://victoriametrics.github.io/helm-charts/"
+      ]
+    },
+    {
+      "matchDatasources": [
+        "helm"
+      ],
+      "matchPackageNames": [
+        "victoria-metrics-k8s-stack"
+      ],
+      "registryUrls": [
+        "https://victoriametrics.github.io/helm-charts/"
+      ]
     }
   ],
   "customManagers": [
@@ -259,6 +281,95 @@
       "depNameTemplate": "victoria-logs-single",
       "autoReplaceStringTemplate": "victorialogs_chart_version: {{#if quote}}\"{{newValue}}\"{{else}}{{newValue}}{{/if}}",
       "datasourceTemplate": "helm"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/^README.md$/"
+      ],
+      "matchStrings": [
+        "vmoperator\\s*\\|\\s?v(?<currentValue>[0-9\\.]+)"
+      ],
+      "depNameTemplate": "victoria-metrics-operator",
+      "autoReplaceStringTemplate": "vmoperator | v{{newValue}}",
+      "datasourceTemplate": "helm"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/roles/vmoperator/defaults/main.yml$/",
+        "/roles/vmoperator/README.md$/"
+      ],
+      "matchStrings": [
+        "vmoperator_chart_version:\\s*(?<quote>\")?(?<currentValue>[0-9\\.]+)\"?"
+      ],
+      "depNameTemplate": "victoria-metrics-operator",
+      "autoReplaceStringTemplate": "vmoperator_chart_version: {{#if quote}}\"{{newValue}}\"{{else}}{{newValue}}{{/if}}",
+      "datasourceTemplate": "helm"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/^README.md$/"
+      ],
+      "matchStrings": [
+        "vm default rules\\s*\\|\\s?v(?<currentValue>[0-9\\.]+)"
+      ],
+      "depNameTemplate": "victoria-metrics-k8s-stack",
+      "autoReplaceStringTemplate": "vm default rules | v{{newValue}}",
+      "datasourceTemplate": "helm"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/roles/vmoperator/defaults/main.yml$/",
+        "/roles/vmoperator/README.md$/"
+      ],
+      "matchStrings": [
+        "vmoperator_default_rules_chart_version:\\s*(?<quote>\")?(?<currentValue>[0-9\\.]+)\"?"
+      ],
+      "depNameTemplate": "victoria-metrics-k8s-stack",
+      "autoReplaceStringTemplate": "vmoperator_default_rules_chart_version: {{#if quote}}\"{{newValue}}\"{{else}}{{newValue}}{{/if}}",
+      "datasourceTemplate": "helm"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/roles/vmoperator/defaults/main.yml$/",
+        "/roles/vmoperator/README.md$/"
+      ],
+      "matchStrings": [
+        "vmoperator_vmalert_image_tag:\\s*(?<quote>\")?(?<currentValue>v[0-9\\.]+)\"?"
+      ],
+      "depNameTemplate": "victoriametrics/vmalert",
+      "autoReplaceStringTemplate": "vmoperator_vmalert_image_tag: {{#if quote}}\"{{newValue}}\"{{else}}{{newValue}}{{/if}}",
+      "datasourceTemplate": "docker"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/roles/vmoperator/defaults/main.yml$/",
+        "/roles/vmoperator/README.md$/"
+      ],
+      "matchStrings": [
+        "vmoperator_vmauth_image_tag:\\s*(?<quote>\")?(?<currentValue>v[0-9\\.]+)\"?"
+      ],
+      "depNameTemplate": "victoriametrics/vmauth",
+      "autoReplaceStringTemplate": "vmoperator_vmauth_image_tag: {{#if quote}}\"{{newValue}}\"{{else}}{{newValue}}{{/if}}",
+      "datasourceTemplate": "docker"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/roles/vmoperator/defaults/main.yml$/",
+        "/roles/vmoperator/README.md$/"
+      ],
+      "matchStrings": [
+        "vmoperator_vmalertmanager_image_tag:\\s*(?<quote>\")?(?<currentValue>v[0-9\\.]+)\"?"
+      ],
+      "depNameTemplate": "prom/alertmanager",
+      "autoReplaceStringTemplate": "vmoperator_vmalertmanager_image_tag: {{#if quote}}\"{{newValue}}\"{{else}}{{newValue}}{{/if}}",
+      "datasourceTemplate": "docker"
     }
   ]
 }

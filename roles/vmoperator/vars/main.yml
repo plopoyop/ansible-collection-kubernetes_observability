@@ -1,0 +1,6 @@
+---
+# vars file for vmoperator
+vmoperator_helm_repo_name: "vm"
+vmoperator_helm_repo_url: "https://victoriametrics.github.io/helm-charts/"
+vmoperator_chart_ref: "{{ vmoperator_helm_repo_name }}/victoria-metrics-operator"
+vmoperator_default_rules_chart_ref: "{{ vmoperator_helm_repo_name }}/victoria-metrics-k8s-stack"

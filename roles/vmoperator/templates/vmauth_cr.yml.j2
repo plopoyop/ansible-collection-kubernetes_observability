@@ -1,0 +1,33 @@
+apiVersion: operator.victoriametrics.com/v1beta1
+kind: VMAuth
+metadata:
+  name: "{{ vmoperator_vmauth_name }}"
+  namespace: "{{ vmoperator_vmauth_namespace }}"
+spec:
+  image:
+    tag: "{{ vmoperator_vmauth_image_tag }}"
+  replicaCount: {{ vmoperator_vmauth_replicas }}
+  selectAllByDefault: {{ vmoperator_vmauth_select_all_by_default | ansible.builtin.to_json }}
+{% if vmoperator_vmauth_user_selector %}
+  userSelector:
+    matchLabels: {{ vmoperator_vmauth_user_selector | ansible.builtin.to_json }}
+{% endif %}
+{% if vmoperator_vmauth_unauthorized_access_config %}
+  unauthorizedAccessConfig: {{ vmoperator_vmauth_unauthorized_access_config | ansible.builtin.to_json }}
+{% endif %}
+{% if vmoperator_vmauth_resources %}
+  resources: {{ vmoperator_vmauth_resources | ansible.builtin.to_json }}
+{% endif %}
+{% if vmoperator_vmauth_ingress_enabled %}
+  ingress:
+    class_name: "{{ vmoperator_vmauth_ingress_class_name }}"
+    host: "{{ vmoperator_vmauth_ingress_hostname }}"
+{% if vmoperator_vmauth_ingress_annotations %}
+    annotations: {{ vmoperator_vmauth_ingress_annotations | ansible.builtin.to_json }}
+{% endif %}
+{% if vmoperator_vmauth_ingress_tls_enabled %}
+    tlsSecretName: "{{ vmoperator_vmauth_ingress_tls_secret_name }}"
+    tlsHosts:
+      - "{{ vmoperator_vmauth_ingress_hostname }}"
+{% endif %}
+{% endif %}
