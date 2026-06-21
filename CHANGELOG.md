@@ -1,8 +1,12 @@
 # Changelog
 
-## [7.3.2](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/7.3.2) (2026-06-20)
+## [7.4.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/7.4.0) (2026-06-21)
 
-[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/7.3.1...7.3.2)
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/7.3.1...7.4.0)
+
+## 🚀 New Features
+
+- Add new role vmoperator [\#280](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/280) ([plopoyop](https://github.com/plopoyop))
 
 ## ⛵ Helm Charts
 
