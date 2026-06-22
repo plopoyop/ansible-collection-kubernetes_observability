@@ -7,6 +7,7 @@
 ## ⛵ Helm Charts
 
 - feat\(helm\): update chart victoria-metrics-operator \(0.51.0 → 0.65.1\) [\#286](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/286) ([plopoyop](https://github.com/plopoyop))
+- feat\(helm\): update chart victoria-metrics-k8s-stack \(0.79.0 → 0.84.0\) [\#285](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/285) ([plopoyop](https://github.com/plopoyop))
 
 ## ⚙️ Dependencies
 
