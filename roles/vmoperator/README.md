@@ -516,7 +516,7 @@ Alertmanager container image tag
 #### Default value
 
 ```YAML
-vmoperator_vmalertmanager_image_tag: v0.28.1
+vmoperator_vmalertmanager_image_tag: v0.33.0
 ```
 
 ### vmoperator_vmalertmanager_name
