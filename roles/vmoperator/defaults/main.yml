@@ -108,7 +108,7 @@ vmoperator_vmalert_name: "vmalert"
 # @var vmoperator_vmalert_image_tag:type: string
 # @var vmoperator_vmalert_image_tag:description: >
 # VMAlert container image tag (matches a released VictoriaMetrics version)
-vmoperator_vmalert_image_tag: v1.145.0
+vmoperator_vmalert_image_tag: v1.146.0
 
 # @var vmoperator_vmalert_replicas
 # @var vmoperator_vmalert_replicas:type: int
