@@ -1,16 +1,18 @@
 # Changelog
 
-## [7.5.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/7.5.0) (2026-06-22)
+## [7.5.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/7.5.0) (2026-06-25)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/7.4.0...7.5.0)
 
 ## ⛵ Helm Charts
 
+- feat\(helm\): update chart opentelemetry-kube-stack \(0.16.0 → 0.17.0\) [\#291](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/291) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart victoria-metrics-operator \(0.51.0 → 0.65.1\) [\#286](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/286) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart victoria-metrics-k8s-stack \(0.79.0 → 0.84.0\) [\#285](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/285) ([plopoyop](https://github.com/plopoyop))
 
 ## ⚙️ Dependencies
 
+- feat\(container\): update image victoriametrics/vmauth \(v1.145.0 → v1.146.0\) [\#290](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/290) ([plopoyop](https://github.com/plopoyop))
 - feat\(container\): update image victoriametrics/vmauth \(v1.140.0 → v1.145.0\) [\#284](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/284) ([plopoyop](https://github.com/plopoyop))
 - feat\(container\): update image victoriametrics/vmalert \(v1.140.0 → v1.145.0\) [\#283](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/283) ([plopoyop](https://github.com/plopoyop))
 - feat\(container\): update image prom/alertmanager \(v0.28.1 → v0.33.0\) [\#282](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/282) ([plopoyop](https://github.com/plopoyop))
