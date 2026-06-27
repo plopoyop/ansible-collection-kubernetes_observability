@@ -78,7 +78,7 @@ Grafana chart version
 #### Default value
 
 ```YAML
-loki_chart_version: 17.4.10
+loki_chart_version: 18.1.1
 ```
 
 ### loki_deployment_mode
