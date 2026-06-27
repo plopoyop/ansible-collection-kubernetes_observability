@@ -4,6 +4,10 @@
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/7.5.0...7.6.0)
 
+## 🐛 Bug Fixes
+
+- fix\(devbox\): Downgrade helm package [\#304](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/304) ([plopoyop](https://github.com/plopoyop))
+
 ## ⛵ Helm Charts
 
 - feat\(helm\): update chart victoria-metrics-single \(0.40.1 → 0.41.0\) [\#299](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/299) ([plopoyop](https://github.com/plopoyop))
