@@ -7,6 +7,7 @@
 ## ⛵ Helm Charts
 
 - feat\(helm\): update chart victoria-metrics-k8s-stack \(0.84.0 → 0.85.4\) [\#298](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/298) ([plopoyop](https://github.com/plopoyop))
+- feat\(helm\): update chart grafana \(12.4.9 → 12.7.1\) [\#296](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/296) ([plopoyop](https://github.com/plopoyop))
 
 ## ⚙️ Dependencies
 
