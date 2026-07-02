@@ -1,6 +1,6 @@
 # Changelog
 
-## [8.0.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/8.0.0) (2026-07-01)
+## [8.0.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/8.0.0) (2026-07-02)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/7.5.0...8.0.0)
 
@@ -19,6 +19,7 @@
 
 ## ⚙️ Dependencies
 
+- fix\(ci\): update renovatebot/github-action action \(v46.1.16 → v46.1.17\) [\#308](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/308) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v46.1.15 → v46.1.16\) [\#293](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/293) ([plopoyop](https://github.com/plopoyop))
 
 **Merged pull requests:**
