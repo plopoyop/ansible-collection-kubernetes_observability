@@ -10,7 +10,7 @@
       "kubectl@1.36.2",
       "kubernetes-helm@4.2.2",
       "prek@0.3.11",
-      "python313Packages.ansible@13.7.0",
+      "python313Packages.ansible@14.0.0",
       "python313Packages.kubernetes@35.0.0",
       "python313Packages.molecule@26.4.0",
       "python313Packages.molecule-plugins@25.8.12",
