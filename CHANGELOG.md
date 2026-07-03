@@ -1,6 +1,6 @@
 # Changelog
 
-## [8.0.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/8.0.0) (2026-07-02)
+## [8.0.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/8.0.0) (2026-07-03)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/7.5.0...8.0.0)
 
@@ -10,6 +10,7 @@
 
 ## ⛵ Helm Charts
 
+- fix\(helm\): update chart victoria-metrics-k8s-stack \(0.85.4 → 0.85.5\) [\#305](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/305) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\)!: Update chart loki \(17.4.10 → 18.1.1\) [\#300](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/300) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart victoria-metrics-single \(0.40.1 → 0.41.0\) [\#299](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/299) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart victoria-metrics-k8s-stack \(0.84.0 → 0.85.4\) [\#298](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/298) ([plopoyop](https://github.com/plopoyop))
