@@ -137,7 +137,7 @@ victoria-metrics-k8s-stack chart version
 #### Default value
 
 ```YAML
-vmoperator_default_rules_chart_version: 0.85.4
+vmoperator_default_rules_chart_version: 0.85.5
 ```
 
 ### vmoperator_default_rules_deployment_name
