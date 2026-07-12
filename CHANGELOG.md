@@ -1,6 +1,6 @@
 # Changelog
 
-## [8.0.1](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/8.0.1) (2026-07-09)
+## [8.0.1](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/8.0.1) (2026-07-12)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/8.0.0...8.0.1)
 
