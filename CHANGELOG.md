@@ -1,12 +1,20 @@
 # Changelog
 
-## [8.0.1](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/8.0.1) (2026-07-12)
+## [8.0.1](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/8.0.1) (2026-07-14)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/8.0.0...8.0.1)
+
+## ⛵ Helm Charts
+
+- fix\(helm\): update chart loki \(18.4.0 → 18.4.4\) [\#320](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/320) ([plopoyop](https://github.com/plopoyop))
 
 ## ⚙️ Dependencies
 
 - fix\(ci\): update renovatebot/github-action action \(v46.1.17 → v46.1.18\) [\#321](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/321) ([plopoyop](https://github.com/plopoyop))
+
+**Closed issues:**
+
+- Action Required: Fix Renovate Configuration [\#292](https://github.com/plopoyop/ansible-collection-kubernetes_observability/issues/292)
 
 **Merged pull requests:**
 
