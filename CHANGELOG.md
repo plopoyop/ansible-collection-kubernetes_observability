@@ -12,6 +12,7 @@
 
 - fix\(ci\): update renovatebot/github-action action \(v46.1.18 → v46.1.19\) [\#328](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/328) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v46.1.17 → v46.1.18\) [\#321](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/321) ([plopoyop](https://github.com/plopoyop))
+- feat\(container\): update image victoriametrics/vmauth \(v1.146.0 → v1.147.0\) [\#319](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/319) ([plopoyop](https://github.com/plopoyop))
 - feat\(container\): update image victoriametrics/vmalert \(v1.146.0 → v1.147.0\) [\#318](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/318) ([plopoyop](https://github.com/plopoyop))
 
 **Closed issues:**
