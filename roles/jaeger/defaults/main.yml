@@ -141,3 +141,70 @@ jaeger_ingress_annotations: {}
 # jaeger_ingress_labels:
 #   app: jaeger
 jaeger_ingress_labels: {}
+
+# ------------------------------------------------------------------------------
+# Persistence (badger) — lightweight persistent storage, alternative to
+# Elasticsearch/OpenSearch for low trace volumes. When enabled, a PVC is created
+# and mounted into the Jaeger pod; pair it with `jaeger_userconfig` (badger
+# backend, `ephemeral: false`, `directories` under `jaeger_persistence_mount_path`).
+# Keep `jaeger_replicas: 1` (badger is a single-writer embedded store).
+# ------------------------------------------------------------------------------
+
+# @var jaeger_persistence_enabled
+# @var jaeger_persistence_enabled:type: boolean
+# @var jaeger_persistence_enabled:description: >
+# Create and mount a PersistentVolumeClaim so the embedded badger storage
+# survives pod restarts. Keep jaeger_replicas at 1 (badger is single-writer).
+jaeger_persistence_enabled: false
+
+# @var jaeger_persistence_name
+# @var jaeger_persistence_name:type: string
+# @var jaeger_persistence_name:description: >
+# Name of the PersistentVolumeClaim created when jaeger_persistence_enabled.
+jaeger_persistence_name: "{{ jaeger_deployment_name }}-data"
+
+# @var jaeger_persistence_size
+# @var jaeger_persistence_size:type: string
+# @var jaeger_persistence_size:description: >
+# Requested size of the badger PersistentVolumeClaim.
+jaeger_persistence_size: "10Gi"
+
+# @var jaeger_persistence_access_modes
+# @var jaeger_persistence_access_modes:type: list
+# @var jaeger_persistence_access_modes:description: >
+# Access modes of the badger PersistentVolumeClaim.
+jaeger_persistence_access_modes:
+  - "ReadWriteOnce"
+
+# @var jaeger_persistence_storage_class
+# @var jaeger_persistence_storage_class:type: string
+# @var jaeger_persistence_storage_class:description: >
+# StorageClass for the badger PVC (empty = cluster default StorageClass).
+jaeger_persistence_storage_class: ""
+
+# @var jaeger_persistence_mount_path
+# @var jaeger_persistence_mount_path:type: string
+# @var jaeger_persistence_mount_path:description: >
+# Mount path of the badger volume inside the Jaeger container. Point the badger
+# `directories` (keys/values) in jaeger_userconfig under this path.
+jaeger_persistence_mount_path: "/badger"
+
+# @var jaeger_persistence_volume_name
+# @var jaeger_persistence_volume_name:type: string
+# @var jaeger_persistence_volume_name:description: >
+# Name of the pod volume/volumeMount used for the badger PVC.
+jaeger_persistence_volume_name: "jaeger-data"
+
+# @var jaeger_extra_volumes
+# @var jaeger_extra_volumes:type: list
+# @var jaeger_extra_volumes:description: >
+# Extra volumes added to the Jaeger pod (rendered as jaeger.extraVolumes), in
+# addition to the managed persistence volume.
+jaeger_extra_volumes: []
+
+# @var jaeger_extra_volume_mounts
+# @var jaeger_extra_volume_mounts:type: list
+# @var jaeger_extra_volume_mounts:description: >
+# Extra volume mounts for the Jaeger container (rendered as
+# jaeger.extraVolumeMounts), in addition to the managed persistence mount.
+jaeger_extra_volume_mounts: []
