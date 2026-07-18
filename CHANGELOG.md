@@ -13,6 +13,7 @@
 - fix\(helm\): update chart victoria-logs-single \(0.13.8 → 0.13.9\) [\#330](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/330) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart opentelemetry-kube-stack \(0.18.0 → 0.19.1\) [\#327](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/327) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart victoria-metrics-k8s-stack \(0.85.10 → 0.86.0\) [\#324](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/324) ([plopoyop](https://github.com/plopoyop))
+- feat\(helm\): update chart victoria-metrics-agent \(0.42.0 → 0.43.0\) [\#323](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/323) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart loki \(18.4.0 → 18.4.4\) [\#320](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/320) ([plopoyop](https://github.com/plopoyop))
 
 ## ⚙️ Dependencies
