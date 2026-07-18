@@ -4,6 +4,10 @@
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/8.0.0...8.1.0)
 
+## 🚀 New Features
+
+- Add persistance volume for badger db [\#334](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/334) ([plopoyop](https://github.com/plopoyop))
+
 ## 🐛 Bug Fixes
 
 - Fix tag propagation to imported tasks [\#333](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/333) ([plopoyop](https://github.com/plopoyop))
