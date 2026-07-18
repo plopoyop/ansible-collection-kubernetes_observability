@@ -24,7 +24,7 @@ vmoperator_namespace: "victoriametrics"
 # @var vmoperator_chart_version:type: string
 # @var vmoperator_chart_version:description: >
 # victoria-metrics-operator chart version
-vmoperator_chart_version: 0.65.1
+vmoperator_chart_version: 0.66.2
 
 # @var vmoperator_deployment_name
 # @var vmoperator_deployment_name:type: string
