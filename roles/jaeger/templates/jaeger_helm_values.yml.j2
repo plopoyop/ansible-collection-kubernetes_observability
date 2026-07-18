@@ -11,6 +11,19 @@ jaeger:
 
   resources: {{ jaeger_resources | ansible.builtin.to_json }}
 
+{% set _jaeger_volumes = jaeger_extra_volumes | default([], true) %}
+{% set _jaeger_mounts = jaeger_extra_volume_mounts | default([], true) %}
+{% if jaeger_persistence_enabled %}
+{%   set _jaeger_volumes = _jaeger_volumes + [{'name': jaeger_persistence_volume_name, 'persistentVolumeClaim': {'claimName': jaeger_persistence_name}}] %}
+{%   set _jaeger_mounts = _jaeger_mounts + [{'name': jaeger_persistence_volume_name, 'mountPath': jaeger_persistence_mount_path}] %}
+{% endif %}
+{% if _jaeger_volumes | length > 0 %}
+  extraVolumes: {{ _jaeger_volumes | ansible.builtin.to_json }}
+{% endif %}
+{% if _jaeger_mounts | length > 0 %}
+  extraVolumeMounts: {{ _jaeger_mounts | ansible.builtin.to_json }}
+{% endif %}
+
   ingress:
     enabled: {{ jaeger_ingress_enabled | ansible.builtin.to_json }}
 {% if jaeger_ingress_enabled %}

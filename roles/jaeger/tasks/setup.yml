@@ -8,6 +8,25 @@
   tags:
     - "namespace"
 
+- name: "Create Jaeger badger PersistentVolumeClaim"
+  kubernetes.core.k8s:
+    definition:
+      apiVersion: "v1"
+      kind: "PersistentVolumeClaim"
+      metadata:
+        name: "{{ jaeger_persistence_name }}"
+        namespace: "{{ jaeger_namespace }}"
+      spec:
+        accessModes: "{{ jaeger_persistence_access_modes }}"
+        storageClassName: "{{ jaeger_persistence_storage_class or omit }}"
+        resources:
+          requests:
+            storage: "{{ jaeger_persistence_size }}"
+    state: "present"
+  when: jaeger_persistence_enabled
+  tags:
+    - "persistence"
+
 - name: "Add jaegertracing helm repo"
   kubernetes.core.helm_repository:
     name: "{{ jaeger_helm_repo_name }}"

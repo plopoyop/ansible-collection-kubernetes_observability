@@ -10,6 +10,8 @@ Install and configure Jaeger on kubernetes
   - [jaeger_deployment_name](#jaeger_deployment_name)
   - [jaeger_enabled](#jaeger_enabled)
   - [jaeger_extra_env](#jaeger_extra_env)
+  - [jaeger_extra_volume_mounts](#jaeger_extra_volume_mounts)
+  - [jaeger_extra_volumes](#jaeger_extra_volumes)
   - [jaeger_image_tag](#jaeger_image_tag)
   - [jaeger_ingress_annotations](#jaeger_ingress_annotations)
   - [jaeger_ingress_class_name](#jaeger_ingress_class_name)
@@ -19,6 +21,13 @@ Install and configure Jaeger on kubernetes
   - [jaeger_ingress_tls_enabled](#jaeger_ingress_tls_enabled)
   - [jaeger_ingress_tls_secret_name](#jaeger_ingress_tls_secret_name)
   - [jaeger_namespace](#jaeger_namespace)
+  - [jaeger_persistence_access_modes](#jaeger_persistence_access_modes)
+  - [jaeger_persistence_enabled](#jaeger_persistence_enabled)
+  - [jaeger_persistence_mount_path](#jaeger_persistence_mount_path)
+  - [jaeger_persistence_name](#jaeger_persistence_name)
+  - [jaeger_persistence_size](#jaeger_persistence_size)
+  - [jaeger_persistence_storage_class](#jaeger_persistence_storage_class)
+  - [jaeger_persistence_volume_name](#jaeger_persistence_volume_name)
   - [jaeger_replicas](#jaeger_replicas)
   - [jaeger_resources](#jaeger_resources)
   - [jaeger_uiconfig](#jaeger_uiconfig)
@@ -90,6 +99,32 @@ jaeger_extra_env: []
 jaeger_extra_env:
   - name: "LOG_LEVEL"
     value: "debug"
+```
+
+### jaeger_extra_volume_mounts
+
+Extra volume mounts for the Jaeger container (rendered as
+jaeger.extraVolumeMounts), in addition to the managed persistence mount.
+
+**_Type:_** list<br />
+
+#### Default value
+
+```YAML
+jaeger_extra_volume_mounts: []
+```
+
+### jaeger_extra_volumes
+
+Extra volumes added to the Jaeger pod (rendered as jaeger.extraVolumes), in
+addition to the managed persistence volume.
+
+**_Type:_** list<br />
+
+#### Default value
+
+```YAML
+jaeger_extra_volumes: []
 ```
 
 ### jaeger_image_tag
@@ -215,6 +250,93 @@ K8s namespace to install Jaeger chart
 jaeger_namespace: jaeger
 ```
 
+### jaeger_persistence_access_modes
+
+Access modes of the badger PersistentVolumeClaim.
+
+**_Type:_** list<br />
+
+#### Default value
+
+```YAML
+jaeger_persistence_access_modes:
+  - ReadWriteOnce
+```
+
+### jaeger_persistence_enabled
+
+Create and mount a PersistentVolumeClaim so the embedded badger storage
+survives pod restarts. Keep jaeger_replicas at 1 (badger is single-writer).
+
+**_Type:_** boolean<br />
+
+#### Default value
+
+```YAML
+jaeger_persistence_enabled: false
+```
+
+### jaeger_persistence_mount_path
+
+Mount path of the badger volume inside the Jaeger container. Point the badger
+`directories` (keys/values) in jaeger_userconfig under this path.
+
+**_Type:_** string<br />
+
+#### Default value
+
+```YAML
+jaeger_persistence_mount_path: /badger
+```
+
+### jaeger_persistence_name
+
+Name of the PersistentVolumeClaim created when jaeger_persistence_enabled.
+
+**_Type:_** string<br />
+
+#### Default value
+
+```YAML
+jaeger_persistence_name: '{{ jaeger_deployment_name }}-data'
+```
+
+### jaeger_persistence_size
+
+Requested size of the badger PersistentVolumeClaim.
+
+**_Type:_** string<br />
+
+#### Default value
+
+```YAML
+jaeger_persistence_size: 10Gi
+```
+
+### jaeger_persistence_storage_class
+
+StorageClass for the badger PVC (empty = cluster default StorageClass).
+
+**_Type:_** string<br />
+
+#### Default value
+
+```YAML
+jaeger_persistence_storage_class: ''
+```
+
+### jaeger_persistence_volume_name
+
+Name of the pod volume/volumeMount used for the badger PVC.
+
+**_Type:_** string<br />
+
+#### Default value
+
+```YAML
+jaeger_persistence_volume_name: jaeger-data
+```
+
 ### jaeger_replicas
 
 Number of pod replicas for Jaeger
@@ -311,6 +433,8 @@ jaeger_userconfig:
 **_jaeger_**
 
 **_namespace_**
+
+**_persistence_**
 
 **_uninstall_**
 
