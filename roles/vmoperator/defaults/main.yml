@@ -402,7 +402,7 @@ vmoperator_default_rules_namespace: "victoriametrics"
 # @var vmoperator_default_rules_chart_version:type: string
 # @var vmoperator_default_rules_chart_version:description: >
 # victoria-metrics-k8s-stack chart version
-vmoperator_default_rules_chart_version: 0.85.10
+vmoperator_default_rules_chart_version: 0.86.0
 
 # @var vmoperator_default_rules_deployment_name
 # @var vmoperator_default_rules_deployment_name:type: string
