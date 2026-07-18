@@ -1,6 +1,6 @@
 # Changelog
 
-## [8.0.1](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/8.0.1) (2026-07-16)
+## [8.0.1](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/8.0.1) (2026-07-18)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/8.0.0...8.0.1)
 
@@ -19,6 +19,8 @@
 
 **Merged pull requests:**
 
+- feat\(deps\): update prek \(0.3.11 → 0.4.4\) [\#332](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/332) ([plopoyop](https://github.com/plopoyop))
+- fix\(deps\): update kubernetes-helm \(4.2.2 → 4.2.3\) [\#331](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/331) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update python313packages.molecule \(26.4.0 → 26.6.0\) [\#322](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/322) ([plopoyop](https://github.com/plopoyop))
 
 ## [8.0.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/8.0.0) (2026-07-06)
