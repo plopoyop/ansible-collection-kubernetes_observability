@@ -4,6 +4,10 @@
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/8.0.0...8.0.1)
 
+## 🐛 Bug Fixes
+
+- Fix tag propagation to imported tasks [\#333](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/333) ([plopoyop](https://github.com/plopoyop))
+
 ## ⛵ Helm Charts
 
 - fix\(helm\): update chart loki \(18.4.0 → 18.4.4\) [\#320](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/320) ([plopoyop](https://github.com/plopoyop))
