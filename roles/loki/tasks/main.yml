@@ -2,23 +2,11 @@
 - name: "Include setup when enabled"
   ansible.builtin.include_tasks:
     file: "setup.yml"
-    apply:
-      tags:
-        - "loki"
-        - "install"
   when: loki_enabled
-  tags:
-    - "loki"
-    - "install"
+  tags: ["always"]
 
 - name: "Include cleanup when disabled"
   ansible.builtin.include_tasks:
     file: "cleanup.yml"
-    apply:
-      tags:
-        - "loki"
-        - "uninstall"
   when: not loki_enabled
-  tags:
-    - "loki"
-    - "uninstall"
+  tags: ["always"]

@@ -31,8 +31,7 @@
   loop_control:
     loop_var: "opentelemetry_current_crd"
   when: opentelemetry_upgrade_crd and (opentelemetry_current_release.status.status is defined or opentelemetry_crd_force_upgrade)
-  tags:
-    - "crds"
+  tags: ["always"]
 
 - name: Deploy OpenTelemetry Kube stack
   kubernetes.core.helm:
