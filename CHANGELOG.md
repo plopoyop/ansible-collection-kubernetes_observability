@@ -1,5 +1,13 @@
 # Changelog
 
+## [8.1.1](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/8.1.1) (2026-07-20)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/8.1.0...8.1.1)
+
+## 🐛 Bug Fixes
+
+- Fix tags propagation on include\_tasks [\#339](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/339) ([plopoyop](https://github.com/plopoyop))
+
 ## [8.1.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/8.1.0) (2026-07-19)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/8.0.0...8.1.0)
