@@ -1,44 +1,60 @@
 ---
-# import_tasks (static) plutôt que include_tasks : les tags des tâches
-# internes (namespace, preflight, helm_chart, custom_resource, secret) sont
-# ainsi sélectionnables via `--tags`, et le `when:` ci-dessous est propagé à
-# chaque tâche du fichier importé.
+# include_tasks dynamique en forme longue : `tags: ["always"]` sur l'include
+# garantit qu'il se déclenche toujours (le filtrage se fait sur les tâches
+# internes), et `apply.tags` ré-injecte les tags de rôle/phase dans chaque
+# tâche du fichier inclus pour que le ciblage par tag de rôle fonctionne.
+# Le `when:` gate le sous-fichier. Cohérent avec les autres rôles.
 - name: "Include VictoriaMetrics Operator install"
-  ansible.builtin.import_tasks: "operator.yml"
+  ansible.builtin.include_tasks:
+    file: "operator.yml"
+    apply:
+      tags:
+        - "vmoperator"
+        - "vmoperator_operator"
+        - "install"
   when: vmoperator_enabled
-  tags:
-    - "vmoperator"
-    - "vmoperator_operator"
-    - "install"
+  tags: ["always"]
 
 - name: "Include VMAlertmanager CR deployment"
-  ansible.builtin.import_tasks: "vmalertmanager.yml"
+  ansible.builtin.include_tasks:
+    file: "vmalertmanager.yml"
+    apply:
+      tags:
+        - "vmoperator"
+        - "vmoperator_vmalertmanager"
+        - "install"
   when: vmoperator_vmalertmanager_enabled
-  tags:
-    - "vmoperator"
-    - "vmoperator_vmalertmanager"
-    - "install"
+  tags: ["always"]
 
 - name: "Include VMAlert CR deployment"
-  ansible.builtin.import_tasks: "vmalert.yml"
+  ansible.builtin.include_tasks:
+    file: "vmalert.yml"
+    apply:
+      tags:
+        - "vmoperator"
+        - "vmoperator_vmalert"
+        - "install"
   when: vmoperator_vmalert_enabled
-  tags:
-    - "vmoperator"
-    - "vmoperator_vmalert"
-    - "install"
+  tags: ["always"]
 
 - name: "Include VMAuth CR + VMUsers deployment"
-  ansible.builtin.import_tasks: "vmauth.yml"
+  ansible.builtin.include_tasks:
+    file: "vmauth.yml"
+    apply:
+      tags:
+        - "vmoperator"
+        - "vmoperator_vmauth"
+        - "install"
   when: vmoperator_vmauth_enabled
-  tags:
-    - "vmoperator"
-    - "vmoperator_vmauth"
-    - "install"
+  tags: ["always"]
 
 - name: "Include default rules (rules-only install of k8s-stack chart)"
-  ansible.builtin.import_tasks: "default_rules.yml"
+  ansible.builtin.include_tasks:
+    file: "default_rules.yml"
+    apply:
+      tags:
+        - "vmoperator"
+        - "vmoperator_default_rules"
+        - "install"
   when: vmoperator_default_rules_enabled
-  tags:
-    - "vmoperator"
-    - "vmoperator_default_rules"
-    - "install"
+  tags: ["always"]
