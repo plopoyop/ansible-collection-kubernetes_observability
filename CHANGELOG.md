@@ -4,6 +4,10 @@
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/8.1.1...8.1.2)
 
+## 🐛 Bug Fixes
+
+- Propagate role/phase tags through dynamic include\_tasks [\#342](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/342) ([plopoyop](https://github.com/plopoyop))
+
 ## ⚙️ Dependencies
 
 - feat\(container\): update image victoriametrics/vmauth \(v1.147.0 → v1.148.0\) [\#341](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/341) ([plopoyop](https://github.com/plopoyop))
