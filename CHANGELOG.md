@@ -6,6 +6,7 @@
 
 ## ⚙️ Dependencies
 
+- feat\(container\): update image victoriametrics/vmauth \(v1.147.0 → v1.148.0\) [\#341](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/341) ([plopoyop](https://github.com/plopoyop))
 - feat\(container\): update image victoriametrics/vmalert \(v1.147.0 → v1.148.0\) [\#340](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/340) ([plopoyop](https://github.com/plopoyop))
 
 ## [8.1.1](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/8.1.1) (2026-07-20)
