@@ -363,7 +363,7 @@ VMAlert container image tag (matches a released VictoriaMetrics version)
 #### Default value
 
 ```YAML
-vmoperator_vmalert_image_tag: v1.147.0
+vmoperator_vmalert_image_tag: v1.148.0
 ```
 
 ### vmoperator_vmalert_name
