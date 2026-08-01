@@ -7,6 +7,7 @@
 ## ⛵ Helm Charts
 
 - feat\(helm\): update chart grafana \(12.9.0 → 12.10.0\) [\#357](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/357) ([plopoyop](https://github.com/plopoyop))
+- feat\(helm\): update chart jaeger \(4.11.1 → 4.12.0\) [\#354](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/354) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart grafana \(12.8.0 → 12.9.0\) [\#353](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/353) ([plopoyop](https://github.com/plopoyop))
 
 ## ⚙️ Dependencies
