@@ -1,5 +1,14 @@
 # Changelog
 
+## [8.3.1](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/8.3.1) (2026-08-05)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/8.3.0...8.3.1)
+
+**Merged pull requests:**
+
+- fix\(deps\): update prek \(0.4.4 → 0.4.10\) [\#364](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/364) ([plopoyop](https://github.com/plopoyop))
+- fix\(deps\): update kubectl \(1.36.2 → 1.36.3\) [\#363](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/363) ([plopoyop](https://github.com/plopoyop))
+
 ## [8.3.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/8.3.0) (2026-08-03)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/8.2.0...8.3.0)
