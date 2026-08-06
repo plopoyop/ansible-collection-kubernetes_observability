@@ -10,6 +10,7 @@
 
 **Merged pull requests:**
 
+- feat\(deps\): update python313packages.ansible \(14.1.0 → 14.2.0\) [\#372](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/372) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update prek \(0.4.4 → 0.4.10\) [\#364](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/364) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update kubectl \(1.36.2 → 1.36.3\) [\#363](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/363) ([plopoyop](https://github.com/plopoyop))
 
