@@ -7,6 +7,7 @@
 ## ⛵ Helm Charts
 
 - fix\(helm\): update chart victoria-metrics-k8s-stack \(0.90.1 → 0.90.2\) [\#379](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/379) ([plopoyop](https://github.com/plopoyop))
+- fix\(helm\): update chart loki \(18.7.5 → 18.7.6\) [\#378](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/378) ([plopoyop](https://github.com/plopoyop))
 
 ## [8.4.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/8.4.0) (2026-08-09)
 
