@@ -1,6 +1,6 @@
 # Changelog
 
-## [8.5.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/8.5.0) (2026-08-19)
+## [8.5.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/8.5.0) (2026-08-20)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/8.4.0...8.5.0)
 
@@ -16,6 +16,8 @@
 
 **Merged pull requests:**
 
+- feat\(deps\): update ansible-doctor \(8.3.3 → 8.4.0\) [\#392](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/392) ([plopoyop](https://github.com/plopoyop))
+- fix\(deps\): update prek \(0.4.12 → 0.4.13\) [\#391](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/391) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update kubernetes-helm \(4.2.3 → 4.2.4\) [\#386](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/386) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update prek \(0.4.10 → 0.4.12\) [\#380](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/380) ([plopoyop](https://github.com/plopoyop))
 
