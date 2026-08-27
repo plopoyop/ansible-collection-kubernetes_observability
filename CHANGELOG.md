@@ -16,6 +16,8 @@
 
 ## ⚙️ Dependencies
 
+- feat\(container\): update image victoriametrics/vmauth \(v1.149.0 → v1.150.0\) [\#385](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/385) ([plopoyop](https://github.com/plopoyop))
+- feat\(container\): update image victoriametrics/vmalert \(v1.149.0 → v1.150.0\) [\#384](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/384) ([plopoyop](https://github.com/plopoyop))
 - feat\(container\): update image prom/alertmanager \(v0.33.1 → v0.34.0\) [\#383](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/383) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v46.2.1 → v46.2.2\) [\#381](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/381) ([plopoyop](https://github.com/plopoyop))
 
