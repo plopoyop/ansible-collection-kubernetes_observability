@@ -18,6 +18,7 @@
 
 ## ⚙️ Dependencies
 
+- fix\(ci\): update renovatebot/github-action action \(v46.2.2 → v46.2.4\) [\#397](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/397) ([plopoyop](https://github.com/plopoyop))
 - feat\(container\): update image victoriametrics/vmauth \(v1.149.0 → v1.150.0\) [\#385](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/385) ([plopoyop](https://github.com/plopoyop))
 - feat\(container\): update image victoriametrics/vmalert \(v1.149.0 → v1.150.0\) [\#384](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/384) ([plopoyop](https://github.com/plopoyop))
 - feat\(container\): update image prom/alertmanager \(v0.33.1 → v0.34.0\) [\#383](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/383) ([plopoyop](https://github.com/plopoyop))
@@ -25,6 +26,7 @@
 
 **Merged pull requests:**
 
+- fix\(deps\): update prek \(0.4.13 → 0.4.14\) [\#398](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/398) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update go-task \(3.48.0 → 3.52.0\) [\#394](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/394) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update ansible-doctor \(8.3.3 → 8.4.0\) [\#392](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/392) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update prek \(0.4.12 → 0.4.13\) [\#391](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/391) ([plopoyop](https://github.com/plopoyop))
