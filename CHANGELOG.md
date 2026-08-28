@@ -1,5 +1,14 @@
 # Changelog
 
+## [8.5.1](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/8.5.1) (2026-08-28)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/8.5.0...8.5.1)
+
+**Merged pull requests:**
+
+- feat\(deps\): update python313packages.ansible \(14.2.0 → 14.3.1\) [\#402](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/402) ([plopoyop](https://github.com/plopoyop))
+- feat\(deps\): update go-task \(3.52.0 → 3.53.1\) [\#401](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/401) ([plopoyop](https://github.com/plopoyop))
+
 ## [8.5.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/8.5.0) (2026-08-27)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/8.4.0...8.5.0)
