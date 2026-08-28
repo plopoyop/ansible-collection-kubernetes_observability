@@ -4,6 +4,10 @@
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/8.5.0...8.5.1)
 
+## ⛵ Helm Charts
+
+- fix\(helm\): update chart opentelemetry-kube-stack \(0.20.4 → 0.20.5\) [\#400](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/400) ([plopoyop](https://github.com/plopoyop))
+
 **Merged pull requests:**
 
 - feat\(deps\): update python313packages.ansible \(14.2.0 → 14.3.1\) [\#402](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/402) ([plopoyop](https://github.com/plopoyop))
