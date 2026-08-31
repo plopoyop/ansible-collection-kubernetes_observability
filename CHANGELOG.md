@@ -11,6 +11,10 @@
 - fix\(helm\): update chart opentelemetry-kube-stack \(0.20.4 → 0.20.5\) [\#400](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/400) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart loki \(18.11.2 → 18.11.4\) [\#399](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/399) ([plopoyop](https://github.com/plopoyop))
 
+## ⚙️ Dependencies
+
+- feat\(container\): update image victoriametrics/vmalert \(v1.150.0 → v1.151.0\) [\#405](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/405) ([plopoyop](https://github.com/plopoyop))
+
 **Merged pull requests:**
 
 - feat\(deps\): update python313packages.ansible \(14.2.0 → 14.3.1\) [\#402](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/402) ([plopoyop](https://github.com/plopoyop))
