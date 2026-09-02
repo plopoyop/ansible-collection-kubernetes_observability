@@ -1,11 +1,12 @@
 # Changelog
 
-## [9.0.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/9.0.0) (2026-08-31)
+## [9.0.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/9.0.0) (2026-09-02)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/8.5.0...9.0.0)
 
 ## ⛵ Helm Charts
 
+- fix\(helm\): update chart victoria-metrics-operator \(0.67.2 → 0.67.3\) [\#407](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/407) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart loki \(18.11.4 → 18.11.7\) [\#404](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/404) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\)!: Update chart grafana \(12.11.2 → 13.0.1\) [\#403](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/403) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart opentelemetry-kube-stack \(0.20.4 → 0.20.5\) [\#400](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/400) ([plopoyop](https://github.com/plopoyop))
