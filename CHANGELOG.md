@@ -1,6 +1,6 @@
 # Changelog
 
-## [9.0.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/9.0.0) (2026-09-02)
+## [9.0.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/9.0.0) (2026-09-03)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/8.5.0...9.0.0)
 
@@ -14,6 +14,7 @@
 
 ## ⚙️ Dependencies
 
+- fix\(ci\): update renovatebot/github-action action \(v46.2.4 → v46.2.5\) [\#409](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/409) ([plopoyop](https://github.com/plopoyop))
 - feat\(container\): update image victoriametrics/vmauth \(v1.150.0 → v1.151.0\) [\#406](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/406) ([plopoyop](https://github.com/plopoyop))
 - feat\(container\): update image victoriametrics/vmalert \(v1.150.0 → v1.151.0\) [\#405](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/405) ([plopoyop](https://github.com/plopoyop))
 
