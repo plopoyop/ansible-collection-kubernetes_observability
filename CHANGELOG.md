@@ -6,6 +6,7 @@
 
 ## ⛵ Helm Charts
 
+- fix\(helm\): update chart loki \(18.13.1 → 18.13.2\) [\#434](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/434) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart grafana \(13.2.4 → 13.2.5\) [\#433](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/433) ([plopoyop](https://github.com/plopoyop))
 
 ## ⚙️ Dependencies
