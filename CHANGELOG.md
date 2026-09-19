@@ -4,6 +4,10 @@
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/9.3.0...9.3.1)
 
+## ⛵ Helm Charts
+
+- fix\(helm\): update chart grafana \(13.2.4 → 13.2.5\) [\#433](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/433) ([plopoyop](https://github.com/plopoyop))
+
 ## ⚙️ Dependencies
 
 - feat\(ci\)!: Update ubuntu \(24.04 → 26.04\) [\#435](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/435) ([plopoyop](https://github.com/plopoyop))
