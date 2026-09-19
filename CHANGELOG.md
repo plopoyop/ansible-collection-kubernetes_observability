@@ -1,11 +1,12 @@
 # Changelog
 
-## [9.3.1](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/9.3.1) (2026-09-17)
+## [9.3.1](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/9.3.1) (2026-09-19)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/9.3.0...9.3.1)
 
 ## ⚙️ Dependencies
 
+- fix\(container\): update image prom/alertmanager \(v0.34.0 → v0.34.1\) [\#432](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/432) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v46.3.0 → v46.3.1\) [\#431](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/431) ([plopoyop](https://github.com/plopoyop))
 
 ## [9.3.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/9.3.0) (2026-09-16)
