@@ -1,6 +1,6 @@
 # Changelog
 
-## [9.5.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/9.5.0) (2026-09-22)
+## [9.5.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/9.5.0) (2026-09-24)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/9.4.0...9.5.0)
 
@@ -8,6 +8,10 @@
 
 - feat\(helm\): update chart jaeger \(4.13.1 → 4.14.0\) [\#440](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/440) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart loki \(18.13.3 → 18.13.4\) [\#439](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/439) ([plopoyop](https://github.com/plopoyop))
+
+## ⚙️ Dependencies
+
+- fix\(ci\): update renovatebot/github-action action \(v46.3.1 → v46.3.2\) [\#444](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/444) ([plopoyop](https://github.com/plopoyop))
 
 ## [9.4.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/9.4.0) (2026-09-20)
 
