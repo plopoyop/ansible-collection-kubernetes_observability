@@ -1,5 +1,13 @@
 # Changelog
 
+## [9.5.1](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/9.5.1) (2026-09-25)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/9.5.0...9.5.1)
+
+## ⚙️ Dependencies
+
+- fix\(ci\): update renovatebot/github-action action \(v46.3.2 → v46.3.3\) [\#446](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/446) ([plopoyop](https://github.com/plopoyop))
+
 ## [9.5.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/9.5.0) (2026-09-24)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/9.4.0...9.5.0)
