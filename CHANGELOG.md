@@ -1,8 +1,12 @@
 # Changelog
 
-## [9.5.1](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/9.5.1) (2026-09-25)
+## [9.5.1](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/9.5.1) (2026-09-28)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/9.5.0...9.5.1)
+
+## ⛵ Helm Charts
+
+- fix\(helm\): update chart grafana \(13.2.5 → 13.2.6\) [\#447](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/447) ([plopoyop](https://github.com/plopoyop))
 
 ## ⚙️ Dependencies
 
