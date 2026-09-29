@@ -53,7 +53,7 @@ You can call the roles from this collection in your Ansible playbooks as follows
 | victoriametrics single | v0.47.0      | `victoriametrics` / `victoriametrics_single`  | [View README](roles/victoriametrics/README.md) |
 | vmagent | v0.48.0      | `victoriametrics` / `victoriametrics_vmagent` | [View README](roles/victoriametrics/README.md) |
 | victorialogs single | v0.13.9      | `victorialogs`                                | [View README](roles/victorialogs/README.md) |
-| vmoperator | v0.67.3      | `vmoperator` / `vmoperator_operator`          | [View README](roles/vmoperator/README.md) |
+| vmoperator | v0.68.0      | `vmoperator` / `vmoperator_operator`          | [View README](roles/vmoperator/README.md) |
 | vm default rules | v0.94.0      | `vmoperator_default_rules`                    | [View README](roles/vmoperator/README.md) |
 
 ### Tags
