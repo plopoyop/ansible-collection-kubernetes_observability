@@ -112,7 +112,7 @@ victoria-metrics-operator chart version
 #### Default value
 
 ```YAML
-vmoperator_chart_version: 0.67.3
+vmoperator_chart_version: 0.68.0
 ```
 
 ### vmoperator_default_rules_additional_group_by_labels
