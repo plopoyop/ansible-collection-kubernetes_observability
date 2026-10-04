@@ -9,6 +9,7 @@
 - fix\(helm\): update chart victoria-logs-single \(0.13.9 → 0.13.10\) [\#463](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/463) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart jaeger \(4.14.0 → 4.14.1\) [\#462](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/462) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart victoria-metrics-operator \(0.68.0 → 0.68.1\) [\#460](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/460) ([plopoyop](https://github.com/plopoyop))
+- feat\(helm\): update chart opentelemetry-kube-stack \(0.23.0 → 0.24.0\) [\#459](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/459) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart victoria-metrics-single \(0.47.0 → 0.48.0\) [\#457](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/457) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart grafana \(13.2.6 → 13.2.7\) [\#454](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/454) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart victoria-metrics-operator \(0.67.3 → 0.68.0\) [\#453](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/453) ([plopoyop](https://github.com/plopoyop))
