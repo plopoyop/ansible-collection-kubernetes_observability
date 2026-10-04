@@ -6,6 +6,7 @@
 
 ## ⛵ Helm Charts
 
+- fix\(helm\): update chart victoria-logs-single \(0.13.9 → 0.13.10\) [\#463](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/463) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart jaeger \(4.14.0 → 4.14.1\) [\#462](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/462) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart victoria-metrics-operator \(0.68.0 → 0.68.1\) [\#460](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/460) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart victoria-metrics-single \(0.47.0 → 0.48.0\) [\#457](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/457) ([plopoyop](https://github.com/plopoyop))
