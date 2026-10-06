@@ -1,5 +1,13 @@
 # Changelog
 
+## [9.6.1](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/9.6.1) (2026-10-06)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/9.6.0...9.6.1)
+
+## ⛵ Helm Charts
+
+- fix\(helm\): update chart loki \(18.13.7 → 18.13.8\) [\#464](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/464) ([plopoyop](https://github.com/plopoyop))
+
 ## [9.6.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/9.6.0) (2026-10-04)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/9.5.0...9.6.0)
