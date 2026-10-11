@@ -6,6 +6,7 @@
 
 ## ⛵ Helm Charts
 
+- feat\(helm\): update chart loki \(18.13.8 → 18.15.1\) [\#471](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/471) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart victoria-metrics-k8s-stack \(0.95.0 → 0.95.2\) [\#470](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/470) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart opentelemetry-kube-stack \(0.24.2 → 0.24.3\) [\#469](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/469) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart grafana \(13.3.0 → 13.4.0\) [\#468](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/468) ([plopoyop](https://github.com/plopoyop))
