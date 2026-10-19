@@ -1,6 +1,6 @@
 # Changelog
 
-## [10.0.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/10.0.0) (2026-10-18)
+## [10.0.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/10.0.0) (2026-10-19)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/9.8.0...10.0.0)
 
@@ -18,6 +18,7 @@
 
 **Merged pull requests:**
 
+- fix\(deps\): update kubernetes-helm \(4.3.0 → 4.3.1\) [\#491](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/491) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update python313packages.ansible \(14.3.1 → 14.4.0\) [\#489](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/489) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update ansible-doctor \(8.4.2 → 8.4.3\) [\#480](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/480) ([plopoyop](https://github.com/plopoyop))
 
