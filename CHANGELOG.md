@@ -1,5 +1,14 @@
 # Changelog
 
+## [10.0.1](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/10.0.1) (2026-10-21)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/10.0.0...10.0.1)
+
+**Merged pull requests:**
+
+- feat\(deps\): update python313packages.molecule \(26.6.0 → 26.8.0\) [\#495](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/495) ([plopoyop](https://github.com/plopoyop))
+- feat\(deps\): update git \(2.55.0 → 2.56.0\) [\#494](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/494) ([plopoyop](https://github.com/plopoyop))
+
 ## [10.0.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/10.0.0) (2026-10-19)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/9.8.0...10.0.0)
