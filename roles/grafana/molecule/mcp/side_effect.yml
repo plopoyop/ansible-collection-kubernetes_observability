@@ -1,0 +1,47 @@
+---
+- name: Side effect
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  vars:
+    grafana_admin_password: "admin"
+    grafana_api_url: "http://localhost:3000"
+    grafana_extra_helm_values:
+      service:
+        type: "NodePort"
+        nodePort: 30300
+    grafana_mcp_enabled: false
+  tasks:
+    - name: "Call grafana role with the MCP server disabled"
+      ansible.builtin.import_role:
+        name: "grafana"
+
+    - name: "Get 'grafana-mcp' release."
+      kubernetes.core.helm_info:
+        release_name: "grafana-mcp"
+        release_namespace: "grafana"
+      register: grafana_mcp_release
+
+    - name: "Search service accounts."
+      ansible.builtin.uri:
+        url: "{{ grafana_api_url }}/api/serviceaccounts/search?perpage=1000"
+        url_username: "admin"
+        url_password: "admin"
+        force_basic_auth: true
+      register: service_accounts
+
+    - name: "Read 'grafana-mcp-token' Secret."
+      kubernetes.core.k8s_info:
+        kind: "Secret"
+        name: "grafana-mcp-token"
+        namespace: "grafana"
+      register: grafana_mcp_token_secret
+      no_log: true
+
+    - name: "Assert that the MCP server and its credentials are removed."
+      ansible.builtin.assert:
+        that:
+          - grafana_mcp_release.status is not defined
+          - service_accounts.json.serviceAccounts | selectattr('name', 'equalto', 'grafana-mcp') | list | length == 0
+          - grafana_mcp_token_secret.resources | length == 0
+        fail_msg: "Disabling the MCP server left the release, the service account or its token behind."

@@ -47,6 +47,7 @@ You can call the roles from this collection in your Ansible playbooks as follows
 | Role Name       | Helm Chart Version | Role Tag                                      | README Link                                 |
 | ---------       | ------------------ | --------------------------------------------- | ------------------------------------        |
 | grafana | v14.0.1      | `grafana`                                     | [View README](roles/grafana/README.md) |
+| grafana mcp | v0.31.0      | `grafana` / `grafana_mcp`                     | [View README](roles/grafana/README.md) |
 | jaeger | v4.16.1      | `jaeger`                                      | [View README](roles/jaeger/README.md) |
 | opentelemetry k8s stack | v0.25.0      | `opentelemetry`                               | [View README](roles/opentelemetry/README.md) |
 | loki | v18.17.1      | `loki`                                        | [View README](roles/loki/README.md) |
@@ -62,7 +63,7 @@ Every role in this collection ships tagged tasks so you can selectively run only
 
 Three kinds of tags are exposed:
 
-- **Role tag** — named after the role itself (e.g. `grafana`, `jaeger`, `loki`, `opentelemetry`, `victorialogs`, `victoriametrics`). Use it to scope a run to a single tool. The `victoriametrics` role additionally exposes the sub-tags `victoriametrics_single` and `victoriametrics_vmagent` to target each component independently.
+- **Role tag** — named after the role itself (e.g. `grafana`, `jaeger`, `loki`, `opentelemetry`, `victorialogs`, `victoriametrics`). Use it to scope a run to a single tool. The `victoriametrics` role additionally exposes the sub-tags `victoriametrics_single` and `victoriametrics_vmagent` to target each component independently. The `grafana` role exposes `grafana_service_accounts` and `grafana_mcp` to manage service accounts and the MCP server on their own.
 - **Action tag** — `install` or `uninstall`. The role's `*_enabled` variable controls which one runs:
   - When `<role>_enabled: true`, the setup tasks (tagged `install`) are executed.
   - When `<role>_enabled: false`, the cleanup tasks (tagged `uninstall`) are executed.

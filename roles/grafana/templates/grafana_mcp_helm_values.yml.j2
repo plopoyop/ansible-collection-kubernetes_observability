@@ -1,0 +1,28 @@
+grafana:
+  url: "{{ grafana_mcp_grafana_url }}"
+  apiKeySecret:
+    name: "{{ grafana_mcp_token_secret_name }}"
+    key: "token"
+
+{% if not grafana_mcp_server_auth_enabled %}
+serverAuth:
+  token: null
+
+{% endif %}
+disableWrite: {{ grafana_mcp_disable_write | ansible.builtin.to_json }}
+
+disabledCategories: {{ grafana_mcp_disabled_categories | ansible.builtin.to_json }}
+
+# L'entrypoint de l'image lance `--transport sse` : le dernier flag l'emporte.
+extraArgs: {{ (['--transport', 'streamable-http'] + grafana_mcp_extra_args) | ansible.builtin.to_json }}
+
+podAnnotations:
+  grafana.com/token-secret-version: "{{ _grafana_mcp_token_version }}"
+
+ingress:
+  enabled: false
+
+# Le MCP n'appelle pas l'API Kubernetes : pas de token monté dans le pod.
+automountServiceAccountToken: false
+
+resources: {{ grafana_mcp_resources | ansible.builtin.to_json }}

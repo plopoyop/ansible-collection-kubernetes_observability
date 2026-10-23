@@ -22,7 +22,8 @@
         "helm"
       ],
       "matchPackageNames": [
-        "grafana"
+        "grafana",
+        "grafana-mcp"
       ],
       "registryUrls": [
         "https://grafana-community.github.io/helm-charts/"
@@ -133,6 +134,18 @@
     {
       "customType": "regex",
       "managerFilePatterns": [
+        "/^README.md$/"
+      ],
+      "matchStrings": [
+        "grafana mcp\\s*\\|\\s?v(?<currentValue>[0-9\\.]+)"
+      ],
+      "depNameTemplate": "grafana-mcp",
+      "autoReplaceStringTemplate": "grafana mcp | v{{newValue}}",
+      "datasourceTemplate": "helm"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
         "/roles/grafana/defaults/main.yml$/",
         "/roles/grafana/README.md$/"
       ],
@@ -141,6 +154,19 @@
       ],
       "depNameTemplate": "grafana",
       "autoReplaceStringTemplate": "grafana_chart_version: {{#if quote}}\"{{newValue}}\"{{else}}{{newValue}}{{/if}}",
+      "datasourceTemplate": "helm"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/roles/grafana/defaults/main.yml$/",
+        "/roles/grafana/README.md$/"
+      ],
+      "matchStrings": [
+        "grafana_mcp_chart_version:\\s*(?<quote>\")?(?<currentValue>[0-9\\.]+)\"?"
+      ],
+      "depNameTemplate": "grafana-mcp",
+      "autoReplaceStringTemplate": "grafana_mcp_chart_version: {{#if quote}}\"{{newValue}}\"{{else}}{{newValue}}{{/if}}",
       "datasourceTemplate": "helm"
     },
     {

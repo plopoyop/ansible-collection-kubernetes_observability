@@ -24,6 +24,13 @@ grafana_chart_version: 14.0.1
 # Grafana deployment name
 grafana_deployment_name: "grafana"
 
+# @var grafana_wait_install
+# @var grafana_wait_install:type: boolean
+# @var grafana_wait_install:description: >
+# Wait for the Grafana helm release to be ready. Enabled by default only when service accounts
+# (or the MCP server) are managed, since their API calls need a running Grafana.
+grafana_wait_install: "{{ grafana_service_accounts | length > 0 or grafana_mcp_enabled }}"
+
 # @var grafana_replicas
 # @var grafana_replicas:type: int
 # @var grafana_replicas:description: >
@@ -222,3 +229,141 @@ grafana_notifiers: {}
 #   assertNoLeakedSecrets: false
 #   envFromSecret: "grafana-oauth-env"
 grafana_extra_helm_values: {}
+
+# @var grafana_api_url
+# @var grafana_api_url:type: string
+# @var grafana_api_url:description: >
+# Grafana base URL reachable from the Ansible controller, used to manage service accounts through the HTTP API.
+# Defaults to the ingress hostname when the ingress is enabled; must be set otherwise.
+# @var grafana_api_url:example: >
+# grafana_api_url: "https://grafana.example.com"
+grafana_api_url: "{{ (('https://' if grafana_ingress_tls_enabled else 'http://') ~ grafana_ingress_hostname) if grafana_ingress_enabled else '' }}"
+
+# @var grafana_api_validate_certs
+# @var grafana_api_validate_certs:type: boolean
+# @var grafana_api_validate_certs:description: >
+# Validate the TLS certificate of grafana_api_url
+grafana_api_validate_certs: true
+
+# @var grafana_service_accounts
+# @var grafana_service_accounts:type: list
+# @var grafana_service_accounts:description: >
+# Grafana service accounts managed through the API (admin basic auth).
+# `role` is one of Viewer, Editor, Admin, None (default Viewer), `state` is present or absent (default present).
+# With `token`, a token is created once and stored in a Kubernetes Secret; it is recreated only when the Secret
+# is missing or the token has expired. The token value is never printed.
+# On renewal the old token is revoked before the new one is created: consumers get 401 errors until they
+# reload the Secret (the MCP pod is restarted automatically in the same run).
+# Management is partial: an account removed from the list is left untouched in Grafana, along with its
+# Secret. Set `state: absent` to delete it.
+# @var grafana_service_accounts:example: >
+# grafana_service_accounts:
+#   - name: "claude-ro"
+#     role: "Viewer"
+#   - name: "ci-dashboards"
+#     role: "Editor"
+#     token:
+#       secret_name: "grafana-ci-token"
+#       secret_namespace: "ci"
+#       secret_key: "token"
+#       seconds_to_live: 7776000
+#   - name: "legacy"
+#     state: "absent"
+grafana_service_accounts: []
+
+# @var grafana_mcp_enabled
+# @var grafana_mcp_enabled:type: boolean
+# @var grafana_mcp_enabled:description: >
+# Install the Grafana MCP server (grafana-mcp chart) next to Grafana, without ingress.
+# A dedicated service account and its token Secret are created automatically. Setting it back to false
+# uninstalls the release and deletes the service account and its token.
+grafana_mcp_enabled: false
+
+# @var grafana_mcp_chart_version
+# @var grafana_mcp_chart_version:type: string
+# @var grafana_mcp_chart_version:description: >
+# Grafana MCP chart version
+grafana_mcp_chart_version: "0.31.0"
+
+# @var grafana_mcp_deployment_name
+# @var grafana_mcp_deployment_name:type: string
+# @var grafana_mcp_deployment_name:description: >
+# Grafana MCP Helm release name
+grafana_mcp_deployment_name: "grafana-mcp"
+
+# @var grafana_mcp_grafana_url
+# @var grafana_mcp_grafana_url:type: string
+# @var grafana_mcp_grafana_url:description: >
+# In-cluster Grafana URL used by the MCP server. The default follows the Grafana chart fullname rule;
+# override it when using `fullnameOverride` or a custom service port.
+grafana_mcp_grafana_url: "http://{{ grafana_deployment_name if 'grafana' in grafana_deployment_name else grafana_deployment_name ~ '-grafana' }}.{{ grafana_namespace }}.svc:80"
+
+# @var grafana_mcp_server_auth_enabled
+# @var grafana_mcp_server_auth_enabled:type: boolean
+# @var grafana_mcp_server_auth_enabled:description: >
+# Require a bearer token on the MCP HTTP endpoint. The chart generates the token once and keeps it
+# in the `<grafana_mcp_deployment_name>` Secret (key `server-token`).
+grafana_mcp_server_auth_enabled: true
+
+# @var grafana_mcp_service_account_name
+# @var grafana_mcp_service_account_name:type: string
+# @var grafana_mcp_service_account_name:description: >
+# Name of the Grafana service account used by the MCP server
+grafana_mcp_service_account_name: "grafana-mcp"
+
+# @var grafana_mcp_service_account_role
+# @var grafana_mcp_service_account_role:type: string
+# @var grafana_mcp_service_account_role:description: >
+# Grafana role of the MCP service account (Viewer, Editor, Admin)
+grafana_mcp_service_account_role: "Viewer"
+
+# @var grafana_mcp_token_secret_name
+# @var grafana_mcp_token_secret_name:type: string
+# @var grafana_mcp_token_secret_name:description: >
+# Kubernetes Secret (in grafana_namespace) holding the MCP service account token
+grafana_mcp_token_secret_name: "grafana-mcp-token"
+
+# @var grafana_mcp_disable_write
+# @var grafana_mcp_disable_write:type: boolean
+# @var grafana_mcp_disable_write:description: >
+# Disable MCP write tools (create/update operations)
+grafana_mcp_disable_write: true
+
+# @var grafana_mcp_disabled_categories
+# @var grafana_mcp_disabled_categories:type: list
+# @var grafana_mcp_disabled_categories:description: >
+# MCP tool categories to disable
+# @var grafana_mcp_disabled_categories:example: >
+# grafana_mcp_disabled_categories:
+#   - "oncall"
+#   - "incident"
+#   - "sift"
+grafana_mcp_disabled_categories: []
+
+# @var grafana_mcp_resources
+# @var grafana_mcp_resources:type: dict
+# @var grafana_mcp_resources:description: >
+# Resources for the MCP server pod
+# @var grafana_mcp_resources:example: >
+# grafana_mcp_resources:
+#   limits:
+#     memory: 256Mi
+#   requests:
+#     cpu: 50m
+#     memory: 64Mi
+grafana_mcp_resources: {}
+
+# @var grafana_mcp_extra_args
+# @var grafana_mcp_extra_args:type: list
+# @var grafana_mcp_extra_args:description: >
+# Extra mcp-grafana command line arguments, appended after the streamable-http transport flag
+# @var grafana_mcp_extra_args:example: >
+# grafana_mcp_extra_args:
+#   - "--allowed-hosts=localhost:18000,127.0.0.1:18000"
+grafana_mcp_extra_args: []
+
+# @var grafana_mcp_extra_helm_values
+# @var grafana_mcp_extra_helm_values:type: dict
+# @var grafana_mcp_extra_helm_values:description: >
+# Extra Helm values for the grafana-mcp chart
+grafana_mcp_extra_helm_values: {}

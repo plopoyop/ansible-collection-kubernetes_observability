@@ -1,0 +1,83 @@
+---
+- name: Verify
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  vars:
+    grafana_api_url: "http://localhost:3000"
+
+  tasks:
+    - name: "Search managed service accounts."
+      ansible.builtin.uri:
+        url: "{{ grafana_api_url }}/api/serviceaccounts/search?perpage=1000"
+        url_username: "admin"
+        url_password: "admin"
+        force_basic_auth: true
+      register: service_accounts
+
+    - name: "Assert that service accounts exist with the expected role."
+      ansible.builtin.assert:
+        that:
+          - (service_accounts.json.serviceAccounts | selectattr('name', 'equalto', item.name) | map(attribute='role') | first | default('')) == item.role
+        fail_msg: "Service account '{{ item.name }}' is missing or has the wrong role."
+      loop:
+        - {name: "molecule-ro", role: "Viewer"}
+        - {name: "molecule-editor", role: "Editor"}
+        - {name: "grafana-mcp", role: "Viewer"}
+
+    - name: "Read token Secrets."
+      kubernetes.core.k8s_info:
+        kind: "Secret"
+        name: "{{ item }}"
+        namespace: "grafana"
+      register: token_secrets
+      loop:
+        - "molecule-editor-token"
+        - "grafana-mcp-token"
+      no_log: true
+
+    - name: "Assert that token Secrets hold a token."
+      ansible.builtin.assert:
+        that:
+          - item.resources | length == 1
+          - "'token' in item.resources[0].data"
+        fail_msg: "Token Secret '{{ item.item }}' is missing."
+      loop: "{{ token_secrets.results }}"
+      loop_control:
+        label: "{{ item.item }}"
+      no_log: true
+
+    - name: "Call the Grafana API with the MCP token."
+      ansible.builtin.uri:
+        url: "{{ grafana_api_url }}/api/search?limit=1"
+        headers:
+          Authorization: "Bearer {{ token_secrets.results[1].resources[0].data.token | b64decode }}"
+        status_code: [200]
+      no_log: true
+
+    - name: "Wait for 'grafana-mcp' deployment to be deployed."
+      kubernetes.core.k8s_info:
+        kind: "Deployment"
+        name: "grafana-mcp"
+        namespace: "grafana"
+      register: grafana_mcp_deployment
+      until: grafana_mcp_deployment.resources[0].status.availableReplicas | default(0) == 1
+      retries: 30
+      delay: 5
+
+    - name: "Assert that 'grafana-mcp' is deployed."
+      ansible.builtin.assert:
+        that: grafana_mcp_deployment.resources[0].status.availableReplicas | default(0) == 1
+        fail_msg: "Deployment 'grafana-mcp' is not deployed."
+
+    - name: "Assert that no Kubernetes token is mounted in 'grafana-mcp'."
+      ansible.builtin.assert:
+        that: not (grafana_mcp_deployment.resources[0].spec.template.spec.automountServiceAccountToken | default(true))
+        fail_msg: "Deployment 'grafana-mcp' mounts a Kubernetes service account token."
+
+    - name: "Assert that 'grafana-mcp' requires a bearer token."
+      ansible.builtin.assert:
+        that: >-
+          grafana_mcp_deployment.resources[0].spec.template.spec.containers[0].env
+          | selectattr('name', 'equalto', 'MCP_GRAFANA_SERVER_TOKEN') | list | length == 1
+        fail_msg: "Deployment 'grafana-mcp' does not enforce caller authentication."
