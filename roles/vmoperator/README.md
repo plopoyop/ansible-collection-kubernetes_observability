@@ -787,7 +787,7 @@ VMAuth container image tag (matches a released VictoriaMetrics version)
 #### Default value
 
 ```YAML
-vmoperator_vmauth_image_tag: v1.154.0
+vmoperator_vmauth_image_tag: v1.154.1
 ```
 
 ### vmoperator_vmauth_ingress_annotations
