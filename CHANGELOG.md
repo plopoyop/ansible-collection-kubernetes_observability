@@ -9,6 +9,10 @@
 - feat\(vmoperator\): add VMSingle and VLSingle custom resources [\#501](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/501) ([plopoyop](https://github.com/plopoyop))
 - feat\(grafana\): manage service accounts and deploy the Grafana MCP server [\#500](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/500) ([plopoyop](https://github.com/plopoyop))
 
+## ⛵ Helm Charts
+
+- fix\(helm\): update chart opentelemetry-kube-stack \(0.25.0 → 0.25.1\) [\#497](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/497) ([plopoyop](https://github.com/plopoyop))
+
 ## ⚙️ Dependencies
 
 - fix\(ci\): update renovatebot/github-action action \(v46.3.8 → v46.3.9\) [\#496](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/496) ([plopoyop](https://github.com/plopoyop))
