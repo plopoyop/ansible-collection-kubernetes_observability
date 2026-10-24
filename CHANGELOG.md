@@ -1,8 +1,12 @@
 # Changelog
 
-## [10.0.1](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/10.0.1) (2026-10-23)
+## [10.1.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/10.1.0) (2026-10-24)
 
-[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/10.0.0...10.0.1)
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/10.0.0...10.1.0)
+
+## 🚀 New Features
+
+- feat\(grafana\): manage service accounts and deploy the Grafana MCP server [\#500](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/500) ([plopoyop](https://github.com/plopoyop))
 
 ## ⚙️ Dependencies
 
