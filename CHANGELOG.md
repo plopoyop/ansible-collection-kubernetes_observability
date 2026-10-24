@@ -6,6 +6,7 @@
 
 ## 🚀 New Features
 
+- feat\(vmoperator\): add VMSingle and VLSingle custom resources [\#501](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/501) ([plopoyop](https://github.com/plopoyop))
 - feat\(grafana\): manage service accounts and deploy the Grafana MCP server [\#500](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/500) ([plopoyop](https://github.com/plopoyop))
 
 ## ⚙️ Dependencies
