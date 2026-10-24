@@ -15,6 +15,17 @@
   when: vmoperator_enabled
   tags: ["always"]
 
+- name: "Include VMSingle CR deployment"
+  ansible.builtin.include_tasks:
+    file: "vmsingle.yml"
+    apply:
+      tags:
+        - "vmoperator"
+        - "vmoperator_vmsingle"
+        - "install"
+  when: vmoperator_vmsingle_enabled
+  tags: ["always"]
+
 - name: "Include VMAlertmanager CR deployment"
   ansible.builtin.include_tasks:
     file: "vmalertmanager.yml"
@@ -57,4 +68,15 @@
         - "vmoperator_default_rules"
         - "install"
   when: vmoperator_default_rules_enabled
+  tags: ["always"]
+
+- name: "Include VLSingle CR deployment"
+  ansible.builtin.include_tasks:
+    file: "vlsingle.yml"
+    apply:
+      tags:
+        - "vmoperator"
+        - "vmoperator_vlsingle"
+        - "install"
+  when: vmoperator_vlsingle_enabled
   tags: ["always"]

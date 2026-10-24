@@ -1,0 +1,37 @@
+apiVersion: operator.victoriametrics.com/v1
+kind: VLSingle
+metadata:
+  name: "{{ vmoperator_vlsingle_name }}"
+  namespace: "{{ vmoperator_vlsingle_namespace }}"
+spec:
+  replicaCount: 1
+  retentionPeriod: "{{ vmoperator_vlsingle_retention_period }}"
+  removePvcAfterDelete: {{ vmoperator_vlsingle_remove_pvc_after_delete | ansible.builtin.to_json }}
+{% if vmoperator_vlsingle_image_tag | length > 0 %}
+  image:
+    tag: "{{ vmoperator_vlsingle_image_tag }}"
+{% endif %}
+{% if vmoperator_vlsingle_storage_size | length > 0 %}
+  storage:
+    accessModes:
+      - "ReadWriteOnce"
+{% if vmoperator_vlsingle_storage_class_name | length > 0 %}
+    storageClassName: "{{ vmoperator_vlsingle_storage_class_name }}"
+{% endif %}
+    resources:
+      requests:
+        storage: "{{ vmoperator_vlsingle_storage_size }}"
+{% endif %}
+{% if vmoperator_vlsingle_extra_args %}
+  # Le CRD n'accepte que des chaînes.
+  extraArgs:
+{% for key, value in vmoperator_vlsingle_extra_args.items() %}
+    {{ key | ansible.builtin.to_json }}: {{ ((value | string | lower) if value is boolean else (value | string)) | ansible.builtin.to_json }}
+{% endfor %}
+{% endif %}
+{% if vmoperator_vlsingle_pod_metadata %}
+  podMetadata: {{ vmoperator_vlsingle_pod_metadata | ansible.builtin.to_json }}
+{% endif %}
+{% if vmoperator_vlsingle_resources %}
+  resources: {{ vmoperator_vlsingle_resources | ansible.builtin.to_json }}
+{% endif %}

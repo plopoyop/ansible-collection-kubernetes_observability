@@ -389,6 +389,19 @@
         "/roles/vmoperator/README.md$/"
       ],
       "matchStrings": [
+        "vmoperator_vmsingle_image_tag:\\s*(?<quote>\")?(?<currentValue>v[0-9\\.]+)\"?"
+      ],
+      "depNameTemplate": "victoriametrics/victoria-metrics",
+      "autoReplaceStringTemplate": "vmoperator_vmsingle_image_tag: {{#if quote}}\"{{newValue}}\"{{else}}{{newValue}}{{/if}}",
+      "datasourceTemplate": "docker"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/roles/vmoperator/defaults/main.yml$/",
+        "/roles/vmoperator/README.md$/"
+      ],
+      "matchStrings": [
         "vmoperator_vmauth_image_tag:\\s*(?<quote>\")?(?<currentValue>v[0-9\\.]+)\"?"
       ],
       "depNameTemplate": "victoriametrics/vmauth",

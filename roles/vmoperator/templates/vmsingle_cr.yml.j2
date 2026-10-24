@@ -1,0 +1,41 @@
+apiVersion: operator.victoriametrics.com/v1beta1
+kind: VMSingle
+metadata:
+  name: "{{ vmoperator_vmsingle_name }}"
+  namespace: "{{ vmoperator_vmsingle_namespace }}"
+spec:
+  image:
+    tag: "{{ vmoperator_vmsingle_image_tag }}"
+  replicaCount: {{ vmoperator_vmsingle_replicas }}
+  retentionPeriod: "{{ vmoperator_vmsingle_retention_period }}"
+  removePvcAfterDelete: {{ vmoperator_vmsingle_remove_pvc_after_delete | ansible.builtin.to_json }}
+{% if vmoperator_vmsingle_storage_size | length > 0 %}
+  # spec.storage is a raw PersistentVolumeClaimSpec (not a volumeClaimTemplate
+  # wrapper like VMAlertmanager). The operator-managed PVC keeps the metrics
+  # across pod restarts.
+  storage:
+    accessModes:
+      - "ReadWriteOnce"
+{% if vmoperator_vmsingle_storage_class_name | length > 0 %}
+    storageClassName: "{{ vmoperator_vmsingle_storage_class_name }}"
+{% endif %}
+    resources:
+      requests:
+        storage: "{{ vmoperator_vmsingle_storage_size }}"
+{% endif %}
+{% if vmoperator_vmsingle_extra_args %}
+  # Le CRD n'accepte que des chaînes.
+  extraArgs:
+{% for key, value in vmoperator_vmsingle_extra_args.items() %}
+    {{ key | ansible.builtin.to_json }}: {{ ((value | string | lower) if value is boolean else (value | string)) | ansible.builtin.to_json }}
+{% endfor %}
+{% endif %}
+{% if vmoperator_vmsingle_pod_metadata %}
+  podMetadata: {{ vmoperator_vmsingle_pod_metadata | ansible.builtin.to_json }}
+{% endif %}
+{% if vmoperator_vmsingle_resources %}
+  resources: {{ vmoperator_vmsingle_resources | ansible.builtin.to_json }}
+{% endif %}
+{% if vmoperator_vmsingle_vmbackup %}
+  vmBackup: {{ vmoperator_vmsingle_vmbackup | ansible.builtin.to_json }}
+{% endif %}

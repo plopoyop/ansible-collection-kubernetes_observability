@@ -7,7 +7,8 @@ argument_specs:
     short_description: "Install the VictoriaMetrics Operator and manage its custom resources"
     description:
       - "Install the VictoriaMetrics Operator chart and manage its custom"
-      - "resources (VMAlert, VMAlertmanager, VMAuth, VMUser, VMRule) on"
+      - "resources (VMSingle, VLSingle, VMAlert, VMAlertmanager, VMAuth,"
+      - "VMUser, VMRule) on"
       - "Kubernetes, plus an optional rules-only install of the"
       - "victoria-metrics-k8s-stack chart for the curated VMRule set."
     options:
@@ -22,8 +23,7 @@ argument_specs:
         description: "K8s namespace where the operator runs (CRDs are cluster-scoped)."
       vmoperator_chart_version:
         type: "str"
-        default: "0.51.0"
-        description: "victoria-metrics-operator chart version."
+        description: "victoria-metrics-operator chart version. Default lives in defaults/main.yml."
       vmoperator_deployment_name:
         type: "str"
         default: "vm-operator"
@@ -53,6 +53,64 @@ argument_specs:
         default: {}
         description: "Extra helm values merged on top of the templated operator values."
 
+      # ------------------------------------------------------------------ VMSingle
+      vmoperator_vmsingle_enabled:
+        type: "bool"
+        default: false
+        description: "Deploy a VMSingle custom resource (single-node operator-managed storage). Disabling it does not delete an existing CR."
+      vmoperator_vmsingle_namespace:
+        type: "str"
+        default: "victoriametrics"
+        description: "Namespace where the VMSingle CR is applied."
+      vmoperator_vmsingle_name:
+        type: "str"
+        default: "vmsingle"
+        description: "Name of the VMSingle custom resource (drives vmsingle-<name> object names)."
+      vmoperator_vmsingle_image_tag:
+        type: "str"
+        description: "VMSingle container image tag. Default lives in defaults/main.yml."
+      vmoperator_vmsingle_replicas:
+        type: "int"
+        default: 1
+        choices: [0, 1]
+        description: "Number of VMSingle replicas: 0 or 1 (single-node by design, ReadWriteOnce PVC)."
+      vmoperator_vmsingle_retention_period:
+        type: "str"
+        default: "1"
+        description: "Data retention. Unit suffix h/d/w/y; no suffix = months. Minimum 24h."
+      vmoperator_vmsingle_storage_size:
+        type: "str"
+        default: "16Gi"
+        description: "PVC size for VMSingle storage. Empty = emptyDir (data lost on restart)."
+      vmoperator_vmsingle_storage_class_name:
+        type: "str"
+        default: ""
+        description: "StorageClass for the VMSingle PVC. Empty falls back to the cluster default."
+      vmoperator_vmsingle_remove_pvc_after_delete:
+        type: "bool"
+        default: false
+        description: "When true, deleting the VMSingle CR also deletes its PVC (data loss)."
+      vmoperator_vmsingle_extra_args:
+        type: "dict"
+        default: {}
+        description: "Extra command-line flags for the vmsingle binary. Values are rendered as strings."
+      vmoperator_vmsingle_resources:
+        type: "dict"
+        default: {}
+        description: "Resource requests and limits for the VMSingle pod."
+      vmoperator_vmsingle_pod_metadata:
+        type: "dict"
+        default: {}
+        description: "Labels/annotations applied to the VMSingle pod (spec.podMetadata)."
+      vmoperator_vmsingle_vmbackup:
+        type: "dict"
+        default: {}
+        description: "spec.vmBackup block (vmbackupmanager sidecar) rendered as-is. Empty disables backups."
+      vmoperator_vmsingle_extra_spec:
+        type: "dict"
+        default: {}
+        description: "Escape-hatch dict merged (recursive) into the VMSingle .spec for advanced fields."
+
       # ------------------------------------------------------------------ VMAlert
       vmoperator_vmalert_enabled:
         type: "bool"
@@ -68,8 +126,7 @@ argument_specs:
         description: "Name of the VMAlert custom resource."
       vmoperator_vmalert_image_tag:
         type: "str"
-        default: "v1.140.0"
-        description: "VMAlert container image tag."
+        description: "VMAlert container image tag. Default lives in defaults/main.yml."
       vmoperator_vmalert_replicas:
         type: "int"
         default: 1
@@ -120,8 +177,7 @@ argument_specs:
         description: "Name of the VMAlertmanager custom resource."
       vmoperator_vmalertmanager_image_tag:
         type: "str"
-        default: "v0.28.1"
-        description: "Alertmanager container image tag."
+        description: "Alertmanager container image tag. Default lives in defaults/main.yml."
       vmoperator_vmalertmanager_replicas:
         type: "int"
         default: 1
@@ -158,8 +214,7 @@ argument_specs:
         description: "Name of the VMAuth custom resource."
       vmoperator_vmauth_image_tag:
         type: "str"
-        default: "v1.140.0"
-        description: "VMAuth container image tag."
+        description: "VMAuth container image tag. Default lives in defaults/main.yml."
       vmoperator_vmauth_replicas:
         type: "int"
         default: 2
@@ -245,8 +300,7 @@ argument_specs:
         description: "Namespace where the VMRule resources are created."
       vmoperator_default_rules_chart_version:
         type: "str"
-        default: "0.79.0"
-        description: "victoria-metrics-k8s-stack chart version."
+        description: "victoria-metrics-k8s-stack chart version. Default lives in defaults/main.yml."
       vmoperator_default_rules_deployment_name:
         type: "str"
         default: "vm-default-rules"
@@ -264,3 +318,53 @@ argument_specs:
         type: "dict"
         default: {}
         description: "Extra helm values merged on top of the templated default-rules values."
+
+      # ------------------------------------------------------------------ VLSingle
+      vmoperator_vlsingle_enabled:
+        type: "bool"
+        default: false
+        description: "Deploy a VLSingle custom resource (single-node operator-managed VictoriaLogs). Disabling it does not delete an existing CR."
+      vmoperator_vlsingle_namespace:
+        type: "str"
+        default: "victorialogs"
+        description: "Namespace where the VLSingle CR is applied."
+      vmoperator_vlsingle_name:
+        type: "str"
+        default: "vlsingle"
+        description: "Name of the VLSingle custom resource."
+      vmoperator_vlsingle_image_tag:
+        type: "str"
+        default: ""
+        description: "VictoriaLogs image tag. Empty = use the version the operator ships with."
+      vmoperator_vlsingle_retention_period:
+        type: "str"
+        default: "1"
+        description: "Data retention. Unit suffix h/d/w/y; no suffix = months."
+      vmoperator_vlsingle_storage_size:
+        type: "str"
+        default: "10Gi"
+        description: "PVC size for VLSingle storage. Empty = emptyDir (logs lost on restart)."
+      vmoperator_vlsingle_storage_class_name:
+        type: "str"
+        default: ""
+        description: "StorageClass for the VLSingle PVC. Empty falls back to the cluster default."
+      vmoperator_vlsingle_remove_pvc_after_delete:
+        type: "bool"
+        default: false
+        description: "When true, deleting the VLSingle CR also deletes its PVC (data loss)."
+      vmoperator_vlsingle_extra_args:
+        type: "dict"
+        default: {}
+        description: "Extra command-line flags for the victoria-logs binary. Values are rendered as strings."
+      vmoperator_vlsingle_resources:
+        type: "dict"
+        default: {}
+        description: "Resource requests and limits for the VLSingle pod."
+      vmoperator_vlsingle_pod_metadata:
+        type: "dict"
+        default: {}
+        description: "Labels/annotations applied to the VLSingle pod (spec.podMetadata)."
+      vmoperator_vlsingle_extra_spec:
+        type: "dict"
+        default: {}
+        description: "Escape-hatch dict merged (recursive) into the VLSingle .spec for advanced fields."

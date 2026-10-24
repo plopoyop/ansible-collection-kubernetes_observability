@@ -63,7 +63,7 @@ Every role in this collection ships tagged tasks so you can selectively run only
 
 Three kinds of tags are exposed:
 
-- **Role tag** — named after the role itself (e.g. `grafana`, `jaeger`, `loki`, `opentelemetry`, `victorialogs`, `victoriametrics`). Use it to scope a run to a single tool. The `victoriametrics` role additionally exposes the sub-tags `victoriametrics_single` and `victoriametrics_vmagent` to target each component independently. The `grafana` role exposes `grafana_service_accounts` and `grafana_mcp` to manage service accounts and the MCP server on their own.
+- **Role tag** — named after the role itself (e.g. `grafana`, `jaeger`, `loki`, `opentelemetry`, `victorialogs`, `victoriametrics`). Use it to scope a run to a single tool. The `victoriametrics` role additionally exposes the sub-tags `victoriametrics_single` and `victoriametrics_vmagent` to target each component independently. The `grafana` role exposes `grafana_service_accounts` and `grafana_mcp` to manage service accounts and the MCP server on their own. The `vmoperator` role exposes one sub-tag per component: `vmoperator_operator`, `vmoperator_vmsingle`, `vmoperator_vmalertmanager`, `vmoperator_vmalert`, `vmoperator_vmauth`, `vmoperator_default_rules` and `vmoperator_vlsingle`.
 - **Action tag** — `install` or `uninstall`. The role's `*_enabled` variable controls which one runs:
   - When `<role>_enabled: true`, the setup tasks (tagged `install`) are executed.
   - When `<role>_enabled: false`, the cleanup tasks (tagged `uninstall`) are executed.

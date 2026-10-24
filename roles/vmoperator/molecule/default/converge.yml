@@ -8,9 +8,15 @@
     # self-signed cert for the admission webhook instead.
     vmoperator_enabled: true
     vmoperator_admission_webhooks_cert_manager_enabled: false
+    vmoperator_vmsingle_enabled: true
+    vmoperator_vmsingle_storage_size: "1Gi"
+    vmoperator_vmsingle_extra_args:
+      maxLabelsPerTimeseries: 60
+    vmoperator_vlsingle_enabled: true
+    vmoperator_vlsingle_storage_size: "1Gi"
     vmoperator_vmalertmanager_enabled: true
     vmoperator_vmalert_enabled: true
-    vmoperator_vmalert_datasource_url: "http://vmsingle-victoria-metrics-single-server:8428"
+    vmoperator_vmalert_datasource_url: "http://vmsingle-vmsingle.victoriametrics.svc:8428"
   tasks:
     - name: "Call vmoperator role"
       ansible.builtin.import_role:
