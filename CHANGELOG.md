@@ -12,6 +12,7 @@
 ## ⚙️ Dependencies
 
 - fix\(ci\): update renovatebot/github-action action \(v46.3.8 → v46.3.9\) [\#496](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/496) ([plopoyop](https://github.com/plopoyop))
+- fix\(container\): update image victoriametrics/vmauth \(v1.154.0 → v1.154.1\) [\#493](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/493) ([plopoyop](https://github.com/plopoyop))
 - fix\(container\): update image victoriametrics/vmalert \(v1.154.0 → v1.154.1\) [\#492](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/492) ([plopoyop](https://github.com/plopoyop))
 
 **Merged pull requests:**
