@@ -1,0 +1,36 @@
+---
+- name: "Pre-check: VLSingle CRD installed"
+  kubernetes.core.k8s_info:
+    api_version: "apiextensions.k8s.io/v1"
+    kind: "CustomResourceDefinition"
+    name: "vlsingles.operator.victoriametrics.com"
+  register: vmoperator_vlsingle_crd
+  check_mode: false
+  failed_when: not ansible_check_mode and (vmoperator_vlsingle_crd.resources | length == 0)
+  tags:
+    - "preflight"
+
+- name: "Create namespace for VLSingle CR"
+  kubernetes.core.k8s:
+    name: "{{ vmoperator_vlsingle_namespace }}"
+    api_version: "v1"
+    kind: "Namespace"
+    state: "present"
+  tags:
+    - "namespace"
+
+# CRD absente en check mode signifie : l'opérateur n'est pas installé sur ce
+# cluster (state actuel) — on ne tente pas l'apply pour éviter une erreur
+# de validation côté kube-apiserver.
+- name: "Apply VLSingle CR"
+  kubernetes.core.k8s:
+    state: "present"
+    apply: true
+    definition: >-
+      {{
+        (lookup('ansible.builtin.template', 'vlsingle_cr.yml.j2') | ansible.builtin.from_yaml)
+        | ansible.builtin.combine({'spec': vmoperator_vlsingle_extra_spec}, recursive=True)
+      }}
+  when: vmoperator_vlsingle_crd.resources | length > 0
+  tags:
+    - "custom_resource"

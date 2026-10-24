@@ -79,6 +79,122 @@ vmoperator_resources: {}
 vmoperator_extra_values: {}
 
 # ------------------------------------------------------------------------------
+# VMSingle — single-node VictoriaMetrics storage managed via the operator CR
+# (alternative to the helm-based victoria-metrics-single chart). One CR =
+# one Deployment + one PVC. Use when you want the operator to own the storage
+# lifecycle (VMServiceScrape integration, vmBackup to S3, etc.).
+# ------------------------------------------------------------------------------
+
+# @var vmoperator_vmsingle_enabled
+# @var vmoperator_vmsingle_enabled:type: boolean
+# @var vmoperator_vmsingle_enabled:description: >
+# Deploy a VMSingle custom resource. Requires the operator. Setting it back to
+# false does not delete an existing CR.
+vmoperator_vmsingle_enabled: false
+
+# @var vmoperator_vmsingle_namespace
+# @var vmoperator_vmsingle_namespace:type: string
+# @var vmoperator_vmsingle_namespace:description: >
+# Namespace where the VMSingle CR is applied
+vmoperator_vmsingle_namespace: "victoriametrics"
+
+# @var vmoperator_vmsingle_name
+# @var vmoperator_vmsingle_name:type: string
+# @var vmoperator_vmsingle_name:description: >
+# Name of the VMSingle custom resource. Drives the operator-generated
+# Service/Deployment/PVC names (`vmsingle-<name>`).
+vmoperator_vmsingle_name: "vmsingle"
+
+# @var vmoperator_vmsingle_image_tag
+# @var vmoperator_vmsingle_image_tag:type: string
+# @var vmoperator_vmsingle_image_tag:description: >
+# VMSingle container image tag (matches a released VictoriaMetrics version)
+vmoperator_vmsingle_image_tag: "v1.154.1"
+
+# @var vmoperator_vmsingle_replicas
+# @var vmoperator_vmsingle_replicas:type: int
+# @var vmoperator_vmsingle_replicas:description: >
+# Number of VMSingle replicas: 0 or 1. VMSingle is single-node by design and
+# its PVC is ReadWriteOnce (scale horizontally with VMCluster instead).
+vmoperator_vmsingle_replicas: 1
+
+# @var vmoperator_vmsingle_retention_period
+# @var vmoperator_vmsingle_retention_period:type: string
+# @var vmoperator_vmsingle_retention_period:description: >
+# Data retention. Unit suffix: h/d/w/y; no suffix = months. Minimum 24h.
+vmoperator_vmsingle_retention_period: "1"
+
+# @var vmoperator_vmsingle_storage_size
+# @var vmoperator_vmsingle_storage_size:type: string
+# @var vmoperator_vmsingle_storage_size:description: >
+# PVC size for VMSingle storage. When empty, the operator uses an emptyDir
+# (data lost on pod restart) — set a size for any real deployment.
+vmoperator_vmsingle_storage_size: "16Gi"
+
+# @var vmoperator_vmsingle_storage_class_name
+# @var vmoperator_vmsingle_storage_class_name:type: string
+# @var vmoperator_vmsingle_storage_class_name:description: >
+# StorageClass for the VMSingle PVC. Empty falls back to the cluster default
+# StorageClass.
+vmoperator_vmsingle_storage_class_name: ""
+
+# @var vmoperator_vmsingle_remove_pvc_after_delete
+# @var vmoperator_vmsingle_remove_pvc_after_delete:type: boolean
+# @var vmoperator_vmsingle_remove_pvc_after_delete:description: >
+# When true, deleting the VMSingle CR also deletes its PVC (data loss). Kept
+# false by default so the metrics survive an accidental CR removal.
+vmoperator_vmsingle_remove_pvc_after_delete: false
+
+# @var vmoperator_vmsingle_extra_args
+# @var vmoperator_vmsingle_extra_args:type: dict
+# @var vmoperator_vmsingle_extra_args:description: >
+# Extra command-line flags for the vmsingle binary (e.g. maxLabelsPerTimeseries,
+# vmalert.proxyURL, dedup.minScrapeInterval). Values are rendered as strings.
+# @var vmoperator_vmsingle_extra_args:example: >
+# vmoperator_vmsingle_extra_args:
+#   maxLabelsPerTimeseries: "60"
+vmoperator_vmsingle_extra_args: {}
+
+# @var vmoperator_vmsingle_resources
+# @var vmoperator_vmsingle_resources:type: dict
+# @var vmoperator_vmsingle_resources:description: >
+# Resource requests and limits for the VMSingle pod
+vmoperator_vmsingle_resources: {}
+
+# @var vmoperator_vmsingle_pod_metadata
+# @var vmoperator_vmsingle_pod_metadata:type: dict
+# @var vmoperator_vmsingle_pod_metadata:description: >
+# Labels/annotations applied to the VMSingle pod (`spec.podMetadata`). Useful
+# to expose the `/metrics` endpoint to a Prometheus-style scrape.
+# @var vmoperator_vmsingle_pod_metadata:example: >
+# vmoperator_vmsingle_pod_metadata:
+#   annotations:
+#     prometheus.io/scrape: "true"
+#     prometheus.io/port: "8429"
+vmoperator_vmsingle_pod_metadata: {}
+
+# @var vmoperator_vmsingle_vmbackup
+# @var vmoperator_vmsingle_vmbackup:type: dict
+# @var vmoperator_vmsingle_vmbackup:description: >
+# `spec.vmBackup` block (vmbackupmanager sidecar) rendered as-is. Configure
+# periodic snapshots to an S3/GCS bucket. Leave empty to disable backups.
+# @var vmoperator_vmsingle_vmbackup:example: >
+# vmoperator_vmsingle_vmbackup:
+#   acceptEULA: true
+#   destination: "s3://my-bucket/vmsingle"
+#   credentialsSecret:
+#     name: "vmbackup-s3-credentials"
+#     key: "credentials"
+vmoperator_vmsingle_vmbackup: {}
+
+# @var vmoperator_vmsingle_extra_spec
+# @var vmoperator_vmsingle_extra_spec:type: dict
+# @var vmoperator_vmsingle_extra_spec:description: >
+# Escape-hatch dict merged (recursive) into the VMSingle `.spec` for fields not
+# exposed by a dedicated variable (downsampling, streamAggrConfig, affinity…).
+vmoperator_vmsingle_extra_spec: {}
+
+# ------------------------------------------------------------------------------
 # VMAlert — evaluator for recording rules and alert rules. Reads from VM,
 # evaluates VMRule / PrometheusRule resources, writes recording rules back
 # to VM and forwards alerts to Alertmanager-compatible notifiers. Managed
@@ -440,3 +556,95 @@ vmoperator_default_rules_additional_group_by_labels: []
 # settings not exposed by dedicated variables (runbookUrl, custom labels,
 # etc.).
 vmoperator_default_rules_extra_values: {}
+
+# ##############################################################################
+# VictoriaLogs CRs — the operator (v0.61.0+, shipped by chart 0.51.0) also
+# manages VictoriaLogs. These CRs use `apiVersion: operator.victoriametrics.com/v1`
+# (not v1beta1 like the metrics CRs) and the VictoriaLogs image versioning
+# (independent from VictoriaMetrics). The image tag defaults to empty so the
+# operator picks the version it ships with — set a tag to pin.
+#
+# Alternative to the standalone `victorialogs` helm-chart role: use these for an
+# operator-managed logs backend (VLCluster gives HA logs the single chart can't).
+# ##############################################################################
+
+# ------------------------------------------------------------------------------
+# VLSingle — single-node VictoriaLogs storage managed via the operator CR.
+# Single-node by design (replicaCount is always 1; scale with VLCluster).
+# ------------------------------------------------------------------------------
+
+# @var vmoperator_vlsingle_enabled
+# @var vmoperator_vlsingle_enabled:type: boolean
+# @var vmoperator_vlsingle_enabled:description: >
+# Deploy a VLSingle custom resource. Requires the operator. Setting it back to
+# false does not delete an existing CR.
+vmoperator_vlsingle_enabled: false
+
+# @var vmoperator_vlsingle_namespace
+# @var vmoperator_vlsingle_namespace:type: string
+# @var vmoperator_vlsingle_namespace:description: >
+# Namespace where the VLSingle CR is applied
+vmoperator_vlsingle_namespace: "victorialogs"
+
+# @var vmoperator_vlsingle_name
+# @var vmoperator_vlsingle_name:type: string
+# @var vmoperator_vlsingle_name:description: >
+# Name of the VLSingle custom resource (drives `vlsingle-<name>` object names)
+vmoperator_vlsingle_name: "vlsingle"
+
+# @var vmoperator_vlsingle_image_tag
+# @var vmoperator_vlsingle_image_tag:type: string
+# @var vmoperator_vlsingle_image_tag:description: >
+# VictoriaLogs image tag. Empty = use the version the operator ships with.
+vmoperator_vlsingle_image_tag: ""
+
+# @var vmoperator_vlsingle_retention_period
+# @var vmoperator_vlsingle_retention_period:type: string
+# @var vmoperator_vlsingle_retention_period:description: >
+# Data retention. Unit suffix: h/d/w/y; no suffix = months.
+vmoperator_vlsingle_retention_period: "1"
+
+# @var vmoperator_vlsingle_storage_size
+# @var vmoperator_vlsingle_storage_size:type: string
+# @var vmoperator_vlsingle_storage_size:description: >
+# PVC size for VLSingle storage. Empty = emptyDir (logs lost on pod restart) —
+# set a size for any real deployment.
+vmoperator_vlsingle_storage_size: "10Gi"
+
+# @var vmoperator_vlsingle_storage_class_name
+# @var vmoperator_vlsingle_storage_class_name:type: string
+# @var vmoperator_vlsingle_storage_class_name:description: >
+# StorageClass for the VLSingle PVC. Empty falls back to the cluster default.
+vmoperator_vlsingle_storage_class_name: ""
+
+# @var vmoperator_vlsingle_remove_pvc_after_delete
+# @var vmoperator_vlsingle_remove_pvc_after_delete:type: boolean
+# @var vmoperator_vlsingle_remove_pvc_after_delete:description: >
+# When true, deleting the VLSingle CR also deletes its PVC (data loss). Kept
+# false by default so the logs survive an accidental CR removal.
+vmoperator_vlsingle_remove_pvc_after_delete: false
+
+# @var vmoperator_vlsingle_extra_args
+# @var vmoperator_vlsingle_extra_args:type: dict
+# @var vmoperator_vlsingle_extra_args:description: >
+# Extra command-line flags for the victoria-logs binary. Values are rendered as strings.
+vmoperator_vlsingle_extra_args: {}
+
+# @var vmoperator_vlsingle_resources
+# @var vmoperator_vlsingle_resources:type: dict
+# @var vmoperator_vlsingle_resources:description: >
+# Resource requests and limits for the VLSingle pod
+vmoperator_vlsingle_resources: {}
+
+# @var vmoperator_vlsingle_pod_metadata
+# @var vmoperator_vlsingle_pod_metadata:type: dict
+# @var vmoperator_vlsingle_pod_metadata:description: >
+# Labels/annotations applied to the VLSingle pod (`spec.podMetadata`)
+vmoperator_vlsingle_pod_metadata: {}
+
+# @var vmoperator_vlsingle_extra_spec
+# @var vmoperator_vlsingle_extra_spec:type: dict
+# @var vmoperator_vlsingle_extra_spec:description: >
+# Escape-hatch dict merged (recursive) into the VLSingle `.spec` for fields not
+# exposed by a dedicated variable.
+vmoperator_vlsingle_extra_spec: {}

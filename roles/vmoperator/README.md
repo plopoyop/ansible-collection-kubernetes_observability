@@ -1,7 +1,8 @@
 # vmoperator
 
 Install the VictoriaMetrics Operator chart and manage its custom
-resources (VMAlert, VMAlertmanager, VMAuth, VMUser, VMRule) on
+resources (VMSingle, VLSingle, VMAlert, VMAlertmanager, VMAuth,
+VMUser, VMRule) on
 Kubernetes, plus an optional rules-only install of the
 victoria-metrics-k8s-stack chart for the curated VMRule set.
 
@@ -26,6 +27,18 @@ victoria-metrics-k8s-stack chart for the curated VMRule set.
   - [vmoperator_extra_values](#vmoperator_extra_values)
   - [vmoperator_namespace](#vmoperator_namespace)
   - [vmoperator_resources](#vmoperator_resources)
+  - [vmoperator_vlsingle_enabled](#vmoperator_vlsingle_enabled)
+  - [vmoperator_vlsingle_extra_args](#vmoperator_vlsingle_extra_args)
+  - [vmoperator_vlsingle_extra_spec](#vmoperator_vlsingle_extra_spec)
+  - [vmoperator_vlsingle_image_tag](#vmoperator_vlsingle_image_tag)
+  - [vmoperator_vlsingle_name](#vmoperator_vlsingle_name)
+  - [vmoperator_vlsingle_namespace](#vmoperator_vlsingle_namespace)
+  - [vmoperator_vlsingle_pod_metadata](#vmoperator_vlsingle_pod_metadata)
+  - [vmoperator_vlsingle_remove_pvc_after_delete](#vmoperator_vlsingle_remove_pvc_after_delete)
+  - [vmoperator_vlsingle_resources](#vmoperator_vlsingle_resources)
+  - [vmoperator_vlsingle_retention_period](#vmoperator_vlsingle_retention_period)
+  - [vmoperator_vlsingle_storage_class_name](#vmoperator_vlsingle_storage_class_name)
+  - [vmoperator_vlsingle_storage_size](#vmoperator_vlsingle_storage_size)
   - [vmoperator_vmalert_datasource_url](#vmoperator_vmalert_datasource_url)
   - [vmoperator_vmalert_enabled](#vmoperator_vmalert_enabled)
   - [vmoperator_vmalert_evaluation_interval](#vmoperator_vmalert_evaluation_interval)
@@ -63,6 +76,20 @@ victoria-metrics-k8s-stack chart for the curated VMRule set.
   - [vmoperator_vmauth_unauthorized_access_config](#vmoperator_vmauth_unauthorized_access_config)
   - [vmoperator_vmauth_user_selector](#vmoperator_vmauth_user_selector)
   - [vmoperator_vmauth_users](#vmoperator_vmauth_users)
+  - [vmoperator_vmsingle_enabled](#vmoperator_vmsingle_enabled)
+  - [vmoperator_vmsingle_extra_args](#vmoperator_vmsingle_extra_args)
+  - [vmoperator_vmsingle_extra_spec](#vmoperator_vmsingle_extra_spec)
+  - [vmoperator_vmsingle_image_tag](#vmoperator_vmsingle_image_tag)
+  - [vmoperator_vmsingle_name](#vmoperator_vmsingle_name)
+  - [vmoperator_vmsingle_namespace](#vmoperator_vmsingle_namespace)
+  - [vmoperator_vmsingle_pod_metadata](#vmoperator_vmsingle_pod_metadata)
+  - [vmoperator_vmsingle_remove_pvc_after_delete](#vmoperator_vmsingle_remove_pvc_after_delete)
+  - [vmoperator_vmsingle_replicas](#vmoperator_vmsingle_replicas)
+  - [vmoperator_vmsingle_resources](#vmoperator_vmsingle_resources)
+  - [vmoperator_vmsingle_retention_period](#vmoperator_vmsingle_retention_period)
+  - [vmoperator_vmsingle_storage_class_name](#vmoperator_vmsingle_storage_class_name)
+  - [vmoperator_vmsingle_storage_size](#vmoperator_vmsingle_storage_size)
+  - [vmoperator_vmsingle_vmbackup](#vmoperator_vmsingle_vmbackup)
 - [Discovered Tags](#discovered-tags)
 - [Dependencies](#dependencies)
 - [License](#license)
@@ -306,6 +333,154 @@ Resource requests and limits for the operator pod
 
 ```YAML
 vmoperator_resources: {}
+```
+
+### vmoperator_vlsingle_enabled
+
+Deploy a VLSingle custom resource. Requires the operator. Setting it back to
+false does not delete an existing CR.
+
+**_Type:_** boolean<br />
+
+#### Default value
+
+```YAML
+vmoperator_vlsingle_enabled: false
+```
+
+### vmoperator_vlsingle_extra_args
+
+Extra command-line flags for the victoria-logs binary. Values are rendered as strings.
+
+**_Type:_** dict<br />
+
+#### Default value
+
+```YAML
+vmoperator_vlsingle_extra_args: {}
+```
+
+### vmoperator_vlsingle_extra_spec
+
+Escape-hatch dict merged (recursive) into the VLSingle `.spec` for fields not
+exposed by a dedicated variable.
+
+**_Type:_** dict<br />
+
+#### Default value
+
+```YAML
+vmoperator_vlsingle_extra_spec: {}
+```
+
+### vmoperator_vlsingle_image_tag
+
+VictoriaLogs image tag. Empty = use the version the operator ships with.
+
+**_Type:_** string<br />
+
+#### Default value
+
+```YAML
+vmoperator_vlsingle_image_tag: ''
+```
+
+### vmoperator_vlsingle_name
+
+Name of the VLSingle custom resource (drives `vlsingle-<name>` object names)
+
+**_Type:_** string<br />
+
+#### Default value
+
+```YAML
+vmoperator_vlsingle_name: vlsingle
+```
+
+### vmoperator_vlsingle_namespace
+
+Namespace where the VLSingle CR is applied
+
+**_Type:_** string<br />
+
+#### Default value
+
+```YAML
+vmoperator_vlsingle_namespace: victorialogs
+```
+
+### vmoperator_vlsingle_pod_metadata
+
+Labels/annotations applied to the VLSingle pod (`spec.podMetadata`)
+
+**_Type:_** dict<br />
+
+#### Default value
+
+```YAML
+vmoperator_vlsingle_pod_metadata: {}
+```
+
+### vmoperator_vlsingle_remove_pvc_after_delete
+
+When true, deleting the VLSingle CR also deletes its PVC (data loss). Kept
+false by default so the logs survive an accidental CR removal.
+
+**_Type:_** boolean<br />
+
+#### Default value
+
+```YAML
+vmoperator_vlsingle_remove_pvc_after_delete: false
+```
+
+### vmoperator_vlsingle_resources
+
+Resource requests and limits for the VLSingle pod
+
+**_Type:_** dict<br />
+
+#### Default value
+
+```YAML
+vmoperator_vlsingle_resources: {}
+```
+
+### vmoperator_vlsingle_retention_period
+
+Data retention. Unit suffix: h/d/w/y; no suffix = months.
+
+**_Type:_** string<br />
+
+#### Default value
+
+```YAML
+vmoperator_vlsingle_retention_period: '1'
+```
+
+### vmoperator_vlsingle_storage_class_name
+
+StorageClass for the VLSingle PVC. Empty falls back to the cluster default.
+
+**_Type:_** string<br />
+
+#### Default value
+
+```YAML
+vmoperator_vlsingle_storage_class_name: ''
+```
+
+### vmoperator_vlsingle_storage_size
+
+PVC size for VLSingle storage. Empty = emptyDir (logs lost on pod restart) —
+set a size for any real deployment.
+
+**_Type:_** string<br />
+
+#### Default value
+
+```YAML
+vmoperator_vlsingle_storage_size: 10Gi
 ```
 
 ### vmoperator_vmalert_datasource_url
@@ -818,7 +993,214 @@ vmoperator_vmauth_users:
     target_paths: ["/api/v1/write"]
 ```
 
+### vmoperator_vmsingle_enabled
+
+Deploy a VMSingle custom resource. Requires the operator. Setting it back to
+false does not delete an existing CR.
+
+**_Type:_** boolean<br />
+
+#### Default value
+
+```YAML
+vmoperator_vmsingle_enabled: false
+```
+
+### vmoperator_vmsingle_extra_args
+
+Extra command-line flags for the vmsingle binary (e.g. maxLabelsPerTimeseries,
+vmalert.proxyURL, dedup.minScrapeInterval). Values are rendered as strings.
+
+**_Type:_** dict<br />
+
+#### Default value
+
+```YAML
+vmoperator_vmsingle_extra_args: {}
+```
+
+#### Example usage
+
+```YAML
+vmoperator_vmsingle_extra_args:
+  maxLabelsPerTimeseries: "60"
+```
+
+### vmoperator_vmsingle_extra_spec
+
+Escape-hatch dict merged (recursive) into the VMSingle `.spec` for fields not
+exposed by a dedicated variable (downsampling, streamAggrConfig, affinity…).
+
+**_Type:_** dict<br />
+
+#### Default value
+
+```YAML
+vmoperator_vmsingle_extra_spec: {}
+```
+
+### vmoperator_vmsingle_image_tag
+
+VMSingle container image tag (matches a released VictoriaMetrics version)
+
+**_Type:_** string<br />
+
+#### Default value
+
+```YAML
+vmoperator_vmsingle_image_tag: v1.154.1
+```
+
+### vmoperator_vmsingle_name
+
+Name of the VMSingle custom resource. Drives the operator-generated
+Service/Deployment/PVC names (`vmsingle-<name>`).
+
+**_Type:_** string<br />
+
+#### Default value
+
+```YAML
+vmoperator_vmsingle_name: vmsingle
+```
+
+### vmoperator_vmsingle_namespace
+
+Namespace where the VMSingle CR is applied
+
+**_Type:_** string<br />
+
+#### Default value
+
+```YAML
+vmoperator_vmsingle_namespace: victoriametrics
+```
+
+### vmoperator_vmsingle_pod_metadata
+
+Labels/annotations applied to the VMSingle pod (`spec.podMetadata`). Useful
+to expose the `/metrics` endpoint to a Prometheus-style scrape.
+
+**_Type:_** dict<br />
+
+#### Default value
+
+```YAML
+vmoperator_vmsingle_pod_metadata: {}
+```
+
+#### Example usage
+
+```YAML
+vmoperator_vmsingle_pod_metadata:
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "8429"
+```
+
+### vmoperator_vmsingle_remove_pvc_after_delete
+
+When true, deleting the VMSingle CR also deletes its PVC (data loss). Kept
+false by default so the metrics survive an accidental CR removal.
+
+**_Type:_** boolean<br />
+
+#### Default value
+
+```YAML
+vmoperator_vmsingle_remove_pvc_after_delete: false
+```
+
+### vmoperator_vmsingle_replicas
+
+Number of VMSingle replicas: 0 or 1. VMSingle is single-node by design and
+its PVC is ReadWriteOnce (scale horizontally with VMCluster instead).
+
+**_Type:_** int<br />
+
+#### Default value
+
+```YAML
+vmoperator_vmsingle_replicas: 1
+```
+
+### vmoperator_vmsingle_resources
+
+Resource requests and limits for the VMSingle pod
+
+**_Type:_** dict<br />
+
+#### Default value
+
+```YAML
+vmoperator_vmsingle_resources: {}
+```
+
+### vmoperator_vmsingle_retention_period
+
+Data retention. Unit suffix: h/d/w/y; no suffix = months. Minimum 24h.
+
+**_Type:_** string<br />
+
+#### Default value
+
+```YAML
+vmoperator_vmsingle_retention_period: '1'
+```
+
+### vmoperator_vmsingle_storage_class_name
+
+StorageClass for the VMSingle PVC. Empty falls back to the cluster default
+StorageClass.
+
+**_Type:_** string<br />
+
+#### Default value
+
+```YAML
+vmoperator_vmsingle_storage_class_name: ''
+```
+
+### vmoperator_vmsingle_storage_size
+
+PVC size for VMSingle storage. When empty, the operator uses an emptyDir
+(data lost on pod restart) — set a size for any real deployment.
+
+**_Type:_** string<br />
+
+#### Default value
+
+```YAML
+vmoperator_vmsingle_storage_size: 16Gi
+```
+
+### vmoperator_vmsingle_vmbackup
+
+`spec.vmBackup` block (vmbackupmanager sidecar) rendered as-is. Configure
+periodic snapshots to an S3/GCS bucket. Leave empty to disable backups.
+
+**_Type:_** dict<br />
+
+#### Default value
+
+```YAML
+vmoperator_vmsingle_vmbackup: {}
+```
+
+#### Example usage
+
+```YAML
+vmoperator_vmsingle_vmbackup:
+  acceptEULA: true
+  destination: "s3://my-bucket/vmsingle"
+  credentialsSecret:
+    name: "vmbackup-s3-credentials"
+    key: "credentials"
+```
+
 ## Discovered Tags
+
+**_always_**
 
 **_custom_resource_**
 
@@ -826,25 +1208,11 @@ vmoperator_vmauth_users:
 
 **_helm_repository_**
 
-**_install_**
-
 **_namespace_**
 
 **_preflight_**
 
 **_secret_**
-
-**_vmoperator_**
-
-**_vmoperator_default_rules_**
-
-**_vmoperator_operator_**
-
-**_vmoperator_vmalert_**
-
-**_vmoperator_vmalertmanager_**
-
-**_vmoperator_vmauth_**
 
 ## Dependencies
 

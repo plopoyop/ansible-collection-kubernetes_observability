@@ -33,6 +33,8 @@
       retries: 30
       delay: 5
       loop:
+        - "vmsingles.operator.victoriametrics.com"
+        - "vlsingles.operator.victoriametrics.com"
         - "vmalerts.operator.victoriametrics.com"
         - "vmalertmanagers.operator.victoriametrics.com"
         - "vmauths.operator.victoriametrics.com"
@@ -59,3 +61,34 @@
           - vmalert_deployment.resources | length > 0
           - vmalert_deployment.resources[0].status.availableReplicas | default(0) >= 1
         fail_msg: "VMAlert deployment is not available."
+
+    - name: "Wait for single-node storage deployments to be available."
+      kubernetes.core.k8s_info:
+        api_version: "apps/v1"
+        kind: "Deployment"
+        namespace: "{{ item.namespace }}"
+        name: "{{ item.name }}"
+      register: single_deployments
+      until:
+        - single_deployments.resources | length > 0
+        - single_deployments.resources[0].status.availableReplicas | default(0) >= 1
+      retries: 30
+      delay: 5
+      loop:
+        - {namespace: "victoriametrics", name: "vmsingle-vmsingle"}
+        - {namespace: "victorialogs", name: "vlsingle-vlsingle"}
+
+    - name: "Assert that VMSingle and VLSingle PVCs are bound."
+      kubernetes.core.k8s_info:
+        kind: "PersistentVolumeClaim"
+        namespace: "{{ item.namespace }}"
+        name: "{{ item.name }}"
+      register: single_pvc
+      until:
+        - single_pvc.resources | length > 0
+        - single_pvc.resources[0].status.phase == "Bound"
+      retries: 30
+      delay: 5
+      loop:
+        - {namespace: "victoriametrics", name: "vmsingle-vmsingle"}
+        - {namespace: "victorialogs", name: "vlsingle-vlsingle"}

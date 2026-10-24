@@ -49,12 +49,14 @@
   # celles consommées par ce rôle) comme signal que l'enregistrement est
   # terminé avant de laisser la main aux tâches qui apply les CR.
   loop:
+    - "vmsingles.operator.victoriametrics.com"
     - "vmagents.operator.victoriametrics.com"
     - "vmalerts.operator.victoriametrics.com"
     - "vmalertmanagers.operator.victoriametrics.com"
     - "vmauths.operator.victoriametrics.com"
     - "vmusers.operator.victoriametrics.com"
     - "vmrules.operator.victoriametrics.com"
+    - "vlsingles.operator.victoriametrics.com"
   loop_control:
     label: "{{ item }}"
   when: not ansible_check_mode
