@@ -1,0 +1,53 @@
+---
+- name: "Manage grafana-mcp service account"
+  ansible.builtin.include_tasks:
+    file: "service_accounts.yml"
+    apply:
+      tags:
+        - "grafana"
+        - "grafana_mcp"
+        - "install"
+  vars:
+    _grafana_service_accounts: "{{ [_grafana_mcp_service_account] }}"
+  tags: ["always"]
+
+# La resourceVersion du Secret en annotation relance le pod quand le token est renouvelé.
+- name: "Read grafana-mcp token Secret"
+  kubernetes.core.k8s_info:
+    api_version: "v1"
+    kind: "Secret"
+    name: "{{ grafana_mcp_token_secret_name }}"
+    namespace: "{{ grafana_namespace }}"
+  register: _grafana_mcp_token_secret
+  no_log: true
+  tags: ["always"]
+
+- name: "Check grafana-mcp token Secret exists"
+  ansible.builtin.assert:
+    that:
+      - _grafana_mcp_token_secret.resources | length > 0
+    fail_msg: "Secret {{ grafana_namespace }}/{{ grafana_mcp_token_secret_name }} is missing: the grafana-mcp service account token was not created."
+    quiet: true
+  when: not ansible_check_mode
+  tags:
+    - "helm_chart"
+
+- name: "Compute grafana-mcp token version"
+  ansible.builtin.set_fact:
+    _grafana_mcp_token_version: "{{ _grafana_mcp_token_secret.resources[0].metadata.resourceVersion if _grafana_mcp_token_secret.resources | length > 0 else '' }}"
+  tags: ["always"]
+
+- name: "Deploy grafana-mcp chart"
+  kubernetes.core.helm:
+    name: "{{ grafana_mcp_deployment_name }}"
+    chart_ref: "{{ grafana_mcp_helm_chart_ref }}"
+    namespace: "{{ grafana_namespace }}"
+    chart_version: "{{ grafana_mcp_chart_version }}"
+    state: present
+    values: >-
+      {{
+        lookup('ansible.builtin.template', 'grafana_mcp_helm_values.yml.j2') | ansible.builtin.from_yaml
+        | ansible.builtin.combine(grafana_mcp_extra_helm_values, recursive=True)
+      }}
+  tags:
+    - "helm_chart"

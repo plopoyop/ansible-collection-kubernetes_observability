@@ -1,0 +1,24 @@
+---
+- name: Create
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  tasks:
+    - name: Build a kind cluster exposing Grafana NodePort on localhost:3000 (wait for control plane).
+      ansible.builtin.command:
+        cmd: >-
+          kind create cluster
+          --wait 300s
+          --name molecule-test
+          --config -
+          --kubeconfig {{ kubeconfig }}
+        stdin: |
+          kind: Cluster
+          apiVersion: kind.x-k8s.io/v1alpha4
+          nodes:
+            - role: control-plane
+              extraPortMappings:
+                - containerPort: 30300
+                  hostPort: 3000
+                  protocol: TCP
+      changed_when: true

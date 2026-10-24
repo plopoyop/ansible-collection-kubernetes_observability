@@ -4,3 +4,15 @@ grafana_helm_repo_name: "grafana-community"
 grafana_helm_repo_url: "https://grafana-community.github.io/helm-charts"
 
 grafana_helm_chart_ref: "{{ grafana_helm_repo_name }}/grafana"
+
+grafana_mcp_helm_chart_ref: "{{ grafana_helm_repo_name }}/grafana-mcp"
+
+_grafana_mcp_service_account:
+  name: "{{ grafana_mcp_service_account_name }}"
+  role: "{{ grafana_mcp_service_account_role }}"
+  token:
+    secret_name: "{{ grafana_mcp_token_secret_name }}"
+    secret_namespace: "{{ grafana_namespace }}"
+    secret_key: "token"
+# Surchargé par mcp.yml / mcp_cleanup.yml pour ne traiter que le compte du MCP.
+_grafana_service_accounts: "{{ grafana_service_accounts }}"

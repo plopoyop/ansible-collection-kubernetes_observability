@@ -1,0 +1,32 @@
+---
+- name: "Get grafana-mcp release"
+  kubernetes.core.helm_info:
+    release_name: "{{ grafana_mcp_deployment_name }}"
+    release_namespace: "{{ grafana_namespace }}"
+  register: _grafana_mcp_release
+  tags: ["always"]
+
+# Compte supprimé avant la release : si la suppression échoue, la release
+# existe encore et le run suivant réessaie.
+- name: "Remove grafana-mcp service account"
+  ansible.builtin.include_tasks:
+    file: "service_accounts.yml"
+    apply:
+      tags:
+        - "grafana"
+        - "grafana_mcp"
+        - "uninstall"
+  vars:
+    _grafana_service_accounts: "{{ [_grafana_mcp_service_account | ansible.builtin.combine({'state': 'absent'})] }}"
+  when: _grafana_mcp_release.status is defined
+  tags: ["always"]
+
+- name: "Remove grafana-mcp instance"
+  kubernetes.core.helm:
+    name: "{{ grafana_mcp_deployment_name }}"
+    namespace: "{{ grafana_namespace }}"
+    state: "absent"
+    wait: true
+  when: _grafana_mcp_release.status is defined
+  tags:
+    - "helm_chart"

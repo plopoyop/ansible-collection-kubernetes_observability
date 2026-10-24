@@ -1,0 +1,25 @@
+---
+- name: Converge
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  vars:
+    grafana_admin_password: "admin"
+    grafana_api_url: "http://localhost:3000"
+    grafana_extra_helm_values:
+      service:
+        type: "NodePort"
+        nodePort: 30300
+    grafana_service_accounts:
+      - name: "molecule-ro"
+        role: "Viewer"
+      - name: "molecule-editor"
+        role: "Editor"
+        token:
+          secret_name: "molecule-editor-token"
+          seconds_to_live: 3600
+    grafana_mcp_enabled: true
+  tasks:
+    - name: "Call grafana role"
+      ansible.builtin.import_role:
+        name: "grafana"

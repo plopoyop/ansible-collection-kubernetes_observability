@@ -22,6 +22,40 @@
     namespace: "{{ grafana_namespace }}"
     chart_version: "{{ grafana_chart_version }}"
     state: present
+    wait: "{{ grafana_wait_install }}"
     values: "{{ lookup('ansible.builtin.template', 'grafana_helm_values.yml.j2') | ansible.builtin.from_yaml }}"
   tags:
     - "helm_chart"
+
+- name: "Include service accounts management"
+  ansible.builtin.include_tasks:
+    file: "service_accounts.yml"
+    apply:
+      tags:
+        - "grafana"
+        - "grafana_service_accounts"
+        - "install"
+  when: grafana_service_accounts | length > 0
+  tags: ["always"]
+
+- name: "Include Grafana MCP server install"
+  ansible.builtin.include_tasks:
+    file: "mcp.yml"
+    apply:
+      tags:
+        - "grafana"
+        - "grafana_mcp"
+        - "install"
+  when: grafana_mcp_enabled
+  tags: ["always"]
+
+- name: "Include Grafana MCP server removal"
+  ansible.builtin.include_tasks:
+    file: "mcp_cleanup.yml"
+    apply:
+      tags:
+        - "grafana"
+        - "grafana_mcp"
+        - "uninstall"
+  when: not grafana_mcp_enabled
+  tags: ["always"]

@@ -1,4 +1,14 @@
 ---
+- name: "Remove grafana-mcp instance"
+  kubernetes.core.helm:
+    name: "{{ grafana_mcp_deployment_name }}"
+    namespace: "{{ grafana_namespace }}"
+    chart_ref: "{{ grafana_mcp_helm_chart_ref }}"
+    state: "absent"
+    wait: true
+  tags:
+    - "helm_chart"
+
 - name: "Remove Grafana instance"
   kubernetes.core.helm:
     name: "{{ grafana_deployment_name }}"
@@ -8,6 +18,20 @@
     wait: true
   tags:
     - "helm_chart"
+
+# Les Secrets hors du namespace Grafana ne partent pas avec lui.
+- name: "Remove service account token Secrets"
+  kubernetes.core.k8s:
+    api_version: "v1"
+    kind: "Secret"
+    name: "{{ item.token.secret_name }}"
+    namespace: "{{ item.token.secret_namespace }}"
+    state: "absent"
+  loop: "{{ grafana_service_accounts | selectattr('token', 'defined') | rejectattr('token.secret_namespace', 'undefined') | rejectattr('token.secret_namespace', 'equalto', grafana_namespace) }}"
+  loop_control:
+    label: "{{ item.token.secret_namespace }}/{{ item.token.secret_name }}"
+  tags:
+    - "manifest"
 
 - name: "Pause for job to complete."
   ansible.builtin.pause:
