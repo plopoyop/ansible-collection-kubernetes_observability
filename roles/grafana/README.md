@@ -371,7 +371,7 @@ Grafana MCP chart version
 #### Default value
 
 ```YAML
-grafana_mcp_chart_version: 0.31.0
+grafana_mcp_chart_version: 0.32.0
 ```
 
 ### grafana_mcp_deployment_name
