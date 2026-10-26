@@ -16,7 +16,7 @@ loki_namespace: "loki"
 # @var loki_chart_version:type: string
 # @var loki_chart_version:description: >
 # Grafana chart version
-loki_chart_version: 19.3.0
+loki_chart_version: 20.0.1
 
 # @var loki_release_name
 # @var loki_release_name:type: string
@@ -110,12 +110,6 @@ loki_single_binary_replication_factor: 1
 loki_limits_config:
   allow_structured_metadata: true
   volume_enabled: true
-
-# @var loki_minio_enabled
-# @var loki_minio_enabled:type: boolean
-# @var loki_minio_enabled:description: >
-# Enable minio as object storage
-loki_minio_enabled: false
 
 # @var loki_ingress_enabled
 # @var loki_ingress_enabled:type: boolean

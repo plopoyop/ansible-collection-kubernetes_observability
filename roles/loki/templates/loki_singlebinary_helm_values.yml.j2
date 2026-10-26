@@ -123,9 +123,6 @@ gateway:
 {% endif %}
 {% endif %}
 
-minio:
-  enabled: {{ loki_minio_enabled | ansible.builtin.to_json }}
-
 deploymentMode: "SingleBinary"
 
 singleBinary:
@@ -153,8 +150,6 @@ distributor:
 compactor:
   replicas: 0
 indexGateway:
-  replicas: 0
-bloomCompactor:
   replicas: 0
 bloomGateway:
   replicas: 0
