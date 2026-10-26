@@ -22,6 +22,6 @@
     namespace: "{{ loki_namespace }}"
     chart_version: "{{ loki_chart_version }}"
     state: "present"
-    values: "{{ lookup('ansible.builtin.template', 'loki_{{ loki_deployment_mode | lower }}_helm_values.yml.j2') | ansible.builtin.from_yaml }}"
+    values: "{{ lookup('ansible.builtin.template', 'loki_' ~ (loki_deployment_mode | lower) ~ '_helm_values.yml.j2') | ansible.builtin.from_yaml }}"
   tags:
     - "helm_chart"

@@ -17,7 +17,6 @@ Install and configure Grafana on kubernetes
   - [loki_ingress_enabled](#loki_ingress_enabled)
   - [loki_ingress_tls_enabled](#loki_ingress_tls_enabled)
   - [loki_limits_config](#loki_limits_config)
-  - [loki_minio_enabled](#loki_minio_enabled)
   - [loki_namespace](#loki_namespace)
   - [loki_querier_config](#loki_querier_config)
   - [loki_readiness_probe](#loki_readiness_probe)
@@ -45,6 +44,7 @@ Install and configure Grafana on kubernetes
   - [loki_storage_s3_region](#loki_storage_s3_region)
   - [loki_storage_s3_secret_access_key](#loki_storage_s3_secret_access_key)
   - [loki_storage_type](#loki_storage_type)
+- [Discovered Tags](#discovered-tags)
 - [Dependencies](#dependencies)
 - [License](#license)
 - [Author](#author)
@@ -193,18 +193,6 @@ Limit config
 loki_limits_config:
   allow_structured_metadata: true
   volume_enabled: true
-```
-
-### loki_minio_enabled
-
-Enable minio as object storage
-
-**_Type:_** boolean<br />
-
-#### Default value
-
-```YAML
-loki_minio_enabled: false
 ```
 
 ### loki_namespace
@@ -462,6 +450,16 @@ Storage backend for loki : only S3 or Azure
 ```YAML
 loki_storage_type: "s3"
 ```
+
+## Discovered Tags
+
+**_always_**
+
+**_helm_chart_**
+
+**_helm_repository_**
+
+**_namespace_**
 
 ## Dependencies
 
