@@ -283,7 +283,7 @@ grafana_mcp_enabled: false
 # @var grafana_mcp_chart_version:type: string
 # @var grafana_mcp_chart_version:description: >
 # Grafana MCP chart version
-grafana_mcp_chart_version: "0.31.0"
+grafana_mcp_chart_version: 0.32.0
 
 # @var grafana_mcp_deployment_name
 # @var grafana_mcp_deployment_name:type: string
