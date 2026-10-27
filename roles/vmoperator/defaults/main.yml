@@ -109,7 +109,7 @@ vmoperator_vmsingle_name: "vmsingle"
 # @var vmoperator_vmsingle_image_tag:type: string
 # @var vmoperator_vmsingle_image_tag:description: >
 # VMSingle container image tag (matches a released VictoriaMetrics version)
-vmoperator_vmsingle_image_tag: "v1.154.1"
+vmoperator_vmsingle_image_tag: v1.155.0
 
 # @var vmoperator_vmsingle_replicas
 # @var vmoperator_vmsingle_replicas:type: int
