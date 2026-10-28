@@ -1048,7 +1048,7 @@ VMSingle container image tag (matches a released VictoriaMetrics version)
 #### Default value
 
 ```YAML
-vmoperator_vmsingle_image_tag: v1.154.1
+vmoperator_vmsingle_image_tag: v1.155.0
 ```
 
 ### vmoperator_vmsingle_name
