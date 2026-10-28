@@ -10,6 +10,10 @@
 - fix\(helm\): update chart victoria-metrics-k8s-stack \(0.96.0 → 0.96.1\) [\#505](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/505) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart victoria-metrics-agent \(0.50.0 → 0.50.1\) [\#504](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/504) ([plopoyop](https://github.com/plopoyop))
 
+## ⚙️ Dependencies
+
+- feat\(container\): update image victoriametrics/victoria-metrics \(v1.154.1 → v1.155.0\) [\#507](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/507) ([plopoyop](https://github.com/plopoyop))
+
 ## [12.0.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/12.0.0) (2026-10-26)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/11.0.0...12.0.0)
