@@ -4,6 +4,10 @@
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/12.1.0...12.1.1)
 
+## ⛵ Helm Charts
+
+- fix\(helm\): update chart loki \(20.2.0 → 20.2.1\) [\#520](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/520) ([plopoyop](https://github.com/plopoyop))
+
 **Merged pull requests:**
 
 - fix\(deps\): update prek \(0.5.5 → 0.5.7\) [\#519](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/519) ([plopoyop](https://github.com/plopoyop))
