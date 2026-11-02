@@ -1,5 +1,13 @@
 # Changelog
 
+## [12.1.1](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/12.1.1) (2026-11-02)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/12.1.0...12.1.1)
+
+**Merged pull requests:**
+
+- fix\(deps\): update prek \(0.5.5 → 0.5.7\) [\#519](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/519) ([plopoyop](https://github.com/plopoyop))
+
 ## [12.1.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/12.1.0) (2026-11-01)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/12.0.0...12.1.0)
