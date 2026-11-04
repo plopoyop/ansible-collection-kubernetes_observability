@@ -1,8 +1,12 @@
 # Changelog
 
-## [12.2.1](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/12.2.1) (2026-11-03)
+## [12.3.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/12.3.0) (2026-11-04)
 
-[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/12.2.0...12.2.1)
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/12.2.0...12.3.0)
+
+## ⛵ Helm Charts
+
+- feat\(helm\): update chart opentelemetry-kube-stack \(0.26.1 → 0.27.0\) [\#529](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/529) ([plopoyop](https://github.com/plopoyop))
 
 ## ⚙️ Dependencies
 
