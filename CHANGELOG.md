@@ -6,6 +6,7 @@
 
 ## ⛵ Helm Charts
 
+- fix\(helm\): update chart victoria-logs-single \(0.13.11 → 0.13.12\) [\#539](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/539) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart victoria-metrics-single \(0.50.0 → 0.51.0\) [\#538](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/538) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart victoria-metrics-k8s-stack \(0.97.1 → 0.98.1\) [\#537](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/537) ([plopoyop](https://github.com/plopoyop))
 
