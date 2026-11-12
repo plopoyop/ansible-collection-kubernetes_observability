@@ -1,6 +1,6 @@
 # Changelog
 
-## [12.4.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/12.4.0) (2026-11-11)
+## [12.4.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/12.4.0) (2026-11-12)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/12.3.0...12.4.0)
 
@@ -12,6 +12,8 @@
 
 ## ⚙️ Dependencies
 
+- feat\(ci\): update jetify-com/devbox-install-action action \(v0.15.0 → v0.16.0\) [\#543](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/543) ([plopoyop](https://github.com/plopoyop))
+- fix\(ci\): update renovatebot/github-action action \(v46.3.12 → v46.3.13\) [\#540](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/540) ([plopoyop](https://github.com/plopoyop))
 - feat\(container\): update image prom/alertmanager \(v0.34.2 → v0.35.0\) [\#535](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/535) ([plopoyop](https://github.com/plopoyop))
 - feat\(container\): update image victoriametrics/vmauth \(v1.155.0 → v1.156.0\) [\#534](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/534) ([plopoyop](https://github.com/plopoyop))
 - feat\(container\): update image victoriametrics/vmalert \(v1.155.0 → v1.156.0\) [\#533](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/533) ([plopoyop](https://github.com/plopoyop))
