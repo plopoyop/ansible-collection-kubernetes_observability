@@ -1,6 +1,6 @@
 # Changelog
 
-## [12.5.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/12.5.0) (2026-11-14)
+## [12.5.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/12.5.0) (2026-11-15)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/12.4.0...12.5.0)
 
@@ -10,6 +10,7 @@
 
 **Merged pull requests:**
 
+- fix\(deps\): update prek \(0.5.7 → 0.5.10\) [\#546](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/546) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update python313packages.ansible \(14.4.0 → 14.6.0\) [\#544](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/544) ([plopoyop](https://github.com/plopoyop))
 
 ## [12.4.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/12.4.0) (2026-11-12)
