@@ -6,6 +6,7 @@
 
 ## ⛵ Helm Charts
 
+- fix\(helm\): update chart victoria-logs-single \(0.13.12 → 0.13.13\) [\#547](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/547) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart grafana-mcp \(0.34.0 → 0.35.0\) [\#545](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/545) ([plopoyop](https://github.com/plopoyop))
 
 **Merged pull requests:**
