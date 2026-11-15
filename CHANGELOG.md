@@ -1,13 +1,14 @@
 # Changelog
 
-## [12.5.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/12.5.0) (2026-11-15)
+## [13.0.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/13.0.0) (2026-11-15)
 
-[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/12.4.0...12.5.0)
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/12.4.0...13.0.0)
 
 ## ⛵ Helm Charts
 
 - fix\(helm\): update chart victoria-logs-single \(0.13.12 → 0.13.13\) [\#547](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/547) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart grafana-mcp \(0.34.0 → 0.35.0\) [\#545](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/545) ([plopoyop](https://github.com/plopoyop))
+- feat\(helm\)!: Update chart loki \(20.4.1 → 21.2.3\) [\#531](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/531) ([plopoyop](https://github.com/plopoyop))
 
 **Merged pull requests:**
 
