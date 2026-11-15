@@ -69,7 +69,7 @@ VictoriaLogs single chart version
 #### Default value
 
 ```YAML
-victorialogs_chart_version: 0.13.12
+victorialogs_chart_version: 0.13.13
 ```
 
 ### victorialogs_deployment_name
