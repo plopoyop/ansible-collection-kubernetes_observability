@@ -1,5 +1,13 @@
 # Changelog
 
+## [13.0.1](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/13.0.1) (2026-11-17)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/13.0.0...13.0.1)
+
+**Merged pull requests:**
+
+- fix\(deps\): update ansible-doctor \(8.4.3 → 8.4.4\) [\#548](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/548) ([plopoyop](https://github.com/plopoyop))
+
 ## [13.0.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/13.0.0) (2026-11-15)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/12.4.0...13.0.0)
