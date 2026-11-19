@@ -1,6 +1,6 @@
 # Changelog
 
-## [13.1.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/13.1.0) (2026-11-18)
+## [13.1.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/13.1.0) (2026-11-19)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/13.0.0...13.1.0)
 
@@ -8,6 +8,10 @@
 
 - feat\(helm\): update chart loki \(21.2.3 → 21.3.1\) [\#551](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/551) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart grafana \(14.4.1 → 14.5.0\) [\#550](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/550) ([plopoyop](https://github.com/plopoyop))
+
+## ⚙️ Dependencies
+
+- fix\(ci\): update renovatebot/github-action action \(v46.3.13 → v46.3.14\) [\#552](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/552) ([plopoyop](https://github.com/plopoyop))
 
 **Merged pull requests:**
 
