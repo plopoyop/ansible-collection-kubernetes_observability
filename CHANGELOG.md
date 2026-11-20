@@ -1,5 +1,13 @@
 # Changelog
 
+## [13.2.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/13.2.0) (2026-11-20)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/13.1.0...13.2.0)
+
+## ⛵ Helm Charts
+
+- feat\(helm\): update chart loki \(21.3.1 → 21.4.1\) [\#554](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/554) ([plopoyop](https://github.com/plopoyop))
+
 ## [13.1.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/13.1.0) (2026-11-19)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/13.0.0...13.1.0)
