@@ -1,12 +1,13 @@
 # Changelog
 
-## [13.2.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/13.2.0) (2026-11-21)
+## [13.2.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/13.2.0) (2026-11-22)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/13.1.0...13.2.0)
 
 ## ⛵ Helm Charts
 
 - feat\(helm\): update chart jaeger \(4.16.1 → 4.19.0\) [\#557](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/557) ([plopoyop](https://github.com/plopoyop))
+- fix\(helm\): update chart opentelemetry-kube-stack \(0.27.2 → 0.27.3\) [\#556](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/556) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart loki \(21.3.1 → 21.4.1\) [\#554](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/554) ([plopoyop](https://github.com/plopoyop))
 
 ## [13.1.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/13.1.0) (2026-11-19)
