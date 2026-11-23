@@ -1,5 +1,13 @@
 # Changelog
 
+## [13.2.1](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/13.2.1) (2026-11-23)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/13.2.0...13.2.1)
+
+**Merged pull requests:**
+
+- feat\(deps\): update yamllint \(1.37.1 → 1.38.0\) [\#561](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/561) ([plopoyop](https://github.com/plopoyop))
+
 ## [13.2.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/13.2.0) (2026-11-22)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/13.1.0...13.2.0)
