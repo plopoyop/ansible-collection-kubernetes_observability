@@ -8,6 +8,10 @@
 
 - feat\(helm\): update chart jaeger \(4.19.0 → 4.20.0\) [\#562](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/562) ([plopoyop](https://github.com/plopoyop))
 
+## ⚙️ Dependencies
+
+- feat\(container\): update image victoriametrics/vmauth \(v1.156.0 → v1.157.0\) [\#560](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/560) ([plopoyop](https://github.com/plopoyop))
+
 **Merged pull requests:**
 
 - feat\(deps\): update yamllint \(1.37.1 → 1.38.0\) [\#561](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/561) ([plopoyop](https://github.com/plopoyop))
