@@ -14,7 +14,7 @@
       "python313Packages.kubernetes@35.0.0",
       "python313Packages.molecule@26.8.0",
       "python313Packages.molecule-plugins@25.8.12",
-      "yamllint@1.37.1"
+      "yamllint@1.38.0"
     ],
     "env": {
       "DEVBOX_NO_PROMPT": "1",
