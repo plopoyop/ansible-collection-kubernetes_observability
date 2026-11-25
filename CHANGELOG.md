@@ -4,6 +4,10 @@
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/13.2.0...13.3.0)
 
+## 🐛 Bug Fixes
+
+- fix\(ci\): only run molecule for the roles a change touches [\#570](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/570) ([plopoyop](https://github.com/plopoyop))
+
 ## ⛵ Helm Charts
 
 - feat\(helm\): update chart opentelemetry-kube-stack \(0.27.3 → 0.28.0\) [\#569](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/569) ([plopoyop](https://github.com/plopoyop))
