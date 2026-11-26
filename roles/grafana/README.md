@@ -130,7 +130,7 @@ Grafana chart version
 #### Default value
 
 ```YAML
-grafana_chart_version: 14.5.0
+grafana_chart_version: 14.6.0
 ```
 
 ### grafana_dashboard_providers
