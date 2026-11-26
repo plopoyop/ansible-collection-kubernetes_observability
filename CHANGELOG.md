@@ -28,6 +28,7 @@
 
 **Merged pull requests:**
 
+- fix\(deps\): update prek \(0.5.10 → 0.5.11\) [\#571](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/571) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update yamllint \(1.37.1 → 1.38.0\) [\#561](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/561) ([plopoyop](https://github.com/plopoyop))
 
 ## [13.2.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/13.2.0) (2026-11-22)
