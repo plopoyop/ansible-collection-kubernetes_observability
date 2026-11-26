@@ -1,6 +1,6 @@
 # Changelog
 
-## [13.3.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/13.3.0) (2026-11-25)
+## [13.3.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/13.3.0) (2026-11-26)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/13.2.0...13.3.0)
 
@@ -10,6 +10,7 @@
 
 ## ⛵ Helm Charts
 
+- feat\(helm\): update chart grafana-mcp \(0.36.0 → 0.37.0\) [\#573](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/573) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart opentelemetry-kube-stack \(0.27.3 → 0.28.0\) [\#569](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/569) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart grafana-mcp \(0.35.0 → 0.36.0\) [\#568](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/568) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart victoria-metrics-single \(0.51.0 → 0.52.0\) [\#566](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/566) ([plopoyop](https://github.com/plopoyop))
