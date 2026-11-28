@@ -1,11 +1,12 @@
 # Changelog
 
-## [13.3.1](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/13.3.1) (2026-11-28)
+## [13.4.0](https://github.com/plopoyop/ansible-collection-kubernetes_observability/tree/13.4.0) (2026-11-28)
 
-[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/13.3.0...13.3.1)
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/13.3.0...13.4.0)
 
 ## ⛵ Helm Charts
 
+- feat\(helm\): update chart grafana-mcp \(0.37.0 → 0.38.0\) [\#576](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/576) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart grafana \(14.6.0 → 14.6.1\) [\#575](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/575) ([plopoyop](https://github.com/plopoyop))
 
 ## ⚙️ Dependencies
