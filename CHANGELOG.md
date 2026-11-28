@@ -4,6 +4,10 @@
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes_observability/compare/13.3.0...13.3.1)
 
+## ⛵ Helm Charts
+
+- fix\(helm\): update chart grafana \(14.6.0 → 14.6.1\) [\#575](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/575) ([plopoyop](https://github.com/plopoyop))
+
 ## ⚙️ Dependencies
 
 - fix\(ci\): update renovatebot/github-action action \(v46.3.14 → v46.3.15\) [\#574](https://github.com/plopoyop/ansible-collection-kubernetes_observability/pull/574) ([plopoyop](https://github.com/plopoyop))
